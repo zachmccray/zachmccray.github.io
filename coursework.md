@@ -1,3 +1,9 @@
+---
+title: Coursework
+layout: template
+filename: coursework.md
+--- 
+
 # Coursework
 #### A chronological list of all coursework contributing toward my degree(s).
 
