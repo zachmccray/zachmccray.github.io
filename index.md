@@ -4,10 +4,7 @@ Hello! I am currently a junior pursuing a Bachelor of Science in Computer Scienc
 
 Along with this, I find solace volunteering at the [Lawrence Humane Society](https://lawrencehumane.org/) — the local animal shelter here in Lawrence — where I eventually adopted my first kitten, Jack. I also have many hobbies, some of which include [reading](https://www.goodreads.com/zacharymccray), [listening to music](https://open.spotify.com/user/zachmccray.22?si=af033328f63942d7), and [playing video games](https://steamcommunity.com/id/zacharymccray/)! 
 
-For more information about me feel free to download my [résumé](https://github.com/zachmccray/resume/raw/main/Resume.pdf), or contact me using any of the following options.
+For more information about me feel free to download my [résumé](https://github.com/zachmccray/resume/raw/main/Resume.pdf). view my [coursework](https://zachmccray.github.io/coursework), look at my [projects](https://zachmccray.github.io/projects), or contact me using any of the following options.
 - Professional Email: zachmccray@ku.edu
+- Personal Email: zachmccray.zm@gmail.com
 - LinkedIn: [linkedin.com/zachmccray](https://www.linkedin.com/in/zachmccray/)
-- Cell Phone Number: 913-660-5986
-
-
-[Coursework](https://zachmccray.github.io/coursework)
