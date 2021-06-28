@@ -1,37 +1,10 @@
-## Welcome to GitHub Pages
+# **Zachary McCray**
 
-You can use the [editor on GitHub](https://github.com/zachmccray/zachmccray-zachmccray.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Hello! I am currently a junior pursuing a Bachelor of Science in Computer Science and a Minor in Economics from the [University of Kansas](https://ku.edu/). I am a now three year member of the [American Civil Liberties Union (ACLU) of KU](https://rockchalkcentral.ku.edu/organization/ACLU), where, as a two year member of leadership, I help educate and discuss with members the important political topics which impact us today. Additionally, I am a member of the [Economics Club](https://rockchalkcentral.ku.edu/organization/kueconclub), [AI Organization](https://rockchalkcentral.ku.edu/organization/artificialintelligence), and [ACM](https://rockchalkcentral.ku.edu/organization/acm) at KU. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Along with this, I find solace volunteering at the [Lawrence Humane Society](https://lawrencehumane.org/) — the local animal shelter here in Lawrence — where I eventually adopted my first kitten, Jack. I also have many hobbies, some of which include [reading](https://www.goodreads.com/zacharymccray), [listening to music](https://open.spotify.com/user/zachmccray.22?si=af033328f63942d7), and [playing video games](https://steamcommunity.com/id/zacharymccray/)! 
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/zachmccray/zachmccray-zachmccray.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+For more information about me feel free to download my [résumé](https://github.com/zachmccray/resume/raw/main/Resume.pdf), or contact me using any of the following options.
+- Professional Email: zachmccray@ku.edu
+- LinkedIn: [linkedin.com/zachmccray](https://www.linkedin.com/in/zachmccray/)
+- Cell Phone Number: 913-660-5986
