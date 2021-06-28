@@ -1,9 +1,3 @@
----
-title: Home Page
-layout: template
-filename: index.md
---- 
-
 # **Zachary McCray**
 
 Hello! I am currently a junior pursuing a Bachelor of Science in Computer Science and a Minor in Economics from the [University of Kansas](https://ku.edu/). I am a now three year member of the [American Civil Liberties Union (ACLU) of KU](https://rockchalkcentral.ku.edu/organization/ACLU), where, as a two year member of leadership, I help educate and discuss with members the important political topics which impact us today. Additionally, I am a member of the [Economics Club](https://rockchalkcentral.ku.edu/organization/kueconclub), [AI Organization](https://rockchalkcentral.ku.edu/organization/artificialintelligence), and [ACM](https://rockchalkcentral.ku.edu/organization/acm) at KU. 
