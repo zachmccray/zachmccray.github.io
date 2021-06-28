@@ -1,6 +1,5 @@
 ---
 title: Coursework
-layout: template
 filename: coursework.md
 --- 
 
