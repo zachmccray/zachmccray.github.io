@@ -116,11 +116,6 @@ This course is an introduction to software engineering, and it covers the system
 
 *In Progress Fall 2021*
 
-## EECS645: Computer Architecture
-The structure, design, analysis, and evaluation of computer processors and systems. The design of instruction sets. Principles and techniques of parallelism at the data transfer (memory hierarchy), data processing (pipelines), and concurrent instruction execution.
-
-*In Progress Fall 2021*
-
 ## MATH510: Introduction to the Theory of Computing
 Finite state automata and regular expressions. Context-free grammars and pushdown automata. Turing machines. Models of computable functions and undecidable problems. The course emphasis is on the theory of computability, especially on showing limits of computation.
 
@@ -133,5 +128,10 @@ A first course in statistics for students with the techniques of calculus at the
 
 ## ECON426: Statistics and Data Analysis
 An introduction to probability and statistical methods for empirical work in economics. Probability, random variables, sampling, descriptive statistics, probability distributions, estimation hypothesis testing, introduction to the regression model.
+
+*In Progress Fall 2021*
+
+## ECON520: Microeconomics
+The theory of consumption, production, pricing, and resource allocation.
 
 *In Progress Fall 2021*
