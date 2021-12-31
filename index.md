@@ -1,8 +1,3 @@
----
-title: Front Page
-layout: Minimal
-filename: home
----
 # **Zachary McCray (He/Him)**
 
 Hello! I am currently a junior pursuing a [Bachelor of Science in Interdisciplinary Computer Science, with a concentration in Economics](https://catalog.ku.edu/engineering/electrical-engineering-computer-science/bs-interdisciplinary-computing/#text) with a [Minor in Mathematics](https://catalog.ku.edu/liberal-arts-sciences/math/minor/), and an interest in receiving an [Undergraduate Certificate in Cybersecurity](https://catalog.ku.edu/engineering/electrical-engineering-computer-science/ugcertificate-cybersecurity/#text) as well.
