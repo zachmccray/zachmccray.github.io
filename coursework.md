@@ -49,22 +49,22 @@ An introduction to the theory and practice of logical analysis. Special emphasis
 ## PHSX236: Engineering Physics II
 Experiments in electricity and magnetism, waves and sound. Students will practice data reduction and error analysis in ways that are consistent with professional ethics.
 
-*Taken Summer 2020 at the University of Missouri-Kansas City*
+*Taken Summer 2020 at the University of Missouri-Kansas City (UMKC)*
 
 ## PHSX216: Engineering Physics II Lab
 Experiments in classical mechanics and thermodynamics. The course includes practice in the ethics of recording and presentation of data.
 
-*Taken Summer 2020 at the University of Missouri-Kansas City*
+*Taken Summer 2020 at the University of Missouri-Kansas City (UMKC)*
 
 ## ECON142: Principles of Microeconomics
 An analytical introduction to microeconomics. Topics include theory of markets, public policy, international trade, economic efficiency, and equity.
 
-*Taken Summer 2020 at Johnson County Community College*
+*Taken Summer 2020 at Johnson County Community College (JCCC)*
 
 ## POLS170: Introduction to International Politics
 A study of the nation-state system including the role of nationalism, sovereignty, and power. Patterns of state action including neutralism, collective security, war, and cooperation through international organizations are stressed. Specific examples of contemporary international problems are also analyzed and discussed.
 
-*Taken Summer 2020 at Johnson County Community College*
+*Taken Summer 2020 at Johnson County Community College (JCCC)*
 
 ## EECS268: Programming II
 This course continues developing problem solving techniques by focusing on the imperative and object-oriented styles using Abstract Data Types. Basic data structures such as queues, stacks, trees, and graphs will be covered. Recursion. Basic notions of algorithmic efficiency and performance analysis in the context of sorting algorithms. Basic Object-Oriented techniques.
@@ -114,24 +114,54 @@ Experiments in classical mechanics and thermodynamics. The course includes pract
 ## EECS448: Software Engineering I
 This course is an introduction to software engineering, and it covers the systematic development of software products. It outlines the scope of software engineering, including life-cycle models, software process, teams, tools, testing, planning, and estimating. It concentrates on requirements, analysis, design, implementation, and maintenance of software products. The laboratory covers CASE tools, configuration control tools, UML diagrams, integrated development environments, and project specific components.
 
-*In Progress Fall 2021*
+*Taken Fall 2021*
 
 ## MATH510: Introduction to the Theory of Computing
 Finite state automata and regular expressions. Context-free grammars and pushdown automata. Turing machines. Models of computable functions and undecidable problems. The course emphasis is on the theory of computability, especially on showing limits of computation.
 
-*In Progress Fall 2021*
+*Taken Fall 2021*
 
 ## MATH526: Applied Mathematical Statistics
 A first course in statistics for students with the techniques of calculus at their disposal. The following topics are studied with illustrations and problems drawn from various fields of applications: basic notions of probability and probability distributions; classical estimation and testing procedures for one and two sample problems; chi-square test.
 
-*In Progress Fall 2021*
+*Taken Fall 2021*
 
 ## ECON426: Statistics and Data Analysis
 An introduction to probability and statistical methods for empirical work in economics. Probability, random variables, sampling, descriptive statistics, probability distributions, estimation hypothesis testing, introduction to the regression model.
 
-*In Progress Fall 2021*
+*Taken Fall 2021*
 
 ## ECON520: Microeconomics
 The theory of consumption, production, pricing, and resource allocation.
 
-*In Progress Fall 2021*
+*Taken Fall 2021*
+
+## ENGL102: Critical Reading & Writing
+Builds upon the instruction in writing of ENGL 101, emphasizing critical thinking through careful, thoughtful reading and writing. Also instructs in the evaluation and use of secondary sources.
+
+*In Progress Spring 2022*
+
+## EECS565: Introduction to Information Security & Computer Security
+An introduction to the fundamentals of cryptography and information and computer security. Introduces the basic concepts, theories, and protocols in computer security. Discusses how to apply such knowledge to analyze, design and manage secure systems in the real world. Topic covered: the basics of cryptography, software security, operating system security, database security, network security, privacy and anonymity, social engineering, digital forensics, etc.
+
+*In Progress Spring 2022*
+
+## EECS649: Introduction to Artificial Intelligence
+General concepts, search procedures, two-person games, predicate calculus and automated theorem proving, nonmonotonic logic, probabilistic reasoning, rule based systems, semantic networks, frames, dynamic memory, planning, machine learning, natural language understanding, neural networks.
+
+*In Progress Spring 2022*
+
+## EECS678: Introduction to Operating Systems
+The objective of this course is to provide the students with the concepts necessary to enable them to: a) identify the abstract services common to all operating system, b) define the basic system components that support the operating system's machine independent abstractions on particular target architectures, c) consider how the design and implementation of different systems components interact and constrain one another, not merely how one or two important parts work in isolation, and d) understand the means by which fundamental problems in operating systems can be analyzed and addressed. Programming assignments address topics including process creation, inter-process communication, system call implementation, process scheduling and virtual memory. Laboratory exercises primarily focus on use of tools and concepts required for the programming assignments but include a small number of independent topics.
+
+*In Progress Spring 2022*
+
+## MATH558: Introductory Modern Algebra
+Development of the number systems. Polynomials. Introduction to abstract number systems such as groups and fields.
+
+*In Progress Spring 2022*
+
+## PHIL140: Introduction to Philosophy
+An introductory examination, based primarily on writings of major philosophers, of such central philosophical problems as religious belief, the mind and its place in nature, freedom and determinism, morality, and the nature and kinds of human knowledge.
+
+*In Progress Spring 2022 at Johnson County Community College (JCCC)*
