@@ -1,5 +1,5 @@
 # Coursework
-#### A chronological list of all coursework contributing toward my degree(s).
+#### A chronological list of all coursework contributing toward my degree(s). All courses displayed were taken at the University of Kansas unless otherwise noted.
 
 ## EECS101: New Student Seminar
 A seminar intended to help connect freshmen and transfer EECS students to the EECS department, their chosen profession, and each other. Topics include overviews of the various disciplines, curricula and advising, ethics and professionalism, student organizations and extracurricular activities, senior projects, and career planning.
