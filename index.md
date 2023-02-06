@@ -7,46 +7,6 @@ I am a twenty two year old software engineer and student. I have a wide array of
 I am currently studying [Computer Science](https://catalog.ku.edu/engineering/electrical-engineering-computer-science/bs-interdisciplinary-computing/#text), [Mathematics](https://catalog.ku.edu/liberal-arts-sciences/math/minor/), & [Economics](https://catalog.ku.edu/engineering/electrical-engineering-computer-science/bs-interdisciplinary-computing/#text) at the [University of Kansas](https://ku.edu/). Outside of my classes, I am a member of [KU ACM](https://rockchalkcentral.ku.edu/organization/acm), [KU Chess Club](https://rockchalkcentral.ku.edu/organization/kuchessclub), [HEAL KU](https://healku.carrd.co/), [Economics Club](https://rockchalkcentral.ku.edu/organization/kueconclub), and [IEEE Club](https://rockchalkcentral.ku.edu/organization/ieee). I also enjoy learning about Business, Politics, Neuroscience, and Sports. For further details related to my studies, please download my [résumé (updated February 2022)](https://github.com/zachmccray/resume/raw/main/Resume.pdf), view my [coursework](https://zachmccray.github.io/coursework), look at my [project(s)](https://zachmccray.github.io/projects), or explore my [Github](https://github.com/zachmccray) and [LinkedIn](https://www.linkedin.com/in/zachmccray/).
 
 ### Personal ###
-
-<details><summary>Podcasts</summary>
-  
-##### Business, Economics, Finance, & Technology
-- Business Breakdowns
-- Lex Fridman Podcast
-- Macro Voices
-- Odd Lots
-- Redefining Energy
-- The WAN Show
-- 
-##### Government, News, Politics, & True Crime
-- Black Box Down
-- Casefile: True Crime
-- Darknet Diaries
-- Murder with my Husband
-- Red Web
-- The Intelligence
-- The Lawfare Podcast
-- 
-##### Educational, History, Lifestyle, & Science
-- Dan Carlin's Hardcore History
-- Fall of Civilizations Podcast
-- Hidden Brain
-- Huberman Lab
-- Overheard at National Geographic
-- That Neuroscience Guy
-- This Podcast Will Kill You
-- 
-##### Comedy, Culture, Sports, & Other
-- I Spent A Day With...
-- Mini Stories to Learn Spanish
-- New Heights with Jason and Travis Kelce
-- Read Me a Poem
-- SuperMegaCast
-- The Old Man and the Three with JJ Reddick and Tommy Alter
-- Through the Wire
-
-</details>
-
 There is never a day that goes by where I don't listen to at least one podcast. I usually start my day by listening to Up First and The Indicator by NPR, followed by Seeking Alpha's Wall Street Breakfast, and finally with Gary Arndt's Everything Everywhere Daily. I have found this to be a nice combination of daily news and political briefing, with some financial, economic, and stock market driven updates feathered in. This routine also ensures I learn at least one new thing everyday with Arndt's informative stories. I tend to followup by listening to a handful of pocasts from a variety of different genres, from Sports, Technology, Business, Science, History, True Crime, and Politics. Currently, my favorites are...
 
 ##### Business, Economics, Finance, & Technology
@@ -56,7 +16,7 @@ There is never a day that goes by where I don't listen to at least one podcast. 
 - Odd Lots
 - Redefining Energy
 - The WAN Show
-- 
+
 ##### Government, News, Politics, & True Crime
 - Black Box Down
 - Casefile: True Crime
@@ -65,7 +25,7 @@ There is never a day that goes by where I don't listen to at least one podcast. 
 - Red Web
 - The Intelligence
 - The Lawfare Podcast
-- 
+
 ##### Educational, History, Lifestyle, & Science
 - Dan Carlin's Hardcore History
 - Fall of Civilizations Podcast
@@ -74,7 +34,7 @@ There is never a day that goes by where I don't listen to at least one podcast. 
 - Overheard at National Geographic
 - That Neuroscience Guy
 - This Podcast Will Kill You
-- 
+
 ##### Comedy, Culture, Sports, & Other
 - I Spent A Day With...
 - Mini Stories to Learn Spanish
