@@ -8,7 +8,7 @@ I am currently studying [Computer Science](https://catalog.ku.edu/engineering/el
 
 ### Personal ###
 
-###### Podcasts ######
+##### Podcasts #####
 There is never a day that goes by where I don't listen to at least one podcast. I usually start my day by listening to Up First and The Indicator by NPR, followed by Seeking Alpha's Wall Street Breakfast, and finally with Gary Arndt's Everything Everywhere Daily. I have found this to be a nice combination of daily news and political briefing, with some financial, economic, and stock market driven updates feathered in. This routine also ensures I learn at least one new thing everyday with Arndt's informative stories. I tend to followup by listening to a handful of pocasts from a variety of different genres, from Sports, Technology, Business, Science, History, True Crime, and Politics. Currently, my fifteen favorite podcasts are...
 
 - Black Box Down
@@ -27,5 +27,6 @@ There is never a day that goes by where I don't listen to at least one podcast. 
 - The WAN Show
 - Through the Wire
 
-###### Saxophone ######
+
+##### Saxophone #####
 I have been playing the saxophone for around a decade or so now, and although I don't get it out nearly as much as I used to, I still love to play. I currently play on a used Yamaha YAS62III. The piece I have been using is a custom Philtone Solstice (.080") w/ Rigotti Golds (2.5 Medium or 2.5 Strong).
