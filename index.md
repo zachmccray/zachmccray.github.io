@@ -12,35 +12,15 @@ I am currently studying [Computer Science](https://catalog.ku.edu/engineering/el
 There is never a day that goes by where I don't listen to at least one podcast. I usually start my day by listening to Up First and The Indicator by NPR, followed by Seeking Alpha's Wall Street Breakfast, and finally with Gary Arndt's Everything Everywhere Daily. I have found this to be a nice combination of daily news and political briefing, with some financial, economic, and stock market driven updates feathered in. This routine also ensures I learn at least one new thing everyday with Arndt's informative stories. I tend to followup by listening to a handful of pocasts from a variety of different genres, from Sports, Technology, Business, Science, History, True Crime, and Politics. Currently, my favorites are...
 
 
-| ##### Business, Finance, Economics, & Technology ##### | ##### True Crime, Government, News, & Politics ##### | ##### Science, History, Educational, & Lifestyle ##### | ##### Sports, Comedy, Culture, & Other ##### |
+| Business, Finance, Economics, & Technology | True Crime, Government, News, & Politics | Science, History, Educational, & Lifestyle | Sports, Comedy, Culture, & Other |
 | --- | --- | --- | --- |
 | Barron's Streetwise | Black Box Down | Dan Carlin's Hardcore History | I Spent A Day With... |
 | Business Breakdowns | Casefile: True Crime | Fall of Civilizations Podcast | Mini Stories to Learn Spanish |
-
-
-- Lex Fridman Podcast
-- Macro Voices
-- Odd Lots
-- Redefining Energy
-- The WAN Show
-
-- Darknet Diaries
-- Murder with my Husband
-- Red Web
-- The Intelligence
-- The Lawfare Podcast
-
-- Hidden Brain
-- Huberman Lab
-- Overheard at National Geographic
-- That Neuroscience Guy
-- This Podcast Will Kill You
-
-- New Heights with Jason and Travis Kelce
-- Read Me a Poem
-- SuperMegaCast
-- The Old Man and the Three with JJ Reddick and Tommy Alter
-- Through the Wire
+| Lex Fridman Podcast | Darknet Diaries | Hidden Brain | New Heights with Jason and Travis Kelce |
+| Macro Voices | Murder with my Husband | Huberman Lab | Read Me a Poem |
+| Odd Lots | Red Web | Overheard at National Geographic | SuperMegaCast |
+| Redefining Energy | The Intelligence | That Neuroscience Guy | The Old Man and the Three with JJ Reddick and Tommy Alter |
+| The WAN Show | The Lawfare Podcast | This Podcast Will Kill You | Through the Wire |
 
 #### Saxophone ####
 I have been playing the saxophone for around a decade or so now, and although I don't get it out nearly as much as I used to, I still love to play. I currently play on a used Yamaha YAS62III. The piece I have been using is a custom Philtone Solstice (.080") w/ Rigotti Golds (2.5 Medium or 2.5 Strong).
