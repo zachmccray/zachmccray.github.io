@@ -12,6 +12,3 @@ I try and read almost everyday, and I typically enjoy books from a range of diff
 
 ### Podcasts ###
 There is never a day that goes by where I don't listen to at least one podcast. I usually start my day by listening to Up First and The Indicator by NPR, followed by Seeking Alpha's Wall Street Breakfast, and finally with Gary Arndt's Everything Everywhere Daily. I tend to followup by listening to a handful of pocasts from a variety of different genres, from Sports, Technology, Business, Science, History, True Crime, and Politics. To learn more about my favorite podcasts, visit my [Podcasts](https://zachmccray.github.io/personal_podcasts) page.
-
-### Saxophone ###
-I have been playing the saxophone for around a decade or so now, and although I don't get it out nearly as much as I used to, I still love to play. I currently play on a used Yamaha YAS62III. The mouthpiece I am using is a custom Philtone Solstice (.080") w/ Rigotti Golds (2.5 Medium or 2.5 Strong).
