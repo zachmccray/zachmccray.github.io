@@ -1,0 +1,8 @@
+theme: just-the-docs
+
+# Set a title and description for your site
+title: Zachary McCray's Personal Website
+description: Personal Website
+
+# Optional: Enable search
+search_enabled: true
