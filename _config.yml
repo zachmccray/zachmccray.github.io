@@ -1,8 +1,14 @@
 title: Zachary McCray
 description: Personal Website
 remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
 
 url: https://just-the-docs.github.io
 
 aux_links:
   GitHub: https://github.com/zachmccray
+
+just_the_docs:
+  custom_css:
+    - "assets/css/custom.css"
