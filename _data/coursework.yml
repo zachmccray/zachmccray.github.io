@@ -1,0 +1,404 @@
+- name: MATH 125
+  title: "Calculus I"
+  professor: Dr. Jeffrey Lang
+  description: >
+    Limits, continuity and derivatives of algebraic, trigonometric, exponential and logarithmic functions. Curve sketching, optimization and other applications of the derivative. Antiderivatives, Riemann sums, the definite integral, and the fundamental theorem of calculus.
+  semester: Fall 2019
+  grade: B
+  category: Mathematics
+
+- name: EECS 168
+  title: "Programming I"
+  professor: Dr. John Gibbons
+  description: >
+    Introduction to programming using C++, covering variables, control structures, functions, arrays, pointers, and object-oriented programming basics.
+  semester: Fall 2019
+  grade: B
+  category: Computer Science
+
+- name: EECS 101
+  title: "New Student Seminar"
+  professor: Dr. David Petr
+  description: >
+    Seminar connecting new EECS students to the department, covering curricula, ethics, student organizations, and career planning.
+  semester: Fall 2019
+  grade: S
+  category: Computer Science
+
+- name: ECON 144
+  title: "Principles of Macroeconomics"
+  professor: Dr. Jo Lugovskyy
+  description: >
+    Analytical introduction to macroeconomics, including aggregate income, employment, inflation, and exchange rates.
+  semester: Fall 2019
+  grade: A
+  category: Economics
+
+- name: COMS 130
+  title: "Speaker-Audience Communication"
+  professor: Mr. Jordan Christiansen
+  description: >
+    Study of rhetorical theory and its application to the preparation, presentation, and criticism of oral discourse in audience situations.
+  semester: Fall 2019
+  grade: A
+  category: Communications
+
+- name: PHSX 210
+  title: "General Physics I for Engineers"
+  professor: Dr. Jennifer Delgado
+  description: >
+    Introduction to classical mechanics and thermodynamics designed for engineering students who have completed Calculus I.
+  semester: Spring 2020
+  grade: A
+  category: Physics
+
+- name: PHIL 148
+  title: "Reason and Argument"
+  professor: Dr. Eileen Nutting
+  description: >
+    Introduction to the theory and practice of logical analysis, emphasizing the logical appraisal of everyday arguments.
+  semester: Spring 2020
+  grade: A
+  category: Philosophy
+
+- name: MATH 146
+  title: "Calculus II, Honors"
+  professor: Dr. Ken Duna
+  description: >
+    Techniques of integration, including integration by parts, and applications such as volume, arc length, work, and average value.
+  semester: Spring 2020
+  grade: B
+  category: Mathematics
+
+- name: EECS 140
+  title: "Introduction to Digital Logic Design"
+  professor: Dr. David Johnson
+  description: >
+    Introduction to digital logic circuits, covering number representation, digital codes, Boolean algebra, and combinational and sequential logic design.
+  semester: Spring 2020
+  grade: A
+  category: Computer Engineering
+
+- name: POLS 170
+  title: "Introduction to International Politics"
+  professor: Dr. Brian Wright
+  description: >
+    Study of the nation-state system, including the role of nationalism, sovereignty, and power.
+  semester: Summer 2020
+  grade: A
+  category: Political Science
+
+- name: PHSX 236
+  title: "General Physics II Laboratory"
+  professor: Dr. Samar Ghopry
+  description: >
+    Experiments in electricity and magnetism, waves, and sound, with practice in data reduction and error analysis.
+  semester: Summer 2020
+  grade: A-
+  category: Physics
+
+- name: PHSX 216
+  title: "General Physics I Laboratory"
+  professor: Dr. Samar Ghopry
+  description: >
+    Experiments in classical mechanics and thermodynamics, including practice in the ethics of recording and presenting data.
+  semester: Spring 2020
+  grade: C
+  category: Physics
+
+- name: PHSX 212
+  title: "General Physics II"
+  professor: Dr. Jennifer Delgado
+  description: >
+    Study of electricity, magnetism, waves, and optics.
+  semester: Summer 2020
+  grade: A-
+  category: Physics
+
+- name: MATH 290
+  title: "Elementary Linear Algebra"
+  professor: Dr. Satyagopal Mandal
+  description: >
+    Systems of linear equations, matrices, vector spaces, linear transformations, and applications.
+  semester: Fall 2020
+  grade: A-
+  category: Mathematics
+
+- name: MATH 127
+  title: "Calculus III"
+  professor: Dr. Jeffrey Lang
+  description: >
+    Multivariable functions, partial derivatives and their applications, multiple integrals and their applications.
+  semester: Fall 2020
+  grade: B
+  category: Mathematics
+
+- name: EECS 268
+  title: "Programming II"
+  professor: Dr. John Gibbons
+  description: >
+    Continuation of Programming I, focusing on data structures, recursion, and object-oriented programming concepts.
+  semester: Fall 2020
+  grade: B
+  category: Computer Science
+
+- name: ECON 522
+  title: "Macroeconomics"
+  professor: Dr. Eungsik Kim
+  description: >
+    Advanced analysis of macroeconomic theory, including models of economic growth, business cycles, and monetary and fiscal policy.
+  semester: Fall 2020
+  grade: B+
+  category: Economics
+
+- name: ECON 142
+  title: "Principles of Microeconomics"
+  professor: Dr. Jo Lugovskyy
+  description: >
+    Introduction to microeconomic principles, including supply and demand, consumer behavior, production and cost, market structures, and the role of government.
+  semester: Fall 2020
+  grade: A
+  category: Economics
+
+- name: MATH 590
+  title: "Linear Algebra"
+  professor: Dr. Purnaprajna Bangere
+  description: >
+    TBD
+  semester: Spring 2021
+  grade: B
+  category: Mathematics
+
+- name: EECS 388
+  title: "Embedded Systems"
+  professor: Dr. Tamzidul Hoque
+  description: >
+    Introduction to embedded systems design and implementation, focusing on key concepts and practical skills to develop cyber-physical systems. Includes hands-on programming with microcontrollers and a self-driving car prototype project.
+  semester: Spring 2021
+  grade: A
+  category: Computer Science
+
+- name: EECS 368
+  title: "Programming Language Paradigms"
+  professor: Dr. Andrew Gill
+  description: >
+    Examination of various programming paradigms, including procedural, object-oriented, functional, and logic programming. Emphasis on understanding the attributes, uses, advantages, and disadvantages of different programming languages.
+  semester: Spring 2021
+  grade: A
+  category: Computer Science
+
+- name: EECS 210
+  title: "Discrete Structures"
+  professor: Dr. Andrew Moorhead
+  description: >
+    Introduction to discrete mathematics with applications to computer science. Topics include logic, set theory, combinatorics, graph theory, and algorithms.
+  semester: Spring 2021
+  grade: B+
+  category: Computer Science
+
+- name: MATH 526
+  title: "Applied Mathematical Statistics I"
+  professor: Dr. Zhipeng Liu
+  description: >
+    Covers probability theory, random variables, expectation, variance, and distributions. Emphasis on applications of statistical methods to real-world problems.
+  semester: Fall 2021
+  grade: A
+  category: Mathematics
+
+- name: EECS 510
+  title: "Introduction to the Theory of Computing"
+  professor: Dr. Andrew Moorhead
+  description: >
+    Study of theoretical foundations of computer science, including automata theory, formal languages, computability, and complexity.
+  semester: Fall 2021
+  grade: B
+  category: Computer Science
+
+- name: EECS 448
+  title: "Software Engineering I"
+  professor: Dr. David Johnson
+  description: >
+    Introduction to software engineering principles, including software development life cycles, requirements analysis, design, implementation, testing, and maintenance.
+  semester: Fall 2021
+  grade: A
+  category: Computer Science
+
+- name: ECON 520
+  title: "Microeconomics"
+  professor: Dr. Fangli Liao
+  description: >
+    Advanced analysis of microeconomic theory, focusing on consumer behavior, production, market structures, and welfare economics.
+  semester: Fall 2021
+  grade: A
+  category: Economics
+
+- name: ECON 426
+  title: "Statistics and Data Analysis"
+  professor: Dr. Saima Alam Samantha
+  description: >
+    Application of statistical methods to economic data, including hypothesis testing, regression analysis, and interpretation of results.
+  semester: Fall 2021
+  grade: A
+  category: Economics
+
+- name: MATH 558
+  title: "Introductory Modern Algebra"
+  professor: Dr. Jeffrey Lang
+  description: >
+    Introduction to abstract algebra, covering algebraic structures such as groups, rings, and fields, with emphasis on theoretical understanding and proofs.
+  semester: Spring 2022
+  grade: A
+  category: Mathematics
+
+- name: ENGL 102
+  title: "Critical Reading and Writing"
+  professor: Dr. Marcus Höhne
+  description: >
+    Builds upon instruction in writing, emphasizing critical thinking through careful reading and writing. Focus on analysis, argumentation, and research skills.
+  semester: Spring 2022
+  grade: A
+  category: English
+
+- name: EECS 678
+  title: "Introduction to Operating Systems"
+  professor: Dr. Heechul Yun
+  description: >
+    Study of operating system concepts, including process management, memory management, file systems, and concurrency. Includes programming assignments and lab exercises.
+  semester: Spring 2022
+  grade: B
+  category: Computer Science
+
+- name: EECS 649
+  title: "Introduction to Artificial Intelligence"
+  professor: Dr. Michael Branicky
+  description: >
+    Introduction to AI concepts, including search algorithms, knowledge representation, reasoning, machine learning, and applications.
+  semester: Spring 2022
+  grade: C
+  category: Computer Science
+
+- name: EECS 565
+  title: "Introduction to Information and Computer Security"
+  professor: Dr. Fengjun Li
+  description: >
+    Fundamentals of cryptography and information security, covering topics such as encryption, authentication, access control, and network security.
+  semester: Spring 2022
+  grade: A
+  category: Computer Science
+
+- name: SOC 104
+  title: "Elements of Sociology"
+  professor: Professor Uros Petrovic
+  description: >
+    Introduction to sociology, examining human organizations, social institutions, and the impact of social structures on behavior.
+  semester: Summer 2022
+  grade: A
+  category: Sociology
+
+- name: PHIL 140
+  title: "Introduction to Philosophy"
+  professor: Dr. Dawn Gale
+  description: >
+    Exploration of fundamental philosophical questions and theories, focusing on critical analysis and argumentation.
+  semester: Summer 2022
+  grade: A
+  category: Philosophy
+
+- name: ECON 526
+  title: "Introduction to Econometrics"
+  professor: Dr. Jinyan Li
+  description: >
+    Introduction to econometric methods, including regression analysis, hypothesis testing, and application to economic data.
+  semester: Summer 2022
+  grade: A
+  category: Economics
+
+- name: EECS 581
+  title: "Software Engineering II"
+  professor: Dr. David Johnson
+  description: >
+    Continuation of software engineering principles, focusing on advanced topics such as software architecture, design patterns, and project management.
+  semester: Fall 2022
+  grade: A
+  category: Computer Science
+
+- name: EECS 569
+  title: "Computer Forensics"
+  professor: Dr. Bo Luo
+  description: >
+    Study of techniques and tools used in computer forensics, including data recovery, analysis of digital evidence, and legal considerations.
+  semester: Fall 2022
+  grade: A
+  category: Computer Science
+
+- name: EECS 563
+  title: "Introduction to Communication Networks"
+  professor: Dr. Morteza Hashemi
+  description: >
+    Introduction to computer networking concepts, including network architectures, protocols, and performance analysis.
+  semester: Fall 2022
+  grade: C
+  category: Computer Science
+
+- name: EECS 560
+  title: "Data Structures"
+  professor: Dr. Cuncong Zhong
+  description: >
+    Study of data structures such as lists, stacks, queues, trees, and graphs, with emphasis on implementation and algorithm analysis.
+  semester: Fall 2022
+  grade: B
+  category: Computer Science
+
+- name: ECON 664
+  title: "Topics in Economics: Economic Demography"
+  professor: Dr. Jo Lugovskyy
+  description: >
+    TBD
+  semester: Fall 2022
+  grade: A
+  category: Economics
+
+- name: EECS 582
+  title: "Computer Science & Interdisciplinary Computing Capstone"
+  professor: Dr. David Johnson
+  description: >
+    A team-oriented lecture/laboratory course involving the specification, design, implementation, testing, and documentation of a significant software project over the full course of the semester. The course includes the consideration of project management, economics, and technical writing.
+  semester: Spring 2023
+  grade: A
+  category: Computer Science
+
+- name: EECS 465
+  title: "Cyber Defense"
+  professor: Dr. Alexandru Bardas
+  description: >
+    Focuses on the practical aspects of cybersecurity, including the development of defense mechanisms against cyber threats, understanding of attack vectors, and implementation of security protocols. Emphasizes hands-on experience in cyber defense strategies.
+  semester: Spring 2023
+  grade: N/A
+  category: Computer Science
+
+- name: ECON 609
+  title: "Sports Economics"
+  professor: Dr. Victor Ribeiro Andrade
+  description: >
+    Examines the application of economic principles to the sports industry, including analysis of labor markets, team and league structures, and the economic impact of sports on society.
+  semester: Spring 2023
+  grade: A
+  category: Economics
+
+- name: ECON 590
+  title: "Game Theory"
+  professor: Dr. Minh Cao
+  description: >
+    Analysis of strategic choice problems. Firms, voters, bargainers, animals, sports competitors, and persons in everyday life choose alternative options with the outcomes depending on the choices of one or more other similar decision makers. Strategies of rational choices will be derived and analyzed in economic and other environments.
+  semester: Spring 2023
+  grade: B
+  category: Economics
+
+- name: ECON 510
+  title: "Energy Economics"
+  professor: Dr. Srishti Slaria
+  description: >
+    Applies economic concepts and methods to the analysis of energy markets, regulation, and policy. Topics include supply and demand dynamics, pricing, and the economic implications of energy production and consumption.
+  semester: Spring 2023
+  grade: B
+  category: Economics
