@@ -3,10 +3,10 @@ title: About Me
 layout: home
 ---
 
-<h1> Welcome, Bienvenidos, 欢迎, and いらっしゃいませ! </h1>
+<h1 class="content-title"> Welcome, Bienvenidos, 欢迎, and いらっしゃいませ! </h1>
 
-<h3> Welcome to my personal website – a collection of miscellaneous items as they pertain to me. </h3>
+<p class="content-lead"> Welcome to my personal website – a collection of miscellaneous items as they pertain to me. </p>
 
-<h6> I am a 20-something year old Software Engineer with an [array] of interests outside of work, such as sports, technology, literature, nature, hiking, mixology, tabletop games, music, photography, films, and true crime. </h6>
+<p class="content-prose"> I am a 20-something year old Software Engineer with an [array] of interests outside of work, such as sports, technology, literature, nature, hiking, mixology, tabletop games, music, photography, films, and true crime. </p>
 
  ---
