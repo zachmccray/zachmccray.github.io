@@ -84,5 +84,3 @@ layout: default
 
   {% endfor %}
 </div>
-
-<script src="/assets/js/blog-controls.js"></script>
