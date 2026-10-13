@@ -1,0 +1,34 @@
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrollContainer = document.getElementById("infinite-scroll");
+      const track = scrollContainer.querySelector(".image-scroll-track");
+      const items = Array.from(track.children);
+    
+      // Clone all original items and append them
+      items.forEach(item => {
+        const clone = item.cloneNode(true);
+        clone.classList.add("clone");
+        track.appendChild(clone);
+      });
+    
+      // Scroll reset logic
+      let isScrolling = false;
+      scrollContainer.addEventListener("scroll", () => {
+        if (isScrolling) return;
+        isScrolling = true;
+    
+        const scrollLeft = scrollContainer.scrollLeft;
+        const scrollWidth = scrollContainer.scrollWidth;
+        const visibleWidth = scrollContainer.offsetWidth;
+    
+        // If near end, jump back
+        if (scrollLeft + visibleWidth >= scrollWidth - 10) {
+          scrollContainer.scrollLeft = 0;
+        }
+    
+        setTimeout(() => {
+          isScrolling = false;
+        }, 40);
+      });
+    });
+    </script>    

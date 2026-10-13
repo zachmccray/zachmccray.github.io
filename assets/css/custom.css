@@ -1,3 +1,859 @@
-body, .main-content, .main-content p {
-    color: #000 !important;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body, .main-content, .main-content p, .main-content li,
+.main-content h1, .main-content h2, .main-content h3,
+.main-content h4, .main-content h5, .main-content h6,
+.main-content div, .main-content section {
+  text-align: left !important;
+}
+
+/* Reduce excessive top spacing caused by layout wrappers and heading margins */
+.main-content {
+  padding-top: 0.5rem !important;
+  margin-top: 0 !important;
+}
+
+.page, .page-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.main-content h1:first-child,
+.main-content h2:first-child,
+.main-content h3:first-child {
+  margin-top: 0 !important;
+}
+
+
+.main-content p {
+  margin-top: 0.5rem; /* or 0 if you want it super tight */
+  margin-bottom: 0.5rem;
+}
+
+body, .main-content, .site-header, .site-footer,
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif !important;
+  color: #000 !important;
+  margin: 0;
+  padding: 0;
+}
+
+body, .main-content p {
+  font-size: 0.7rem;
+}
+
+h1 { font-size: 1.2rem; }
+h2 { font-size: 1.05rem; }
+h3 { font-size: 0.9rem; }
+h4 { font-size: 0.8rem; }
+h5 { font-size: 0.75rem; }
+h6 { font-size: 0.7rem; }
+
+p { font-size: 0.7rem; }
+
+/* Course block spacing */
+.course {
+  margin-bottom: 1.25rem; /* add consistent spacing between courses */
+}
+
+/* Course code (e.g., MATH 125) */
+.course h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+/* Course title (e.g., Calculus I) */
+.course h3 {
+  margin: 0.2rem 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+/* Instructor line (e.g., DR. LANG) */
+.course h4 {
+  margin: 0.2rem 0 0.5rem 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #444;
+  font-weight: 600;
+}
+
+/* Description text */
+.course p {
+  margin: 0.5rem 0 0.5rem 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: #222;
+}
+
+/* Scrollable image strip */
+.image-scroll-hyper {
+  overflow-x: scroll;
+  white-space: nowrap;
+  scroll-behavior: auto;
+  padding: 0 12vw;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+.image-scroll-track {
+  display: inline-flex;
+  gap: 1rem;
+}
+
+.image-scroll-item {
+  flex: 0 0 auto;
+  width: 80%;
+  max-width: 500px;
+}
+
+.image-scroll-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-scroll-hyper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Image captions */
+.image-caption {
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0rem; /* reduced */
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+/* Mobile tweaks for image floats */
+@media screen and (max-width: 768px) {
+  .image-hover-container {
+    float: none !important;
+    display: block;
+    margin: 0.6rem auto 1rem auto;
+    max-width: 80%;
+  }
+}
+
+/* Chart section */
+.chart-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.chart-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #000;
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+}
+
+.chart-box {
+  max-width: 800px;
+  width: 100%;
+  padding: 1rem;
+  position: relative;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+}
+
+.chart-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.download-button {
+  background: transparent;
+  border: 1px solid rgba(150, 150, 200, 0.2);
+  color: #000;
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.download-button:hover {
+  background-color: rgba(240, 240, 255, 0.4);
+  color: #444;
+  border-color: rgba(150, 150, 200, 0.4);
+}
+
+.quad-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.5rem;
+  max-width: 100%;
+  margin: 0.5rem auto;
+}
+
+.quad-image-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.image-grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  max-width: 100%;
+  margin: 1rem auto;
+}
+
+.image-grid-2x2 img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.image-grid-1x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns, one row */
+  gap: 0.5rem;
+  max-width: 100%;
+  margin: 1rem auto;
+}
+
+.image-grid-1x2 img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.image-grid-1x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns, one row */
+  gap: 0.5rem;
+  max-width: 100%;
+  margin: 1rem auto;
+}
+
+.image-grid-1x3 img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.image-grid-1x4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four columns, one row */
+  gap: 0.5rem;
+  max-width: 100%;
+  margin: 1rem auto;
+}
+
+.image-grid-1x4 img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.image-grid-2x12 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Ensures 2 columns */
+  gap: 0.5rem;
+  max-width: 100%;
+  margin: 1rem auto;
+}
+
+.image-grid-2x12 img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 600px) {
+  .image-grid-2x2,
+  .image-grid-1x2,
+  .image-grid-1x3,
+  .image-grid-1x4,
+  .image-grid-2x12 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.travel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.travel-card {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+}
+
+.travel-thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+  border-radius: 0;
+  margin-bottom: -1rem;
+  cursor: pointer;
+}
+
+.travel-card h3 a {
+  color: #000;
+  text-decoration: none;
+}
+
+.travel-card h3 a:hover {
+  color: #0056b3;
+}
+
+.travel-date {
+  font-size: 0.65rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.travel-card p {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.read-more {
+  font-size: 0.7rem;
+  color: #0056b3;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: -1rem;
+}
+
+.travel-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.65rem;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  color: #444;
+  font-size: 0.7rem;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  padding: 0;
+  margin-top: -1rem;
+}
+
+.like-button.liked {
+  color: #e63946;
+}
+
+.like-button, .share-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #666;
+  cursor: pointer;
+  font-family: 'Inter';
+  margin-top: -1rem;
+}
+
+.like-button:hover, .share-button:hover {
+  color: #000;
+}
+
+.like-button[title] {
+  position: relative;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 5vh;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+.footnote-ref {
+  font-size: 0.85em;
+  vertical-align: baseline;
+  line-height: 1;
+  text-decoration: none;
+  margin-left: -.1rem;
+  color: inherit; /* matches surrounding text */
+}
+
+.footnote-ref sup {
+  font-size: 0.75em;
+  vertical-align: super;
+  position: relative;
+  top: -0.1em;
+}
+
+.footnotes {
+  margin-top: 2rem;
+}
+
+.footnote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.95em;
+  color: #000;
+}
+
+.fn-num {
+  font-weight: bold;
+  color: #888;
+  min-width: 1.2rem;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.fn-text {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.footnote-backref {
+  text-decoration: none;
+  margin-left: 0.25rem;
+  font-size: 0.8em;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.blog-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-text-link {
+  display: block;
+  padding: 0.25rem 0.5rem;
+  margin: -0.25rem -0.5rem; /* Cancel out padding to align with container */
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.blog-text-link:link,
+.blog-text-link:visited,
+.blog-text-link:hover,
+.blog-text-link:active {
+  color: #000; /* or any color you prefer */
+  text-decoration: none;
+}
+
+.blog-entry > a img {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+/* Optional subtle zoom on image hover */
+.blog-entry > a:hover img {
+  transform: scale(1.1);
+}
+
+/* Content block */
+.blog-content {
+  flex: 1;
+}
+
+/* Title (adjusted to h3 if needed) */
+.blog-content h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+}
+
+.blog-date {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.blog-location {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.blog-description {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.blog-entry img {
+  width: 120px;               /* Fixed width */
+  height: auto;              /* Let height scale naturally */
+  object-fit: contain;       /* Prevents cropping (vs. 'cover') */
+  flex-shrink: 0;
+  border-radius: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: block;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+#lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#lightbox-container {
+  width: 90vw;
+  height: 90vh;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent; /* ensure it's not blocking overlay clicks */
+}
+
+#lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transform: none;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+  transform-origin: center center;
+}
+
+#lightbox-img.zoomed {
+  transform: scale(2); /* Or tweak to 1.5–2.5 */
+  cursor: grab;
+}
+
+#lightbox-img.zoomed:active {
+  cursor: grabbing;
+}
+
+#lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* ==============================
+   TIMELINE WRAPPER
+   ============================== */
+.timeline {
+  position: relative;
+  margin: 2rem auto;
+  padding-left: 1.5rem; /* space for bullets */
+  border-left: 2px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ==============================
+   EVENT THUMBNAILS
+   ============================== */
+.event-thumb {
+  flex-shrink: 0;
+}
+
+.event-thumb img {
+  display: block;
+  object-fit: cover;
+  border-radius: 1px;
+}
+
+/* Major event thumbnail */
+.timeline-event.major .event-thumb img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Minor event thumbnail */
+.timeline-event.minor .event-thumb img {
+  width: 100px;
+  height: 100px;
+}
+
+/* ==============================
+   EVENT CONTENT
+   ============================== */
+.event-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------------------------------
+   MAJOR EVENTS
+   ------------------------------ */
+.timeline-event.major h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.timeline-event.major .event-date {
+  font-size: 0.75rem;
+  color: #666;
+  margin: 0.1rem 0 0.3rem 0;
+}
+
+.timeline-event.major .event-location {
+  font-size: 0.75rem;
+  color: #555;
+  margin: 0.2rem 0 0.3rem 0;
+}
+
+.timeline-event.major .event-desc {
+  font-size: 0.75rem;
+  color: #222;
+  margin-top: 0.3rem;
+}
+
+.timeline-event.major a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ------------------------------
+   MINOR EVENTS
+   ------------------------------ */
+.timeline-event.minor {
+  opacity: 0.925;
+  border-radius: 3px;
+  gap: 0.5rem;
+}
+
+.timeline-event.minor .event-title {
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #444;
+  margin: 0 0 0.1rem 0;
+}
+
+.timeline-event.minor .event-date {
+  font-size: 0.75rem;
+  color: #666;
+  margin: -0.15rem 0 0.2rem 0;
+}
+
+.timeline-event.minor .event-location {
+  font-size: 0.75rem;
+  color: #777;
+  margin: 0.2rem 0 0.2rem 0;
+}
+
+.timeline-event.minor .event-desc {
+  font-size: 0.7rem;
+  color: #888;
+  margin-top: 0.2rem;
+}
+
+/* ==============================
+   UNIVERSAL DATES & LOCATIONS
+   ============================== */
+.event-date,
+.event-location {
+  line-height: 1.2;
+}
+
+/* ==============================
+   FLEX HELPERS
+   ============================== */
+.timeline-event .event-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-event .event-thumb {
+  margin-top: 0.1rem; /* fine-tune vertical alignment */
+}
+
+/* ==============================
+   HOVER STATES FOR MAJOR EVENTS
+   ============================== */
+.timeline-event.major {
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin: -0.75rem; /* cancel padding shift */
+}
+
+.timeline-event.major:hover {
+  background-color: #f9fafb;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ==============================
+   PHOTO GRID
+   ============================== */
+.masonry-gallery {
+  column-count: 3; /* adjust number of columns */
+  column-gap: .5rem;
+}
+
+.masonry-gallery a {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: .1rem;
+  overflow: hidden;
+  border-radius: 0.25px;
+}
+
+.masonry-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover: scale + grayscale */
+.masonry-gallery a:hover img {
+  transform: scale(1.05);
+  filter: grayscale(100%);
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+/* Text overlay, no box */
+.photo-info {
+  position: absolute;
+  top: 5%;   /* move near top */
+  left: 5%;  /* move near left corner */
+  color: #f2ebeb; /* all text same color */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: left;
+}
+
+/* Show on hover */
+.masonry-gallery a:hover .photo-info {
+  opacity: 1;
+}
+
+.masonry-gallery a .photo-info h4 {
+  color: #f2ebeb !important;
+  margin: 0 0 0.2rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.photo-info p {
+  color: #f2ebeb; /* all text same color */
+  margin: 0.1rem 0;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+/* General reusable list */
+.styled-list {    /* all bullets the same */
+  margin: 0;                   /* remove outer margin */
+  padding-left: 1.5rem;        /* space for bullets */
+  line-height: 1.5;            /* uniform vertical spacing */
+  color: inherit;
+  font-size: inherit;
+}
+
+.styled-list li {
+  margin-bottom: 0.5rem;       /* space between items */
+}
+
+/* Nested lists use same bullets and spacing */
+.styled-list ul {
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;        /* indent nested items */
+}
+
+.styled-list ul li {
+  margin-bottom: 0.5rem;       /* same spacing as top-level */
 }

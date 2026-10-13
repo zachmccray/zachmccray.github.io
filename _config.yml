@@ -12,3 +12,12 @@ aux_links:
 just_the_docs:
   custom_css:
     - "assets/css/custom.css"
+  include_head:
+    - _includes/head_custom.html
+  custom_js:
+    - assets/js/travel.js
+
+collections:
+  travel:
+    output: true
+    permalink: /travel/:name/
