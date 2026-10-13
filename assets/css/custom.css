@@ -216,82 +216,41 @@ canvas {
   cursor: pointer;
 }
 
-.image-grid-2x2 {
+.image-grid-2x2,
+.image-grid-1x2,
+.image-grid-1x3,
+.image-grid-1x4,
+.image-grid-2x12 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
   max-width: 100%;
   margin: 1rem auto;
 }
 
-.image-grid-2x2 img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 0;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+.image-grid-2x2 {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .image-grid-1x2 {
-  display: grid;
   grid-template-columns: repeat(2, 1fr); /* Two columns, one row */
-  gap: 0.5rem;
-  max-width: 100%;
-  margin: 1rem auto;
-}
-
-.image-grid-1x2 img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 0;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .image-grid-1x3 {
-  display: grid;
   grid-template-columns: repeat(3, 1fr); /* Three columns, one row */
-  gap: 0.5rem;
-  max-width: 100%;
-  margin: 1rem auto;
-}
-
-.image-grid-1x3 img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 0;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .image-grid-1x4 {
-  display: grid;
   grid-template-columns: repeat(4, 1fr); /* Four columns, one row */
-  gap: 0.5rem;
-  max-width: 100%;
-  margin: 1rem auto;
-}
-
-.image-grid-1x4 img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 0;
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .image-grid-2x12 {
-  display: grid;
   grid-template-columns: repeat(2, 1fr); /* Ensures 2 columns */
-  gap: 0.5rem;
-  max-width: 100%;
-  margin: 1rem auto;
 }
 
+.image-grid-2x2 img,
+.image-grid-1x2 img,
+.image-grid-1x3 img,
+.image-grid-1x4 img,
 .image-grid-2x12 img {
   width: 100%;
   height: auto;
@@ -374,14 +333,7 @@ canvas {
 }
 
 .like-button {
-  background: none;
-  border: none;
-  color: #444;
   font-size: 0.7rem;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  padding: 0;
-  margin-top: -1rem;
 }
 
 .like-button.liked {
@@ -649,13 +601,8 @@ body.lightbox-open {
   border-radius: 1px;
 }
 
-/* Major event thumbnail */
-.timeline-event.major .event-thumb img {
-  width: 100px;
-  height: 100px;
-}
-
-/* Minor event thumbnail */
+/* Major and minor event thumbnails */
+.timeline-event.major .event-thumb img,
 .timeline-event.minor .event-thumb img {
   width: 100px;
   height: 100px;
