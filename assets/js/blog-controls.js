@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Try to get title from h3 (major posts)
     let titleEl = entry.querySelector("h3");
     if (titleEl) return titleEl.textContent.trim();
-    // Fallback to event-desc for minor posts
-    let descEl = entry.querySelector(".event-desc");
-    if (descEl) return descEl.textContent.trim();
+    // Fallback to event-title for minor posts
+    titleEl = entry.querySelector(".event-title");
+    if (titleEl) return titleEl.textContent.trim();
     return ""; // safety
   }
 
