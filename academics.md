@@ -11,7 +11,7 @@ layout: home
 
 <p>While at the University of Kansas, I was involved in Solar Car KU, the Association of Computing Machinery (ACM) Club, Economics Club, Chess Club, and HEAL KU.</p>
 
-<p> The courses I took during my undergraduate degree can be found <a href="/courses/">here</a>.</p>
+<p> The courses I took during my undergraduate degree can be found <a href="/courses.html">here</a>.</p>
 
 <h3>Continuing Education</h3>
 <h4> <strong>Johnson County Community College (Overland Park, KS)</strong> </h4>
