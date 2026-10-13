@@ -58,6 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeBtn = document.getElementById("lightbox-close");
   const lightboxContainer = document.getElementById("lightbox-container");
 
+  if (!overlay || !fullImg || !lightboxContainer) return;
+
   let isZoomed = false;
   let didDrag = false;
   let startX, startY, scrollLeft, scrollTop;
