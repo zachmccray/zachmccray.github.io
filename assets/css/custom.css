@@ -14,7 +14,7 @@
  * 7. Blog entries: shared and legacy presentation
  * 8. Blog timeline
  * 9. Travel cards and like/share controls
- * 10. Photography masonry and hover metadata
+ * 10. Photography masonry and metadata
  * 11. Modal and optional legacy lightbox
  */
 
@@ -716,305 +716,404 @@ canvas {
    8. Blog timeline
    ========================================================================== */
 
-/* ==============================
-   TIMELINE WRAPPER
-   ============================== */
-.timeline {
-  position: relative;
-  margin: 2rem auto;
-  padding-left: 1.5rem; /* space for bullets */
-  border-left: 2px solid #eee;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+/* Page-scoped components share the approved type scale without changing the
+ * theme root, navigation or content already migrated in earlier PRs. */
+.blog-page,
+.travel-page,
+.photography-page {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
 }
 
-/* ==============================
-   EVENT THUMBNAILS
-   ============================== */
-.event-thumb {
-  flex-shrink: 0;
+.blog-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
 }
-
-.event-thumb img {
+.blog-control {
+  min-width: 0;
+}
+.blog-control label {
   display: block;
-  object-fit: cover;
-  border-radius: 1px;
+  font-size: 14px;
+  margin-bottom: 4px;
 }
-
-/* Major and minor event thumbnails */
-.timeline-event.major .event-thumb img,
-.timeline-event.minor .event-thumb img {
-  width: 100px;
-  height: 100px;
+.blog-control select {
+  width: 100%;
+  max-width: 100%;
+  min-height: 44px;
+  margin: 0;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 16px;
+  color: #222;
+  border: 1px solid #b8b8c2;
+  border-radius: 4px;
+  background-color: #fff;
 }
-
-/* ==============================
-   EVENT CONTENT
-   ============================== */
-.event-content {
-  flex: 1;
+.blog-page .timeline {
+  position: relative;
   display: flex;
   flex-direction: column;
+  gap: 24px;
+  margin: 0 0 24px 6px;
+  padding-left: 24px;
+  border-left: 1px solid #d9d9e1;
 }
-
-/* ------------------------------
-   MAJOR EVENTS
-   ------------------------------ */
-.timeline-event.major h3 {
-  font-size: 1rem;
-  font-weight: 600;
+.blog-page .timeline-event {
+  position: relative;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  opacity: 1;
+}
+.blog-page .timeline-event::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  background: #666;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #b8b8c2;
+}
+.blog-page .timeline-event.minor::before {
+  left: -28px;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+}
+.blog-page .event-thumb {
+  flex: 0 0 96px;
   margin: 0;
 }
-
-.timeline-event.major .event-date {
-  font-size: 0.75rem;
-  color: #666;
-  margin: 0.1rem 0 0.3rem 0;
+.blog-page .event-thumb img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover; /* Timeline thumbnails retain their intentional square crop. */
+  border-radius: 2px;
+  box-shadow: none;
+  background: #f4f4f8;
 }
-
-.timeline-event.major .event-location {
-  font-size: 0.75rem;
-  color: #555;
-  margin: 0.2rem 0 0.3rem 0;
+.blog-page .minor .event-thumb img {
+  width: 72px;
+  margin: 0 auto;
 }
-
-.timeline-event.major .event-desc {
-  font-size: 0.75rem;
-  color: #222;
-  margin-top: 0.3rem;
+.blog-page .event-content {
+  flex: 1;
+  min-width: 0;
 }
-
-.timeline-event.major a {
-  text-decoration: none;
+.blog-page .event-link {
+  display: block;
   color: inherit;
+  text-decoration: none;
+  border-radius: 2px;
 }
-
-/* ------------------------------
-   MINOR EVENTS
-   ------------------------------ */
-.timeline-event.minor {
-  opacity: 0.925;
-  border-radius: 3px;
-  gap: 0.5rem;
+.blog-page h2[id],
+.travel-page h2[id] {
+  scroll-margin-top: 8px;
 }
-
-.timeline-event.minor .event-title {
+.main-content .blog-page .major .event-title {
+  font-size: 18px !important;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #222 !important;
+  margin: 0;
+}
+.main-content .blog-page .minor .event-title {
+  font-size: 16px;
   font-weight: 500;
-  font-size: 0.85rem;
+  line-height: 1.4;
   color: #444;
-  margin: 0 0 0.1rem 0;
+  margin: 0;
 }
-
-.timeline-event.minor .event-date {
-  font-size: 0.75rem;
+.main-content .blog-page .event-date,
+.main-content .blog-page .event-location {
+  font-size: 13px;
+  line-height: 1.45;
   color: #666;
-  margin: -0.15rem 0 0.2rem 0;
+  margin: 4px 0 0;
 }
-
-.timeline-event.minor .event-location {
-  font-size: 0.75rem;
-  color: #777;
-  margin: 0.2rem 0 0.2rem 0;
+.main-content .blog-page .event-location {
+  margin-top: 2px;
 }
-
-.timeline-event.minor .event-desc {
-  font-size: 0.7rem;
-  color: #888;
-  margin-top: 0.2rem;
+.main-content .blog-page .event-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
+  margin: 8px 0 0;
 }
-
-/* ==============================
-   UNIVERSAL DATES & LOCATIONS
-   ============================== */
-.event-date,
-.event-location {
-  line-height: 1.2;
-}
-
-/* ==============================
-   FLEX HELPERS
-   ============================== */
-.timeline-event .event-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.timeline-event .event-thumb {
-  margin-top: 0.1rem; /* fine-tune vertical alignment */
-}
-
-/* ==============================
-   HOVER STATES FOR MAJOR EVENTS
-   ============================== */
-.timeline-event.major {
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-  border-radius: 6px;
-  padding: 0.75rem;
-  margin: -0.75rem; /* cancel padding shift */
-}
-
-.timeline-event.major:hover {
-  background-color: #f9fafb;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.blog-page .event-link:hover .event-title,
+.blog-page .event-link:focus-visible .event-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ==========================================================================
    9. Travel cards and like/share controls
    ========================================================================== */
 
-.travel-grid {
+.travel-page .travel-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 24px;
+  margin: 0 0 24px;
   padding: 0;
 }
-
-.travel-card {
+.travel-page .travel-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
   padding: 0;
-  border: none;
-  background-color: transparent;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
+  border: 1px solid #dedee5;
+  border-radius: 4px;
+  background: #fff;
 }
-
-.travel-thumb {
-  width: 100%;
-  height: auto;
+.travel-page .travel-cover {
   display: block;
-  border: none;
-  border-radius: 0;
-  margin-bottom: -1rem;
-  cursor: pointer;
+  aspect-ratio: 3 / 2; /* Consistent navigational covers; articles keep natural ratios. */
+  overflow: hidden;
+  border-radius: 3px 3px 0 0;
+  background: #f4f4f8;
 }
-
-.travel-card h3 a {
-  color: #000;
+.travel-page .travel-thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  box-shadow: none;
+}
+.travel-page .travel-card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding: 16px;
+}
+.main-content .travel-page .travel-card-title {
+  font-size: 22px !important;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #222 !important;
+  margin: 0 0 4px;
+}
+.travel-page .travel-card-title a {
+  color: inherit;
   text-decoration: none;
 }
-
-.travel-card h3 a:hover {
-  color: #0056b3;
-}
-
-.travel-date {
-  font-size: 0.65rem;
-  color: #555;
-  margin-bottom: 0.5rem;
-}
-
-.travel-card p {
-  margin: 0 0 0.5rem 0;
-  line-height: 1.4;
-}
-
-.read-more {
-  font-size: 0.7rem;
-  color: #0056b3;
+.travel-page .travel-card-title a:hover,
+.travel-page .travel-card-title a:focus-visible {
   text-decoration: underline;
-  display: inline-block;
-  margin-top: -1rem;
+  text-underline-offset: 3px;
 }
-
-.travel-actions {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-  font-size: 0.65rem;
-}
-
-.like-button {
-  font-size: 0.7rem;
-}
-
-.like-button.liked {
-  color: #e63946;
-}
-
-.like-button, .share-button {
-  background: none;
-  border: none;
-  padding: 0;
+.travel-page .travel-date {
+  font-size: 13px;
+  line-height: 1.45;
   color: #666;
+  margin-bottom: 8px;
+}
+.main-content .travel-page .travel-card-content > p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #222;
+  margin: 0 0 12px;
+}
+.travel-page .read-more {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: #5540b8;
+  text-underline-offset: 3px;
+}
+.travel-page .travel-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+  color: #666;
+}
+.travel-page .like-button,
+.travel-page .share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: #666;
+  font: inherit;
+  font-size: 18px;
   cursor: pointer;
-  font-family: 'Inter';
-  margin-top: -1rem;
 }
-
-.like-button:hover, .share-button:hover {
-  color: #000;
+.travel-page .like-button.liked {
+  color: #b5263c;
 }
-
-.like-button[title] {
-  position: relative;
+.travel-page .like-button:disabled,
+.travel-page .share-button:disabled {
+  cursor: wait;
+}
+.travel-page .like-button:hover:not(:disabled),
+.travel-page .share-button:hover:not(:disabled) {
+  background: #f4f4f8;
+  border-color: #dedee5;
+}
+.main-content .travel-page p.travel-feedback {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #666;
+  margin: 8px 0 0;
+}
+.travel-page .travel-feedback:empty {
+  display: none;
 }
 
 /* ==========================================================================
-   10. Photography masonry and hover metadata
+   10. Photography masonry and metadata
    ========================================================================== */
 
-/* ==============================
-   PHOTO GRID
-   ============================== */
-.masonry-gallery {
-  column-count: 3; /* adjust number of columns */
-  column-gap: .5rem;
+/* Column widths respond to available content space, including the sidebar.
+ * Metadata flows below images so short photographs, touch and text resizing
+ * retain all information; hover/focus only add emphasis. */
+.photography-page .masonry-gallery {
+  columns: 233px 3;
+  column-gap: 12px;
 }
-
-.masonry-gallery a {
-  position: relative;
+.photography-page .masonry-gallery > a {
   display: inline-block;
   width: 100%;
-  margin-bottom: .1rem;
-  overflow: hidden;
-  border-radius: 0.25px;
+  margin: 0 0 12px;
+  break-inside: avoid;
+  color: #222;
+  text-decoration: none;
 }
-
-.masonry-gallery img {
+.photography-page .masonry-gallery img {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  background: #f4f4f8;
 }
-
-/* Hover: scale + grayscale */
-.masonry-gallery a:hover img {
-  transform: scale(1.05);
-  filter: grayscale(100%);
-  cursor: pointer;
-  opacity: 0.9;
+.photography-page .photo-info {
+  position: static;
+  padding-top: 8px;
+  overflow-wrap: anywhere;
 }
-
-/* Text overlay, no box */
-.photo-info {
-  position: absolute;
-  top: 5%;   /* move near top */
-  left: 5%;  /* move near left corner */
-  color: #f2ebeb; /* all text same color */
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  text-align: left;
+.main-content .photography-page .photo-info p {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #666;
+  margin: 0 0 2px;
 }
-
-/* Show on hover */
-.masonry-gallery a:hover .photo-info {
-  opacity: 1;
-}
-
-.masonry-gallery a .photo-info h4 {
-  color: #f2ebeb !important;
-  margin: 0 0 0.2rem 0;
-  font-size: 1rem;
+.main-content .photography-page .photo-info p.photo-title {
+  font-size: 16px;
+  line-height: 1.4;
   font-weight: 600;
+  color: #222;
+  margin-bottom: 4px;
 }
-
-.photo-info p {
-  color: #f2ebeb; /* all text same color */
-  margin: 0.1rem 0;
-  font-size: 0.75rem;
-  line-height: 1;
+.photography-page .masonry-gallery > a:hover .photo-title,
+.photography-page .masonry-gallery > a:focus-visible .photo-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.blog-page select:focus-visible,
+.blog-page a:focus-visible,
+.travel-page a:focus-visible,
+.travel-page button:focus-visible,
+.photography-page a:focus-visible {
+  outline: 3px solid #5540b8;
+  outline-offset: 3px;
+}
+.glightbox-container .gbtn {
+  min-width: 44px;
+  min-height: 44px;
+}
+.glightbox-container .gbtn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+.glightbox-container .gslide-title {
+  font-size: 16px !important;
+  line-height: 1.4;
+  font-weight: 600;
+  color: #222 !important;
+  margin: 0 0 4px;
+}
+.glightbox-container .gslide-description .gdesc-inner .gslide-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+}
+.glightbox-mobile .glightbox-container .gslide-title,
+.glightbox-mobile .glightbox-container .gslide-desc {
+  color: #f5f5f5 !important;
+}
+.glightbox-mobile .glightbox-container .gslide-description {
+  background: rgba(0, 0, 0, 0.85);
+}
+/* The library moves touch navigation buttons above the viewport. Keep the
+ * existing controls reachable alongside its swipe gestures and keyboard keys. */
+.glightbox-touch .glightbox-container .gprev,
+.glightbox-touch .glightbox-container .gnext,
+.glightbox-mobile .glightbox-container .gprev,
+.glightbox-mobile .glightbox-container .gnext {
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (max-width: 768px) {
+  .photography-page .masonry-gallery {
+    column-width: auto;
+    column-count: 2;
+  }
+}
+@media (max-width: 600px) {
+  .blog-controls {
+    grid-template-columns: 1fr;
+  }
+  .blog-page .timeline-event {
+    gap: 12px;
+  }
+  .blog-page .event-thumb {
+    flex-basis: 80px;
+  }
+  .blog-page .minor .event-thumb img {
+    width: 56px;
+  }
+  .main-content .travel-page .travel-card-title {
+    font-size: 20px !important;
+  }
+  .main-content .blog-page .event-date,
+  .main-content .blog-page .event-location,
+  .travel-page .travel-date,
+  .travel-page .travel-actions,
+  .main-content .travel-page p.travel-feedback,
+  .main-content .photography-page .photo-info p:not(.photo-title) {
+    font-size: 14px;
+  }
+}
+@media (max-width: 360px) {
+  .photography-page .masonry-gallery {
+    column-count: 1;
+  }
 }
 
 /* ==========================================================================
