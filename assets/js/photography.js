@@ -1,7 +1,7 @@
 // Use the existing image sequence and library; no masonry measurements or clones.
 const photographyReduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const lightbox = typeof GLightbox === 'function' ? GLightbox({
-  selector: '.glightbox',
+  selector: '.photography-page a.glightbox',
   moreLength: 0,
   openEffect: photographyReduceMotion ? 'none' : 'zoom',
   closeEffect: photographyReduceMotion ? 'none' : 'zoom',
@@ -34,12 +34,12 @@ const lightbox = typeof GLightbox === 'function' ? GLightbox({
   function showInfo(tile) {
     hideInfo();
     const info = tile.querySelector('.photo-info');
-    if (!info) return;
+    if (!info || !info.children.length) return;
     const image = tile.querySelector('img').getBoundingClientRect();
     const inset = 12;
     const headerBottom = document.querySelector('.site-header')?.getBoundingClientRect().bottom || 0;
     const topInset = Math.max(inset, Math.min(headerBottom + inset, innerHeight - 2 * inset));
-    info.style.width = `${Math.min(Math.max(image.width, 180), 280, innerWidth - 2 * inset)}px`;
+    info.style.width = `${Math.min(Math.max(image.width, 224), 320, innerWidth - 2 * inset)}px`;
     info.style.maxHeight = `${innerHeight - topInset - inset}px`;
     // Keep full, wrapping metadata readable even when the photograph is very short.
     const panel = info.getBoundingClientRect();
@@ -111,7 +111,7 @@ const lightbox = typeof GLightbox === 'function' ? GLightbox({
       if (info) info.closest('.photo-tile').querySelector('a.glightbox').click();
       return;
     }
-    if (suppressClick) {
+    if (suppressClick && event.detail !== 0) {
       suppressClick = false;
       event.preventDefault();
       event.stopImmediatePropagation();
@@ -158,11 +158,11 @@ const lightbox = typeof GLightbox === 'function' ? GLightbox({
   // Let the library render its usual temporary caption from existing metadata.
   // Original data-description fields and the sole gallery metadata nodes stay intact.
   lightbox.on('slide_before_load', ({ trigger, slideConfig }) => {
-    const info = trigger?.closest('.photo-tile').querySelector('.photo-info');
+    const info = trigger?.closest?.('.photo-tile')?.querySelector('.photo-info');
     if (!info) return;
     const description = document.createElement('p');
-    description.textContent = trigger.dataset.description;
-    slideConfig.description = description.outerHTML + info.innerHTML;
+    description.textContent = trigger.dataset.description || '';
+    slideConfig.description = (description.textContent ? description.outerHTML : '') + info.innerHTML.trim();
   });
   lightbox.on('slide_after_load', ({ slide }) => {
     const description = slide.querySelector('.gslide-description');
@@ -172,15 +172,23 @@ const lightbox = typeof GLightbox === 'function' ? GLightbox({
       description.setAttribute('aria-label', 'Photo details');
     }
   });
+  const background = [];
   lightbox.on('open', () => {
     hideInfo();
     const dialog = document.querySelector('.glightbox-container');
     dialog.classList.add('photography-lightbox');
     dialog.setAttribute('aria-label', 'Photography image viewer');
     dialog.setAttribute('aria-modal', 'true');
+    Array.from(document.body.children).forEach(node => {
+      if (node instanceof HTMLElement && node !== dialog && !node.inert) {
+        node.inert = true;
+        background.push(node);
+      }
+    });
     dialog.querySelector('.gclose').focus();
   });
   lightbox.on('close', () => {
+    background.splice(0).forEach(node => { node.inert = false; });
     if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
   });
 })();

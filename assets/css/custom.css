@@ -1035,8 +1035,10 @@ canvas {
   max-height: calc(100dvh - 24px);
   overflow: auto;
   overscroll-behavior: contain;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.82);
+  padding: 12px;
+  background: linear-gradient(160deg, rgba(12, 14, 18, 0.64), rgba(12, 14, 18, 0.74));
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 3px;
   color: #fff;
   overflow-wrap: anywhere;
   opacity: 0;
@@ -1065,7 +1067,57 @@ canvas {
   line-height: 1.4;
   font-weight: 600;
   color: #fff;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+}
+.photography-page .photo-info .photo-facts,
+.photography-page .photo-info .photo-settings,
+.photography-lightbox .photo-facts,
+.photography-lightbox .photo-settings {
+  display: block;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: inherit;
+}
+.photo-info .photo-meta-row,
+.photography-lightbox .photo-meta-row {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 4px 8px;
+  margin-top: 4px;
+}
+.photo-info .photo-meta-row:first-child,
+.photography-lightbox .photo-meta-row:first-child {
+  margin-top: 0;
+}
+.photo-info .photo-meta-row dt,
+.photography-lightbox .photo-meta-row dt {
+  font-weight: 500;
+  text-align: left;
+}
+.photography-page .photo-meta-row dt::after {
+  content: none;
+}
+.photo-info .photo-meta-row dt,
+.photo-info .photo-meta-row dd,
+.photography-lightbox .photo-meta-row dt,
+.photography-lightbox .photo-meta-row dd {
+  margin: 0;
+  min-width: 0;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.photo-info .photo-facts + .photo-settings,
+.photography-lightbox .photo-facts + .photo-settings {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+}
+.photography-lightbox .photo-facts + .photo-settings {
+  border-color: rgba(0, 0, 0, 0.16);
+}
+.glightbox-mobile .photography-lightbox .photo-facts + .photo-settings {
+  border-color: rgba(255, 255, 255, 0.24);
 }
 .photography-page .photo-info p:last-child {
   margin-bottom: 0;
@@ -1277,4 +1329,182 @@ body.lightbox-open {
   color: white;
   cursor: pointer;
   z-index: 10000;
+}
+
+/* Shared interaction roles; approved content typography/layout remains intact. */
+:root {
+  --ui-brand-height: 60px;
+  --ui-search-height: 60px;
+  --ui-header-offset: 72px;
+}
+.site-ui-ready .main-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.site-ui-ready .search,
+.site-ui-ready.search-active .search {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  height: auto;
+  padding: 0;
+}
+.site-ui-ready.search-active .main {
+  position: relative;
+  left: auto;
+  right: auto;
+}
+.site-ui-ready.search-active .main-header {
+  padding-top: 0;
+}
+.site-ui-ready .search-input-wrap,
+.site-ui-ready.search-active .search-input-wrap {
+  width: 100%;
+  height: var(--ui-search-height);
+}
+#search-input {
+  font-size: 16px;
+  min-height: 44px;
+}
+#search-input::placeholder {
+  color: #666;
+  opacity: 1;
+}
+.site-ui-ready #search-results {
+  top: 100%;
+  width: min(100%, 34rem);
+  max-height: calc(100vh - var(--ui-search-height) - 24px) !important;
+  max-height: calc(100dvh - var(--ui-search-height) - 24px) !important;
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+}
+.site-ui-ready .search-result {
+  min-height: 44px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.site-ui-ready .search-result-doc.search-result-doc-parent {
+  opacity: 1;
+  color: #666;
+  font-size: 13px !important;
+}
+.site-ui-ready .search-result-rel-url {
+  font-size: 13px !important;
+}
+.site-ui-ready .search-result-preview {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.site-ui-ready .search-overlay {
+  display: none;
+}
+a.skip-to-main,
+a.skip-to-main:active {
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 10px 16px;
+  transform: translateY(calc(-100% - 24px));
+  z-index: 100000;
+  font-size: 15px;
+  line-height: 24px;
+  background: #fff;
+  color: #5540b8;
+  border: 2px solid #5540b8;
+  border-radius: 4px;
+}
+a.skip-to-main:focus {
+  left: 12px;
+  top: 12px;
+  width: auto;
+  margin: 0;
+  transform: none;
+}
+.main-content a[href]:focus-visible,
+.site-nav a[href]:focus-visible,
+.site-header a[href]:focus-visible,
+.site-footer a[href]:focus-visible,
+.aux-nav a[href]:focus-visible,
+#menu-button:focus-visible,
+#search-input:focus-visible,
+.image-scroll-hyper:focus-visible {
+  outline: 3px solid #5540b8;
+  outline-offset: 3px;
+}
+#search-input:focus-visible {
+  outline-offset: -3px;
+}
+#main-content,
+.main-content [id],
+.main-content .content-body [id],
+.main-content .course-heading {
+  scroll-margin-top: var(--ui-header-offset);
+}
+@media (max-width: 799px) {
+  :root {
+    --ui-brand-height: 52.5px;
+    --ui-search-height: 52.5px;
+    --ui-header-offset: 64.5px;
+  }
+  .site-ui-ready .side-bar {
+    position: sticky;
+    top: 0;
+    z-index: 25;
+  }
+  .site-ui-ready #menu-button {
+    min-width: 44px;
+    justify-content: center;
+  }
+  .site-ui-ready .side-bar .main-header {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #f5f6fa;
+    border-bottom: 1px solid #eeebee;
+  }
+  .site-ui-ready .side-bar .main-header.nav-open {
+    display: flex;
+  }
+  .site-ui-ready .site-nav.nav-open {
+    position: absolute;
+    top: calc(100% + var(--ui-search-height) + 1px);
+    left: 0;
+    width: 100%;
+    max-height: calc(100vh - var(--ui-brand-height) - var(--ui-search-height) - 16px);
+    max-height: calc(100dvh - var(--ui-brand-height) - var(--ui-search-height) - 16px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #f5f6fa;
+    border-bottom: 1px solid #eeebee;
+  }
+  .site-ui-ready .site-nav .nav-list .nav-list-link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .site-ui-ready.search-active .main {
+    position: static;
+  }
+  .site-ui-ready #search-results {
+    width: 100%;
+    max-height: calc(100vh - var(--ui-brand-height) - var(--ui-search-height) - 16px) !important;
+    max-height: calc(100dvh - var(--ui-brand-height) - var(--ui-search-height) - 16px) !important;
+  }
+  .site-ui-ready .search-result-doc.search-result-doc-parent,
+  .site-ui-ready .search-result-rel-url {
+    font-size: 14px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-ui-ready .search,
+  .site-ui-ready .search-input-wrap {
+    transition: none;
+  }
 }
