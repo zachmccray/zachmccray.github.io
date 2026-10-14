@@ -1,12 +1,14 @@
 ---
 title: Blog
-layout: default
+layout: content
 ---
 
-<h3>Blog Timeline</h3>
+<section class="blog-page" aria-label="Blog Timeline">
+<h2 class="content-heading no_anchor" id="blog-timeline" tabindex="-1">Blog Timeline</h2>
 
 <!-- Filter & Sort Controls -->
-<div style="margin-bottom: 1rem;">
+<div class="blog-controls">
+  <div class="blog-control">
   <label for="year-filter">Filter by Year:</label>
   <select id="year-filter">
     <option value="all">All</option>
@@ -21,13 +23,16 @@ layout: default
     {% endfor %}
   </select>
 
-  <label for="sort-filter" style="margin-left: 1rem;">Sort by:</label>
+  </div>
+  <div class="blog-control">
+  <label for="sort-filter">Sort by:</label>
   <select id="sort-filter">
     <option value="date-desc">Date (Newest First)</option>
     <option value="date-asc">Date (Oldest First)</option>
     <option value="title-asc">Title (A–Z)</option>
     <option value="title-desc">Title (Z–A)</option>
   </select>
+  </div>
 </div>
 
 <!-- Timeline -->
@@ -45,8 +50,8 @@ layout: default
           </div>
         {% endif %}
         <div class="event-content">
-          <a href="{{ post.url }}">
-            <h3>{{ post.title }}</h3>
+          <a href="{{ post.url }}" class="event-link">
+            <h3 class="event-title no_anchor">{{ post.title }}</h3>
             <p class="event-date">{{ post.date | date: "%B %-d, %Y" }}</p>
             {% if post.location %}
               <p class="event-location">{{ post.location }}</p>
@@ -84,3 +89,5 @@ layout: default
 
   {% endfor %}
 </div>
+
+</section>

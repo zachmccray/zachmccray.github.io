@@ -1,9 +1,9 @@
 ---
 title: Media
-layout: home
+layout: content
 ---
 
-<h3> Books and Films </h3>
+<h2 class="content-heading no_anchor" id="books-and-films" tabindex="-1">Books and Films</h2>
 <p>
 I am a typical atypical film enjoyer and literature consumer. I have a 
 <a href="https://www.goodreads.com/zacharymccray" target="_blank">GoodReads</a> 
@@ -35,14 +35,14 @@ and
 <script src="/assets/js/literature-chart.js"></script>
 -->
 
-<h3> Musicals and Plays </h3>
-TBD!
+<h2 class="content-heading no_anchor" id="musicals-and-plays" tabindex="-1">Musicals and Plays</h2>
+<p>TBD!</p>
 
-<h3> Board Games </h3>
-TBD!
+<h2 class="content-heading no_anchor" id="board-games" tabindex="-1">Board Games</h2>
+<p>TBD!</p>
 
-<h3> Physical Media </h3>
-TBD!
+<h2 class="content-heading no_anchor" id="physical-media" tabindex="-1">Physical Media</h2>
+<p>TBD!</p>
 
 ----
 
