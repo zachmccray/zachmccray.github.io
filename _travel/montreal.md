@@ -167,7 +167,9 @@ As a volunteer at RMWA, I perform a wide range of tasks, including but not limit
   <a href="/assets/images/raptor.webp" target="_blank">
     <img src="/assets/images/raptor.webp" alt="Raptor">
   </a>
-</div>----
+</div>
+
+----
 
 [^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
 
