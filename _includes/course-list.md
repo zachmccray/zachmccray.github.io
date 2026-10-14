@@ -1,9 +1,6 @@
-<div class="course" data-category="{{ course.category }}">
-  <h2>{{ course.name }}</h2>
-  <h3>{{ course.title }}</h3>
-  <h4>{{ course.professor }}</h4>
-  <p>{{ course.description }}</p>
-  <small>{{ course.semester }}</small>
-  <small>({{ course.category }})</small>
-  <small>({{ course.grade }})</small>
+<div class="course course-record" data-category="{{ course.category }}">
+  <h2 class="content-heading course-heading"><span class="content-meta course-code">{{ course.name }}</span> <span class="course-title">{{ course.title }}</span></h2>
+  <p class="content-meta course-instructor">{{ course.professor }}</p>
+  <p class="content-prose">{{ course.description }}</p>
+  <p class="content-meta course-details"><span class="course-semester">{{ course.semester }}</span> <span class="course-category">({{ course.category }})</span> <span class="course-grade">({{ course.grade }})</span></p>
 </div>
