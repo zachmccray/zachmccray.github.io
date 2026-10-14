@@ -991,49 +991,123 @@ canvas {
    10. Photography masonry and metadata
    ========================================================================== */
 
-/* Column widths respond to available content space, including the sidebar.
- * Metadata flows below images so short photographs, touch and text resizing
- * retain all information; hover/focus only add emphasis. */
+/* Natural-ratio photographs form a dense collage. The single metadata node
+ * stays available to assistive technology and becomes a viewport-contained
+ * overlay on hover, focus or touch hold; it never adds caption rows. */
 .photography-page .masonry-gallery {
-  columns: 233px 3;
-  column-gap: 12px;
+  columns: 170px 4;
+  column-gap: 6px;
 }
-.photography-page .masonry-gallery > a {
-  display: inline-block;
-  width: 100%;
-  margin: 0 0 12px;
+.photography-page .photo-tile {
   break-inside: avoid;
-  color: #222;
+  margin: 0 0 6px;
+}
+.photography-page .photo-tile > a {
+  display: block;
+  color: inherit;
   text-decoration: none;
 }
-.photography-page .masonry-gallery img {
+.photography-page .photo-tile img {
   display: block;
   width: 100%;
   height: auto;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
   background: #f4f4f8;
 }
-.photography-page .photo-info {
-  position: static;
-  padding-top: 8px;
-  overflow-wrap: anywhere;
-}
-.main-content .photography-page .photo-info p {
+.main-content .photography-page p.gallery-hint {
   font-size: 13px;
   line-height: 1.45;
   color: #666;
+  margin: 0 0 12px;
+}
+.photography-page .photo-info {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  box-sizing: border-box;
+  width: 240px;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  overflow-wrap: anywhere;
+  opacity: 0;
+  clip-path: inset(50%);
+  pointer-events: none;
+}
+.photography-page .photo-info.is-visible {
+  opacity: 1;
+  clip-path: none;
+}
+.photography-page .photo-info.is-visible.is-scrollable {
+  pointer-events: auto;
+}
+.photography-page .photo-info:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -3px;
+}
+.main-content .photography-page .photo-info p {
+  font-size: 14px;
+  line-height: 1.45;
+  color: #fff;
   margin: 0 0 2px;
 }
 .main-content .photography-page .photo-info p.photo-title {
   font-size: 16px;
   line-height: 1.4;
   font-weight: 600;
-  color: #222;
+  color: #fff;
   margin-bottom: 4px;
 }
-.photography-page .masonry-gallery > a:hover .photo-title,
-.photography-page .masonry-gallery > a:focus-visible .photo-title {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.photography-page .photo-info p:last-child {
+  margin-bottom: 0;
+}
+/* No-JavaScript fallback: retain image links and keyboard/hover details. */
+.photography-page:not(.has-gallery-controls) .photo-tile:hover .photo-info,
+.photography-page:not(.has-gallery-controls) .photo-tile:focus-within .photo-info {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  clip-path: none;
+}
+.photography-lightbox .gslide-desc p {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0 0 4px;
+}
+.glightbox-container.photography-lightbox .gslide-title,
+.glightbox-container.photography-lightbox .gslide-desc {
+  font-family: 'Inter', sans-serif;
+}
+.glightbox-container.photography-lightbox .gslide-title {
+  font-weight: 600;
+}
+body.glightbox-mobile .glightbox-container.photography-lightbox .gslide-description {
+  background: rgba(0, 0, 0, 0.85);
+}
+.photography-lightbox .gslide-description {
+  max-height: 40vh;
+  max-height: 40dvh;
+  overflow: auto;
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+}
+.photography-lightbox .gslide-description:focus-visible {
+  outline: 3px solid #5540b8;
+  outline-offset: -3px;
+}
+.glightbox-mobile .photography-lightbox .gslide-description:focus-visible {
+  outline-color: #fff;
 }
 .blog-page select:focus-visible,
 .blog-page a:focus-visible,
@@ -1106,7 +1180,7 @@ canvas {
   .travel-page .travel-date,
   .travel-page .travel-actions,
   .main-content .travel-page p.travel-feedback,
-  .main-content .photography-page .photo-info p:not(.photo-title) {
+  .main-content .photography-page p.gallery-hint {
     font-size: 14px;
   }
 }
