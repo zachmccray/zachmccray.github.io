@@ -73,7 +73,7 @@ h6 { font-size: 0.7rem; }
 
 p { font-size: 0.7rem; }
 
-/* Opt-in content roles: homepage and Academics. Keep legacy pages and the
+/* Opt-in content roles: homepage, Academics, and Coursework. Keep legacy pages and the
  * theme root/navigation unchanged. Only heading sizes/colors need !important
  * to override the existing theme heading sizes and global text color rule. */
 .main-content .content-title,
@@ -240,42 +240,39 @@ p { font-size: 0.7rem; }
    3. Coursework
    ========================================================================== */
 
-/* Course block spacing */
-.course {
-  margin-bottom: 1.25rem; /* add consistent spacing between courses */
+.main-content .course-record {
+  margin: 0 0 24px;
 }
 
-/* Course code (e.g., MATH 125) */
-.course h2 {
+.main-content .course-heading {
+  margin: 0 0 4px;
+  scroll-margin-top: 8px;
+}
+
+.main-content .course-heading .course-code {
+  display: block;
+  margin: 0 0 2px;
+  font-weight: 500;
+  letter-spacing: .03em;
+}
+
+.main-content .course-heading .course-title {
+  display: block;
+}
+
+.main-content .course-instructor {
+  margin: 0 0 4px;
+}
+
+.main-content .course-record .content-prose {
+  margin-bottom: 8px;
+}
+
+.main-content .course-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
   margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.2;
-}
-
-/* Course title (e.g., Calculus I) */
-.course h3 {
-  margin: 0.2rem 0 0.5rem 0;
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: 1.3;
-}
-
-/* Instructor line (e.g., DR. LANG) */
-.course h4 {
-  margin: 0.2rem 0 0.5rem 0;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #444;
-  font-weight: 600;
-}
-
-/* Description text */
-.course p {
-  margin: 0.5rem 0 0.5rem 0;
-  font-size: 0.75rem;
-  line-height: 1.4;
-  color: #222;
 }
 
 /* ==========================================================================
