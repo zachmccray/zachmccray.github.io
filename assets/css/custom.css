@@ -82,7 +82,10 @@ p { font-size: 0.7rem; }
 .main-content .content-topic,
 .main-content .post-body h2,
 .main-content .post-body h3,
-.main-content .post-body h4 {
+.main-content .post-body h4,
+.main-content .content-body h2,
+.main-content .content-body h3,
+.main-content .content-body h4 {
   font-weight: 600;
   color: #222 !important;
   letter-spacing: 0;
@@ -114,14 +117,16 @@ p { font-size: 0.7rem; }
 }
 
 .main-content .content-heading,
-.main-content .post-body h2 {
+.main-content .post-body h2,
+.main-content .content-body h2 {
   font-size: 22px !important;
   line-height: 1.3;
   margin: 24px 0 8px;
 }
 
 .main-content .content-subheading,
-.main-content .post-body h3 {
+.main-content .post-body h3,
+.main-content .content-body h3 {
   font-size: 18px !important;
   line-height: 1.35;
   text-transform: none;
@@ -129,12 +134,14 @@ p { font-size: 0.7rem; }
 }
 
 .main-content .content-subheading strong,
-.main-content .post-body h3 strong {
+.main-content .post-body h3 strong,
+.main-content .content-body h3 strong {
   font-weight: inherit;
 }
 
 .main-content .content-topic,
-.main-content .post-body h4 {
+.main-content .post-body h4,
+.main-content .content-body h4 {
   font-size: 16px !important;
   line-height: 1.4;
   text-transform: none;
@@ -159,7 +166,8 @@ p { font-size: 0.7rem; }
   }
 
   .main-content .content-heading,
-  .main-content .post-body h2 {
+  .main-content .post-body h2,
+  .main-content .content-body h2 {
     font-size: 20px !important;
   }
 
@@ -193,6 +201,119 @@ p { font-size: 0.7rem; }
   line-height: inherit;
   margin-top: 0;
   margin-bottom: 12px;
+}
+
+/* Long-form content pages and Travel articles opt into the same content roles. */
+.main-content .content-page-header {
+  margin-bottom: 20px;
+}
+
+.main-content .content-page-header .content-title {
+  margin-bottom: 0;
+}
+
+.main-content .content-page-header .content-meta {
+  margin: 0 0 4px;
+}
+
+.main-content .content-page-header .content-title + .content-meta {
+  margin-top: 8px;
+}
+
+.main-content .content-page-header .content-meta:last-child {
+  margin-bottom: 0;
+}
+
+.main-content .content-body {
+  margin: 0;
+}
+
+.main-content .content-body p {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0 0 12px;
+}
+
+.main-content .content-body ul,
+.main-content .content-body ol,
+.main-content .content-body blockquote {
+  line-height: inherit;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.main-content .content-body li {
+  margin-bottom: 4px;
+}
+
+.main-content .content-body .content-image {
+  margin: 16px auto;
+  padding: 0;
+}
+
+.main-content .content-body .content-image--narrow {
+  max-width: 500px;
+}
+
+.main-content .content-body .content-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.main-content .content-body .image-caption,
+.main-content .content-body .footnote {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #666;
+}
+
+.main-content .content-body .image-caption {
+  margin: 8px 0 0;
+  text-align: left;
+}
+
+.main-content .content-body .image-caption:empty {
+  display: none;
+}
+
+.main-content .content-body .footnotes {
+  margin-top: 24px;
+}
+
+.main-content .content-body .footnotes + .footnotes {
+  margin-top: 8px;
+}
+
+.main-content .content-body .fn-text {
+  line-height: inherit;
+}
+
+.main-content .content-body .fn-num {
+  color: inherit;
+}
+
+.main-content .content-body [id] {
+  scroll-margin-top: 8px;
+}
+
+.main-content .content-body .content-video {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.main-content .content-body .content-video-player {
+  width: 300px;
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .main-content .content-body .image-caption,
+  .main-content .content-body .footnote {
+    font-size: 14px;
+  }
 }
 
 /* ==========================================================================

@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<article class="content-page" aria-label="{{ page.title | escape }}">
+  <header class="content-page-header">
+    <h1 class="content-title">{{ page.title | escape }}</h1>
+    {% if page.legacy_destination %}<p class="content-meta">{{ page.legacy_destination | escape }}</p>{% endif %}
+    {% if page.trip_dates %}<p class="content-meta">{{ page.trip_dates | escape }}</p>{% endif %}
+  </header>
+  <div class="content-body content-prose">{{ content }}</div>
+</article>
