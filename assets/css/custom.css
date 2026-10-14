@@ -73,13 +73,16 @@ h6 { font-size: 0.7rem; }
 
 p { font-size: 0.7rem; }
 
-/* Opt-in content roles: homepage, Academics, and Coursework. Keep legacy pages and the
+/* Opt-in content roles: homepage, Academics, Coursework, and individual posts. Keep legacy pages and the
  * theme root/navigation unchanged. Only heading sizes/colors need !important
  * to override the existing theme heading sizes and global text color rule. */
 .main-content .content-title,
 .main-content .content-heading,
 .main-content .content-subheading,
-.main-content .content-topic {
+.main-content .content-topic,
+.main-content .post-body h2,
+.main-content .post-body h3,
+.main-content .post-body h4 {
   font-weight: 600;
   color: #222 !important;
   letter-spacing: 0;
@@ -110,24 +113,28 @@ p { font-size: 0.7rem; }
   color: #444;
 }
 
-.main-content .content-heading {
+.main-content .content-heading,
+.main-content .post-body h2 {
   font-size: 22px !important;
   line-height: 1.3;
   margin: 24px 0 8px;
 }
 
-.main-content .content-subheading {
+.main-content .content-subheading,
+.main-content .post-body h3 {
   font-size: 18px !important;
   line-height: 1.35;
   text-transform: none;
   margin: 20px 0 8px;
 }
 
-.main-content .content-subheading strong {
+.main-content .content-subheading strong,
+.main-content .post-body h3 strong {
   font-weight: inherit;
 }
 
-.main-content .content-topic {
+.main-content .content-topic,
+.main-content .post-body h4 {
   font-size: 16px !important;
   line-height: 1.4;
   text-transform: none;
@@ -151,13 +158,41 @@ p { font-size: 0.7rem; }
     font-size: 24px !important;
   }
 
-  .main-content .content-heading {
+  .main-content .content-heading,
+  .main-content .post-body h2 {
     font-size: 20px !important;
   }
 
   .main-content .content-meta {
     font-size: 14px;
   }
+}
+
+/* Individual posts opt into shared roles; leave the Blog Timeline unchanged. */
+.main-content .post-header {
+  margin-bottom: 20px;
+}
+.main-content .post-header .content-title {
+  margin-bottom: 8px;
+}
+.main-content .post-header .content-meta {
+  margin: 0;
+}
+.main-content .post-body {
+  margin: 0;
+}
+.main-content .post-body p {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0 0 12px;
+}
+.main-content .post-body ul,
+.main-content .post-body ol,
+.main-content .post-body blockquote {
+  line-height: inherit;
+  margin-top: 0;
+  margin-bottom: 12px;
 }
 
 /* ==========================================================================
