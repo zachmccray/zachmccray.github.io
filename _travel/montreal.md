@@ -2,21 +2,22 @@
 title: "Montréal, QC, CA"
 description: "En route pour Montréal pour voir The Weeknd, bien manger, et passer un bon moment."
 date: 2025-07-23
-layout: default
+layout: content
 image: /assets/images/montreal2025/montreal18.webp
 permalink: /travel/montreal/
+
+trip_dates: "July 23rd – July 27th (2025)"
 ---
 
-<h3> Montréal, QC </h3>
-<p>July 23rd – July 27th (2025)</p>
+<h2 class="content-heading" id="trip-planning" tabindex="-1">Trip Planning</h2>
 
-<div class="volunteer-text" style="margin-bottom: 1rem;">
-<h5>Trip Planning</h5>
+<p>
 Text starts here.
-<br>
-<br>
+</p>
+
+<p>
 Text starts here.
-</div>
+</p>
 
 <div class="image-scroll-hyper" id="carousel-rmwa">
   <div class="image-scroll-track">
@@ -41,35 +42,40 @@ Text starts here.
   </div>
 </div>
 
-<div class="volunteer-text" style="margin-bottom: 1rem;">
-<h5> Joining the Team </h5>
-Text starts here.
-<br>
-<br>
-Text starts here.
-</div>
+<h2 class="content-heading" id="joining-the-team" tabindex="-1">Joining the Team</h2>
 
-<div style="padding: 12px; margin: 0 auto 0.5rem; text-align: center;">
+<p>
+Text starts here.
+</p>
+
+<p>
+Text starts here.
+</p>
+
+<figure class="content-image">
   <a href="/assets/images/dfr.webp" target="_blank">
-    <img src="/assets/images/dfr.webp" alt="University of Kansas" style="width: 100%; display: block;" />
+    <img src="/assets/images/dfr.webp" alt="University of Kansas" />
   </a>
-  <div class="image-caption">The University of Kansas and Jayhawk Boulevard, photographed from above.</div>
-</div>
+  <figcaption class="image-caption">The University of Kansas and Jayhawk Boulevard, photographed from above.</figcaption>
+</figure>
 
-<div class="volunteer-text" style="margin-top: 0rem;">
-<h5> First Year Recap </h5>
+<h2 class="content-heading" id="first-year-recap" tabindex="-1">First Year Recap</h2>
+
+<p>
 Text starts here.
-</div>
+</p>
 
-<h3> Denver Zoo Conservation Alliance </h3>
+<h2 class="content-heading" id="denver-zoo-conservation-alliance" tabindex="-1">Denver Zoo Conservation Alliance</h2>
 
-<div class="volunteer-text" style="margin-bottom: 1rem;">
-<h5>Background</h5>
+<h3 class="content-subheading" id="background" tabindex="-1">Background</h3>
+
+<p>
 Before relocating to Colorado in the latter half of 2024, I wanted to ensure I could continue volunteering closely with animals. I had garnished a bit of experience with Operation Wildlife (OWL) – a wildlife rehabilitation center in Kansas – but was only a volunteer for a brief period of time. Along with OWL, I had experience volunteering at animal shelters, namely Wayside Waifs and Lawrence Humane Society.
-<br>
-<br>
+</p>
+
+<p>
 I discovered Rocky Mountain Wildlife Alliance (RMWA) – a 501(c)(3) nonprofit organization specializing in wildlife rehabilitation – through some Google searching and eventually contacted the organization with an interest in volunteering. I communicated with Cookie Steen, the Volunteer Coordinator at the time, and she graciously expressed her excitement about having me join the team. In May 2024, I officially became a volunteer at Rocky Mountain Wildlife Alliance.
-</div>
+</p>
 
 <div class="image-scroll-hyper" id="carousel-dzca">
   <div class="image-scroll-track">
@@ -103,33 +109,35 @@ I discovered Rocky Mountain Wildlife Alliance (RMWA) – a 501(c)(3) nonprofit o
   </div>
 </div>
 
-<div class="volunteer-text" style="margin-bottom: 1rem;">
-<h5> Joining the Team </h5>
-I trained under Emily Davenport, CWR, RVT – a Licensed Wildlife Rehabilitator – who is also board-certified in Wildlife Rehabilitation by the International Wildlife Rehabilitation Council (IWRC), making her one of just four in the state of Colorado. 
-<br>
-<br>
+<h3 class="content-subheading" id="joining-the-team-2" tabindex="-1">Joining the Team</h3>
+
+<p>
+I trained under Emily Davenport, CWR, RVT – a Licensed Wildlife Rehabilitator – who is also board-certified in Wildlife Rehabilitation by the International Wildlife Rehabilitation Council (IWRC), making her one of just four in the state of Colorado.
+</p>
+
+<p>
 As a volunteer at RMWA, I perform a wide range of tasks, including but not limited to drawing and administering medications and fluids, enriching patient habitats, preparing specifically formulated diets, performing behavioral assessments, sterilizing and sanitizing habitats, equipment, and administrative spaces, partaking in training and developmental opportunities, leading community outreach and educational programs, releasing rehabilitated animals, intaking patients and communicating with the public, and logging patient care information in a patient-record system.
-</div>
+</p>
 
-<div style="padding: 12px; margin: 0 auto 0.5rem; text-align: center;">
+<figure class="content-image">
   <a href="/assets/images/dfr.webp" target="_blank">
-    <img src="/assets/images/dfr.webp" alt="University of Kansas" style="width: 100%; display: block;" />
+    <img src="/assets/images/dfr.webp" alt="University of Kansas" />
   </a>
-  <div class="image-caption">The University of Kansas and Jayhawk Boulevard, photographed from above.</div>
-</div>
+  <figcaption class="image-caption">The University of Kansas and Jayhawk Boulevard, photographed from above.</figcaption>
+</figure>
 
-<h3> Denver Food Rescue </h3>
+<h2 class="content-heading" id="denver-food-rescue" tabindex="-1">Denver Food Rescue</h2>
 
-<div class="volunteer-text">
+<p>
 [Add your experience here. Talk about your role in logistics, deliveries, or food redistribution. Mention the mission and how your work impacts food justice.]
-</div>
+</p>
 
-<div style="padding: 12px; margin: 0 auto 0.5rem; text-align: center;">
+<figure class="content-image">
   <a href="/assets/images/dfr.webp" target="_blank">
-    <img src="/assets/images/dfr.webp" alt="University of Kansas" style="width: 100%; display: block;" />
+    <img src="/assets/images/dfr.webp" alt="University of Kansas" />
   </a>
-  <div class="image-caption">The University of Kansas and Jayhawk Boulevard, photographed from above.</div>
-</div>
+  <figcaption class="image-caption">The University of Kansas and Jayhawk Boulevard, photographed from above.</figcaption>
+</figure>
 
 <div class="quad-image-grid">
   <a href="/assets/images/flamingo.webp" target="_blank">
@@ -166,4 +174,3 @@ As a volunteer at RMWA, I perform a wide range of tasks, including but not limit
 [^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
 
 [Text]: link
-
