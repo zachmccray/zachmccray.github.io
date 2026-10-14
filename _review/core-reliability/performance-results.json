@@ -1,0 +1,909 @@
+{
+  "summary": [
+    {
+      "phase": "before",
+      "cpu": 1,
+      "initial_build_ms": {
+        "median": 51.29999999701977,
+        "range": [
+          38.6000000089407,
+          64.20000000298023
+        ]
+      },
+      "cold_build_ms": {
+        "median": 51.29999999701977,
+        "range": [
+          38.6000000089407,
+          64.20000000298023
+        ]
+      },
+      "session_restore_ms": null,
+      "initial_script_duration_ms": {
+        "median": 60.32,
+        "range": [
+          47.693,
+          78.11
+        ]
+      },
+      "fcp_ms": {
+        "median": 132,
+        "range": [
+          124,
+          176
+        ]
+      },
+      "initial_local_http_encoded_bytes": {
+        "median": 290869,
+        "range": [
+          290869,
+          290869
+        ]
+      },
+      "initial_request_count": {
+        "median": 12,
+        "range": [
+          12,
+          12
+        ]
+      }
+    },
+    {
+      "phase": "after",
+      "cpu": 1,
+      "initial_build_ms": {
+        "median": 0,
+        "range": [
+          0,
+          0
+        ]
+      },
+      "cold_build_ms": {
+        "median": 39.1000000089407,
+        "range": [
+          34,
+          43
+        ]
+      },
+      "session_restore_ms": {
+        "median": 3.8999999910593033,
+        "range": [
+          3.3999999910593033,
+          4.899999991059303
+        ]
+      },
+      "initial_script_duration_ms": {
+        "median": 5.319,
+        "range": [
+          3.967,
+          12.482999999999999
+        ]
+      },
+      "fcp_ms": {
+        "median": 124,
+        "range": [
+          112,
+          140
+        ]
+      },
+      "initial_local_http_encoded_bytes": {
+        "median": 215241,
+        "range": [
+          215241,
+          215241
+        ]
+      },
+      "initial_request_count": {
+        "median": 10,
+        "range": [
+          10,
+          10
+        ]
+      }
+    },
+    {
+      "phase": "before",
+      "cpu": 4,
+      "initial_build_ms": {
+        "median": 183.69999998807907,
+        "range": [
+          142.70000000298023,
+          192.29999999701977
+        ]
+      },
+      "cold_build_ms": {
+        "median": 183.69999998807907,
+        "range": [
+          142.70000000298023,
+          192.29999999701977
+        ]
+      },
+      "session_restore_ms": null,
+      "initial_script_duration_ms": {
+        "median": 217.781,
+        "range": [
+          183.097,
+          234.467
+        ]
+      },
+      "fcp_ms": {
+        "median": 300,
+        "range": [
+          276,
+          356
+        ]
+      },
+      "initial_local_http_encoded_bytes": {
+        "median": 290869,
+        "range": [
+          290869,
+          290869
+        ]
+      },
+      "initial_request_count": {
+        "median": 12,
+        "range": [
+          12,
+          12
+        ]
+      }
+    },
+    {
+      "phase": "after",
+      "cpu": 4,
+      "initial_build_ms": {
+        "median": 0,
+        "range": [
+          0,
+          0
+        ]
+      },
+      "cold_build_ms": {
+        "median": 178.6000000089407,
+        "range": [
+          148.40000000596046,
+          205.79999999701977
+        ]
+      },
+      "session_restore_ms": {
+        "median": 20.5,
+        "range": [
+          18.200000002980232,
+          25.900000005960464
+        ]
+      },
+      "initial_script_duration_ms": {
+        "median": 19.616999999999997,
+        "range": [
+          14.553,
+          27.276000000000003
+        ]
+      },
+      "fcp_ms": {
+        "median": 244,
+        "range": [
+          224,
+          316
+        ]
+      },
+      "initial_local_http_encoded_bytes": {
+        "median": 215241,
+        "range": [
+          215241,
+          215241
+        ]
+      },
+      "initial_request_count": {
+        "median": 10,
+        "range": [
+          10,
+          10
+        ]
+      }
+    }
+  ],
+  "runs": [
+    {
+      "phase": "before",
+      "cpu": 1,
+      "sample": 0,
+      "initial_build_ms": 53.599999994039536,
+      "cold_build_ms": 53.599999994039536,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 60.086,
+      "fcp_ms": 176,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "after",
+      "cpu": 1,
+      "sample": 0,
+      "initial_build_ms": 0,
+      "cold_build_ms": 34,
+      "session_restore_ms": 3.3999999910593033,
+      "initial_script_duration_ms": 3.967,
+      "fcp_ms": 120,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "after",
+      "cpu": 1,
+      "sample": 1,
+      "initial_build_ms": 0,
+      "cold_build_ms": 42,
+      "session_restore_ms": 3.8999999910593033,
+      "initial_script_duration_ms": 12.482999999999999,
+      "fcp_ms": 124,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "before",
+      "cpu": 1,
+      "sample": 1,
+      "initial_build_ms": 51.5,
+      "cold_build_ms": 51.5,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 60.32,
+      "fcp_ms": 152,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "before",
+      "cpu": 1,
+      "sample": 2,
+      "initial_build_ms": 50.900000005960464,
+      "cold_build_ms": 50.900000005960464,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 63.641000000000005,
+      "fcp_ms": 132,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "after",
+      "cpu": 1,
+      "sample": 2,
+      "initial_build_ms": 0,
+      "cold_build_ms": 36.1000000089407,
+      "session_restore_ms": 4.899999991059303,
+      "initial_script_duration_ms": 8.378,
+      "fcp_ms": 124,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "after",
+      "cpu": 1,
+      "sample": 3,
+      "initial_build_ms": 0,
+      "cold_build_ms": 40.70000000298023,
+      "session_restore_ms": 3.5999999940395355,
+      "initial_script_duration_ms": 7.821,
+      "fcp_ms": 124,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "before",
+      "cpu": 1,
+      "sample": 3,
+      "initial_build_ms": 45.1000000089407,
+      "cold_build_ms": 45.1000000089407,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 54.564,
+      "fcp_ms": 124,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "before",
+      "cpu": 1,
+      "sample": 4,
+      "initial_build_ms": 38.6000000089407,
+      "cold_build_ms": 38.6000000089407,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 47.693,
+      "fcp_ms": 136,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "after",
+      "cpu": 1,
+      "sample": 4,
+      "initial_build_ms": 0,
+      "cold_build_ms": 38.79999999701977,
+      "session_restore_ms": 3.5,
+      "initial_script_duration_ms": 4.577999999999999,
+      "fcp_ms": 140,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "after",
+      "cpu": 1,
+      "sample": 5,
+      "initial_build_ms": 0,
+      "cold_build_ms": 43,
+      "session_restore_ms": 4.100000008940697,
+      "initial_script_duration_ms": 4.819999999999999,
+      "fcp_ms": 116,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "before",
+      "cpu": 1,
+      "sample": 5,
+      "initial_build_ms": 51.29999999701977,
+      "cold_build_ms": 51.29999999701977,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 66.26899999999999,
+      "fcp_ms": 124,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "before",
+      "cpu": 1,
+      "sample": 6,
+      "initial_build_ms": 64.20000000298023,
+      "cold_build_ms": 64.20000000298023,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 78.11,
+      "fcp_ms": 132,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "after",
+      "cpu": 1,
+      "sample": 6,
+      "initial_build_ms": 0,
+      "cold_build_ms": 39.1000000089407,
+      "session_restore_ms": 3.9000000059604645,
+      "initial_script_duration_ms": 5.319,
+      "fcp_ms": 112,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "before",
+      "cpu": 4,
+      "sample": 0,
+      "initial_build_ms": 183.69999998807907,
+      "cold_build_ms": 183.69999998807907,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 206.75199999999998,
+      "fcp_ms": 308,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "after",
+      "cpu": 4,
+      "sample": 0,
+      "initial_build_ms": 0,
+      "cold_build_ms": 177.8999999910593,
+      "session_restore_ms": 18.200000002980232,
+      "initial_script_duration_ms": 14.553,
+      "fcp_ms": 224,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "after",
+      "cpu": 4,
+      "sample": 1,
+      "initial_build_ms": 0,
+      "cold_build_ms": 188.69999998807907,
+      "session_restore_ms": 22.400000005960464,
+      "initial_script_duration_ms": 26.889,
+      "fcp_ms": 252,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "before",
+      "cpu": 4,
+      "sample": 1,
+      "initial_build_ms": 191.79999999701977,
+      "cold_build_ms": 191.79999999701977,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 224.417,
+      "fcp_ms": 276,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "before",
+      "cpu": 4,
+      "sample": 2,
+      "initial_build_ms": 192.29999999701977,
+      "cold_build_ms": 192.29999999701977,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 234.467,
+      "fcp_ms": 356,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "after",
+      "cpu": 4,
+      "sample": 2,
+      "initial_build_ms": 0,
+      "cold_build_ms": 148.40000000596046,
+      "session_restore_ms": 22.899999991059303,
+      "initial_script_duration_ms": 27.276000000000003,
+      "fcp_ms": 288,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "after",
+      "cpu": 4,
+      "sample": 3,
+      "initial_build_ms": 0,
+      "cold_build_ms": 199,
+      "session_restore_ms": 20.5,
+      "initial_script_duration_ms": 23.817999999999998,
+      "fcp_ms": 244,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "before",
+      "cpu": 4,
+      "sample": 3,
+      "initial_build_ms": 142.70000000298023,
+      "cold_build_ms": 142.70000000298023,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 183.097,
+      "fcp_ms": 300,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "before",
+      "cpu": 4,
+      "sample": 4,
+      "initial_build_ms": 159.20000000298023,
+      "cold_build_ms": 159.20000000298023,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 194.468,
+      "fcp_ms": 276,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "after",
+      "cpu": 4,
+      "sample": 4,
+      "initial_build_ms": 0,
+      "cold_build_ms": 153.79999999701977,
+      "session_restore_ms": 19.19999998807907,
+      "initial_script_duration_ms": 18.808,
+      "fcp_ms": 232,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "after",
+      "cpu": 4,
+      "sample": 5,
+      "initial_build_ms": 0,
+      "cold_build_ms": 205.79999999701977,
+      "session_restore_ms": 25.900000005960464,
+      "initial_script_duration_ms": 18.66,
+      "fcp_ms": 316,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    },
+    {
+      "phase": "before",
+      "cpu": 4,
+      "sample": 5,
+      "initial_build_ms": 173.20000000298023,
+      "cold_build_ms": 173.20000000298023,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 217.781,
+      "fcp_ms": 300,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "before",
+      "cpu": 4,
+      "sample": 6,
+      "initial_build_ms": 188.59999999403954,
+      "cold_build_ms": 188.59999999403954,
+      "session_restore_ms": null,
+      "initial_script_duration_ms": 218.329,
+      "fcp_ms": 328,
+      "initial_requests": [
+        "http://127.0.0.1:39381/",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:39381/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:39381/assets/js/vendor/lunr.min.js",
+        "http://127.0.0.1:39381/assets/js/just-the-docs.js",
+        "http://127.0.0.1:39381/assets/css/custom.css",
+        "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
+        "http://127.0.0.1:39381/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:39381/__fixture-font.ttf",
+        "http://127.0.0.1:39381/assets/js/search-data.json"
+      ],
+      "initial_local_http_encoded_bytes": 290869,
+      "initial_request_count": 12
+    },
+    {
+      "phase": "after",
+      "cpu": 4,
+      "sample": 6,
+      "initial_build_ms": 0,
+      "cold_build_ms": 178.6000000089407,
+      "session_restore_ms": 18.5,
+      "initial_script_duration_ms": 19.616999999999997,
+      "fcp_ms": 236,
+      "initial_requests": [
+        "http://127.0.0.1:33639/",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-default.css",
+        "http://127.0.0.1:33639/assets/css/just-the-docs-head-nav.css",
+        "http://127.0.0.1:33639/assets/css/custom.css",
+        "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+        "http://127.0.0.1:33639/assets/js/search.js",
+        "http://127.0.0.1:33639/assets/js/just-the-docs.js",
+        "http://127.0.0.1:33639/assets/js/site-ui.js",
+        "https://www.googletagmanager.com/gtag/js?id=G-TSDBFX61YZ",
+        "http://127.0.0.1:33639/__fixture-font.ttf"
+      ],
+      "initial_local_http_encoded_bytes": 215241,
+      "initial_request_count": 10
+    }
+  ],
+  "method": "Seven fresh Chromium contexts per phase/rate; alternating order. Actual built theme/Lunr/native search JSON from uncompressed local HTTP. Transparent Proxy times native construction and Index.load calls. CDP encodedDataLength measures local HTTP traffic including headers, excluding synthetic font/media. Third-party SDKs/analytics blocked; optional cached real Inter TTF/Font Awesome CSS are controlled fixtures. No production Web Vitals, real CDN font-byte claims, or global runtime patches shipped.",
+  "fixtures": "/workspace/review/visual-consistency/responsive-audit/fixtures",
+  "browser": "154.0.8037.57"
+}

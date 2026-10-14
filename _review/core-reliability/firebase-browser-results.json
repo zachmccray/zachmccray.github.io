@@ -1,0 +1,2231 @@
+{
+  "passed": 75,
+  "checks": [
+    {
+      "check": "provided-before: nine original Travel IDs",
+      "passed": true
+    },
+    {
+      "check": "390: actual PR19 UI reproduces transaction failure",
+      "passed": true
+    },
+    {
+      "check": "390: rejected transaction preserves seeded data",
+      "passed": true
+    },
+    {
+      "check": "provided-before: nine original Travel IDs",
+      "passed": true
+    },
+    {
+      "check": "1440: actual PR19 UI reproduces transaction failure",
+      "passed": true
+    },
+    {
+      "check": "1440: rejected transaction preserves seeded data",
+      "passed": true
+    },
+    {
+      "check": "private-atomic-after: nine original Travel IDs",
+      "passed": true
+    },
+    {
+      "check": "390: anonymous sign-in is invisible",
+      "passed": true
+    },
+    {
+      "check": "390/travel-southwestroadtrip2026: one-click like",
+      "passed": true
+    },
+    {
+      "check": "390/travel-southwestroadtrip2026: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "390/travel-southwestroadtrip2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-cancun2026: one-click like",
+      "passed": true
+    },
+    {
+      "check": "390/travel-cancun2026: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "390/travel-cancun2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-saltlakecity2026: one-click like",
+      "passed": true
+    },
+    {
+      "check": "390/travel-saltlakecity2026: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "390/travel-saltlakecity2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-japan: one-click like",
+      "passed": true
+    },
+    {
+      "check": "390/travel-japan: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "390/travel-japan: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-roadtrip: one-click like",
+      "passed": true
+    },
+    {
+      "check": "390/travel-roadtrip: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "390/travel-roadtrip: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-coloradonp: one-click like",
+      "passed": true
+    },
+    {
+      "check": "390/travel-coloradonp: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "390/travel-coloradonp: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-montreal: one-click like",
+      "passed": true
+    },
+    {
+      "check": "390/travel-montreal: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "390/travel-montreal: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-oregon: one-click like",
+      "passed": true
+    },
+    {
+      "check": "390/travel-oregon: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "390/travel-oregon: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-washington: one-click like",
+      "passed": true
+    },
+    {
+      "check": "390/travel-washington: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "390/travel-washington: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390: original counts and user markers retained",
+      "passed": true
+    },
+    {
+      "check": "390: automatic anonymous identity persists",
+      "passed": true
+    },
+    {
+      "check": "390: actual atomic share increment/marker",
+      "passed": true
+    },
+    {
+      "check": "390: clipboard survives analytics denial",
+      "passed": true
+    },
+    {
+      "check": "private-atomic-after: nine original Travel IDs",
+      "passed": true
+    },
+    {
+      "check": "1440: anonymous sign-in is invisible",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-southwestroadtrip2026: one-click like",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-southwestroadtrip2026: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-southwestroadtrip2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-cancun2026: one-click like",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-cancun2026: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-cancun2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-saltlakecity2026: one-click like",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-saltlakecity2026: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-saltlakecity2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-japan: one-click like",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-japan: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-japan: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-roadtrip: one-click like",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-roadtrip: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-roadtrip: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-coloradonp: one-click like",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-coloradonp: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-coloradonp: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-montreal: one-click like",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-montreal: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-montreal: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-oregon: one-click like",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-oregon: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-oregon: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-washington: one-click like",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-washington: one-click unlike",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-washington: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440: original counts and user markers retained",
+      "passed": true
+    },
+    {
+      "check": "1440: automatic anonymous identity persists",
+      "passed": true
+    },
+    {
+      "check": "1440: actual atomic share increment/marker",
+      "passed": true
+    },
+    {
+      "check": "1440: clipboard survives analytics denial",
+      "passed": true
+    },
+    {
+      "check": "Real SDK records denied parent transaction",
+      "passed": true
+    },
+    {
+      "check": "Real SDK reads only count or own user/receipt paths",
+      "passed": true
+    },
+    {
+      "check": "No browser exceptions",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-japan/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-japan/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-montreal/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-montreal/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-oregon/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-oregon/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-washington/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-washington/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-cancun2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-japan/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-roadtrip/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-coloradonp/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-montreal/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-oregon/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-washington/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "p",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "p",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-japan/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-japan/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-montreal/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-montreal/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-oregon/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-oregon/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-washington/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-washington/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-cancun2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-japan/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-roadtrip/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-coloradonp/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-montreal/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-oregon/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-washington/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "p",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "p",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-japan/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-montreal/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-oregon/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-washington/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-japan/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-montreal/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-oregon/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-washington/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/shares/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/shares/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/shares/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-japan/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-montreal/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-oregon/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-washington/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-cancun2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-saltlakecity2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-japan"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-roadtrip"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-coloradonp"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-montreal"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-oregon"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/likes/travel-washington"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-japan/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/receipts/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/likes/travel-washington/users/<emulator-own-uid>"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-japan/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-montreal/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-oregon/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "q",
+      "path": "/shares/travel-washington/count"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/shares/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/shares/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-atomic-after",
+      "action": "m",
+      "path": "/shares/travel-southwestroadtrip2026"
+    }
+  ],
+  "expected_permission_warnings": [
+    {
+      "phase": "provided-before",
+      "type": "warning",
+      "text": "[2026-10-14T23:24:46.523Z]  @firebase/database: FIREBASE WARNING: transaction at /likes/travel-southwestroadtrip2026 failed: permission_denied "
+    },
+    {
+      "phase": "provided-before",
+      "type": "warning",
+      "text": "[2026-10-14T23:24:47.652Z]  @firebase/database: FIREBASE WARNING: transaction at /likes/travel-southwestroadtrip2026 failed: permission_denied "
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "[2026-10-14T23:24:50.181Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-southwestroadtrip2026 failed: permission_denied "
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "[2026-10-14T23:24:50.183Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-southwestroadtrip2026 failed: permission_denied "
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: share-count-update, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: like-count-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: own-like-receipt-read, code: PERMISSION_DENIED}"
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "[2026-10-14T23:24:52.681Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-southwestroadtrip2026 failed: permission_denied "
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "[2026-10-14T23:24:52.682Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-southwestroadtrip2026 failed: permission_denied "
+    },
+    {
+      "phase": "private-atomic-after",
+      "type": "warning",
+      "text": "Travel Firebase operation unavailable {stage: share-count-update, code: PERMISSION_DENIED}"
+    }
+  ],
+  "errors": [],
+  "method": "Actual served Travel UI and Firebase 9.22.1 SDK; real local RTDB enforcement; real automatic Anonymous Authentication uses the Auth emulator; no credentials or login UI. No production traffic."
+}

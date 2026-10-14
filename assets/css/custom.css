@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* Site styles. Component sections retain their existing selectors and values.
  * Global overrides precede components; shared blog image rules precede timeline
@@ -1431,6 +1430,7 @@ a.skip-to-main:focus {
 .site-footer a[href]:focus-visible,
 .aux-nav a[href]:focus-visible,
 #menu-button:focus-visible,
+.search-retry:focus-visible,
 #search-input:focus-visible,
 .image-scroll-hyper:focus-visible {
   outline: 3px solid #5540b8;
@@ -1507,4 +1507,36 @@ a.skip-to-main:focus {
   .site-ui-ready .search-input-wrap {
     transition: none;
   }
+}
+
+/* Search lifecycle feedback uses the existing dropdown and approved typography. */
+.site-ui-ready .search-status {
+  margin: 0;
+  padding: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+.site-ui-ready .search-retry {
+  min-height: 44px;
+  margin: 0 12px 12px;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #5c5962;
+  background: #f5f6fa;
+  border: 1px solid #d6d4db;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.search-announcement {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.travel-card .like-button:disabled[aria-busy="false"] {
+  cursor: not-allowed;
 }

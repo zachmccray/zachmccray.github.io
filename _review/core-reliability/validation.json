@@ -1,0 +1,1711 @@
+{
+  "baseline": "19973eba63d6281712f1cd300d76e172c55f4827",
+  "production_files_sha256": {
+    "_config.yml": "a1ca69e3e350dfb578b32e2f855c9a80ee602e1ce6886a6b7a7b17b0b7eca143",
+    "_includes/head.html": "87b2eff6f7fbac01be31f87151a99f204fea768eeb02081a26aa50b554a3dbeb",
+    "_includes/head_custom.html": "51cb3c32717d74c9a64c241d33a90a03c6c7072f1ade91de9fbc4e8a9900a282",
+    "assets/css/custom.css": "24961e634ca799cc22c417ae94e654bbca12bb502feaa170a1f22ccbfcf6e168",
+    "assets/js/just-the-docs.js": "7d7a7fe077cf5300943a9d0c7a7f9b292f2c2074313e42992b908e58a8484050",
+    "assets/js/search.js": "449c5051ee85fa3e9a29ad86264cb4de25a5b1b2742693c94a5e24c01769a20b",
+    "assets/js/site-ui.js": "f4f116d6297f0e98dfef619858e0114f45ab4f17070a271117637b83e61c68f0",
+    "assets/js/travel.js": "bd584bf25d8a3180dd67d1d281fa314868bfd8df8a2bb2372a70fb0e85a6d78c",
+    "photography.md": "939f8e98400a7af549c9a6378a9c8fc631b42fc3b7629f09bfe0e8e19963ed8e"
+  },
+  "builds": "Production and localhost successful; pre-existing upstream Sass deprecation warnings",
+  "firebase": {
+    "mutations_enabled": true,
+    "production_activation_pending": true,
+    "production_rules": "_firebase/database.rules.json",
+    "maintenance_rules": "_firebase/maintenance.rules.json",
+    "deployed_rules_verified": false,
+    "production_write_tests": false,
+    "rules_deployed": false,
+    "billing_changed": false,
+    "sdk_version": "9.22.1",
+    "emulator_version": "4.11.2",
+    "enforced_scenarios": 17,
+    "browser_checks": 75,
+    "transport_checks": 18,
+    "isolated_scenarios": 11,
+    "authentication": "actual SDK Anonymous Authentication against Auth emulator; persists UID automatically without login UI",
+    "transport": "actual WebSocket success ACK dropped, connection closed, SDK resend/proof ACK observed, opposite intent in another tab retained",
+    "privacy": "only public numeric counts and own marker/receipt reads; published fixture paths anonymized",
+    "history": "numeric offsets retained, underflow/malformed/missing historical counters fail without repair; phantom contribution attribution cannot be established",
+    "runtime_production_changes": [
+      "assets/js/travel.js",
+      "_includes/head_custom.html: Travel script cache version only"
+    ]
+  },
+  "routes": [
+    "2024/08/09/colorado-move.html",
+    "2024/08/24/alvvays-concert.html",
+    "2024/09/14/austin-texas.html",
+    "2024/09/18/washington.html",
+    "2024/09/25/broadway-start.html",
+    "2024/09/28/rmwa-fire-dept-event.html",
+    "2024/09/28/rockies-dodgers.html",
+    "2024/10/03/luna-li-concert.html",
+    "2024/10/04/oregon.html",
+    "2024/10/08/zolita-concert.html",
+    "2024/10/16/porter-robinson-concert.html",
+    "2024/10/21/nothing-but-thieves-concert.html",
+    "2024/10/24/anderson-farms.html",
+    "2024/10/31/halloween-bar-crawl.html",
+    "2024/11/01/sabrina-carpenter-concert.html",
+    "2024/11/04/nuggets.html",
+    "2024/12/02/avatar-concert.html",
+    "2024/12/09/coors-tour.html",
+    "2024/12/17/funny-girl-musical.html",
+    "2024/12/20/kansas-city-christmas.html",
+    "2025/01/05/harry-potter-concert.html",
+    "2025/01/15/casa-bonita.html",
+    "2025/01/27/limperatrice-concert.html",
+    "2025/01/29/back-to-the-future-musical.html",
+    "2025/02/11/tyler-the-creator-concert.html",
+    "2025/02/16/barr-lake-state-park.html",
+    "2025/02/24/cu-boulder-basketball.html",
+    "2025/03/05/gutenberg-musical.html",
+    "2025/03/15/wizards-nuggets.html",
+    "2025/03/26/life-of-pi-musical.html",
+    "2025/03/29/steamboat-springs-ski.html",
+    "2025/04/02/spurs-nuggets.html",
+    "2025/04/05/winter-park-ski.html",
+    "2025/04/16/the-wiz.html",
+    "2025/05/03/first-rmwa-open-house.html",
+    "2025/05/03/nuggets-clippers.html",
+    "2025/05/10/book-of-mormon-musical.html",
+    "2025/05/24/aidan-wedding.html",
+    "2025/05/26/camping.html",
+    "2025/06/10/coldplay-concert.html",
+    "2025/06/12/and-juliet-musical.html",
+    "2025/06/14/rmwa-civic-park-event.html",
+    "2025/06/16/sand-volleyball.html",
+    "2025/06/21/lake-trip.html",
+    "2025/06/29/denver-pride-parade.html",
+    "2025/07/18/kansas-city-surprise.html",
+    "2025/07/21/fort-collins-rodeo.html",
+    "2025/07/23/montreal-quebec.html",
+    "2025/08/03/colorado-springs-pt1.html",
+    "2025/08/09/savannah-bananas.html",
+    "2025/08/15/colorado-np-roadtrip.html",
+    "2025/08/20/dodgers-rockies.html",
+    "2025/09/05/national-park-roadtrip-west.html",
+    "2025/10/07/japan.html",
+    "2025/10/19/shucked-musical.html",
+    "2025/11/01/spooky-xv-performance.html",
+    "2025/11/13/andrew-bird-colorado-symphony.html",
+    "2025/11/14/minneapolis.html",
+    "2025/11/16/lamp-2025.html",
+    "2025/12/01/nuggets-halftime.html",
+    "2025/12/12/christmas-caroling.html",
+    "2025/12/18/musical-the-notebook.html",
+    "2025/12/24/christmas-2025.html",
+    "2026/01/16/mhfb-concert-phoenix-rising.html",
+    "academics.html",
+    "blog.html",
+    "courses.html",
+    "hobbies.html",
+    "index.html",
+    "media.html",
+    "photography.html",
+    "travel.html",
+    "travel/cancun2026/index.html",
+    "travel/coloradonp/index.html",
+    "travel/japan/index.html",
+    "travel/montreal/index.html",
+    "travel/oregon/index.html",
+    "travel/roadtrip/index.html",
+    "travel/saltlakecity2026/index.html",
+    "travel/southwestroadtrip2026/index.html",
+    "travel/washington/index.html",
+    "volunteering.html"
+  ],
+  "course_queries": [
+    {
+      "query": "EECS 101",
+      "kind": "code",
+      "href": "/courses.html#course-eecs101",
+      "rank": 1
+    },
+    {
+      "query": "New Student Seminar",
+      "kind": "title",
+      "href": "/courses.html#course-eecs101",
+      "rank": 1
+    },
+    {
+      "query": "extracurricular",
+      "kind": "description",
+      "href": "/courses.html#course-eecs101",
+      "rank": 1
+    },
+    {
+      "query": "ECON 144",
+      "kind": "code",
+      "href": "/courses.html#course-econ144",
+      "rank": 1
+    },
+    {
+      "query": "Principles of Macroeconomics",
+      "kind": "title",
+      "href": "/courses.html#course-econ144",
+      "rank": 1
+    },
+    {
+      "query": "determination",
+      "kind": "description",
+      "href": "/courses.html#course-econ144",
+      "rank": 3
+    },
+    {
+      "query": "COMS 130",
+      "kind": "code",
+      "href": "/courses.html#course-coms130",
+      "rank": 1
+    },
+    {
+      "query": "Speaker-Audience Communication - Public Speaking",
+      "kind": "title",
+      "href": "/courses.html#course-coms130",
+      "rank": 1
+    },
+    {
+      "query": "presentations",
+      "kind": "description",
+      "href": "/courses.html#course-coms130",
+      "rank": 2
+    },
+    {
+      "query": "MATH 125",
+      "kind": "code",
+      "href": "/courses.html#course-math125",
+      "rank": 1
+    },
+    {
+      "query": "Calculus I",
+      "kind": "title",
+      "href": "/courses.html#course-math125",
+      "rank": 1
+    },
+    {
+      "query": "antiderivatives",
+      "kind": "description",
+      "href": "/courses.html#course-math125",
+      "rank": 1
+    },
+    {
+      "query": "EECS 168",
+      "kind": "code",
+      "href": "/courses.html#course-eecs168",
+      "rank": 1
+    },
+    {
+      "query": "Programming I",
+      "kind": "title",
+      "href": "/courses.html#course-eecs168",
+      "rank": 1
+    },
+    {
+      "query": "searching",
+      "kind": "description",
+      "href": "/courses.html#course-eecs168",
+      "rank": 2
+    },
+    {
+      "query": "PHSX 210",
+      "kind": "code",
+      "href": "/courses.html#course-phsx210",
+      "rank": 1
+    },
+    {
+      "query": "General Physics I for Engineers",
+      "kind": "title",
+      "href": "/courses.html#course-phsx210",
+      "rank": 1
+    },
+    {
+      "query": "requirements",
+      "kind": "description",
+      "href": "/courses.html#course-phsx210",
+      "rank": 1
+    },
+    {
+      "query": "PHIL 148",
+      "kind": "code",
+      "href": "/courses.html#course-phil148",
+      "rank": 1
+    },
+    {
+      "query": "Reason and Argument",
+      "kind": "title",
+      "href": "/courses.html#course-phil148",
+      "rank": 1
+    },
+    {
+      "query": "appraisal",
+      "kind": "description",
+      "href": "/courses.html#course-phil148",
+      "rank": 1
+    },
+    {
+      "query": "MATH 146",
+      "kind": "code",
+      "href": "/courses.html#course-math146",
+      "rank": 1
+    },
+    {
+      "query": "Calculus II, Honors",
+      "kind": "title",
+      "href": "/courses.html#course-math146",
+      "rank": 1
+    },
+    {
+      "query": "coordinates",
+      "kind": "description",
+      "href": "/courses.html#course-math146",
+      "rank": 1
+    },
+    {
+      "query": "EECS 140",
+      "kind": "code",
+      "href": "/courses.html#course-eecs140",
+      "rank": 1
+    },
+    {
+      "query": "Introduction to Digital Logic Design",
+      "kind": "title",
+      "href": "/courses.html#course-eecs140",
+      "rank": 1
+    },
+    {
+      "query": "representation",
+      "kind": "description",
+      "href": "/courses.html#course-eecs140",
+      "rank": 1
+    },
+    {
+      "query": "POLS 170",
+      "kind": "code",
+      "href": "/courses.html#course-pols170",
+      "rank": 1
+    },
+    {
+      "query": "Introduction to International Politics",
+      "kind": "title",
+      "href": "/courses.html#course-pols170",
+      "rank": 1
+    },
+    {
+      "query": "contemporary",
+      "kind": "description",
+      "href": "/courses.html#course-pols170",
+      "rank": 1
+    },
+    {
+      "query": "PHSX 236",
+      "kind": "code",
+      "href": "/courses.html#course-phsx236",
+      "rank": 1
+    },
+    {
+      "query": "General Physics II Laboratory",
+      "kind": "title",
+      "href": "/courses.html#course-phsx236",
+      "rank": 1
+    },
+    {
+      "query": "reduction",
+      "kind": "description",
+      "href": "/courses.html#course-phsx236",
+      "rank": 1
+    },
+    {
+      "query": "PHSX 216",
+      "kind": "code",
+      "href": "/courses.html#course-phsx216",
+      "rank": 1
+    },
+    {
+      "query": "General Physics I Laboratory",
+      "kind": "title",
+      "href": "/courses.html#course-phsx216",
+      "rank": 1
+    },
+    {
+      "query": "presenting",
+      "kind": "description",
+      "href": "/courses.html#course-phsx216",
+      "rank": 1
+    },
+    {
+      "query": "PHSX 212",
+      "kind": "code",
+      "href": "/courses.html#course-phsx212",
+      "rank": 1
+    },
+    {
+      "query": "General Physics II",
+      "kind": "title",
+      "href": "/courses.html#course-phsx212",
+      "rank": 1
+    },
+    {
+      "query": "electricity",
+      "kind": "description",
+      "href": "/courses.html#course-phsx212",
+      "rank": 1
+    },
+    {
+      "query": "MATH 290",
+      "kind": "code",
+      "href": "/courses.html#course-math290",
+      "rank": 1
+    },
+    {
+      "query": "Elementary Linear Algebra",
+      "kind": "title",
+      "href": "/courses.html#course-math290",
+      "rank": 1
+    },
+    {
+      "query": "equations",
+      "kind": "description",
+      "href": "/courses.html#course-math290",
+      "rank": 1
+    },
+    {
+      "query": "MATH 127",
+      "kind": "code",
+      "href": "/courses.html#course-math127",
+      "rank": 1
+    },
+    {
+      "query": "Calculus III",
+      "kind": "title",
+      "href": "/courses.html#course-math127",
+      "rank": 1
+    },
+    {
+      "query": "multivariable",
+      "kind": "description",
+      "href": "/courses.html#course-math127",
+      "rank": 1
+    },
+    {
+      "query": "EECS 268",
+      "kind": "code",
+      "href": "/courses.html#course-eecs268",
+      "rank": 1
+    },
+    {
+      "query": "Programming II",
+      "kind": "title",
+      "href": "/courses.html#course-eecs268",
+      "rank": 1
+    },
+    {
+      "query": "efficiency",
+      "kind": "description",
+      "href": "/courses.html#course-eecs268",
+      "rank": 1
+    },
+    {
+      "query": "ECON 522",
+      "kind": "code",
+      "href": "/courses.html#course-econ522",
+      "rank": 1
+    },
+    {
+      "query": "Macroeconomics",
+      "kind": "title",
+      "href": "/courses.html#course-econ522",
+      "rank": 1
+    },
+    {
+      "query": "utilization",
+      "kind": "description",
+      "href": "/courses.html#course-econ522",
+      "rank": 1
+    },
+    {
+      "query": "ECON 142",
+      "kind": "code",
+      "href": "/courses.html#course-econ142",
+      "rank": 1
+    },
+    {
+      "query": "Principles of Microeconomics",
+      "kind": "title",
+      "href": "/courses.html#course-econ142",
+      "rank": 1
+    },
+    {
+      "query": "government",
+      "kind": "description",
+      "href": "/courses.html#course-econ142",
+      "rank": 1
+    },
+    {
+      "query": "MATH 590",
+      "kind": "code",
+      "href": "/courses.html#course-math590",
+      "rank": 1
+    },
+    {
+      "query": "Linear Algebra",
+      "kind": "title",
+      "href": "/courses.html#course-math590",
+      "rank": 1
+    },
+    {
+      "query": "determinants",
+      "kind": "description",
+      "href": "/courses.html#course-math590",
+      "rank": 2
+    },
+    {
+      "query": "EECS 388",
+      "kind": "code",
+      "href": "/courses.html#course-eecs388",
+      "rank": 1
+    },
+    {
+      "query": "Embedded Systems",
+      "kind": "title",
+      "href": "/courses.html#course-eecs388",
+      "rank": 1
+    },
+    {
+      "query": "microcontrollers",
+      "kind": "description",
+      "href": "/courses.html#course-eecs388",
+      "rank": 1
+    },
+    {
+      "query": "EECS 368",
+      "kind": "code",
+      "href": "/courses.html#course-eecs368",
+      "rank": 1
+    },
+    {
+      "query": "Programming Language Paradigms",
+      "kind": "title",
+      "href": "/courses.html#course-eecs368",
+      "rank": 1
+    },
+    {
+      "query": "disadvantages",
+      "kind": "description",
+      "href": "/courses.html#course-eecs368",
+      "rank": 1
+    },
+    {
+      "query": "EECS 210",
+      "kind": "code",
+      "href": "/courses.html#course-eecs210",
+      "rank": 1
+    },
+    {
+      "query": "Discrete Structures",
+      "kind": "title",
+      "href": "/courses.html#course-eecs210",
+      "rank": 1
+    },
+    {
+      "query": "combinatorics",
+      "kind": "description",
+      "href": "/courses.html#course-eecs210",
+      "rank": 1
+    },
+    {
+      "query": "MATH 526",
+      "kind": "code",
+      "href": "/courses.html#course-math526",
+      "rank": 1
+    },
+    {
+      "query": "Applied Mathematical Statistics I",
+      "kind": "title",
+      "href": "/courses.html#course-math526",
+      "rank": 1
+    },
+    {
+      "query": "illustrations",
+      "kind": "description",
+      "href": "/courses.html#course-math526",
+      "rank": 1
+    },
+    {
+      "query": "EECS 510",
+      "kind": "code",
+      "href": "/courses.html#course-eecs510",
+      "rank": 1
+    },
+    {
+      "query": "Introduction to the Theory of Computing",
+      "kind": "title",
+      "href": "/courses.html#course-eecs510",
+      "rank": 1
+    },
+    {
+      "query": "computability",
+      "kind": "description",
+      "href": "/courses.html#course-eecs510",
+      "rank": 3
+    },
+    {
+      "query": "EECS 448",
+      "kind": "code",
+      "href": "/courses.html#course-eecs448",
+      "rank": 1
+    },
+    {
+      "query": "Software Engineering I",
+      "kind": "title",
+      "href": "/courses.html#course-eecs448",
+      "rank": 1
+    },
+    {
+      "query": "incorporates",
+      "kind": "description",
+      "href": "/courses.html#course-eecs448",
+      "rank": 1
+    },
+    {
+      "query": "ECON 520",
+      "kind": "code",
+      "href": "/courses.html#course-econ520",
+      "rank": 1
+    },
+    {
+      "query": "Microeconomics",
+      "kind": "title",
+      "href": "/courses.html#course-econ520",
+      "rank": 1
+    },
+    {
+      "query": "welfare",
+      "kind": "description",
+      "href": "/courses.html#course-econ520",
+      "rank": 1
+    },
+    {
+      "query": "ECON 426",
+      "kind": "code",
+      "href": "/courses.html#course-econ426",
+      "rank": 1
+    },
+    {
+      "query": "Statistics and Data Analysis",
+      "kind": "title",
+      "href": "/courses.html#course-econ426",
+      "rank": 1
+    },
+    {
+      "query": "descriptive",
+      "kind": "description",
+      "href": "/courses.html#course-econ426",
+      "rank": 1
+    },
+    {
+      "query": "MATH 558",
+      "kind": "code",
+      "href": "/courses.html#course-math558",
+      "rank": 1
+    },
+    {
+      "query": "Introductory Modern Algebra",
+      "kind": "title",
+      "href": "/courses.html#course-math558",
+      "rank": 1
+    },
+    {
+      "query": "polynomials",
+      "kind": "description",
+      "href": "/courses.html#course-math558",
+      "rank": 1
+    },
+    {
+      "query": "ENGL 102",
+      "kind": "code",
+      "href": "/courses.html#course-engl102",
+      "rank": 1
+    },
+    {
+      "query": "Critical Reading and Writing",
+      "kind": "title",
+      "href": "/courses.html#course-engl102",
+      "rank": 1
+    },
+    {
+      "query": "argumentation",
+      "kind": "description",
+      "href": "/courses.html#course-engl102",
+      "rank": 2
+    },
+    {
+      "query": "EECS 678",
+      "kind": "code",
+      "href": "/courses.html#course-eecs678",
+      "rank": 1
+    },
+    {
+      "query": "Introduction to Operating Systems",
+      "kind": "title",
+      "href": "/courses.html#course-eecs678",
+      "rank": 1
+    },
+    {
+      "query": "architectures",
+      "kind": "description",
+      "href": "/courses.html#course-eecs678",
+      "rank": 2
+    },
+    {
+      "query": "EECS 649",
+      "kind": "code",
+      "href": "/courses.html#course-eecs649",
+      "rank": 1
+    },
+    {
+      "query": "Introduction to Artificial Intelligence",
+      "kind": "title",
+      "href": "/courses.html#course-eecs649",
+      "rank": 1
+    },
+    {
+      "query": "probabilistic",
+      "kind": "description",
+      "href": "/courses.html#course-eecs649",
+      "rank": 1
+    },
+    {
+      "query": "EECS 565",
+      "kind": "code",
+      "href": "/courses.html#course-eecs565",
+      "rank": 1
+    },
+    {
+      "query": "Introduction to Information and Computer Security",
+      "kind": "title",
+      "href": "/courses.html#course-eecs565",
+      "rank": 1
+    },
+    {
+      "query": "cryptography",
+      "kind": "description",
+      "href": "/courses.html#course-eecs565",
+      "rank": 1
+    },
+    {
+      "query": "SOC 104",
+      "kind": "code",
+      "href": "/courses.html#course-soc104",
+      "rank": 1
+    },
+    {
+      "query": "Elements of Sociology",
+      "kind": "title",
+      "href": "/courses.html#course-soc104",
+      "rank": 1
+    },
+    {
+      "query": "institutions",
+      "kind": "description",
+      "href": "/courses.html#course-soc104",
+      "rank": 1
+    },
+    {
+      "query": "PHIL 140",
+      "kind": "code",
+      "href": "/courses.html#course-phil140",
+      "rank": 1
+    },
+    {
+      "query": "Introduction to Philosophy",
+      "kind": "title",
+      "href": "/courses.html#course-phil140",
+      "rank": 1
+    },
+    {
+      "query": "philosophical",
+      "kind": "description",
+      "href": "/courses.html#course-phil140",
+      "rank": 1
+    },
+    {
+      "query": "ECON 526",
+      "kind": "code",
+      "href": "/courses.html#course-econ526",
+      "rank": 1
+    },
+    {
+      "query": "Introduction to Econometrics",
+      "kind": "title",
+      "href": "/courses.html#course-econ526",
+      "rank": 1
+    },
+    {
+      "query": "extensive",
+      "kind": "description",
+      "href": "/courses.html#course-econ526",
+      "rank": 1
+    },
+    {
+      "query": "EECS 581",
+      "kind": "code",
+      "href": "/courses.html#course-eecs581",
+      "rank": 1
+    },
+    {
+      "query": "Software Engineering II",
+      "kind": "title",
+      "href": "/courses.html#course-eecs581",
+      "rank": 1
+    },
+    {
+      "query": "architecture",
+      "kind": "description",
+      "href": "/courses.html#course-eecs581",
+      "rank": 1
+    },
+    {
+      "query": "EECS 569",
+      "kind": "code",
+      "href": "/courses.html#course-eecs569",
+      "rank": 1
+    },
+    {
+      "query": "Computer Forensics",
+      "kind": "title",
+      "href": "/courses.html#course-eecs569",
+      "rank": 1
+    },
+    {
+      "query": "investigation",
+      "kind": "description",
+      "href": "/courses.html#course-eecs569",
+      "rank": 1
+    },
+    {
+      "query": "EECS 563",
+      "kind": "code",
+      "href": "/courses.html#course-eecs563",
+      "rank": 1
+    },
+    {
+      "query": "Introduction to Communication Networks",
+      "kind": "title",
+      "href": "/courses.html#course-eecs563",
+      "rank": 1
+    },
+    {
+      "query": "impairments",
+      "kind": "description",
+      "href": "/courses.html#course-eecs563",
+      "rank": 1
+    },
+    {
+      "query": "EECS 560",
+      "kind": "code",
+      "href": "/courses.html#course-eecs560",
+      "rank": 1
+    },
+    {
+      "query": "Data Structures",
+      "kind": "title",
+      "href": "/courses.html#course-eecs560",
+      "rank": 1
+    },
+    {
+      "query": "dictionaries",
+      "kind": "description",
+      "href": "/courses.html#course-eecs560",
+      "rank": 1
+    },
+    {
+      "query": "ECON 664",
+      "kind": "code",
+      "href": "/courses.html#course-econ664",
+      "rank": 1
+    },
+    {
+      "query": "Topics in Economics: Economic Demography",
+      "kind": "title",
+      "href": "/courses.html#course-econ664",
+      "rank": 1
+    },
+    {
+      "query": "tbd",
+      "kind": "description",
+      "href": "/courses.html#course-econ664",
+      "rank": 9
+    },
+    {
+      "query": "EECS 582",
+      "kind": "code",
+      "href": "/courses.html#course-eecs582",
+      "rank": 1
+    },
+    {
+      "query": "Computer Science & Interdisciplinary Computing Capstone",
+      "kind": "title",
+      "href": "/courses.html#course-eecs582",
+      "rank": 1
+    },
+    {
+      "query": "significant",
+      "kind": "description",
+      "href": "/courses.html#course-eecs582",
+      "rank": 1
+    },
+    {
+      "query": "EECS 465",
+      "kind": "code",
+      "href": "/courses.html#course-eecs465",
+      "rank": 1
+    },
+    {
+      "query": "Cyber Defense",
+      "kind": "title",
+      "href": "/courses.html#course-eecs465",
+      "rank": 1
+    },
+    {
+      "query": "cybersecurity",
+      "kind": "description",
+      "href": "/courses.html#course-eecs465",
+      "rank": 1
+    },
+    {
+      "query": "ECON 609",
+      "kind": "code",
+      "href": "/courses.html#course-econ609",
+      "rank": 1
+    },
+    {
+      "query": "Sports Economics",
+      "kind": "title",
+      "href": "/courses.html#course-econ609",
+      "rank": 1
+    },
+    {
+      "query": "examines",
+      "kind": "description",
+      "href": "/courses.html#course-econ609",
+      "rank": 1
+    },
+    {
+      "query": "ECON 590",
+      "kind": "code",
+      "href": "/courses.html#course-econ590",
+      "rank": 1
+    },
+    {
+      "query": "Game Theory",
+      "kind": "title",
+      "href": "/courses.html#course-econ590",
+      "rank": 1
+    },
+    {
+      "query": "environments",
+      "kind": "description",
+      "href": "/courses.html#course-econ590",
+      "rank": 1
+    },
+    {
+      "query": "ECON 510",
+      "kind": "code",
+      "href": "/courses.html#course-econ510",
+      "rank": 1
+    },
+    {
+      "query": "Energy Economics",
+      "kind": "title",
+      "href": "/courses.html#course-econ510",
+      "rank": 1
+    },
+    {
+      "query": "environmental",
+      "kind": "description",
+      "href": "/courses.html#course-econ510",
+      "rank": 1
+    }
+  ],
+  "course_destination_clicks": [
+    {
+      "query": "EECS 101",
+      "url": "/courses.html#course-eecs101"
+    },
+    {
+      "query": "New Student Seminar",
+      "url": "/courses.html#course-eecs101"
+    },
+    {
+      "query": "ECON 144",
+      "url": "/courses.html#course-econ144"
+    },
+    {
+      "query": "Principles of Macroeconomics",
+      "url": "/courses.html#course-econ144"
+    },
+    {
+      "query": "COMS 130",
+      "url": "/courses.html#course-coms130"
+    },
+    {
+      "query": "Speaker-Audience Communication - Public Speaking",
+      "url": "/courses.html#course-coms130"
+    },
+    {
+      "query": "MATH 125",
+      "url": "/courses.html#course-math125"
+    },
+    {
+      "query": "Calculus I",
+      "url": "/courses.html#course-math125"
+    },
+    {
+      "query": "EECS 168",
+      "url": "/courses.html#course-eecs168"
+    },
+    {
+      "query": "Programming I",
+      "url": "/courses.html#course-eecs168"
+    },
+    {
+      "query": "PHSX 210",
+      "url": "/courses.html#course-phsx210"
+    },
+    {
+      "query": "General Physics I for Engineers",
+      "url": "/courses.html#course-phsx210"
+    },
+    {
+      "query": "PHIL 148",
+      "url": "/courses.html#course-phil148"
+    },
+    {
+      "query": "Reason and Argument",
+      "url": "/courses.html#course-phil148"
+    },
+    {
+      "query": "MATH 146",
+      "url": "/courses.html#course-math146"
+    },
+    {
+      "query": "Calculus II, Honors",
+      "url": "/courses.html#course-math146"
+    },
+    {
+      "query": "EECS 140",
+      "url": "/courses.html#course-eecs140"
+    },
+    {
+      "query": "Introduction to Digital Logic Design",
+      "url": "/courses.html#course-eecs140"
+    },
+    {
+      "query": "POLS 170",
+      "url": "/courses.html#course-pols170"
+    },
+    {
+      "query": "Introduction to International Politics",
+      "url": "/courses.html#course-pols170"
+    },
+    {
+      "query": "PHSX 236",
+      "url": "/courses.html#course-phsx236"
+    },
+    {
+      "query": "General Physics II Laboratory",
+      "url": "/courses.html#course-phsx236"
+    },
+    {
+      "query": "PHSX 216",
+      "url": "/courses.html#course-phsx216"
+    },
+    {
+      "query": "General Physics I Laboratory",
+      "url": "/courses.html#course-phsx216"
+    },
+    {
+      "query": "PHSX 212",
+      "url": "/courses.html#course-phsx212"
+    },
+    {
+      "query": "General Physics II",
+      "url": "/courses.html#course-phsx212"
+    },
+    {
+      "query": "MATH 290",
+      "url": "/courses.html#course-math290"
+    },
+    {
+      "query": "Elementary Linear Algebra",
+      "url": "/courses.html#course-math290"
+    },
+    {
+      "query": "MATH 127",
+      "url": "/courses.html#course-math127"
+    },
+    {
+      "query": "Calculus III",
+      "url": "/courses.html#course-math127"
+    },
+    {
+      "query": "EECS 268",
+      "url": "/courses.html#course-eecs268"
+    },
+    {
+      "query": "Programming II",
+      "url": "/courses.html#course-eecs268"
+    },
+    {
+      "query": "ECON 522",
+      "url": "/courses.html#course-econ522"
+    },
+    {
+      "query": "Macroeconomics",
+      "url": "/courses.html#course-econ522"
+    },
+    {
+      "query": "ECON 142",
+      "url": "/courses.html#course-econ142"
+    },
+    {
+      "query": "Principles of Microeconomics",
+      "url": "/courses.html#course-econ142"
+    },
+    {
+      "query": "MATH 590",
+      "url": "/courses.html#course-math590"
+    },
+    {
+      "query": "Linear Algebra",
+      "url": "/courses.html#course-math590"
+    },
+    {
+      "query": "EECS 388",
+      "url": "/courses.html#course-eecs388"
+    },
+    {
+      "query": "Embedded Systems",
+      "url": "/courses.html#course-eecs388"
+    },
+    {
+      "query": "EECS 368",
+      "url": "/courses.html#course-eecs368"
+    },
+    {
+      "query": "Programming Language Paradigms",
+      "url": "/courses.html#course-eecs368"
+    },
+    {
+      "query": "EECS 210",
+      "url": "/courses.html#course-eecs210"
+    },
+    {
+      "query": "Discrete Structures",
+      "url": "/courses.html#course-eecs210"
+    },
+    {
+      "query": "MATH 526",
+      "url": "/courses.html#course-math526"
+    },
+    {
+      "query": "Applied Mathematical Statistics I",
+      "url": "/courses.html#course-math526"
+    },
+    {
+      "query": "EECS 510",
+      "url": "/courses.html#course-eecs510"
+    },
+    {
+      "query": "Introduction to the Theory of Computing",
+      "url": "/courses.html#course-eecs510"
+    },
+    {
+      "query": "EECS 448",
+      "url": "/courses.html#course-eecs448"
+    },
+    {
+      "query": "Software Engineering I",
+      "url": "/courses.html#course-eecs448"
+    },
+    {
+      "query": "ECON 520",
+      "url": "/courses.html#course-econ520"
+    },
+    {
+      "query": "Microeconomics",
+      "url": "/courses.html#course-econ520"
+    },
+    {
+      "query": "ECON 426",
+      "url": "/courses.html#course-econ426"
+    },
+    {
+      "query": "Statistics and Data Analysis",
+      "url": "/courses.html#course-econ426"
+    },
+    {
+      "query": "MATH 558",
+      "url": "/courses.html#course-math558"
+    },
+    {
+      "query": "Introductory Modern Algebra",
+      "url": "/courses.html#course-math558"
+    },
+    {
+      "query": "ENGL 102",
+      "url": "/courses.html#course-engl102"
+    },
+    {
+      "query": "Critical Reading and Writing",
+      "url": "/courses.html#course-engl102"
+    },
+    {
+      "query": "EECS 678",
+      "url": "/courses.html#course-eecs678"
+    },
+    {
+      "query": "Introduction to Operating Systems",
+      "url": "/courses.html#course-eecs678"
+    },
+    {
+      "query": "EECS 649",
+      "url": "/courses.html#course-eecs649"
+    },
+    {
+      "query": "Introduction to Artificial Intelligence",
+      "url": "/courses.html#course-eecs649"
+    },
+    {
+      "query": "EECS 565",
+      "url": "/courses.html#course-eecs565"
+    },
+    {
+      "query": "Introduction to Information and Computer Security",
+      "url": "/courses.html#course-eecs565"
+    },
+    {
+      "query": "SOC 104",
+      "url": "/courses.html#course-soc104"
+    },
+    {
+      "query": "Elements of Sociology",
+      "url": "/courses.html#course-soc104"
+    },
+    {
+      "query": "PHIL 140",
+      "url": "/courses.html#course-phil140"
+    },
+    {
+      "query": "Introduction to Philosophy",
+      "url": "/courses.html#course-phil140"
+    },
+    {
+      "query": "ECON 526",
+      "url": "/courses.html#course-econ526"
+    },
+    {
+      "query": "Introduction to Econometrics",
+      "url": "/courses.html#course-econ526"
+    },
+    {
+      "query": "EECS 581",
+      "url": "/courses.html#course-eecs581"
+    },
+    {
+      "query": "Software Engineering II",
+      "url": "/courses.html#course-eecs581"
+    },
+    {
+      "query": "EECS 569",
+      "url": "/courses.html#course-eecs569"
+    },
+    {
+      "query": "Computer Forensics",
+      "url": "/courses.html#course-eecs569"
+    },
+    {
+      "query": "EECS 563",
+      "url": "/courses.html#course-eecs563"
+    },
+    {
+      "query": "Introduction to Communication Networks",
+      "url": "/courses.html#course-eecs563"
+    },
+    {
+      "query": "EECS 560",
+      "url": "/courses.html#course-eecs560"
+    },
+    {
+      "query": "Data Structures",
+      "url": "/courses.html#course-eecs560"
+    },
+    {
+      "query": "ECON 664",
+      "url": "/courses.html#course-econ664"
+    },
+    {
+      "query": "Topics in Economics: Economic Demography",
+      "url": "/courses.html#course-econ664"
+    },
+    {
+      "query": "EECS 582",
+      "url": "/courses.html#course-eecs582"
+    },
+    {
+      "query": "Computer Science & Interdisciplinary Computing Capstone",
+      "url": "/courses.html#course-eecs582"
+    },
+    {
+      "query": "EECS 465",
+      "url": "/courses.html#course-eecs465"
+    },
+    {
+      "query": "Cyber Defense",
+      "url": "/courses.html#course-eecs465"
+    },
+    {
+      "query": "ECON 609",
+      "url": "/courses.html#course-econ609"
+    },
+    {
+      "query": "Sports Economics",
+      "url": "/courses.html#course-econ609"
+    },
+    {
+      "query": "ECON 590",
+      "url": "/courses.html#course-econ590"
+    },
+    {
+      "query": "Game Theory",
+      "url": "/courses.html#course-econ590"
+    },
+    {
+      "query": "ECON 510",
+      "url": "/courses.html#course-econ510"
+    },
+    {
+      "query": "Energy Economics",
+      "url": "/courses.html#course-econ510"
+    }
+  ],
+  "responsive_profiles": [
+    [
+      320,
+      900
+    ],
+    [
+      375,
+      900
+    ],
+    [
+      390,
+      900
+    ],
+    [
+      430,
+      900
+    ],
+    [
+      600,
+      900
+    ],
+    [
+      601,
+      900
+    ],
+    [
+      768,
+      900
+    ],
+    [
+      820,
+      900
+    ],
+    [
+      1024,
+      900
+    ],
+    [
+      1280,
+      900
+    ],
+    [
+      1440,
+      900
+    ],
+    [
+      1920,
+      900
+    ],
+    [
+      375,
+      812
+    ],
+    [
+      812,
+      375
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      820,
+      1180
+    ],
+    [
+      1180,
+      820
+    ]
+  ],
+  "native_lifecycle": {
+    "runs": [
+      {
+        "phase": "before",
+        "mode": "delayed",
+        "results_without_extra_input": 0,
+        "status": "",
+        "input": "EECS 101",
+        "requests": [
+          {
+            "url": "http://127.0.0.1:4341/assets/js/search-data.json",
+            "status": 200
+          }
+        ],
+        "exceptions": []
+      },
+      {
+        "phase": "before",
+        "mode": "failed",
+        "results_without_extra_input": 0,
+        "status": "",
+        "input": "EECS 101",
+        "requests": [
+          {
+            "url": "http://127.0.0.1:4341/assets/js/search-data.json",
+            "status": 503
+          }
+        ],
+        "exceptions": []
+      },
+      {
+        "phase": "after",
+        "mode": "delayed",
+        "results_without_extra_input": 18,
+        "status": "My Courses\nEECS 101 New Student Seminar\n/courses.html#course-eecs101\n... help connect freshmen and transfer EECS students to the EECS department, their chosen profession, and each other\nMy Courses\nEECS 168 Programming I\n/courses.html#course-eecs168\nMy Courses\nEECS 268 Programming II\n/courses.html#course-eecs268\nMy Courses\nEECS 388 Embedded Systems\n/courses.html#course-eecs388\nMy Courses\nEECS 210 Discrete Structures\n/courses.html#course-eecs210\nMy Courses\nEECS 448 Software Engineering I\n/courses.html#course-eecs448\nMy Courses\nEECS 569 Computer Forensics\n/courses.html#course-eecs569\nMy Courses\nEECS 560 Data Structures\n/courses.html#course-eecs560\nMy Courses\nEECS 465 Cyber Defense\n/courses.html#course-eecs465\nMy Courses\nEECS 368 Programming Language Paradigms\n/courses.html#course-eecs368\nMy Courses\nEECS 510 Introduction to the Theory of Computing\n/courses.html#course-eecs510\nMy Courses\nEECS 678 Introduction to Operating Systems\n/courses.html#course-eecs678\nMy Courses\nEECS 649 Introduction to Artificial Intelligence\n/courses.html#course-eecs649\nMy Courses\nEECS 581 Software Engineering II\n/courses.html#course-eecs581\nMy Courses\nEECS 563 Introduction to Communication Networks\n/courses.html#course-eecs563\nMy Courses\nEECS 140 Introduction to Digital Logic Design\n/courses.html#course-eecs140\nMy Courses\nEECS 565 Introduction to Information and Computer Security\n/courses.html#course-eecs565\nMy Courses\nEECS 582 Computer Science & Interdisciplinary Computing Capstone\n/courses.html#course-eecs582",
+        "input": "EECS 101",
+        "requests": [
+          {
+            "url": "http://127.0.0.1:4340/assets/js/search-data.json",
+            "status": 200
+          }
+        ],
+        "exceptions": []
+      },
+      {
+        "phase": "after",
+        "mode": "failed",
+        "results_without_extra_input": 0,
+        "status": "Search could not load. Please retry.\n\nRetry search",
+        "input": "EECS 101",
+        "requests": [
+          {
+            "url": "http://127.0.0.1:4340/assets/js/search-data.json",
+            "status": 503
+          }
+        ],
+        "exceptions": []
+      }
+    ],
+    "method": "Actual Jekyll serve on 4341/4340; async native typing while standard data request held. Only failure transport, SDKs and missing media are controlled. No replacement of search UI/engine/generator."
+  },
+  "computed_feedback": {
+    "passed": 10,
+    "values": [
+      {
+        "width": 390,
+        "size": "15px",
+        "line": "24px",
+        "family": "Inter, sans-serif",
+        "height": 44,
+        "color": "rgb(92, 89, 98)"
+      },
+      {
+        "width": 1440,
+        "size": "15px",
+        "line": "24px",
+        "family": "Inter, sans-serif",
+        "height": 44,
+        "color": "rgb(92, 89, 98)"
+      }
+    ],
+    "checks": [
+      {
+        "width": 390,
+        "check": "approved typography/touch height",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "check": "purple keyboard focus",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "check": "Escape from retry",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "check": "keyboard retry with correct popup",
+        "passed": true
+      },
+      {
+        "width": 390,
+        "check": "mobile menu remains usable",
+        "passed": true
+      },
+      {
+        "width": 1440,
+        "check": "approved typography/touch height",
+        "passed": true
+      },
+      {
+        "width": 1440,
+        "check": "purple keyboard focus",
+        "passed": true
+      },
+      {
+        "width": 1440,
+        "check": "Escape from retry",
+        "passed": true
+      },
+      {
+        "width": 1440,
+        "check": "keyboard retry with correct popup",
+        "passed": true
+      },
+      {
+        "width": 1440,
+        "check": "mobile menu remains usable",
+        "passed": true
+      }
+    ]
+  },
+  "visual_comparison": "36 unchanged main-content DOM/style/pixel pairs for twelve unrelated pages at 390/820/1440; Travel before/working screenshots use actual anonymous Auth/Database emulators and identical cached fonts/neutral media.",
+  "limitations": [
+    "Linux Chromium 154 only; no physical iOS/Android, Safari, Firefox, Edge or screen-reader certification",
+    "No genuine browser 200% zoom test",
+    "Cached libraries/fonts and synthetic missing-media fixtures; local measurements are not production Core Web Vitals",
+    "Manual deployed rules/Pages activation and physical-device/provider quota validation remain pending; analytics can be lost if an offline page closes; anonymous-account/event abuse remains possible."
+  ],
+  "prior_validation_commit": "02839e0; prior suites are historical, not all rerun for this revision",
+  "prior_suites": [
+    {
+      "suite": "preservation-results.json",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "preservation-local-results.json",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "ui-results.json",
+      "passed": 262,
+      "failures": []
+    },
+    {
+      "suite": "search-keyboard-results.json",
+      "passed": 335,
+      "failures": []
+    },
+    {
+      "suite": "collage-results.json",
+      "passed": 1512,
+      "failures": []
+    },
+    {
+      "suite": "gallery-matrix-results.json",
+      "passed": 100,
+      "failures": []
+    },
+    {
+      "suite": "camera-results.json",
+      "passed": 1017,
+      "failures": []
+    },
+    {
+      "suite": "navigation-results.json",
+      "passed": 130,
+      "failures": []
+    },
+    {
+      "suite": "navigation-sharing-results.json",
+      "passed": 88,
+      "failures": []
+    },
+    {
+      "suite": "carousel-navigation-results.json",
+      "passed": 64,
+      "failures": []
+    },
+    {
+      "suite": "browser-results.json",
+      "passed": 110,
+      "failures": []
+    },
+    {
+      "suite": "visual-results.json",
+      "passed": 39,
+      "failures": []
+    },
+    {
+      "suite": "feedback-typography-results.json",
+      "passed": 10,
+      "failures": []
+    },
+    {
+      "suite": "http-results.json",
+      "passed": 172,
+      "failures": []
+    },
+    {
+      "suite": "actual Jekyll served browser",
+      "passed": 554,
+      "failures": []
+    }
+  ],
+  "rules_sha256": {
+    "_firebase/database.rules.json": "07f31b217edf8c1d0d2c7c0bcf1f325ae1b74078134ee890f3a921a3b760504b",
+    "_firebase/maintenance.rules.json": "3822bb2deaeeba6f8f17a2037d5519aa75c1e22182a4494e441cd635fddc86ef"
+  },
+  "previous_containment_suites": [
+    {
+      "suite": "production preservation",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "localhost preservation",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "actual Jekyll-served browser",
+      "passed": 557,
+      "failures": []
+    },
+    {
+      "suite": "real Firebase SDK/rules browser",
+      "passed": 51,
+      "failures": []
+    },
+    {
+      "suite": "RTDB enforced emulator scenarios",
+      "passed": 8,
+      "failures": []
+    },
+    {
+      "suite": "isolated client/server-prototype scenarios",
+      "passed": 13,
+      "failures": []
+    },
+    {
+      "suite": "Blog regressions",
+      "passed": 110,
+      "failures": []
+    },
+    {
+      "suite": "Travel IDs/sharing/navigation/read-only guards",
+      "passed": 88,
+      "failures": []
+    },
+    {
+      "suite": "carousel/navigation",
+      "passed": 64,
+      "failures": []
+    },
+    {
+      "suite": "unrelated visual comparisons",
+      "passed": 36,
+      "failures": []
+    }
+  ],
+  "suites": [
+    {
+      "suite": "production preservation",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "localhost preservation",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "actual Jekyll served browser",
+      "passed": 557,
+      "failures": []
+    },
+    {
+      "suite": "real Anonymous Auth/RTDB SDK/browser",
+      "passed": 75,
+      "failures": []
+    },
+    {
+      "suite": "real WebSocket ACK loss/reconnect/opposite intent",
+      "passed": 18,
+      "failures": []
+    },
+    {
+      "suite": "enforced rules/client scenarios",
+      "passed": 17,
+      "failures": []
+    },
+    {
+      "suite": "isolated UI/analytics scenarios",
+      "passed": 11,
+      "failures": []
+    },
+    {
+      "suite": "Blog regressions",
+      "passed": 110,
+      "failures": []
+    },
+    {
+      "suite": "Travel IDs/sharing/navigation/like/unlike",
+      "passed": 88,
+      "failures": []
+    },
+    {
+      "suite": "carousel/navigation",
+      "passed": 64,
+      "failures": []
+    },
+    {
+      "suite": "unrelated visual comparisons",
+      "passed": 36,
+      "failures": []
+    }
+  ]
+}

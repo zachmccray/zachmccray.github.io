@@ -1,0 +1,105 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "likes": {
+      "$postId": {
+        ".validate": "auth != null && newData.child('receipts').child(auth.uid).child('liked').val() == newData.child('users').child(auth.uid).exists() && ((data.child('count').isNumber() && data.child('count').val() >= 0 && data.child('count').val() <= 9007199254740991 && data.child('count').val() % 1 == 0) || (!data.child('count').exists() && !data.child('users').exists())) && (!data.child('users').exists() || data.child('users').hasChildren()) && ((!data.child('receipts').child(auth.uid).exists() && newData.child('receipts').child(auth.uid).child('revision').val() == 0 && newData.child('receipts').child(auth.uid).child('actionId').val() == 'initial' && newData.child('receipts').child(auth.uid).child('liked').val() == data.child('users').child(auth.uid).exists() && newData.child('users').child(auth.uid).exists() == data.child('users').child(auth.uid).exists() && newData.child('count').val() == data.child('count').val()) || (data.child('receipts').child(auth.uid).exists() && newData.child('receipts').child(auth.uid).child('actionId').val() == data.child('receipts').child(auth.uid).child('actionId').val() && newData.child('receipts').child(auth.uid).child('revision').val() == data.child('receipts').child(auth.uid).child('revision').val() && newData.child('receipts').child(auth.uid).child('liked').val() == data.child('receipts').child(auth.uid).child('liked').val() && newData.child('count').val() == data.child('count').val() && newData.child('users').child(auth.uid).exists() == data.child('users').child(auth.uid).exists()) || (((data.child('receipts').child(auth.uid).exists() && newData.child('receipts').child(auth.uid).child('revision').val() == data.child('receipts').child(auth.uid).child('revision').val() + 1 && data.child('receipts').child(auth.uid).child('liked').val() == data.child('users').child(auth.uid).exists()) || (!data.child('receipts').child(auth.uid).exists() && newData.child('receipts').child(auth.uid).child('revision').val() == 1)) && newData.child('receipts').child(auth.uid).child('actionId').val() != data.child('receipts').child(auth.uid).child('actionId').val() && newData.child('receipts').child(auth.uid).child('liked').val() == newData.child('users').child(auth.uid).exists() && !data.child('actions').child(auth.uid).child(newData.child('receipts').child(auth.uid).child('actionId').val()).exists() && newData.child('actions').child(auth.uid).child(newData.child('receipts').child(auth.uid).child('actionId').val()).child('revision').val() == newData.child('receipts').child(auth.uid).child('revision').val() && newData.child('actions').child(auth.uid).child(newData.child('receipts').child(auth.uid).child('actionId').val()).child('liked').val() == newData.child('receipts').child(auth.uid).child('liked').val() && newData.child('count').val() == (data.child('count').exists() ? data.child('count').val() : 0) + (newData.child('users').child(auth.uid).exists() ? 1 : 0) - (data.child('users').child(auth.uid).exists() ? 1 : 0)))",
+        "count": {
+          ".read": "!data.exists() || data.isNumber()",
+          ".write": "auth != null && ($postId == 'travel-cancun2026' || $postId == 'travel-coloradonp' || $postId == 'travel-japan' || $postId == 'travel-montreal' || $postId == 'travel-oregon' || $postId == 'travel-roadtrip' || $postId == 'travel-saltlakecity2026' || $postId == 'travel-southwestroadtrip2026' || $postId == 'travel-washington') && newData.isNumber() && newData.val() >= 0 && newData.val() <= 9007199254740991 && newData.val() % 1 == 0"
+        },
+        "users": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid",
+            ".write": "auth != null && auth.uid == $uid && ($postId == 'travel-cancun2026' || $postId == 'travel-coloradonp' || $postId == 'travel-japan' || $postId == 'travel-montreal' || $postId == 'travel-oregon' || $postId == 'travel-roadtrip' || $postId == 'travel-saltlakecity2026' || $postId == 'travel-southwestroadtrip2026' || $postId == 'travel-washington') && newData.exists() != data.exists()",
+            ".validate": "newData.hasChildren(['liked','timestamp'])",
+            "liked": {
+              ".validate": "newData.val() == true"
+            },
+            "timestamp": {
+              ".validate": "newData.isNumber() && newData.val() == now"
+            },
+            "$other": {
+              ".validate": false
+            }
+          }
+        },
+        "receipts": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid",
+            ".write": "auth != null && auth.uid == $uid && ($postId == 'travel-cancun2026' || $postId == 'travel-coloradonp' || $postId == 'travel-japan' || $postId == 'travel-montreal' || $postId == 'travel-oregon' || $postId == 'travel-roadtrip' || $postId == 'travel-saltlakecity2026' || $postId == 'travel-southwestroadtrip2026' || $postId == 'travel-washington') && newData.exists()",
+            ".validate": "newData.hasChildren(['revision','liked','actionId']) && newData.child('revision').isNumber() && newData.child('revision').val() >= 0 && newData.child('revision').val() <= 9007199254740991 && newData.child('revision').val() % 1 == 0",
+            "liked": {
+              ".validate": "newData.isBoolean()"
+            },
+            "actionId": {
+              ".validate": "(newData.isString() && newData.val().matches(/^[a-f0-9]{32}$/)) || (newData.val() == 'initial' && newData.parent().child('revision').val() == 0)"
+            },
+            "revision": {},
+            "$other": {
+              ".validate": false
+            }
+          }
+        },
+        "actions": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid",
+            "$actionId": {
+              ".write": "auth != null && auth.uid == $uid && ($postId == 'travel-cancun2026' || $postId == 'travel-coloradonp' || $postId == 'travel-japan' || $postId == 'travel-montreal' || $postId == 'travel-oregon' || $postId == 'travel-roadtrip' || $postId == 'travel-saltlakecity2026' || $postId == 'travel-southwestroadtrip2026' || $postId == 'travel-washington') && $actionId.matches(/^[a-f0-9]{32}$/) && newData.exists()",
+              ".validate": "newData.hasChildren(['revision','liked']) && newData.child('revision').isNumber() && newData.child('revision').val() >= 0 && newData.child('revision').val() <= 9007199254740991 && newData.child('revision').val() % 1 == 0 && newData.child('liked').isBoolean() && ((data.exists() && newData.child('revision').val() == data.child('revision').val() && newData.child('liked').val() == data.child('liked').val()) || (!data.exists() && newData.parent().parent().parent().child('receipts').child(auth.uid).child('actionId').val() == $actionId && newData.parent().parent().parent().child('receipts').child(auth.uid).child('revision').val() == newData.child('revision').val() && newData.parent().parent().parent().child('receipts').child(auth.uid).child('liked').val() == newData.child('liked').val() && newData.parent().parent().parent().child('receipts').child(auth.uid).child('actionId').val() != data.parent().parent().parent().child('receipts').child(auth.uid).child('actionId').val()))",
+              "revision": {},
+              "liked": {},
+              "$other": {
+                ".validate": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "shares": {
+      "$postId": {
+        ".validate": "auth != null && ((data.child('count').isNumber() && data.child('count').val() >= 0 && data.child('count').val() <= 9007199254740991 && data.child('count').val() % 1 == 0) || (!data.child('count').exists() && !data.child('users').exists())) && (!data.child('users').exists() || data.child('users').hasChildren()) && ((newData.child('count').val() == data.child('count').val() && newData.child('receipts').child(auth.uid).child('actionId').val() == data.child('receipts').child(auth.uid).child('actionId').val() && newData.child('users').child(auth.uid).child('shared').val() == data.child('users').child(auth.uid).child('shared').val() && newData.child('users').child(auth.uid).child('timestamp').val() == data.child('users').child(auth.uid).child('timestamp').val()) || (newData.child('count').val() == (data.child('count').exists() ? data.child('count').val() : 0) + 1 && newData.child('receipts').child(auth.uid).child('actionId').val() != data.child('receipts').child(auth.uid).child('actionId').val() && !data.child('actions').child(auth.uid).child(newData.child('receipts').child(auth.uid).child('actionId').val()).exists() && newData.child('actions').child(auth.uid).child(newData.child('receipts').child(auth.uid).child('actionId').val()).val() == true && newData.child('users').child(auth.uid).child('shared').val() == true && newData.child('users').child(auth.uid).child('timestamp').val() == now))",
+        "count": {
+          ".read": "!data.exists() || data.isNumber()",
+          ".write": "auth != null && ($postId == 'travel-cancun2026' || $postId == 'travel-coloradonp' || $postId == 'travel-japan' || $postId == 'travel-montreal' || $postId == 'travel-oregon' || $postId == 'travel-roadtrip' || $postId == 'travel-saltlakecity2026' || $postId == 'travel-southwestroadtrip2026' || $postId == 'travel-washington') && newData.isNumber() && newData.val() >= 0 && newData.val() <= 9007199254740991 && newData.val() % 1 == 0"
+        },
+        "users": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid",
+            ".validate": "newData.hasChildren(['shared','timestamp'])",
+            "shared": {
+              ".write": "auth != null && auth.uid == $uid && ($postId == 'travel-cancun2026' || $postId == 'travel-coloradonp' || $postId == 'travel-japan' || $postId == 'travel-montreal' || $postId == 'travel-oregon' || $postId == 'travel-roadtrip' || $postId == 'travel-saltlakecity2026' || $postId == 'travel-southwestroadtrip2026' || $postId == 'travel-washington') && newData.val() == true"
+            },
+            "timestamp": {
+              ".write": "auth != null && auth.uid == $uid && ($postId == 'travel-cancun2026' || $postId == 'travel-coloradonp' || $postId == 'travel-japan' || $postId == 'travel-montreal' || $postId == 'travel-oregon' || $postId == 'travel-roadtrip' || $postId == 'travel-saltlakecity2026' || $postId == 'travel-southwestroadtrip2026' || $postId == 'travel-washington') && newData.isNumber() && newData.val() == now"
+            }
+          }
+        },
+        "receipts": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid",
+            ".write": "auth != null && auth.uid == $uid && ($postId == 'travel-cancun2026' || $postId == 'travel-coloradonp' || $postId == 'travel-japan' || $postId == 'travel-montreal' || $postId == 'travel-oregon' || $postId == 'travel-roadtrip' || $postId == 'travel-saltlakecity2026' || $postId == 'travel-southwestroadtrip2026' || $postId == 'travel-washington') && newData.exists()",
+            ".validate": "newData.hasChildren(['actionId'])",
+            "actionId": {
+              ".validate": "newData.isString() && newData.val().matches(/^[a-f0-9]{32}$/)"
+            },
+            "$other": {
+              ".validate": false
+            }
+          }
+        },
+        "actions": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid",
+            "$actionId": {
+              ".write": "auth != null && auth.uid == $uid && ($postId == 'travel-cancun2026' || $postId == 'travel-coloradonp' || $postId == 'travel-japan' || $postId == 'travel-montreal' || $postId == 'travel-oregon' || $postId == 'travel-roadtrip' || $postId == 'travel-saltlakecity2026' || $postId == 'travel-southwestroadtrip2026' || $postId == 'travel-washington') && $actionId.matches(/^[a-f0-9]{32}$/) && newData.exists()",
+              ".validate": "newData.val() == true && (data.val() == true || (!data.exists() && newData.parent().parent().parent().child('receipts').child(auth.uid).child('actionId').val() == $actionId && newData.parent().parent().parent().child('receipts').child(auth.uid).child('actionId').val() != data.parent().parent().parent().child('receipts').child(auth.uid).child('actionId').val()))"
+            }
+          }
+        }
+      }
+    }
+  }
+}

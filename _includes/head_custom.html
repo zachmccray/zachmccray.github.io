@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+{% if page.url == '/travel.html' %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endif %}
 <script defer src="{{ '/assets/js/site-ui.js' | relative_url }}"></script>
 {% if page.content contains 'image-scroll-hyper' %}
 <script defer src="{{ '/assets/js/infinite-scroll.js' | relative_url }}"></script>
@@ -8,7 +13,7 @@
 <script defer src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
-<script defer src="{{ '/assets/js/travel.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/travel.js' | relative_url }}?v=atomic-receipts-1"></script>
 {% endif %}
 {% if page.url == '/blog.html' %}
 <script defer src="{{ '/assets/js/blog-controls.js' | relative_url }}"></script>

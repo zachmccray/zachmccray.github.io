@@ -1,0 +1,47 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "likes": {
+      "$post": {
+        ".validate": "auth != null && newData.child('count').isNumber() && newData.child('count').val() >= 0 && newData.child('count').val() <= 9007199254740991 && newData.child('count').val() % 1 == 0 && (!data.child('count').exists() || (data.child('count').isNumber() && data.child('count').val() >= 0 && data.child('count').val() % 1 == 0)) && ((!data.child('count').exists() && !data.child('users').exists() && !data.child('users').child(auth.uid).exists() && newData.child('users').child(auth.uid).exists() && newData.child('count').val() == 1) || (data.child('count').exists() && ((!data.child('users').child(auth.uid).exists() && newData.child('users').child(auth.uid).exists() && newData.child('count').val() == data.child('count').val() + 1) || (data.child('users').child(auth.uid).exists() && !newData.child('users').child(auth.uid).exists() && newData.child('count').val() == data.child('count').val() - 1) || (data.child('users').child(auth.uid).exists() == newData.child('users').child(auth.uid).exists() && newData.child('count').val() == data.child('count').val()))))",
+        "count": {
+          ".read": true,
+          ".write": "auth != null"
+        },
+        "users": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid",
+            ".write": "auth != null && auth.uid == $uid",
+            ".validate": "newData.hasChildren(['liked','timestamp'])",
+            "liked": {
+              ".validate": "newData.val() == true"
+            },
+            "timestamp": {
+              ".validate": "newData.isNumber() && newData.val() == now"
+            },
+            "$other": {
+              ".validate": false
+            }
+          }
+        }
+      }
+    },
+    "shares": {
+      "$postId": {
+        "users": {
+          "$userId": {
+            ".write": "auth != null && auth.uid === $userId",
+            ".validate": "newData.hasChildren(['shared', 'timestamp'])",
+            ".read": "auth != null && auth.uid === $userId"
+          }
+        },
+        "count": {
+          ".write": "auth != null",
+          ".validate": "newData.isNumber()",
+          ".read": true
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 title: Zachary McCray
 description: Personal Website
-remote_theme: just-the-docs/just-the-docs
+remote_theme: just-the-docs/just-the-docs@9a7e4031a83c115bffbd6b053f319ea74c66859a
 plugins:
   - jekyll-remote-theme
 
