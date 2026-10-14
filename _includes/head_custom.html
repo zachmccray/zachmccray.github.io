@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+{% if page.url == '/travel.html' %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endif %}
 <script defer src="{{ '/assets/js/site-ui.js' | relative_url }}"></script>
 {% if page.content contains 'image-scroll-hyper' %}
 <script defer src="{{ '/assets/js/infinite-scroll.js' | relative_url }}"></script>

@@ -88,18 +88,24 @@ function initializeSiteUI() {
       main.focus({ preventScroll: true });
     }
   });
+  // This is a disclosure menu, not a modal: allow Tab to leave and dismiss it.
+  document.addEventListener('focusin', event => {
+    if (mobile.matches && menu.getAttribute('aria-expanded') === 'true'
+        && !sidebar.contains(event.target)) closeMenu();
+  });
   nav.addEventListener('click', event => {
     if (event.target.closest('a[href]') && mobile.matches) closeMenu();
   });
   document.addEventListener('click', event => {
-    if (!event.target.closest('.search')) root.classList.remove('search-active');
-    if (mobile.matches && menu.getAttribute('aria-expanded') === 'true' && !sidebar.contains(event.target)) closeMenu();
+    // Retry feedback replaces its button while the click is bubbling. Use the
+    // original event path so that action still belongs to the search/sidebar.
+    const path = event.composedPath();
+    if (!path.some(node => node instanceof Element && node.classList.contains('search'))) root.classList.remove('search-active');
+    if (mobile.matches && menu.getAttribute('aria-expanded') === 'true' && !path.includes(sidebar)) closeMenu();
   });
 
   if (!input || !results) return;
   input.type = 'search';
-  input.setAttribute('aria-controls', 'search-results');
-  results.setAttribute('role', 'region');
   results.setAttribute('aria-label', 'Search results');
 
   function safeSearchBlur(event) {
@@ -114,28 +120,6 @@ function initializeSiteUI() {
     if (mobile.matches && event.target.closest('.search-result')) closeMenu();
   }, true);
 
-  let searchPosition = null;
-  function preserveSearchScroll(event) {
-    if (['Enter', 'ArrowUp', 'ArrowDown', 'Tab'].includes(event.key)) return;
-    if (event.type === 'focus' || !searchPosition) searchPosition = { left: scrollX, top: scrollY };
-    // The theme's iOS workaround forces the whole page to the top. The search
-    // field is now visible in the persistent header; leave the article in place.
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      if (searchPosition && document.activeElement === input && root.classList.contains('search-active')) scrollTo(searchPosition);
-    }));
-  }
-  input.addEventListener('focus', preserveSearchScroll, true);
-  input.addEventListener('keyup', preserveSearchScroll, true);
-  input.addEventListener('blur', () => { searchPosition = null; });
-  // Respect deliberate page scrolling while the search field retains focus.
-  function rememberSearchScroll(event) {
-    if (event.target.closest('.search')) return;
-    requestAnimationFrame(() => {
-      if (document.activeElement === input) searchPosition = { left: scrollX, top: scrollY };
-    });
-  }
-  document.addEventListener('wheel', rememberSearchScroll, { passive: true });
-  document.addEventListener('touchmove', rememberSearchScroll, { passive: true });
 }
 
 if (document.readyState === 'complete') initializeSiteUI();

@@ -1,0 +1,677 @@
+[
+  {
+    "kind": "code",
+    "query": "EECS 101",
+    "expected_title": "EECS 101 New Student Seminar"
+  },
+  {
+    "kind": "title",
+    "query": "New Student Seminar",
+    "expected_title": "EECS 101 New Student Seminar"
+  },
+  {
+    "kind": "description",
+    "query": "extracurricular",
+    "expected_title": "EECS 101 New Student Seminar"
+  },
+  {
+    "kind": "code",
+    "query": "ECON 144",
+    "expected_title": "ECON 144 Principles of Macroeconomics"
+  },
+  {
+    "kind": "title",
+    "query": "Principles of Macroeconomics",
+    "expected_title": "ECON 144 Principles of Macroeconomics"
+  },
+  {
+    "kind": "description",
+    "query": "determination",
+    "expected_title": "ECON 144 Principles of Macroeconomics"
+  },
+  {
+    "kind": "code",
+    "query": "COMS 130",
+    "expected_title": "COMS 130 Speaker-Audience Communication - Public Speaking"
+  },
+  {
+    "kind": "title",
+    "query": "Speaker-Audience Communication - Public Speaking",
+    "expected_title": "COMS 130 Speaker-Audience Communication - Public Speaking"
+  },
+  {
+    "kind": "description",
+    "query": "presentations",
+    "expected_title": "COMS 130 Speaker-Audience Communication - Public Speaking"
+  },
+  {
+    "kind": "code",
+    "query": "MATH 125",
+    "expected_title": "MATH 125 Calculus I"
+  },
+  {
+    "kind": "title",
+    "query": "Calculus I",
+    "expected_title": "MATH 125 Calculus I"
+  },
+  {
+    "kind": "description",
+    "query": "antiderivatives",
+    "expected_title": "MATH 125 Calculus I"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 168",
+    "expected_title": "EECS 168 Programming I"
+  },
+  {
+    "kind": "title",
+    "query": "Programming I",
+    "expected_title": "EECS 168 Programming I"
+  },
+  {
+    "kind": "description",
+    "query": "searching",
+    "expected_title": "EECS 168 Programming I"
+  },
+  {
+    "kind": "code",
+    "query": "PHSX 210",
+    "expected_title": "PHSX 210 General Physics I for Engineers"
+  },
+  {
+    "kind": "title",
+    "query": "General Physics I for Engineers",
+    "expected_title": "PHSX 210 General Physics I for Engineers"
+  },
+  {
+    "kind": "description",
+    "query": "requirements",
+    "expected_title": "PHSX 210 General Physics I for Engineers"
+  },
+  {
+    "kind": "code",
+    "query": "PHIL 148",
+    "expected_title": "PHIL 148 Reason and Argument"
+  },
+  {
+    "kind": "title",
+    "query": "Reason and Argument",
+    "expected_title": "PHIL 148 Reason and Argument"
+  },
+  {
+    "kind": "description",
+    "query": "appraisal",
+    "expected_title": "PHIL 148 Reason and Argument"
+  },
+  {
+    "kind": "code",
+    "query": "MATH 146",
+    "expected_title": "MATH 146 Calculus II, Honors"
+  },
+  {
+    "kind": "title",
+    "query": "Calculus II, Honors",
+    "expected_title": "MATH 146 Calculus II, Honors"
+  },
+  {
+    "kind": "description",
+    "query": "coordinates",
+    "expected_title": "MATH 146 Calculus II, Honors"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 140",
+    "expected_title": "EECS 140 Introduction to Digital Logic Design"
+  },
+  {
+    "kind": "title",
+    "query": "Introduction to Digital Logic Design",
+    "expected_title": "EECS 140 Introduction to Digital Logic Design"
+  },
+  {
+    "kind": "description",
+    "query": "representation",
+    "expected_title": "EECS 140 Introduction to Digital Logic Design"
+  },
+  {
+    "kind": "code",
+    "query": "POLS 170",
+    "expected_title": "POLS 170 Introduction to International Politics"
+  },
+  {
+    "kind": "title",
+    "query": "Introduction to International Politics",
+    "expected_title": "POLS 170 Introduction to International Politics"
+  },
+  {
+    "kind": "description",
+    "query": "contemporary",
+    "expected_title": "POLS 170 Introduction to International Politics"
+  },
+  {
+    "kind": "code",
+    "query": "PHSX 236",
+    "expected_title": "PHSX 236 General Physics II Laboratory"
+  },
+  {
+    "kind": "title",
+    "query": "General Physics II Laboratory",
+    "expected_title": "PHSX 236 General Physics II Laboratory"
+  },
+  {
+    "kind": "description",
+    "query": "reduction",
+    "expected_title": "PHSX 236 General Physics II Laboratory"
+  },
+  {
+    "kind": "code",
+    "query": "PHSX 216",
+    "expected_title": "PHSX 216 General Physics I Laboratory"
+  },
+  {
+    "kind": "title",
+    "query": "General Physics I Laboratory",
+    "expected_title": "PHSX 216 General Physics I Laboratory"
+  },
+  {
+    "kind": "description",
+    "query": "presenting",
+    "expected_title": "PHSX 216 General Physics I Laboratory"
+  },
+  {
+    "kind": "code",
+    "query": "PHSX 212",
+    "expected_title": "PHSX 212 General Physics II"
+  },
+  {
+    "kind": "title",
+    "query": "General Physics II",
+    "expected_title": "PHSX 212 General Physics II"
+  },
+  {
+    "kind": "description",
+    "query": "electricity",
+    "expected_title": "PHSX 212 General Physics II"
+  },
+  {
+    "kind": "code",
+    "query": "MATH 290",
+    "expected_title": "MATH 290 Elementary Linear Algebra"
+  },
+  {
+    "kind": "title",
+    "query": "Elementary Linear Algebra",
+    "expected_title": "MATH 290 Elementary Linear Algebra"
+  },
+  {
+    "kind": "description",
+    "query": "equations",
+    "expected_title": "MATH 290 Elementary Linear Algebra"
+  },
+  {
+    "kind": "code",
+    "query": "MATH 127",
+    "expected_title": "MATH 127 Calculus III"
+  },
+  {
+    "kind": "title",
+    "query": "Calculus III",
+    "expected_title": "MATH 127 Calculus III"
+  },
+  {
+    "kind": "description",
+    "query": "multivariable",
+    "expected_title": "MATH 127 Calculus III"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 268",
+    "expected_title": "EECS 268 Programming II"
+  },
+  {
+    "kind": "title",
+    "query": "Programming II",
+    "expected_title": "EECS 268 Programming II"
+  },
+  {
+    "kind": "description",
+    "query": "efficiency",
+    "expected_title": "EECS 268 Programming II"
+  },
+  {
+    "kind": "code",
+    "query": "ECON 522",
+    "expected_title": "ECON 522 Macroeconomics"
+  },
+  {
+    "kind": "title",
+    "query": "Macroeconomics",
+    "expected_title": "ECON 522 Macroeconomics"
+  },
+  {
+    "kind": "description",
+    "query": "utilization",
+    "expected_title": "ECON 522 Macroeconomics"
+  },
+  {
+    "kind": "code",
+    "query": "ECON 142",
+    "expected_title": "ECON 142 Principles of Microeconomics"
+  },
+  {
+    "kind": "title",
+    "query": "Principles of Microeconomics",
+    "expected_title": "ECON 142 Principles of Microeconomics"
+  },
+  {
+    "kind": "description",
+    "query": "government",
+    "expected_title": "ECON 142 Principles of Microeconomics"
+  },
+  {
+    "kind": "code",
+    "query": "MATH 590",
+    "expected_title": "MATH 590 Linear Algebra"
+  },
+  {
+    "kind": "title",
+    "query": "Linear Algebra",
+    "expected_title": "MATH 590 Linear Algebra"
+  },
+  {
+    "kind": "description",
+    "query": "determinants",
+    "expected_title": "MATH 590 Linear Algebra"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 388",
+    "expected_title": "EECS 388 Embedded Systems"
+  },
+  {
+    "kind": "title",
+    "query": "Embedded Systems",
+    "expected_title": "EECS 388 Embedded Systems"
+  },
+  {
+    "kind": "description",
+    "query": "microcontrollers",
+    "expected_title": "EECS 388 Embedded Systems"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 368",
+    "expected_title": "EECS 368 Programming Language Paradigms"
+  },
+  {
+    "kind": "title",
+    "query": "Programming Language Paradigms",
+    "expected_title": "EECS 368 Programming Language Paradigms"
+  },
+  {
+    "kind": "description",
+    "query": "disadvantages",
+    "expected_title": "EECS 368 Programming Language Paradigms"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 210",
+    "expected_title": "EECS 210 Discrete Structures"
+  },
+  {
+    "kind": "title",
+    "query": "Discrete Structures",
+    "expected_title": "EECS 210 Discrete Structures"
+  },
+  {
+    "kind": "description",
+    "query": "combinatorics",
+    "expected_title": "EECS 210 Discrete Structures"
+  },
+  {
+    "kind": "code",
+    "query": "MATH 526",
+    "expected_title": "MATH 526 Applied Mathematical Statistics I"
+  },
+  {
+    "kind": "title",
+    "query": "Applied Mathematical Statistics I",
+    "expected_title": "MATH 526 Applied Mathematical Statistics I"
+  },
+  {
+    "kind": "description",
+    "query": "illustrations",
+    "expected_title": "MATH 526 Applied Mathematical Statistics I"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 510",
+    "expected_title": "EECS 510 Introduction to the Theory of Computing"
+  },
+  {
+    "kind": "title",
+    "query": "Introduction to the Theory of Computing",
+    "expected_title": "EECS 510 Introduction to the Theory of Computing"
+  },
+  {
+    "kind": "description",
+    "query": "computability",
+    "expected_title": "EECS 510 Introduction to the Theory of Computing"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 448",
+    "expected_title": "EECS 448 Software Engineering I"
+  },
+  {
+    "kind": "title",
+    "query": "Software Engineering I",
+    "expected_title": "EECS 448 Software Engineering I"
+  },
+  {
+    "kind": "description",
+    "query": "incorporates",
+    "expected_title": "EECS 448 Software Engineering I"
+  },
+  {
+    "kind": "code",
+    "query": "ECON 520",
+    "expected_title": "ECON 520 Microeconomics"
+  },
+  {
+    "kind": "title",
+    "query": "Microeconomics",
+    "expected_title": "ECON 520 Microeconomics"
+  },
+  {
+    "kind": "description",
+    "query": "welfare",
+    "expected_title": "ECON 520 Microeconomics"
+  },
+  {
+    "kind": "code",
+    "query": "ECON 426",
+    "expected_title": "ECON 426 Statistics and Data Analysis"
+  },
+  {
+    "kind": "title",
+    "query": "Statistics and Data Analysis",
+    "expected_title": "ECON 426 Statistics and Data Analysis"
+  },
+  {
+    "kind": "description",
+    "query": "descriptive",
+    "expected_title": "ECON 426 Statistics and Data Analysis"
+  },
+  {
+    "kind": "code",
+    "query": "MATH 558",
+    "expected_title": "MATH 558 Introductory Modern Algebra"
+  },
+  {
+    "kind": "title",
+    "query": "Introductory Modern Algebra",
+    "expected_title": "MATH 558 Introductory Modern Algebra"
+  },
+  {
+    "kind": "description",
+    "query": "polynomials",
+    "expected_title": "MATH 558 Introductory Modern Algebra"
+  },
+  {
+    "kind": "code",
+    "query": "ENGL 102",
+    "expected_title": "ENGL 102 Critical Reading and Writing"
+  },
+  {
+    "kind": "title",
+    "query": "Critical Reading and Writing",
+    "expected_title": "ENGL 102 Critical Reading and Writing"
+  },
+  {
+    "kind": "description",
+    "query": "argumentation",
+    "expected_title": "ENGL 102 Critical Reading and Writing"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 678",
+    "expected_title": "EECS 678 Introduction to Operating Systems"
+  },
+  {
+    "kind": "title",
+    "query": "Introduction to Operating Systems",
+    "expected_title": "EECS 678 Introduction to Operating Systems"
+  },
+  {
+    "kind": "description",
+    "query": "architectures",
+    "expected_title": "EECS 678 Introduction to Operating Systems"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 649",
+    "expected_title": "EECS 649 Introduction to Artificial Intelligence"
+  },
+  {
+    "kind": "title",
+    "query": "Introduction to Artificial Intelligence",
+    "expected_title": "EECS 649 Introduction to Artificial Intelligence"
+  },
+  {
+    "kind": "description",
+    "query": "probabilistic",
+    "expected_title": "EECS 649 Introduction to Artificial Intelligence"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 565",
+    "expected_title": "EECS 565 Introduction to Information and Computer Security"
+  },
+  {
+    "kind": "title",
+    "query": "Introduction to Information and Computer Security",
+    "expected_title": "EECS 565 Introduction to Information and Computer Security"
+  },
+  {
+    "kind": "description",
+    "query": "cryptography",
+    "expected_title": "EECS 565 Introduction to Information and Computer Security"
+  },
+  {
+    "kind": "code",
+    "query": "SOC 104",
+    "expected_title": "SOC 104 Elements of Sociology"
+  },
+  {
+    "kind": "title",
+    "query": "Elements of Sociology",
+    "expected_title": "SOC 104 Elements of Sociology"
+  },
+  {
+    "kind": "description",
+    "query": "institutions",
+    "expected_title": "SOC 104 Elements of Sociology"
+  },
+  {
+    "kind": "code",
+    "query": "PHIL 140",
+    "expected_title": "PHIL 140 Introduction to Philosophy"
+  },
+  {
+    "kind": "title",
+    "query": "Introduction to Philosophy",
+    "expected_title": "PHIL 140 Introduction to Philosophy"
+  },
+  {
+    "kind": "description",
+    "query": "philosophical",
+    "expected_title": "PHIL 140 Introduction to Philosophy"
+  },
+  {
+    "kind": "code",
+    "query": "ECON 526",
+    "expected_title": "ECON 526 Introduction to Econometrics"
+  },
+  {
+    "kind": "title",
+    "query": "Introduction to Econometrics",
+    "expected_title": "ECON 526 Introduction to Econometrics"
+  },
+  {
+    "kind": "description",
+    "query": "extensive",
+    "expected_title": "ECON 526 Introduction to Econometrics"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 581",
+    "expected_title": "EECS 581 Software Engineering II"
+  },
+  {
+    "kind": "title",
+    "query": "Software Engineering II",
+    "expected_title": "EECS 581 Software Engineering II"
+  },
+  {
+    "kind": "description",
+    "query": "architecture",
+    "expected_title": "EECS 581 Software Engineering II"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 569",
+    "expected_title": "EECS 569 Computer Forensics"
+  },
+  {
+    "kind": "title",
+    "query": "Computer Forensics",
+    "expected_title": "EECS 569 Computer Forensics"
+  },
+  {
+    "kind": "description",
+    "query": "investigation",
+    "expected_title": "EECS 569 Computer Forensics"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 563",
+    "expected_title": "EECS 563 Introduction to Communication Networks"
+  },
+  {
+    "kind": "title",
+    "query": "Introduction to Communication Networks",
+    "expected_title": "EECS 563 Introduction to Communication Networks"
+  },
+  {
+    "kind": "description",
+    "query": "impairments",
+    "expected_title": "EECS 563 Introduction to Communication Networks"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 560",
+    "expected_title": "EECS 560 Data Structures"
+  },
+  {
+    "kind": "title",
+    "query": "Data Structures",
+    "expected_title": "EECS 560 Data Structures"
+  },
+  {
+    "kind": "description",
+    "query": "dictionaries",
+    "expected_title": "EECS 560 Data Structures"
+  },
+  {
+    "kind": "code",
+    "query": "ECON 664",
+    "expected_title": "ECON 664 Topics in Economics: Economic Demography"
+  },
+  {
+    "kind": "title",
+    "query": "Topics in Economics: Economic Demography",
+    "expected_title": "ECON 664 Topics in Economics: Economic Demography"
+  },
+  {
+    "kind": "description",
+    "query": "tbd",
+    "expected_title": "ECON 664 Topics in Economics: Economic Demography"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 582",
+    "expected_title": "EECS 582 Computer Science & Interdisciplinary Computing Capstone"
+  },
+  {
+    "kind": "title",
+    "query": "Computer Science & Interdisciplinary Computing Capstone",
+    "expected_title": "EECS 582 Computer Science & Interdisciplinary Computing Capstone"
+  },
+  {
+    "kind": "description",
+    "query": "significant",
+    "expected_title": "EECS 582 Computer Science & Interdisciplinary Computing Capstone"
+  },
+  {
+    "kind": "code",
+    "query": "EECS 465",
+    "expected_title": "EECS 465 Cyber Defense"
+  },
+  {
+    "kind": "title",
+    "query": "Cyber Defense",
+    "expected_title": "EECS 465 Cyber Defense"
+  },
+  {
+    "kind": "description",
+    "query": "cybersecurity",
+    "expected_title": "EECS 465 Cyber Defense"
+  },
+  {
+    "kind": "code",
+    "query": "ECON 609",
+    "expected_title": "ECON 609 Sports Economics"
+  },
+  {
+    "kind": "title",
+    "query": "Sports Economics",
+    "expected_title": "ECON 609 Sports Economics"
+  },
+  {
+    "kind": "description",
+    "query": "examines",
+    "expected_title": "ECON 609 Sports Economics"
+  },
+  {
+    "kind": "code",
+    "query": "ECON 590",
+    "expected_title": "ECON 590 Game Theory"
+  },
+  {
+    "kind": "title",
+    "query": "Game Theory",
+    "expected_title": "ECON 590 Game Theory"
+  },
+  {
+    "kind": "description",
+    "query": "environments",
+    "expected_title": "ECON 590 Game Theory"
+  },
+  {
+    "kind": "code",
+    "query": "ECON 510",
+    "expected_title": "ECON 510 Energy Economics"
+  },
+  {
+    "kind": "title",
+    "query": "Energy Economics",
+    "expected_title": "ECON 510 Energy Economics"
+  },
+  {
+    "kind": "description",
+    "query": "environmental",
+    "expected_title": "ECON 510 Energy Economics"
+  }
+]
