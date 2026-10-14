@@ -1,0 +1,361 @@
+# Original gallery order and factual values. Add only settings you explicitly know.
+- id: photo-info-1
+  src: /assets/images/photography/photography66.webp
+  href: /assets/images/photography/photography66.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-2
+  src: /assets/images/photography/photography1.webp
+  href: /assets/images/photography/photography1.webp
+  alt: Photo 1
+  gallery: gallery1
+  title: Atosha Mountain
+  description: Beautiful sunset over the peaks.
+  label: Atosh
+  date: '2024-09-10'
+  location: Atosha Mountain
+  camera:
+    body: Canon EOS R6
+- id: photo-info-3
+  src: /assets/images/photography/photography72.webp
+  href: /assets/images/photography/photography72.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-4
+  src: /assets/images/photography/photography2.webp
+  href: /assets/images/photography/photography2.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-5
+  src: /assets/images/photography/photography67.webp
+  href: /assets/images/photography/photography67.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-6
+  src: /assets/images/photography/photography5.webp
+  href: /assets/images/photography/photography5.webp
+  alt: Photo 2
+  gallery: gallery1
+  title: Forest Trail
+  description: A quiet trail through the forest.
+  label: Atosh
+  date: '2024-06-05'
+  location: Pine Forest
+  camera:
+    body: Sony A7 III
+- id: photo-info-7
+  src: /assets/images/photography/photography13.webp
+  href: /assets/images/photography/photography13.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-8
+  src: /assets/images/photography/photography6.webp
+  href: /assets/images/photography/photography6.webp
+  alt: Photo 2
+  gallery: gallery1
+  title: Forest Trail
+  description: A quiet trail through the forest.
+  label: Atosh
+  date: '2024-06-05'
+  location: Pine Forest
+  camera:
+    body: Sony A7 III
+- id: photo-info-9
+  src: /assets/images/photography/photography76.webp
+  href: /assets/images/photography/photography76.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-10
+  src: /assets/images/photography/photography7.webp
+  href: /assets/images/photography/photography7.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-11
+  src: /assets/images/photography/photography59.webp
+  href: /assets/images/photography/photography59.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-12
+  src: /assets/images/photography/photography8.webp
+  href: /assets/images/photography/photography8.webp
+  alt: Photo 2
+  gallery: gallery1
+  title: Forest Trail
+  description: A quiet trail through the forest.
+  label: Atosh
+  date: '2024-06-05'
+  location: Pine Forest
+  camera:
+    body: Sony A7 III
+- id: photo-info-13
+  src: /assets/images/photography/photography4.webp
+  href: /assets/images/photography/photography4.webp
+  alt: Photo 2
+  gallery: gallery1
+  title: Forest Trail
+  description: A quiet trail through the forest.
+  label: Atosh
+  date: '2024-06-05'
+  location: Pine Forest
+  camera:
+    body: Sony A7 III
+- id: photo-info-14
+  src: /assets/images/photography/photography71.webp
+  href: /assets/images/photography/photography71.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-15
+  src: /assets/images/photography/photography10.webp
+  href: /assets/images/photography/photography10.webp
+  alt: Photo 2
+  gallery: gallery1
+  title: Forest Trail
+  description: A quiet trail through the forest.
+  label: Atosh
+  date: '2024-06-05'
+  location: Pine Forest
+  camera:
+    body: Sony A7 III
+- id: photo-info-16
+  src: /assets/images/photography/photography73.webp
+  href: /assets/images/photography/photograph73.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-17
+  src: /assets/images/photography/photography79.webp
+  href: /assets/images/photography/photography79.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-18
+  src: /assets/images/photography/photography3.webp
+  href: /assets/images/photography/photography3.webp
+  alt: Photo 2
+  gallery: gallery1
+  title: Forest Trail
+  description: A quiet trail through the forest.
+  label: Atosh
+  date: '2024-06-05'
+  location: Pine Forest
+  camera:
+    body: Sony A7 III
+- id: photo-info-19
+  src: /assets/images/photography/photography14.webp
+  href: /assets/images/photography/photography14.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-20
+  src: /assets/images/photography/photography8.webp
+  href: /assets/images/photography/photography8.webp
+  alt: Photo 2
+  gallery: gallery1
+  title: Forest Trail
+  description: A quiet trail through the forest.
+  label: Atosh
+  date: '2024-06-05'
+  location: Pine Forest
+  camera:
+    body: Sony A7 III
+- id: photo-info-21
+  src: /assets/images/photography/photography72.webp
+  href: /assets/images/photography/photography72.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-22
+  src: /assets/images/photography/photography75.webp
+  href: /assets/images/photography/photography75.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-23
+  src: /assets/images/photography/photography12.webp
+  href: /assets/images/photography/photography12.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-24
+  src: /assets/images/photography/photography45.webp
+  href: /assets/images/photography/photography45.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-25
+  src: /assets/images/photography/photography70.webp
+  href: /assets/images/photography/photography70.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-26
+  src: /assets/images/photography/photography12.webp
+  href: /assets/images/photography/photography12.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-27
+  src: /assets/images/photography/photography8.webp
+  href: /assets/images/photography/photography8.webp
+  alt: Photo 2
+  gallery: gallery1
+  title: Forest Trail
+  description: A quiet trail through the forest.
+  label: Atosh
+  date: '2024-06-05'
+  location: Pine Forest
+  camera:
+    body: Sony A7 III
+- id: photo-info-28
+  src: /assets/images/photography/photography76.webp
+  href: /assets/images/photography/photography76.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
+- id: photo-info-29
+  src: /assets/images/photography/photography10.webp
+  href: /assets/images/photography/photography10.webp
+  alt: Photo 2
+  gallery: gallery1
+  title: Forest Trail
+  description: A quiet trail through the forest.
+  label: Atosh
+  date: '2024-06-05'
+  location: Pine Forest
+  camera:
+    body: Sony A7 III
+- id: photo-info-30
+  src: /assets/images/photography/photography74.webp
+  href: /assets/images/photography/photography74.webp
+  alt: Photo 3
+  gallery: gallery1
+  title: River Morning
+  description: Sunrise reflecting on the river.
+  label: Atosh
+  date: '2024-07-20'
+  location: Rocky Mountain River
+  camera:
+    body: Nikon Z6 II
