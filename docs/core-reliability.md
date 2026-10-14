@@ -47,50 +47,22 @@ Cold first use still builds the index; on-demand loading moves that cost to a
 visitor who actually uses search. Session reuse reduces subsequent construction
 work, while preserving current data and all destination associations.
 
-## Firebase safety and deployment limitation
+## Firebase safety and release blocker
 
-Likes now use one transaction at `likes/<existing-post-id>` with
-`applyLocally=false`. The user entry and numeric count change together. The callback
-uses a fixed desired state and changes the count only if that user's stored state
-differs. An unconfirmed action retains its intent for retry, so a lost acknowledgement
-cannot turn a retry into an unlike or decrement another user's contribution.
-The transaction preserves other users, timestamps and unrelated fields. Invalid
-counts/record shapes and known legacy states with fewer counted likes than user
-markers abort the transaction without rewriting them. The updater uses the SDK's
-undefined-return abort contract, keeping callback retries pure. Controls indicate pending writes
-and prevent duplicate activation while other navigation/sharing remains usable.
+Owner-supplied rules deny the original parent like transaction and expose all user
+records through root `.read: true`. They also lack count/marker transition validation.
+The parent transaction has been removed. Likes now read only the count and current
+user's marker; mutations are paused until an approved private rules/backend solution
+is ready. **This is not a completed like fix; PR #19 remains release-blocked.**
 
-**The repository contains no deployed database rules. Parent transactions require
-read/write permission at `likes/<post-id>`, including the users beneath it.** Existing
-child-only rules may deny that operation. In that case the operation fails closed
-with feedback; there is no unsafe fallback to split writes. Confirm compatibility
-with your existing rules during local review before merging. Do not broaden public
-read permissions merely to make this client approach work. If the current rules
-intentionally restrict reads to individual users, a separate authorized rules/backend
-design is necessary. This PR does not change production rules, services or data.
+See [Travel like investigation and concrete rules/backend options](travel-like-reliability.md)
+for the root cause, local enforcement tests, historical-data limitations, security,
+hosting/cost and required approvals. No production rules/data/infrastructure changed.
 
-Fixtures model atomic operations, contention, cold local snapshots, rejected writes,
-lost acknowledgements, pending networks, and authentication/read failures. They
-are not a deployed Firebase emulator/rules certification. No production write tests
-are performed. Historic drift created by earlier split writes cannot be reliably
-repaired from aggregate counts without inspecting actual data; no reconciliation,
-reset or migration is attempted. Known marker/count undercounts fail closed;
-historical attribution cannot be fully inferred even when aggregate counts happen
-to match. Each transaction reads that post's user map, so high future like volume
-would merit a separately authorized backend design rather than wider client reads.
-
-Share logging uses one multi-path update at `shares/<existing-post-id>` with
-ServerValue.increment(1), updating the existing per-user marker and counter atomically.
-It needs no parent read, although existing child write/validation rules must allow
-both changes. Each successful native share/clipboard completion schedules one atomic increment;
-repeated shares by the same user still count. Logging is independent of the
-completed action, so a queued network write does not leave sharing disabled. A rejected child rejects the whole
-update. Failed or uncertain logging shows feedback and is not replayed automatically,
-avoiding application-level duplicate accounting for the same completion.
-Exact-once analytics delivery across SDK/transport reconnects is not certified by
-the in-memory model; a durable per-event ledger/backend design would be separate
-authorized work. No ledger or production data-model migration is added here. Native sharing now uses the
-existing card's article title. URLs, IDs, cancellation and clipboard behavior stay intact.
+Share logging retains one multi-path update at `shares/<existing-post-id>` with
+ServerValue.increment(1), updating the existing marker and count atomically. Logging
+remains independent of the completed native/clipboard action. Native cancellation
+is normal feedback and logs no share. No exactly-once transport claim is made.
 
 ## Resource loading and intentionally deferred work
 

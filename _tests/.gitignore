@@ -1,1 +1,4 @@
 __pycache__/
+firebase-rules/node_modules/
+firebase-rules/firebase-debug.log
+firebase-rules/database-debug.log

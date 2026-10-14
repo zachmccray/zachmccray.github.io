@@ -29,12 +29,17 @@ function feedback(id, message) {
   if (status) status.textContent = message;
 }
 
-function likesUnavailable() {
+function reportFirebaseError(stage, error) {
+  // Report the SDK category, never user IDs, snapshots or authentication tokens.
+  console.warn('Travel Firebase operation unavailable', { stage, code: error?.code || 'unknown' });
+}
+
+function likesUnavailable(message = 'Likes are currently unavailable.') {
   document.querySelectorAll('.like-button').forEach(button => {
     button.disabled = true;
     button.setAttribute('aria-busy', 'false');
     button.title = 'Likes are currently unavailable';
-    feedback(button.dataset.id, 'Likes are currently unavailable.');
+    feedback(button.dataset.id, message);
   });
 }
 
@@ -51,30 +56,13 @@ if (typeof firebase !== "undefined" && typeof firebase.initializeApp === "functi
         initShareCounts();
       });
     })
-    .catch(() => whenReady(likesUnavailable));
+    .catch(error => {
+      reportFirebaseError('authentication', error);
+      whenReady(() => likesUnavailable('Likes are unavailable because sign-in failed.'));
+    });
 } else {
   // Keep ordinary navigation and clipboard/native sharing usable if the CDN fails.
   whenReady(likesUnavailable);
-}
-
-// A fixed desired state makes transaction retries idempotent, including an
-// acknowledged-late write retried by the visitor. Existing fields stay intact.
-function updateLikeRecord(current, uid, liked) {
-  if (current != null && (typeof current !== 'object' || Array.isArray(current))) return undefined;
-  const record = current || {};
-  if (record.users != null && (typeof record.users !== 'object' || Array.isArray(record.users))) return undefined;
-  const users = { ...(record.users || {}) };
-  const wasLiked = users[uid] != null;
-  const count = record.count == null ? 0 : record.count;
-  if (!Number.isSafeInteger(count) || count < 0) return undefined;
-  // A legacy split write can leave a marker without its count contribution.
-  // Abort known inconsistent states rather than taking another user's like.
-  if (count < Object.values(users).filter(value => value != null).length) return undefined;
-  if (wasLiked === liked) return record;
-  if (liked && count === Number.MAX_SAFE_INTEGER) return undefined;
-  if (liked) users[uid] = { liked: true, timestamp: firebase.database.ServerValue.TIMESTAMP };
-  else delete users[uid];
-  return { ...record, users, count: liked ? count + 1 : Math.max(count - 1, 0) };
 }
 
 function initLikeButtons() {
@@ -82,56 +70,35 @@ function initLikeButtons() {
     const id = button.getAttribute('data-id');
     if (!id) return;
     const countSpan = button.parentElement.querySelector('.like-count');
-    const recordRef = db.ref('likes/' + id);
-    const userLikeRef = recordRef.child('users/' + userId);
-    const countRef = recordRef.child('count');
-    let pendingLike = null;
-    let saving = false;
-    const setState = liked => {
-      button.classList.toggle('liked', liked);
-      button.setAttribute('aria-pressed', String(liked));
-      button.title = liked ? 'You already liked this' : 'Click to like this';
-    };
+    // Only count and this user's marker are read. The owner-supplied rules
+    // deny parent writes and do not enforce safe atomic counter transitions.
+    // Keep mutations paused until an approved rules/backend solution is tested.
+    const userLikeRef = db.ref('likes/' + id + '/users/' + userId);
+    const countRef = db.ref('likes/' + id + '/count');
+    button.disabled = true;
+    button.setAttribute('aria-busy', 'false');
+    button.title = 'Likes paused while secure updates are verified';
+    feedback(id, 'Likes are paused while secure updates are verified.');
     countRef.on('value', snapshot => {
-      countSpan.textContent = snapshot.val() || 0;
-      countSpan.setAttribute('aria-label', countSpan.textContent + ' likes');
-    }, () => feedback(id, 'The like count is currently unavailable.'));
-    userLikeRef.on('value', snapshot => {
-      if (saving) return;
-      setState(snapshot.exists());
-      button.disabled = false;
-      button.setAttribute('aria-busy', 'false');
-    }, () => {
-      button.disabled = true;
-      button.setAttribute('aria-busy', 'false');
-      button.title = 'Likes are currently unavailable';
-      feedback(id, 'Likes are currently unavailable.');
-    });
-
-    button.addEventListener('click', async () => {
-      if (button.disabled) return;
-      // Keep this intent after an uncertain failure instead of flipping it on retry.
-      if (pendingLike === null) pendingLike = button.getAttribute('aria-pressed') !== 'true';
-      const liked = pendingLike;
-      saving = true;
-      button.disabled = true;
-      button.setAttribute('aria-busy', 'true');
-      feedback(id, 'Saving your like…');
-      try {
-        const result = await recordRef.transaction(
-          current => updateLikeRecord(current, userId, liked), undefined, false
-        );
-        if (!result.committed) throw new Error('Like was not committed');
-        setState(result.snapshot.child('users/' + userId).exists());
-        feedback(id, pendingLike ? 'Liked.' : 'Like removed.');
-        pendingLike = null;
-      } catch (_) {
-        feedback(id, 'Could not confirm the like update. Retry to finish the same action.');
-      } finally {
-        saving = false;
-        button.disabled = false;
-        button.setAttribute('aria-busy', 'false');
+      const value = snapshot.val();
+      if (value != null && (!Number.isSafeInteger(value) || value < 0)) {
+        countSpan.textContent = '—';
+        countSpan.setAttribute('aria-label', 'Like count unavailable');
+        feedback(id, 'The stored like count is invalid. No update was attempted.');
+        return;
       }
+      countSpan.textContent = value ?? 0;
+      countSpan.setAttribute('aria-label', countSpan.textContent + ' likes');
+    }, error => {
+      reportFirebaseError('like-count-read', error);
+      feedback(id, 'The like count is currently unavailable. No update was attempted.');
+    });
+    userLikeRef.on('value', snapshot => {
+      button.classList.toggle('liked', snapshot.exists());
+      button.setAttribute('aria-pressed', String(snapshot.exists()));
+    }, error => {
+      reportFirebaseError('own-like-read', error);
+      feedback(id, 'Your like state is currently unavailable. No update was attempted.');
     });
   });
 }

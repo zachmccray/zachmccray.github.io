@@ -5,6 +5,7 @@
     const data = structuredClone(options.data || {});
     const mode = { ...options.mode };
     const operations = [];
+    const reads = [];
     const listeners = [];
     const held = [];
     let queue = Promise.resolve();
@@ -29,7 +30,9 @@
     }
     async function gate(path) {
       if (mode.hold) await new Promise(resolve => held.push(resolve));
-      if (mode.deny || mode.failBefore) throw new Error('fixture permission/network failure');
+      if (mode.deny || mode.failBefore) throw Object.assign(new Error('fixture permission/network failure'), {
+        code: mode.deny ? 'PERMISSION_DENIED' : 'NETWORK_ERROR'
+      });
     }
     function resolveValues(value, old) {
       if (value && typeof value === 'object') {
@@ -43,7 +46,10 @@
       return {
         child: child => ref([path, child].filter(Boolean).join('/')),
         on: (event, callback, error) => {
-          if (mode.readFail) { error?.(new Error('fixture read denied')); return; }
+          reads.push(path);
+          if (mode.readFail || (mode.readFailPath && path.includes(mode.readFailPath))) {
+            error?.(Object.assign(new Error('fixture read denied'), { code: 'PERMISSION_DENIED' })); return;
+          }
           listeners.push({ path, callback }); callback(snapshot(get(path)));
         },
         once: async () => { if (mode.readFail) throw new Error('fixture read denied'); return snapshot(get(path)); },
@@ -82,10 +88,10 @@
     const database = () => ({ ref });
     database.ServerValue = { TIMESTAMP: { '.sv': 'timestamp' }, increment: n => ({ '.sv': { increment: n } }) };
     const firebase = { initializeApp() {}, database, auth: () => ({
-      signInAnonymously: () => mode.authFail ? Promise.reject(new Error('fixture auth denied'))
+      signInAnonymously: () => mode.authFail ? Promise.reject(Object.assign(new Error('fixture auth denied'), { code: 'auth/operation-not-allowed' }))
         : Promise.resolve({ user: { uid: options.uid || 'fixture-user' } })
     }) };
-    return { firebase, data, mode, operations, ref, resume() { mode.hold = false; held.splice(0).forEach(resolve => resolve()); } };
+    return { firebase, data, mode, operations, reads, ref, resume() { mode.hold = false; held.splice(0).forEach(resolve => resolve()); } };
   }
   if (typeof module !== 'undefined') module.exports = firebaseFixture;
   else root.firebaseFixture = firebaseFixture;

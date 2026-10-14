@@ -9,10 +9,12 @@ and new substantive feature directions remain subject to owner review.
   remaining content/Travel articles; approved Photography collage, Blog/Travel/Media
   components; initial UI/UX polish (PRs #13–18 and preceding maintenance).
 - Current review: performance and core reliability—on-demand native search,
-  readiness/error/retry and exact-data session reuse; atomic/retry-safe counters;
+  readiness/error/retry and exact-data session reuse; atomic share logging and the private-like release blocker;
   mobile focus exit; direct fonts/scoped icons; tested dependency pins and portable
-  regression checks. Confirm existing Firebase transaction permissions locally;
-  no production rules or record migrations are included.
+  regression checks. Owner-supplied rules deny parent like transactions and expose
+  user records; likes remain read-only pending an approved private rules/backend
+  design. See `docs/travel-like-reliability.md`. No production rules, infrastructure
+  changes or record migrations are included. Resolve this blocker before visual work.
 - Next image and visual-interaction PR: less intrusive Photography hover/focus
   summary with full existing metadata in the viewer; mobile/touch/keyboard parity;
   Blog Timeline thumbnail gutters and vertical rhythm, including the known major

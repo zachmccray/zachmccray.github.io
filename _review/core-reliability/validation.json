@@ -8,92 +8,28 @@
     "assets/js/just-the-docs.js": "7d7a7fe077cf5300943a9d0c7a7f9b292f2c2074313e42992b908e58a8484050",
     "assets/js/search.js": "449c5051ee85fa3e9a29ad86264cb4de25a5b1b2742693c94a5e24c01769a20b",
     "assets/js/site-ui.js": "f4f116d6297f0e98dfef619858e0114f45ab4f17070a271117637b83e61c68f0",
-    "assets/js/travel.js": "e541f45a8a40ac1139f03380953b83e4bc3f654e399ffa4ba0d75fd46ee5679d",
+    "assets/js/travel.js": "3fb6d53b78dcacdefad80061e3d8fb3a106fd15d22484c3462f565a9c1fa10da",
     "photography.md": "939f8e98400a7af549c9a6378a9c8fc631b42fc3b7629f09bfe0e8e19963ed8e"
   },
   "builds": "Production and localhost successful; pre-existing upstream Sass deprecation warnings",
-  "suites": [
-    {
-      "suite": "preservation-results.json",
-      "passed": 580,
-      "failures": []
-    },
-    {
-      "suite": "preservation-local-results.json",
-      "passed": 580,
-      "failures": []
-    },
-    {
-      "suite": "ui-results.json",
-      "passed": 262,
-      "failures": []
-    },
-    {
-      "suite": "search-keyboard-results.json",
-      "passed": 335,
-      "failures": []
-    },
-    {
-      "suite": "collage-results.json",
-      "passed": 1512,
-      "failures": []
-    },
-    {
-      "suite": "gallery-matrix-results.json",
-      "passed": 100,
-      "failures": []
-    },
-    {
-      "suite": "camera-results.json",
-      "passed": 1017,
-      "failures": []
-    },
-    {
-      "suite": "navigation-results.json",
-      "passed": 130,
-      "failures": []
-    },
-    {
-      "suite": "navigation-sharing-results.json",
-      "passed": 88,
-      "failures": []
-    },
-    {
-      "suite": "carousel-navigation-results.json",
-      "passed": 64,
-      "failures": []
-    },
-    {
-      "suite": "browser-results.json",
-      "passed": 110,
-      "failures": []
-    },
-    {
-      "suite": "visual-results.json",
-      "passed": 39,
-      "failures": []
-    },
-    {
-      "suite": "feedback-typography-results.json",
-      "passed": 10,
-      "failures": []
-    },
-    {
-      "suite": "http-results.json",
-      "passed": 172,
-      "failures": []
-    },
-    {
-      "suite": "actual Jekyll served browser",
-      "passed": 554,
-      "failures": []
-    }
-  ],
   "firebase": {
-    "passed_scenarios": 12,
-    "production_write_tests": false,
+    "mutations_enabled": false,
+    "release_blocked": true,
+    "owner_supplied_rules": "_tests/firebase-rules/provided.rules.json",
     "deployed_rules_verified": false,
-    "fixture": "_tests/firebase-fixture.js: atomic operation model, not rules/transport certification"
+    "production_write_tests": false,
+    "emulator_version": "4.11.2",
+    "sdk_version": "9.22.1",
+    "emulator_sha256": "b70d99344caf17c98b6f910fa8f6edf32a7c016cb1035e8915f70d38901eb97f",
+    "enforced_scenarios": 8,
+    "enforced_browser_checks": 51,
+    "isolated_scenarios": 13,
+    "candidate_rules_are_deployed": false,
+    "server_prototype_is_deployed": false,
+    "authentication": "emulator tokens; no production auth integration certification",
+    "acknowledgement_loss": "duplicate-intent/server-prototype simulation, not deployed callable transport certification",
+    "read_paths": "only likes/<id>/count and likes/<id>/users/<own uid>",
+    "known_history": "candidate coupled rules preserve drift; server prototype rejects known marker undercounts"
   },
   "routes": [
     "2024/08/09/colorado-move.html",
@@ -1569,11 +1505,141 @@
       }
     ]
   },
-  "visual_comparison": "39 comparisons of approved main-content geometry, typography and pixels. Shared navigation/search chrome hidden; native video spinner and select paint masked consistently (their DOM, styles, state and interaction tested separately).",
+  "visual_comparison": "36 main-content DOM/style/pixel comparisons for 12 unrelated pages at 390/820/1440. Travel status changes are intentional containment; before/readonly screenshots use actual SDK/emulator with neutral missing-media fixtures. Prior 39-comparison evidence is historical.",
   "limitations": [
     "Linux Chromium 154 only; no physical iOS/Android, Safari, Firefox, Edge or screen-reader certification",
     "No genuine browser 200% zoom test",
     "Cached libraries/fonts and synthetic missing-media fixtures; local measurements are not production Core Web Vitals",
-    "Firebase deployed rules and exact-once share transport delivery not certified"
+    "Deployed rules/endpoints, real Firebase authentication and exactly-once share transport not certified; likes remain read-only pending approval."
+  ],
+  "prior_validation_commit": "02839e0; prior suites are historical, not all rerun for this revision",
+  "prior_suites": [
+    {
+      "suite": "preservation-results.json",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "preservation-local-results.json",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "ui-results.json",
+      "passed": 262,
+      "failures": []
+    },
+    {
+      "suite": "search-keyboard-results.json",
+      "passed": 335,
+      "failures": []
+    },
+    {
+      "suite": "collage-results.json",
+      "passed": 1512,
+      "failures": []
+    },
+    {
+      "suite": "gallery-matrix-results.json",
+      "passed": 100,
+      "failures": []
+    },
+    {
+      "suite": "camera-results.json",
+      "passed": 1017,
+      "failures": []
+    },
+    {
+      "suite": "navigation-results.json",
+      "passed": 130,
+      "failures": []
+    },
+    {
+      "suite": "navigation-sharing-results.json",
+      "passed": 88,
+      "failures": []
+    },
+    {
+      "suite": "carousel-navigation-results.json",
+      "passed": 64,
+      "failures": []
+    },
+    {
+      "suite": "browser-results.json",
+      "passed": 110,
+      "failures": []
+    },
+    {
+      "suite": "visual-results.json",
+      "passed": 39,
+      "failures": []
+    },
+    {
+      "suite": "feedback-typography-results.json",
+      "passed": 10,
+      "failures": []
+    },
+    {
+      "suite": "http-results.json",
+      "passed": 172,
+      "failures": []
+    },
+    {
+      "suite": "actual Jekyll served browser",
+      "passed": 554,
+      "failures": []
+    }
+  ],
+  "suites": [
+    {
+      "suite": "production preservation",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "localhost preservation",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "actual Jekyll-served browser",
+      "passed": 557,
+      "failures": []
+    },
+    {
+      "suite": "real Firebase SDK/rules browser",
+      "passed": 51,
+      "failures": []
+    },
+    {
+      "suite": "RTDB enforced emulator scenarios",
+      "passed": 8,
+      "failures": []
+    },
+    {
+      "suite": "isolated client/server-prototype scenarios",
+      "passed": 13,
+      "failures": []
+    },
+    {
+      "suite": "Blog regressions",
+      "passed": 110,
+      "failures": []
+    },
+    {
+      "suite": "Travel IDs/sharing/navigation/read-only guards",
+      "passed": 88,
+      "failures": []
+    },
+    {
+      "suite": "carousel/navigation",
+      "passed": 64,
+      "failures": []
+    },
+    {
+      "suite": "unrelated visual comparisons",
+      "passed": 36,
+      "failures": []
+    }
   ]
 }

@@ -1,0 +1,33 @@
+{
+  "rules": {
+    ".read": true,
+    "likes": {
+      "$postId": {
+        "users": {
+          "$userId": {
+            ".write": "auth != null && auth.uid === $userId",
+            ".validate": "newData.hasChildren(['liked', 'timestamp'])"
+          }
+        },
+        "count": {
+          ".write": "auth != null",
+          ".validate": "newData.isNumber()"
+        }
+      }
+    },
+    "shares": {
+      "$postId": {
+        "users": {
+          "$userId": {
+            ".write": "auth != null && auth.uid === $userId",
+            ".validate": "newData.hasChildren(['shared', 'timestamp'])"
+          }
+        },
+        "count": {
+          ".write": "auth != null",
+          ".validate": "newData.isNumber()"
+        }
+      }
+    }
+  }
+}

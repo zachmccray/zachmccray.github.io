@@ -1,0 +1,38 @@
+[2026-10-14T21:53:04.339Z]  @firebase/database: FIREBASE WARNING: transaction at /likes/travel-japan failed: permission_denied
+✔ Supplied rules expose user records and deny PR19 parent transaction (209.04022ms)
+✔ Supplied rules permit duplicate same-user increments in atomic updates (85.914586ms)
+[2026-10-14T21:53:04.646Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:04.669Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:04.721Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Candidate coupled rules: private reads, atomic like/unlike, fixed-intent retries (236.205559ms)
+[2026-10-14T21:53:04.815Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:04.855Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:04.878Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:04.914Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Candidate rules reject split writes, forged counts, other users and unrelated fields (205.150512ms)
+[2026-10-14T21:53:05.236Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:05.237Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:05.242Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:05.242Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:05.243Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:05.258Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:05.259Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:05.260Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:05.260Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Candidate rules enforce distinct-user and same-user contention (494.868644ms)
+[2026-10-14T21:53:05.490Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:05.522Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-14T21:53:05.554Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Candidate rules reject malformed counts but cannot identify historic marker undercounts (181.837207ms)
+[2026-10-14T21:53:06.484Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Trusted prototype: like/unlike, retries and contention without client parent reads (900.074441ms)
+[2026-10-14T21:53:06.590Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Real offline queue: optimistic own marker is not confirmation; reconnect commits both leaves once (88.827208ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2595.283557

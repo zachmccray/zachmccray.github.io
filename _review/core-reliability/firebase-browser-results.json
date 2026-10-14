@@ -1,0 +1,825 @@
+{
+  "passed": 51,
+  "checks": [
+    {
+      "check": "provided-before: nine original Travel IDs",
+      "passed": true
+    },
+    {
+      "check": "390: actual PR19 UI reproduces transaction failure",
+      "passed": true
+    },
+    {
+      "check": "390: rejected transaction preserves seeded data",
+      "passed": true
+    },
+    {
+      "check": "provided-before: nine original Travel IDs",
+      "passed": true
+    },
+    {
+      "check": "1440: actual PR19 UI reproduces transaction failure",
+      "passed": true
+    },
+    {
+      "check": "1440: rejected transaction preserves seeded data",
+      "passed": true
+    },
+    {
+      "check": "private-readonly-after: nine original Travel IDs",
+      "passed": true
+    },
+    {
+      "check": "390/travel-southwestroadtrip2026: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "390/travel-southwestroadtrip2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-cancun2026: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "390/travel-cancun2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-saltlakecity2026: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "390/travel-saltlakecity2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-japan: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "390/travel-japan: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-roadtrip: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "390/travel-roadtrip: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-coloradonp: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "390/travel-coloradonp: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-montreal: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "390/travel-montreal: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-oregon: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "390/travel-oregon: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390/travel-washington: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "390/travel-washington: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "390: all fixture records unchanged",
+      "passed": true
+    },
+    {
+      "check": "390: actual atomic share increment/marker works",
+      "passed": true
+    },
+    {
+      "check": "private-readonly-after: nine original Travel IDs",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-southwestroadtrip2026: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-southwestroadtrip2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-cancun2026: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-cancun2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-saltlakecity2026: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-saltlakecity2026: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-japan: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-japan: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-roadtrip: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-roadtrip: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-coloradonp: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-coloradonp: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-montreal: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-montreal: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-oregon: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-oregon: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-washington: readonly with current state/count",
+      "passed": true
+    },
+    {
+      "check": "1440/travel-washington: native cancellation normal",
+      "passed": true
+    },
+    {
+      "check": "1440: all fixture records unchanged",
+      "passed": true
+    },
+    {
+      "check": "1440: actual atomic share increment/marker works",
+      "passed": true
+    },
+    {
+      "check": "Real SDK records denied parent transaction",
+      "passed": true
+    },
+    {
+      "check": "Real SDK sends only count/own-marker reads for likes",
+      "passed": true
+    },
+    {
+      "check": "No browser exceptions",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-japan/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-japan/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-montreal/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-montreal/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-oregon/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-oregon/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-washington/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-washington/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-cancun2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-japan/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-roadtrip/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-coloradonp/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-montreal/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-oregon/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-washington/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "p",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "p",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-japan/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-japan/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-montreal/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-montreal/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-oregon/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-oregon/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-washington/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-washington/users/fixture-user"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-cancun2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-japan/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-roadtrip/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-coloradonp/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-montreal/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-oregon/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/shares/travel-washington/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "p",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "p",
+      "path": "/likes/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "provided-before",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-japan/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-japan/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-washington/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-washington/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-japan/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-montreal/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-oregon/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-washington/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "m",
+      "path": "/shares/travel-southwestroadtrip2026"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-southwestroadtrip2026/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-cancun2026/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-saltlakecity2026/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-japan/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-japan/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-roadtrip/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-coloradonp/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-montreal/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-oregon/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-washington/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/likes/travel-washington/users/fixture-user"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-southwestroadtrip2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-cancun2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-saltlakecity2026/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-japan/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-roadtrip/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-coloradonp/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-montreal/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-oregon/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "q",
+      "path": "/shares/travel-washington/count"
+    },
+    {
+      "phase": "private-readonly-after",
+      "action": "m",
+      "path": "/shares/travel-southwestroadtrip2026"
+    }
+  ],
+  "expected_permission_warnings": [
+    {
+      "phase": "provided-before",
+      "type": "warning",
+      "text": "[2026-10-14T22:00:03.358Z]  @firebase/database: FIREBASE WARNING: transaction at /likes/travel-southwestroadtrip2026 failed: permission_denied "
+    },
+    {
+      "phase": "provided-before",
+      "type": "warning",
+      "text": "[2026-10-14T22:00:04.341Z]  @firebase/database: FIREBASE WARNING: transaction at /likes/travel-southwestroadtrip2026 failed: permission_denied "
+    }
+  ],
+  "errors": [],
+  "method": "Actual served Travel UI and Firebase 9.22.1 SDK; real local RTDB enforcement; auth tokens are emulator fixtures, not real Auth integration. No production traffic."
+}
