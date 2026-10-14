@@ -1,0 +1,78 @@
+{
+  "passed": 18,
+  "checks": [
+    {
+      "check": "like-lost-ack: actual success ACK dropped after server commit",
+      "passed": true
+    },
+    {
+      "check": "like-lost-ack: actual replay and proof acknowledgement",
+      "passed": true
+    },
+    {
+      "check": "like-lost-ack: exact count and latest state",
+      "passed": true
+    },
+    {
+      "check": "like-lost-ack: original other user untouched",
+      "passed": true
+    },
+    {
+      "check": "like-lost-ack: no browser exception",
+      "passed": true
+    },
+    {
+      "check": "like-opposite-before-retry: actual success ACK dropped after server commit",
+      "passed": true
+    },
+    {
+      "check": "like-opposite-before-retry: original remains pending",
+      "passed": true
+    },
+    {
+      "check": "like-opposite-before-retry: second tab uses same anonymous identity",
+      "passed": true
+    },
+    {
+      "check": "like-opposite-before-retry: actual replay and proof acknowledgement",
+      "passed": true
+    },
+    {
+      "check": "like-opposite-before-retry: exact count and latest state",
+      "passed": true
+    },
+    {
+      "check": "like-opposite-before-retry: original other user untouched",
+      "passed": true
+    },
+    {
+      "check": "like-opposite-before-retry: no resurrected old action",
+      "passed": true
+    },
+    {
+      "check": "like-opposite-before-retry: no browser exception",
+      "passed": true
+    },
+    {
+      "check": "share-lost-ack: actual success ACK dropped after server commit",
+      "passed": true
+    },
+    {
+      "check": "share-lost-ack: SDK resend denied and immutable proof acknowledged",
+      "passed": true
+    },
+    {
+      "check": "share-lost-ack: one share survives SDK resend",
+      "passed": true
+    },
+    {
+      "check": "share-lost-ack: completed sharing stays usable",
+      "passed": true
+    },
+    {
+      "check": "share-lost-ack: no browser exception",
+      "passed": true
+    }
+  ],
+  "method": "Actual anonymous Auth SDK + RTDB WebSockets; successful ACK dropped and socket closed; enforced proposed rules and real served client. Native share completion is controlled."
+}

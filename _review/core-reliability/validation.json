@@ -3,33 +3,38 @@
   "production_files_sha256": {
     "_config.yml": "a1ca69e3e350dfb578b32e2f855c9a80ee602e1ce6886a6b7a7b17b0b7eca143",
     "_includes/head.html": "87b2eff6f7fbac01be31f87151a99f204fea768eeb02081a26aa50b554a3dbeb",
-    "_includes/head_custom.html": "22bcc514fd98db1190ae4a22494a2e4c4bd11635e492ec5e6940e76e6d782e17",
+    "_includes/head_custom.html": "51cb3c32717d74c9a64c241d33a90a03c6c7072f1ade91de9fbc4e8a9900a282",
     "assets/css/custom.css": "24961e634ca799cc22c417ae94e654bbca12bb502feaa170a1f22ccbfcf6e168",
     "assets/js/just-the-docs.js": "7d7a7fe077cf5300943a9d0c7a7f9b292f2c2074313e42992b908e58a8484050",
     "assets/js/search.js": "449c5051ee85fa3e9a29ad86264cb4de25a5b1b2742693c94a5e24c01769a20b",
     "assets/js/site-ui.js": "f4f116d6297f0e98dfef619858e0114f45ab4f17070a271117637b83e61c68f0",
-    "assets/js/travel.js": "3fb6d53b78dcacdefad80061e3d8fb3a106fd15d22484c3462f565a9c1fa10da",
+    "assets/js/travel.js": "bd584bf25d8a3180dd67d1d281fa314868bfd8df8a2bb2372a70fb0e85a6d78c",
     "photography.md": "939f8e98400a7af549c9a6378a9c8fc631b42fc3b7629f09bfe0e8e19963ed8e"
   },
   "builds": "Production and localhost successful; pre-existing upstream Sass deprecation warnings",
   "firebase": {
-    "mutations_enabled": false,
-    "release_blocked": true,
-    "owner_supplied_rules": "_tests/firebase-rules/provided.rules.json",
+    "mutations_enabled": true,
+    "production_activation_pending": true,
+    "production_rules": "_firebase/database.rules.json",
+    "maintenance_rules": "_firebase/maintenance.rules.json",
     "deployed_rules_verified": false,
     "production_write_tests": false,
-    "emulator_version": "4.11.2",
+    "rules_deployed": false,
+    "billing_changed": false,
     "sdk_version": "9.22.1",
-    "emulator_sha256": "b70d99344caf17c98b6f910fa8f6edf32a7c016cb1035e8915f70d38901eb97f",
-    "enforced_scenarios": 8,
-    "enforced_browser_checks": 51,
-    "isolated_scenarios": 13,
-    "candidate_rules_are_deployed": false,
-    "server_prototype_is_deployed": false,
-    "authentication": "emulator tokens; no production auth integration certification",
-    "acknowledgement_loss": "duplicate-intent/server-prototype simulation, not deployed callable transport certification",
-    "read_paths": "only likes/<id>/count and likes/<id>/users/<own uid>",
-    "known_history": "candidate coupled rules preserve drift; server prototype rejects known marker undercounts"
+    "emulator_version": "4.11.2",
+    "enforced_scenarios": 17,
+    "browser_checks": 75,
+    "transport_checks": 18,
+    "isolated_scenarios": 11,
+    "authentication": "actual SDK Anonymous Authentication against Auth emulator; persists UID automatically without login UI",
+    "transport": "actual WebSocket success ACK dropped, connection closed, SDK resend/proof ACK observed, opposite intent in another tab retained",
+    "privacy": "only public numeric counts and own marker/receipt reads; published fixture paths anonymized",
+    "history": "numeric offsets retained, underflow/malformed/missing historical counters fail without repair; phantom contribution attribution cannot be established",
+    "runtime_production_changes": [
+      "assets/js/travel.js",
+      "_includes/head_custom.html: Travel script cache version only"
+    ]
   },
   "routes": [
     "2024/08/09/colorado-move.html",
@@ -1505,12 +1510,12 @@
       }
     ]
   },
-  "visual_comparison": "36 main-content DOM/style/pixel comparisons for 12 unrelated pages at 390/820/1440. Travel status changes are intentional containment; before/readonly screenshots use actual SDK/emulator with neutral missing-media fixtures. Prior 39-comparison evidence is historical.",
+  "visual_comparison": "36 unchanged main-content DOM/style/pixel pairs for twelve unrelated pages at 390/820/1440; Travel before/working screenshots use actual anonymous Auth/Database emulators and identical cached fonts/neutral media.",
   "limitations": [
     "Linux Chromium 154 only; no physical iOS/Android, Safari, Firefox, Edge or screen-reader certification",
     "No genuine browser 200% zoom test",
     "Cached libraries/fonts and synthetic missing-media fixtures; local measurements are not production Core Web Vitals",
-    "Deployed rules/endpoints, real Firebase authentication and exactly-once share transport not certified; likes remain read-only pending approval."
+    "Manual deployed rules/Pages activation and physical-device/provider quota validation remain pending; analytics can be lost if an offline page closes; anonymous-account/event abuse remains possible."
   ],
   "prior_validation_commit": "02839e0; prior suites are historical, not all rerun for this revision",
   "prior_suites": [
@@ -1590,7 +1595,11 @@
       "failures": []
     }
   ],
-  "suites": [
+  "rules_sha256": {
+    "_firebase/database.rules.json": "07f31b217edf8c1d0d2c7c0bcf1f325ae1b74078134ee890f3a921a3b760504b",
+    "_firebase/maintenance.rules.json": "3822bb2deaeeba6f8f17a2037d5519aa75c1e22182a4494e441cd635fddc86ef"
+  },
+  "previous_containment_suites": [
     {
       "suite": "production preservation",
       "passed": 580,
@@ -1628,6 +1637,63 @@
     },
     {
       "suite": "Travel IDs/sharing/navigation/read-only guards",
+      "passed": 88,
+      "failures": []
+    },
+    {
+      "suite": "carousel/navigation",
+      "passed": 64,
+      "failures": []
+    },
+    {
+      "suite": "unrelated visual comparisons",
+      "passed": 36,
+      "failures": []
+    }
+  ],
+  "suites": [
+    {
+      "suite": "production preservation",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "localhost preservation",
+      "passed": 580,
+      "failures": []
+    },
+    {
+      "suite": "actual Jekyll served browser",
+      "passed": 557,
+      "failures": []
+    },
+    {
+      "suite": "real Anonymous Auth/RTDB SDK/browser",
+      "passed": 75,
+      "failures": []
+    },
+    {
+      "suite": "real WebSocket ACK loss/reconnect/opposite intent",
+      "passed": 18,
+      "failures": []
+    },
+    {
+      "suite": "enforced rules/client scenarios",
+      "passed": 17,
+      "failures": []
+    },
+    {
+      "suite": "isolated UI/analytics scenarios",
+      "passed": 11,
+      "failures": []
+    },
+    {
+      "suite": "Blog regressions",
+      "passed": 110,
+      "failures": []
+    },
+    {
+      "suite": "Travel IDs/sharing/navigation/like/unlike",
       "passed": 88,
       "failures": []
     },

@@ -3,13 +3,12 @@
 Branch: `perf/core-reliability`, based on latest merged `gh-pages` `19973eb`.
 One PR for local review; production remains unmodified and the PR must stay unmerged.
 
-**Release blocked: Travel like mutations are paused.** The owner-supplied rules deny
-PR #19's parent transaction, expose all user records through root `.read: true`, and
-permit unsafe independent counter writes. The revised client reads only counts and
-its own marker. This removes the incompatible/private-data-reading operation; it
-does **not** complete the like/unlike fix. See the [concrete rules/backend options,
-security, hosting/cost and approval requirements](../../docs/travel-like-reliability.md).
-No production rules, service, billing or records changed.
+**Option A is implemented and locally verified; production activation remains pending
+the owner's private rules publication and coordinated Pages deployment.** Normal
+like/unlike controls are writable through one click and automatic Anonymous Auth.
+No login, personal details, CAPTCHA, Cloud Function or billing change is added.
+See the [complete rules, historical limits and exact manual rollout](../../_firebase/README.md).
+No production rules/data or merge were changed. Keep PR #19 open for owner review.
 
 ## Implementation
 
@@ -30,22 +29,34 @@ No production rules, service, billing or records changed.
   press. Mobile retry uses the original event path so replacing feedback does not
   dismiss the menu. Retry text computes to Inter 15px/24px with a 44px minimum target
   and the established 3px purple focus outline; input remains 16px.
-- Likes now display existing state/count read-only and never read the user map or
-  attempt a parent transaction. Authentication/count/own-read failures report SDK
-  categories without private data. Invalid counts are not reset. Shares retain atomic
-  marker/increment logging independent of completed native/clipboard actions, and
-  voluntary native cancellation remains normal feedback. No production data changed.
+- Likes/unlikes use private immutable action proofs, current-state receipts and
+  rules-coupled atomic count/marker changes. Cached snapshots alone never confirm
+  success; acknowledged no-ops establish state/proof. Same-user revision conflicts
+  supersede stale intents without rebasing. A lost acknowledgement cannot resurrect
+  an old like after an opposite action. Initial legacy records are mirrored without
+  changing their markers/counts; historical totals are not reconstructed.
+- Shares retain native/copy behavior independently of analytics. Each completion has
+  an immutable proof; repeated/concurrent shares count separately and resends count
+  once. Only the own marker's shared/timestamp leaves change, preserving extra fields.
+  Cancellation is normal. Keyboard focus returns after saving when no other control
+  took focus. Authentication errors stay ordinary availability feedback.
+- Complete proposed rules remove root public reads, allow numeric public counts and
+  private own records, and deny forged/split/cross-user/delete/multi-proof writes.
+  Private maintenance rules support rollback. The Travel asset cache version makes
+  updated pages fetch the compatible client. Old tabs/HTML and in-flight split writes
+  require the documented cutover; there is no zero-downtime compatibility claim.
 - Font Awesome loads on Travel only. Inter's original four weights/display=swap move
   directly to the head with preconnect. Pin the audited theme SHA and tested GLightbox
   3.3.1; no dependency upgrade, global typography reset or image changes.
 
-Audit findings addressed: **A1/A2/A3, B4/B6/B7, A6**. B1 remains release-blocked
-until the approved private-like write path is implemented and deployed.
+Audit findings implemented: **A1/A2/A3, B1/B4/B6/B7, A6**. Production acceptance
+remains gated on owner rules publication, verification and Pages deployment.
 
 ## Comparable performance evidence
 
-Recorded on `02839e0`; all eight other production files remain byte-identical in
-this revision, so homepage performance was not remeasured.
+Recorded on `02839e0`; seven other production files remain byte-identical; the only head_custom change is
+a cache token inside its Travel-only branch. Homepage assets/request scheduling are
+unchanged, so homepage performance was not remeasured.
 Seven fresh contexts per phase/rate, alternating order; Chromium 154, 390×844,
 actual compiled JS and standard 80-record JSON from local HTTP. Native functions
 are timed with a transparent test-only Proxy. No simultaneous browser regressions
@@ -77,44 +88,40 @@ samples are in [performance-results.json](performance-results.json).
 
 ## Validation of this revision
 
-- Production and localhost Jekyll builds succeed; 580 preservation checks each,
-  all **82 HTML routes**, content, links, assets, IDs, SEO and standard search data.
-  Existing upstream Sass warnings remain.
-- Actual Jekyll-served browser: **557** checks, 135 course queries and 90 destination
-  clicks, native loading/error/retry/cache/keyboard/history, 12 widths and eight
-  orientations. Nine like controls are explicitly tested as read-only, not passed
-  off as successful like/unlike interactions. No browser exceptions.
-- **Eight enforced RTDB scenarios**, using Firebase 9.22.1 and emulator 4.11.2:
-  supplied-rule parent denial/public reads/duplicate increments; private coupled
-  atomic like/unlike, fixed-intent retries, forbidden split/forged/other-user writes,
-  20 distinct/ten same-user clients, malformed and historical inconsistent records,
-  trusted transaction prototype, offline queue/optimistic state/reconnect. Expected
-  denial warnings are recorded in [firebase-enforced.log](firebase-enforced.log).
-  This tests local copies of owner-supplied/candidate rules, not deployed rules.
-- **51 actual Firebase SDK/browser checks** at 390/1440 against enforced rules:
-  reproduce the original PR19 UI failure; verify all nine counts/own states and
-  no parent reads/like writes; native cancellation and actual atomic share logging;
-  seeded records remain unchanged. Auth uses emulator tokens. Results:
-  [firebase-browser-results.json](firebase-browser-results.json).
-- **13 isolated scenarios** cover client containment, error categories, SDK/auth/read
-  failures, corrupt/history preservation, share atomicity/queued logging/cancellation,
-  and the server-side design prototype. These supplement the enforced tests.
-- Retained Blog: **110**; Travel IDs/sharing/navigation: **88** (old mocked mutation
-  expectations now assert paused controls/no writes); carousel/navigation: **64**.
-- **36** controlled visual comparisons on twelve unrelated pages at 390/820/1440:
-  main-content geometry, typography and pixels unchanged. Shared chrome and native
-  select/video paint masked consistently; Travel's intentional paused feedback is
-  assessed separately. Eight other production files are unchanged from reviewed
-  `02839e0`, including search, CSS, navigation and Photography.
+- Production/local Jekyll builds succeed, 580 preservation checks each; all **82 HTML
+  routes**, exact content/SEO, assets, IDs, 80 standard search records and 45 course
+  anchors retained. Existing upstream Sass warnings remain. `_firebase`, `_tests`
+  and `_review` are excluded from the website output.
+- **557** real served-browser checks: 135 course queries/90 destination clicks,
+  native loading/error/cache/keyboard/history, 12 widths/eight orientations and all
+  nine one-click keyboard like/unlike/share controls. No browser exceptions.
+- **17 enforced scenarios** run the actual client helpers with Firebase 9.22.1 and
+  RTDB emulator 4.11.2: private ownership, atomic/no-op/replay intents, opposite intents,
+  20 distinct/ten same-UID clients, forged/split/cross-user/delete/multi-proof writes,
+  empty counters, under/overcounts and malformed/overflow records, offline/newer
+  opposite state, 20 concurrent same-UID shares/replays, old/new compatibility, an
+  already-committed legacy split marker at cutover, maintenance policy and malformed
+  public-count/private-receipt protection. Expected denials:
+  [firebase-enforced.log](firebase-enforced.log).
+- **75 actual served UI/SDK checks** at 390/1440 with real Anonymous Auth and Database
+  emulators: no login/verification UI, persistent anonymous UID, all nine one-click
+  likes/unlikes, exact original counts/markers, normal cancellation and real clipboard
+  success despite denied analytics. [Results](firebase-browser-results.json).
+- **18 real transport checks** drop successful WebSocket ACKs, close/reconnect and
+  observe SDK resends plus immutable proof acknowledgements. Like/unlike state/count
+  survives, a newer opposite action in a second tab remains, and a share is counted
+  once. [Results](firebase-transport-results.json). No mocked counter engine/rules.
+- **11** isolated UI/error cases supplement integration tests. Retained Blog: **110**;
+  Travel IDs/URLs/sharing/navigation/like/unlike: **88**; carousel/navigation: **64**.
+- **36** unrelated main-content DOM/style/pixel pairs at 390/820/1440 remain unchanged
+  with controlled fonts/media and consistent chrome/native-paint masks. No new
+  horizontal overflow; healthy browser flows have no exceptions. Seven other runtime
+  source files remain byte-identical to `02839e0`; head_custom keeps every successful
+  feature and only versions the Travel script.
 
-Earlier gallery/UI/performance evidence remains in `validation.json` under
-`prior_suites`; it is not claimed as rerun. Linux Chromium, synthetic missing media,
-no physical devices/other engines/screen-reader/real-zoom certification. The SDK's
-Node loopback proxy issue was resolved only for fixed-localhost test processes.
-The official emulator artifact SHA-256 matches the Firebase CLI manifest.
-
-Evidence: [validation.json](validation.json). Portable commands:
-[testing README](../../_tests/README.md).
+Earlier initial-PR gallery/performance evidence remains historical under `prior_suites`;
+it is not claimed as rerun. Current source/rule hashes and results:
+[validation.json](validation.json). Commands: [testing README](../../_tests/README.md).
 
 ## Before/after screenshots
 
@@ -122,27 +129,31 @@ Evidence: [validation.json](validation.json). Portable commands:
 [Mobile keyboard focus exit](mobile-keyboard.png) ·
 [Mobile search failure](search-failure-390.png) · [Desktop search failure](search-failure-1440.png).
 
-Travel failure → safe read-only containment (actual SDK/emulator, cached Inter/icons, neutral media):
-[Mobile before](travel-like-before-390.png) · [Mobile read-only](travel-like-readonly-390.png) ·
-[Desktop before](travel-like-before-1440.png) · [Desktop read-only](travel-like-readonly-1440.png).
+Travel failure → working anonymous one-click interactions (actual Auth/DB emulators,
+cached Inter/icons, neutral missing media): [Mobile before](travel-like-before-390.png) ·
+[Mobile working](travel-like-working-390.png) · [Desktop before](travel-like-before-1440.png) ·
+[Desktop working](travel-like-working-1440.png). Older read-only snapshots remain
+historical evidence of the temporary containment; they are not the current design.
 
 Homepage presentation stays intact. The menu now dismisses when Tab reaches main
 content, and search failure has readable, keyboard-accessible feedback.
 
 ## Limits and remaining work
 
-The supplied rules explain the permission failure and the privacy warning; they have
-not been remotely verified. A private atomic multi-path update is possible with
-coupled validation rules, but does not identify historical phantom markers.
-The recommended trusted endpoint preserves known-undercount protection without
-client access to other users. The exact candidate rules/prototype are local test
-fixtures, not deployment configuration. Owner approval and staging/production
-verification remain required. See [decision details](../../docs/travel-like-reliability.md).
+The supplied rules explain the original failure/privacy warning; no current deployed
+rules were remotely verified. The complete proposed policy must be manually published
+before normal production use. See the [manual guide](../../_firebase/README.md) for
+Console steps, merge checks, old-client/cached-HTML incompatibility and private rollback.
+A new script cache token covers updated pages; it cannot rewrite already-open old tabs.
+An old marker accepted before publication can lose its late split count write afterward;
+no old data is silently reconciled. Do not reopen reads or permit split writes for rollout.
 
-Historic overcounts/attribution are not repaired or certified. Exactly-once share
-transport delivery remains unverified; current numeric-only share write rules remain
-an abuse limitation. No durable ledger, migration, production write test or backend
-is silently introduced.
+Historical numeric under/overcounts retain their offset; their contribution attribution
+is unknown. Underflow/malformed/missing historical counters fail without repair. Rules
+cannot prevent anonymous multi-account abuse or prove an external share occurred.
+Durable private proofs grow with interactions; no cleanup/migration is added. Offline
+page closure can lose uncommitted/best-effort events. These limits do not impose visitor
+identity/verification or billing/backend requirements.
 
 Linux Chromium is available; physical iOS/Android, Safari, Firefox, Edge, real screen
 readers and genuine 200% browser zoom remain unverified. Public website/CDN access
@@ -157,33 +168,31 @@ SEO/dark mode remain separate. See [updated roadmap](../../docs/modernization-ro
 
 ## Exact changed files
 
-Production changes in this revision: **`assets/js/travel.js` only**. The eight other
-production files from PR #19 are unchanged. Testing, investigation and review files
-are below; `_tests`/`_review` do not ship in the Jekyll output.
+Runtime changes in this revision: `assets/js/travel.js`, and
+`_includes/head_custom.html` for the Travel-only cache token. Proposed private rules/
+manual rollout are in `_firebase`. Seven other production files from reviewed PR19
+remain unchanged. Test, policy and review directories are excluded from Jekyll output.
 
-Revision from `02839e0`:
+This revision from `d25ed7e`:
 
+- `_firebase/README.md`
+- `_firebase/database.rules.json`
+- `_firebase/maintenance.rules.json`
+- `_includes/head_custom.html`
 - `_review/core-reliability/firebase-browser-results.json`
 - `_review/core-reliability/firebase-enforced.log`
+- `_review/core-reliability/firebase-transport-results.json`
 - `_review/core-reliability/report.md`
-- `_review/core-reliability/travel-like-before-1440.png`
-- `_review/core-reliability/travel-like-before-390.png`
-- `_review/core-reliability/travel-like-readonly-1440.png`
-- `_review/core-reliability/travel-like-readonly-390.png`
+- `_review/core-reliability/travel-like-working-1440.png`
+- `_review/core-reliability/travel-like-working-390.png`
 - `_review/core-reliability/validation.json`
-- `_tests/.gitignore`
 - `_tests/README.md`
 - `_tests/browser.py`
 - `_tests/firebase-fixture.js`
 - `_tests/firebase-rules/browser.py`
-- `_tests/firebase-rules/emulator.test.cjs`
 - `_tests/firebase-rules/firebase.json`
-- `_tests/firebase-rules/package.json`
-- `_tests/firebase-rules/private-backend.rules.json`
-- `_tests/firebase-rules/private-coupled.rules.json`
-- `_tests/firebase-rules/provided.rules.json`
-- `_tests/firebase-rules/trusted-updater.cjs`
-- `_tests/firebase-rules/trusted-updater.test.cjs`
+- `_tests/firebase-rules/option-a.test.cjs`
+- `_tests/firebase-rules/transport.py`
 - `_tests/firebase.test.cjs`
 - `assets/js/travel.js`
 - `docs/core-reliability.md`
@@ -193,10 +202,14 @@ Revision from `02839e0`:
 Complete PR against `gh-pages`:
 
 - `_config.yml`
+- `_firebase/README.md`
+- `_firebase/database.rules.json`
+- `_firebase/maintenance.rules.json`
 - `_includes/head.html`
 - `_includes/head_custom.html`
 - `_review/core-reliability/firebase-browser-results.json`
 - `_review/core-reliability/firebase-enforced.log`
+- `_review/core-reliability/firebase-transport-results.json`
 - `_review/core-reliability/homepage-desktop.png`
 - `_review/core-reliability/homepage-mobile.png`
 - `_review/core-reliability/mobile-keyboard.png`
@@ -208,6 +221,8 @@ Complete PR against `gh-pages`:
 - `_review/core-reliability/travel-like-before-390.png`
 - `_review/core-reliability/travel-like-readonly-1440.png`
 - `_review/core-reliability/travel-like-readonly-390.png`
+- `_review/core-reliability/travel-like-working-1440.png`
+- `_review/core-reliability/travel-like-working-390.png`
 - `_review/core-reliability/validation.json`
 - `_tests/.gitignore`
 - `_tests/README.md`
@@ -217,10 +232,12 @@ Complete PR against `gh-pages`:
 - `_tests/firebase-rules/browser.py`
 - `_tests/firebase-rules/emulator.test.cjs`
 - `_tests/firebase-rules/firebase.json`
+- `_tests/firebase-rules/option-a.test.cjs`
 - `_tests/firebase-rules/package.json`
 - `_tests/firebase-rules/private-backend.rules.json`
 - `_tests/firebase-rules/private-coupled.rules.json`
 - `_tests/firebase-rules/provided.rules.json`
+- `_tests/firebase-rules/transport.py`
 - `_tests/firebase-rules/trusted-updater.cjs`
 - `_tests/firebase-rules/trusted-updater.test.cjs`
 - `_tests/firebase.test.cjs`
@@ -243,5 +260,7 @@ Complete PR against `gh-pages`:
 Before merge, close/discard this branch; production is untouched. After an approved
 merge, revert its merge commit in a separately reviewed PR and rebuild Pages. No
 migration or data reset needs reversal. If reverting only performance work, restore
-head/runtime/controller/site-ui/font integration together and keep likes paused; a complete revert would restore the old split-write defect. Session entries are
+head/runtime/controller/site-ui/font integration together and retain the paired
+private counter client/rules; use the private maintenance policy for a temporary pause.
+A complete revert would restore the old split-write defect. Session entries are
 ignored by the old runtime and need no purge. Do not merge automatically.

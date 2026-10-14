@@ -47,22 +47,29 @@ Cold first use still builds the index; on-demand loading moves that cost to a
 visitor who actually uses search. Session reuse reduces subsequent construction
 work, while preserving current data and all destination associations.
 
-## Firebase safety and release blocker
+## Private anonymous Firebase interactions
 
-Owner-supplied rules deny the original parent like transaction and expose all user
-records through root `.read: true`. They also lack count/marker transition validation.
-The parent transaction has been removed. Likes now read only the count and current
-user's marker; mutations are paused until an approved private rules/backend solution
-is ready. **This is not a completed like fix; PR #19 remains release-blocked.**
+Option A is implemented with one-click like/unlike, the existing automatic Anonymous
+Authentication and native/copy sharing independent of analytics. No visitor login,
+personal details, CAPTCHA, verification, Cloud Function or billing change is added.
+Private immutable action proofs and current-state receipts couple user transitions
+to atomic counts, prevent duplicate increments and preserve newer opposite intents.
+Root reads/user maps are denied in the complete proposed rules; only numeric counts
+and each authenticated visitor's own records are readable. No parent transaction or
+other-user read is required. Existing counts and markers are not reset or migrated.
 
-See [Travel like investigation and concrete rules/backend options](travel-like-reliability.md)
-for the root cause, local enforcement tests, historical-data limitations, security,
-hosting/cost and required approvals. No production rules/data/infrastructure changed.
+Historical under/overcount attribution remains unknown; valid counts retain their
+offset, underflow/missing/malformed counters fail without repair. Anonymous multi-
+account abuse and fabricated protocol-valid share events remain possible. Real
+Auth/RTDB emulator tests exercise permissions, contention, offline queues and actual
+WebSocket acknowledgement loss. They do not certify current deployed rules/data.
 
-Share logging retains one multi-path update at `shares/<existing-post-id>` with
-ServerValue.increment(1), updating the existing marker and count atomically. Logging
-remains independent of the completed native/clipboard action. Native cancellation
-is normal feedback and logs no share. No exactly-once transport claim is made.
+**Owner production activation remains pending.** See
+[the complete rules, history/security limits and manual Console/Pages sequence](../_firebase/README.md).
+Old split clients are deliberately incompatible with strict atomic rules. The Travel
+script has a protocol cache version; old tabs/cached HTML can remain during cutover.
+Keep rules private and use the documented private maintenance rollback if needed.
+No production rules, billing, records or website merge were changed by this work.
 
 ## Resource loading and intentionally deferred work
 
@@ -94,7 +101,8 @@ local timings are laboratory results, not live-production Core Web Vitals.
 
 Before merge, discard the development branch/PR to roll back. After an approved
 merge, revert its merge commit through a separate reviewed PR and rebuild Pages.
-No data migration needs reversing. Reverting can reintroduce the old split-write
-counter failure, so keep the safe counter changes if rolling back only search/loading.
+No data migration needs reversing. Keep the paired private counter client/rules if
+rolling back only search/loading; use `_firebase/maintenance.rules.json` for a safe
+temporary counter pause. Never reopen root reads or restore split writes.
 Session entries are versioned and are ignored by the old runtime; no storage/data
 purge is required.

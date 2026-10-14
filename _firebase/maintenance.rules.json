@@ -1,0 +1,50 @@
+{
+  "rules": {
+    ".read": false,
+    "likes": {
+      "$postId": {
+        "count": {
+          ".read": "!data.exists() || data.isNumber()"
+        },
+        "users": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid"
+          }
+        },
+        "receipts": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid"
+          }
+        },
+        "actions": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid"
+          }
+        }
+      }
+    },
+    "shares": {
+      "$postId": {
+        "count": {
+          ".read": "!data.exists() || data.isNumber()"
+        },
+        "users": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid"
+          }
+        },
+        "receipts": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid"
+          }
+        },
+        "actions": {
+          "$uid": {
+            ".read": "auth != null && auth.uid == $uid"
+          }
+        }
+      }
+    },
+    ".write": false
+  }
+}

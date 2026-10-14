@@ -22,38 +22,45 @@ function dom() {
 async function setup(options = {}) {
   const f = fixture(options); const d = dom();
   const warnings = [];
-  const context = vm.createContext({ firebase: f.firebase, document: d.document, navigator: { clipboard: { writeText: async () => {} } }, console: { warn: (...args) => warnings.push(args) } });
+  const crypto = require('node:crypto').webcrypto;
+  const context = vm.createContext({ crypto, setTimeout, firebase: f.firebase, document: d.document, navigator: { clipboard: { writeText: async () => {} } }, console: { warn: (...args) => warnings.push(args) } });
   vm.runInContext(source, context);
   await Promise.resolve(); await Promise.resolve();
   return { ...f, ...d, context, warnings };
 }
 const historical = () => ({ likes: { 'travel-japan': { count: 4, note: 'historical', users: Object.fromEntries([1, 2, 3, 4].map(i => ['other-' + i, { liked: true, timestamp: i }])) } } });
-test('Likes are read-only: only own marker/count read; no parent transaction or mutation', async () => {
-  const f=await setup({data:historical()});
-  assert.equal(f.button.disabled,true); assert.equal(f.button.getAttribute('aria-busy'),'false');
-  assert.match(f.status.textContent,/paused/); assert.equal(f.count.textContent,4);
-  assert.equal(f.button.listeners.click,undefined); assert.deepEqual(f.operations,[]);
-  assert.deepEqual(f.reads.filter(p=>p.startsWith('likes/')), ['likes/travel-japan/count','likes/travel-japan/users/fixture-user']);
-  assert.deepEqual(f.data,historical());
+test('One-click like/unlike updates atomically without reading other users',async()=>{
+ const f=await setup({data:historical()});assert.equal(f.button.disabled,false);
+ await f.button.listeners.click();assert.equal(f.data.likes['travel-japan'].count,5);assert.equal(f.button.getAttribute('aria-pressed'),'true');
+ await f.button.listeners.click();assert.equal(f.data.likes['travel-japan'].count,4);assert.equal(f.button.getAttribute('aria-pressed'),'false');
+ assert.equal(f.data.likes['travel-japan'].note,'historical');assert.deepEqual(f.data.likes['travel-japan'].users,historical().likes['travel-japan'].users);
+ assert.ok(f.reads.filter(p=>p.startsWith('likes/')).every(p=>p.endsWith('/count')||p.includes('/users/fixture-user')||p.includes('/receipts/fixture-user')));
+ assert.ok(f.operations.every(o=>o.type==='update'));
 });
-test('Own like state is displayed while all records and legacy inconsistencies remain untouched', async () => {
-  for (const inconsistent of [false,true]) {
-    const data=historical(); data.likes['travel-japan'].users['fixture-user']={liked:true,timestamp:99};
-    if (!inconsistent) data.likes['travel-japan'].count=5;
-    const f=await setup({data}); assert.equal(f.button.getAttribute('aria-pressed'),'true');
-    assert.equal(f.button.disabled,true); assert.deepEqual(f.operations,[]); assert.deepEqual(f.data,data);
-  }
+test('Acknowledgement loss preserves fixed like/unlike intents and does not increment twice',async()=>{
+ const f=await setup({data:historical()});f.mode.ackLossAtomic=true;await f.button.listeners.click();
+ assert.equal(f.data.likes['travel-japan'].count,5);assert.equal(f.status.textContent,'Liked.');
+ f.mode.ackLossAtomic=true;await f.button.listeners.click();assert.equal(f.data.likes['travel-japan'].count,4);assert.equal(f.status.textContent,'Like removed.');
+});
+test('Pending write prevents repeat activation and preserves counts until acknowledgement',async()=>{
+ const f=await setup({data:historical(),mode:{hold:true}});const pending=f.button.listeners.click();
+ assert.equal(f.button.disabled,true);assert.equal(f.button.getAttribute('aria-busy'),'true');await f.button.listeners.click();f.resume();await pending;
+ assert.equal(f.data.likes['travel-japan'].count,5);assert.equal(f.button.disabled,false);
+});
+test('Legacy markers and counts are not reconstructed on initialization',async()=>{
+ const data=historical();data.likes['travel-japan'].users['fixture-user']={liked:true,timestamp:99};
+ const f=await setup({data});assert.equal(f.button.getAttribute('aria-pressed'),'true');assert.deepEqual(f.data,data);assert.deepEqual(f.operations,[]);
 });
 test('Invalid historic counts have distinct feedback and are never repaired', async () => {
   for (const count of ['unknown',-1,1.5,Number.MAX_SAFE_INTEGER+1]) {
     const data=historical(); data.likes['travel-japan'].count=count;
-    const f=await setup({data}); assert.equal(f.count.textContent,'—'); assert.match(f.status.textContent,/stored like count is invalid/);
+    const f=await setup({data}); assert.equal(f.count.textContent,'—'); assert.match(f.status.textContent,/count needs review/);
     assert.deepEqual(f.data,data); assert.deepEqual(f.operations,[]);
   }
 });
 test('Authentication, own-marker read and count-read errors are distinguished without private logging', async () => {
   for (const [mode,stage,message] of [
-    [{authFail:true},'authentication',/sign-in failed/],
+    [{authFail:true},'authentication',/temporarily unavailable/],
     [{readFailPath:'/users/'},'own-like-read',/Your like state/],
     [{readFailPath:'likes\/travel-japan\/count'},'like-count-read',/like count/]
   ]) {
@@ -84,8 +91,8 @@ test('Shares atomically update existing paths and count every completed share', 
 test('Rejected share child cannot leave either half committed; no implicit replay', async () => {
   const f = await setup({ mode: { failChild: '/count' } }); await f.context.logShareToFirebase('travel-japan');
   assert.equal(f.data.shares, undefined); assert.match(f.status.textContent, /count update could not be confirmed/);
-  const g = await setup({ mode: { ackLoss: true } }); await g.context.logShareToFirebase('travel-japan');
-  assert.equal(g.data.shares['travel-japan'].count, 1); assert.equal(g.operations.length, 1);
+  const g = await setup({ mode: { ackLossAtomic: true } }); await g.context.logShareToFirebase('travel-japan');
+  assert.equal(g.data.shares['travel-japan'].count, 1); assert.equal(g.operations.filter(o=>o.changes?.count!=null).length,1);
 });
 test('Queued share logging keeps controls responsive and counts each completion on reconnection', async () => {
   const f = await setup({ mode: { hold: true } });

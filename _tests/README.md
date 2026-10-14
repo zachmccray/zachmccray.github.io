@@ -5,7 +5,7 @@ Use Node 18+ for isolated Firebase tests, and Python 3.10+ with Playwright for b
 No script writes to production Firebase; browser checks intercept all third-party requests.
 
 ```sh
-node --test _tests/firebase.test.cjs _tests/firebase-rules/trusted-updater.test.cjs
+node --test _tests/firebase.test.cjs
 python -m pip install -r _tests/requirements.txt
 python -m playwright install chromium
 JEKYLL_ENV=production bundle exec jekyll build --destination /tmp/site-candidate
@@ -19,8 +19,8 @@ cache cases, all 135 frozen course queries and 90 code/title destination clicks,
 widths/eight orientation profiles, mobile/desktop keyboard retry and Escape,
 complete batched results after real typing/focus return, menu focus exit,
 keyboard selection, history,
-anchor offsets, all nine read-only Travel like controls and completed/canceled sharing.
-Like mutations are intentionally release-blocked; these checks do not claim working likes. Neutral images and an
+anchor offsets, all nine one-click Travel like/unlike controls, completed/canceled
+sharing and absence of parent transactions/other-user reads. Neutral images and an
 in-memory RTDB model are fixtures. Font/CDN rendering and real screen readers are
 outside this portable functional test's scope. Pass `--chromium /path/to/chromium`
 when using a system browser rather than Playwright's installed Chromium.
@@ -49,12 +49,13 @@ Coursework changes, not to make a regression disappear.
 
 ## Enforced Firebase tests
 
-Read [the root cause and approval boundary](../docs/travel-like-reliability.md).
-`firebase-rules/*.rules.json` are local emulator fixtures/candidates, **not rules to
-publish**. Owner-supplied rules are reproduced without claiming deployed verification.
-The trusted updater is a server-design prototype, not a browser or deployed backend.
+Read [the complete rules/deployment guide](../_firebase/README.md).
+`_firebase/database.rules.json` is the proposed production policy; no command below
+publishes it. Older `firebase-rules/private-*.rules.json` and trusted-updater files
+are historical investigation fixtures. The current suite tests the actual client
+helpers against the proposed rules and retains owner-supplied rules for cutover checks.
 
-Install pinned test-only dependencies outside the checkout (Node 20+; Java 21+):
+Install test-only dependencies outside the checkout (Node 20+; Java 21+):
 
 ```sh
 mkdir -p /tmp/website-firebase-tests
@@ -63,40 +64,47 @@ npm install --prefix /tmp/website-firebase-tests --no-audit --no-fund
 export NODE_PATH=/tmp/website-firebase-tests/node_modules
 export FIREBASE_EMULATORS_PATH=/tmp/website-firebase-tests/emulators
 /tmp/website-firebase-tests/node_modules/.bin/firebase emulators:exec \
-  --only database --project demo-website-reliability \
+  --only database,auth --project demo-website-reliability \
   --config _tests/firebase-rules/firebase.json \
-  'node --test _tests/firebase-rules/emulator.test.cjs'
+  'node --test _tests/firebase-rules/option-a.test.cjs'
 ```
 
-All service addresses are fixed to localhost and the demo project; no production
-credentials are required. Official emulator download: `storage.googleapis.com`.
-Tests use Firebase 9.22.1, matching the site's SDK, and rules-unit-testing 2.0.7.
-They reproduce the denied parent transaction, public user-map reads, duplicate
-increments under supplied rules, candidate private/coupled atomic transitions,
-split/forged/other-user denials, 20 distinct users/ten same-user clients, historic
-inconsistencies, a privileged transaction prototype and an actual offline queue/
-optimistic-marker/reconnect check. No mock fallback exists.
+All services are fixed to loopback/demo project; no production credentials. The SDK
+is 9.22.1, matching the site; rules-unit-testing 2.0.7 and firebase-tools 14.26.0 are
+pinned. The official RTDB emulator download uses `storage.googleapis.com`. The suite
+has no mock fallback: ownership/privacy, like/unlike/no-op intents, immutable proofs,
+forged/split/cross-user/delete/multi-proof writes, same/distinct-user contention,
+new/legacy malformed counts, under/overcounts, offline/newer opposite intents,
+share repetitions/replays, old/new client compatibility, in-flight cutover and private
+maintenance rollback. `firebase.test.cjs` supplements it with isolated UI/error cases.
 
-For actual served-UI integration, start that emulator with `emulators:start` instead
-of `emulators:exec`, then in another terminal:
+For actual SDK/UI/Anonymous Authentication and network-loss testing, start the same
+emulators with `emulators:start` in a persistent session, then run in another terminal:
 
 ```sh
 python _tests/firebase-rules/browser.py --url http://localhost:4000 \
   --sdk /tmp/website-firebase-tests/node_modules/firebase --out /tmp/enforced-travel
+python _tests/firebase-rules/transport.py --url http://localhost:4000 \
+  --sdk /tmp/website-firebase-tests/node_modules/firebase --out /tmp/enforced-transport
 ```
 
-This serves the real Firebase SDK and current Travel JS/UI against enforced emulator
-rules; only authentication tokens, missing media and unrelated third-party requests
-are fixtures. It also reproduces the previous PR19 UI failure from commit `02839e0`.
-Keep that history available. Browser requests cannot reach production Firebase/auth
-or analytics. Results show all nine original paths/current states, normal native
-cancellation, unchanged records, real atomic sharing and the absence of parent reads
-or like writes in the revised client. Endpoint/physical-device authentication is not
-certified by emulator tokens. Pass `--fixtures /path/to/cached/fonts` optionally
-for previews using `Inter.ttf`, `fontawesome.css` (6.5.0) and its three WOFF2 files.
+The browser uses real automatic Anonymous Auth and Database SDKs with both emulators.
+It verifies all nine click/keyboard like/unlike controls, retained counts/markers,
+no account/verification UI, persistent anonymous identity, cancellation and actual
+clipboard success even when analytics is denied. `transport.py` drops actual successful
+WebSocket ACKs, closes the connection, asserts SDK resends/proof acknowledgements and
+tests an intervening opposite action in a second tab. Real rules always enforce
+writes. Native-share completion/cancellation is controlled because headless Linux
+cannot certify the platform dialog. Production Firebase/analytics requests are blocked.
 
-In this cloud environment, SDK 9.22.1's Node WebSocket implementation applies
-`HTTP_PROXY` even to loopback, ignoring `NO_PROXY`. Run **only the fixed-localhost test
-process** with `env -u HTTP_PROXY -u HTTPS_PROXY -u http_proxy -u https_proxy node ...`
-inside `emulators:exec` if needed. Keep normal proxy configuration for downloads and
-all nonlocal work. Never redirect these tests to a real Firebase project.
+These checks reproduce old PR19 failures from commit `02839e0`; retain that history.
+Pass `--fixtures /path/to/cached/fonts` for previews using Inter.ttf, Font Awesome
+6.5.0 CSS and its three WOFF2 files. Missing media remains synthetic/controlled.
+Emulator tests establish local behavior, not remote rules, physical devices or quotas.
+
+SDK 9.22.1's Node WebSocket implementation applies HTTP_PROXY to loopback even with
+NO_PROXY. In this cloud, run **only the fixed-localhost Node test process** inside
+`emulators:exec` with:
+`env -u HTTP_PROXY -u HTTPS_PROXY -u http_proxy -u https_proxy node --test ...`.
+Keep the normal proxy for downloads/nonlocal work. Never use a real project for these
+scripts, and never treat an optimistic cache/value event as commit confirmation.

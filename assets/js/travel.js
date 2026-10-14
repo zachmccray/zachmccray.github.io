@@ -58,11 +58,82 @@ if (typeof firebase !== "undefined" && typeof firebase.initializeApp === "functi
     })
     .catch(error => {
       reportFirebaseError('authentication', error);
-      whenReady(() => likesUnavailable('Likes are unavailable because sign-in failed.'));
+      whenReady(() => likesUnavailable('Likes are temporarily unavailable. Please try again later.'));
     });
 } else {
   // Keep ordinary navigation and clipboard/native sharing usable if the CDN fails.
   whenReady(likesUnavailable);
+}
+
+// Private action IDs are technical retry receipts, not personal visitor details.
+function counterActionId() {
+  return Array.from(crypto.getRandomValues(new Uint8Array(16)), byte => byte.toString(16).padStart(2, '0')).join('');
+}
+
+function validLikeReceipt(value) {
+  return value && Number.isSafeInteger(value.revision) && value.revision >= 0
+    && typeof value.liked === 'boolean' && typeof value.actionId === 'string'
+    && Object.keys(value).sort().join(',') === 'actionId,liked,revision'
+    && (value.revision === 0 ? value.actionId === 'initial' : /^[a-f0-9]{32}$/.test(value.actionId));
+}
+
+// SDK get()/value events can use an optimistic/offline cache. A rules-validated
+// no-op write is the acknowledgement barrier; a cached snapshot alone isn't proof.
+async function confirmedLikeState(database, uid, id) {
+  const ref = database.ref('likes/' + id);
+  let lastError;
+  for (let attempt = 0; attempt < 5; attempt++) {
+    const snapshot = await ref.child('receipts/' + uid).get();
+    let state = snapshot.val();
+    if (state == null) {
+      state = { revision: 0, liked: (await ref.child('users/' + uid).get()).exists(), actionId: 'initial' };
+    }
+    if (!validLikeReceipt(state)) throw Object.assign(new Error('Invalid like receipt'), { code: 'INVALID_RECORD' });
+    try {
+      await ref.update({ ['receipts/' + uid]: state });
+      return state;
+    } catch (error) {
+      lastError = error;
+      if (!String(error.code).toLowerCase().includes('permission')) throw error;
+      // A concurrent receipt can arrive after the failed acknowledgement.
+      await new Promise(resolve => setTimeout(resolve, 25));
+    }
+  }
+  throw lastError;
+}
+
+function newLikeIntent(state, liked) {
+  if (state.revision === Number.MAX_SAFE_INTEGER) throw Object.assign(new Error('Like revision exhausted'), { code: 'INVALID_RECORD' });
+  return { actionId: counterActionId(), revision: state.revision + 1, liked, previousLiked: state.liked };
+}
+
+async function saveLikeIntent(database, uid, id, intent) {
+  const ref = database.ref('likes/' + id);
+  const actionPath = 'actions/' + uid + '/' + intent.actionId;
+  const proof = { revision: intent.revision, liked: intent.liked };
+  const changes = {
+    count: firebase.database.ServerValue.increment(Number(intent.liked) - Number(intent.previousLiked)),
+    ['receipts/' + uid]: { ...proof, actionId: intent.actionId },
+    [actionPath]: proof
+  };
+  if (intent.liked !== intent.previousLiked) {
+    changes['users/' + uid] = intent.liked
+      ? { liked: true, timestamp: firebase.database.ServerValue.TIMESTAMP } : null;
+  }
+  try {
+    await ref.update(changes);
+  } catch (error) {
+    // Only an existing, immutable proof can acknowledge this no-op. A missing
+    // proof cannot be created without its atomic state/count transition.
+    try {
+      await ref.update({ [actionPath]: proof });
+    } catch (_) {
+      const state = await confirmedLikeState(database, uid, id);
+      if (state.revision !== intent.revision - 1) return { state, superseded: true };
+      throw error;
+    }
+  }
+  return { state: await confirmedLikeState(database, uid, id), superseded: false };
 }
 
 function initLikeButtons() {
@@ -70,35 +141,90 @@ function initLikeButtons() {
     const id = button.getAttribute('data-id');
     if (!id) return;
     const countSpan = button.parentElement.querySelector('.like-count');
-    // Only count and this user's marker are read. The owner-supplied rules
-    // deny parent writes and do not enforce safe atomic counter transitions.
-    // Keep mutations paused until an approved rules/backend solution is tested.
-    const userLikeRef = db.ref('likes/' + id + '/users/' + userId);
-    const countRef = db.ref('likes/' + id + '/count');
-    button.disabled = true;
-    button.setAttribute('aria-busy', 'false');
-    button.title = 'Likes paused while secure updates are verified';
-    feedback(id, 'Likes are paused while secure updates are verified.');
-    countRef.on('value', snapshot => {
-      const value = snapshot.val();
-      if (value != null && (!Number.isSafeInteger(value) || value < 0)) {
-        countSpan.textContent = '—';
-        countSpan.setAttribute('aria-label', 'Like count unavailable');
-        feedback(id, 'The stored like count is invalid. No update was attempted.');
-        return;
+    const recordRef = db.ref('likes/' + id);
+    const userLikeRef = recordRef.child('users/' + userId);
+    let saving = false;
+    let pending = null;
+    let desired = null;
+    let observedLiked = false;
+    let observedCount = 0;
+    let countValid = true;
+    let readFailed = false;
+    const setState = liked => {
+      button.classList.toggle('liked', liked);
+      button.setAttribute('aria-pressed', String(liked));
+      button.title = liked ? 'Remove your like' : 'Like this article';
+    };
+    const showCount = () => {
+      countSpan.textContent = countValid ? observedCount : '—';
+      countSpan.setAttribute('aria-label', countValid ? observedCount + ' likes' : 'Like count unavailable');
+    };
+    recordRef.child('count').on('value', snapshot => {
+      observedCount = snapshot.val() ?? 0;
+      countValid = Number.isSafeInteger(observedCount) && observedCount >= 0;
+      if (!saving) showCount();
+      if (!countValid) {
+        button.disabled = true;
+        feedback(id, 'This article’s like count needs review.');
       }
-      countSpan.textContent = value ?? 0;
-      countSpan.setAttribute('aria-label', countSpan.textContent + ' likes');
     }, error => {
+      readFailed = true;
+      button.disabled = true;
       reportFirebaseError('like-count-read', error);
-      feedback(id, 'The like count is currently unavailable. No update was attempted.');
+      feedback(id, 'The like count is currently unavailable.');
+    });
+    // Listen only to this visitor's private state, never the parent user map.
+    recordRef.child('receipts/' + userId).on('value', () => {}, error => {
+      readFailed = true;
+      button.disabled = true;
+      reportFirebaseError('own-like-receipt-read', error);
+      feedback(id, 'Likes are currently unavailable.');
     });
     userLikeRef.on('value', snapshot => {
-      button.classList.toggle('liked', snapshot.exists());
-      button.setAttribute('aria-pressed', String(snapshot.exists()));
+      observedLiked = snapshot.exists();
+      if (saving) return;
+      setState(observedLiked);
+      button.disabled = readFailed || !countValid;
+      button.setAttribute('aria-busy', 'false');
     }, error => {
+      readFailed = true;
+      button.disabled = true;
       reportFirebaseError('own-like-read', error);
-      feedback(id, 'Your like state is currently unavailable. No update was attempted.');
+      feedback(id, 'Your like state is currently unavailable.');
+    });
+    button.addEventListener('click', async () => {
+      if (button.disabled || saving) return;
+      const restoreFocus = document.activeElement === button;
+      if (desired === null) desired = button.getAttribute('aria-pressed') !== 'true';
+      saving = true;
+      button.disabled = true;
+      button.setAttribute('aria-busy', 'true');
+      feedback(id, 'Saving your like…');
+      try {
+        if (!pending) pending = newLikeIntent(await confirmedLikeState(db, userId, id), desired);
+        const result = await saveLikeIntent(db, userId, id, pending);
+        setState(result.state.liked);
+        feedback(id, result.superseded || result.state.liked !== desired
+          ? 'Your like changed in another tab. The current state is shown.'
+          : desired ? 'Liked.' : 'Like removed.');
+        pending = null;
+        desired = null;
+      } catch (error) {
+        reportFirebaseError('like-update', error);
+        feedback(id, !countValid || (observedCount === 0 && observedLiked && desired === false)
+          ? 'This article’s like count needs review. Your like was not changed.'
+          : 'Could not confirm the like update. Retry to finish the same action.');
+      } finally {
+        saving = false;
+        showCount();
+        setState(observedLiked);
+        button.disabled = readFailed || !countValid;
+        button.setAttribute('aria-busy', 'false');
+        if (restoreFocus && !button.disabled
+            && (document.activeElement === document.body || document.activeElement === document.documentElement)) {
+          button.focus({ preventScroll: true });
+        }
+      }
     });
   });
 }
@@ -129,19 +255,31 @@ async function sharePost(url, id = null) {
   }
 }
 
+async function saveShareAction(database, uid, id, actionId) {
+  const ref = database.ref('shares/' + id);
+  const actionPath = 'actions/' + uid + '/' + actionId;
+  try {
+    await ref.update({
+      ['users/' + uid + '/shared']: true,
+      ['users/' + uid + '/timestamp']: firebase.database.ServerValue.TIMESTAMP,
+      ['receipts/' + uid]: { actionId },
+      [actionPath]: true,
+      count: firebase.database.ServerValue.increment(1)
+    });
+  } catch (error) {
+    try { await ref.update({ [actionPath]: true }); }
+    catch (_) { throw error; }
+  }
+}
+
 async function logShareToFirebase(id) {
   if (!userId || !db) return;
   try {
-    // One completion still counts once, including repeated shares by one user.
-    // Atomic multi-path update needs no read access to other users' records.
-    await db.ref('shares/' + id).update({
-      ['users/' + userId]: {
-        shared: true,
-        timestamp: firebase.database.ServerValue.TIMESTAMP
-      },
-      count: firebase.database.ServerValue.increment(1)
-    });
-  } catch (_) {
+    // One immutable receipt per completed share. Distinct repeat shares still
+    // count; resending an uncertain action never allocates a new receipt.
+    await saveShareAction(db, userId, id, counterActionId());
+  } catch (error) {
+    reportFirebaseError('share-count-update', error);
     feedback(id, 'Link shared; the share count update could not be confirmed.');
   }
 }

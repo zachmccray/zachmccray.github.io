@@ -1,10 +1,27 @@
 {
-  "database": {"rules": "provided.rules.json"},
+  "database": {
+    "rules": "provided.rules.json"
+  },
   "emulators": {
-    "database": {"host": "127.0.0.1", "port": 9008},
-    "hub": {"host": "127.0.0.1", "port": 4408},
-    "logging": {"host": "127.0.0.1", "port": 4508},
-    "ui": {"enabled": false},
-    "singleProjectMode": true
+    "database": {
+      "host": "127.0.0.1",
+      "port": 9008
+    },
+    "hub": {
+      "host": "127.0.0.1",
+      "port": 4408
+    },
+    "logging": {
+      "host": "127.0.0.1",
+      "port": 4508
+    },
+    "ui": {
+      "enabled": false
+    },
+    "singleProjectMode": true,
+    "auth": {
+      "host": "127.0.0.1",
+      "port": 9098
+    }
   }
 }
