@@ -28,22 +28,22 @@ Filler Text
 <div class="image-scroll-hyper" id="carousel-vista">
   <div class="image-scroll-track">
     <div class="image-scroll-item">
-      <img src="/assets/images/oregon2025/vista1.webp" alt="Owl">
+      <img src="/assets/images/oregon2025/vista1.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/oregon2025/vista2.webp" alt="Owl">
+      <img src="/assets/images/oregon2025/vista2.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/oregon2025/vista3.webp" alt="Owl">
+      <img src="/assets/images/oregon2025/vista3.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/oregon2025/vista5.webp" alt="Owl">
+      <img src="/assets/images/oregon2025/vista5.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/oregon2025/vista7.webp" alt="Owl">
+      <img src="/assets/images/oregon2025/vista7.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/oregon2025/vista8.webp" alt="Owl">
+      <img src="/assets/images/oregon2025/vista8.webp" alt="Owl" decoding="async">
     </div>
   </div>
 </div>

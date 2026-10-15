@@ -1,0 +1,5 @@
+{
+"baseline": "8bd2daaa8495059ae4696a3fd157b3124e419436",
+"runtime": "Chromium 154 / Playwright 1.62.0 / Node 24.19 / Ruby 3.3.10 / Jekyll 4.4.1",
+"benchmark_source_sha256": {"assets/css/custom.css":"0fe70db461cabdf9e5ab0ce5e05bba9c3b0bc6fe97f4d1d24f80d637a4e071b3","assets/js/infinite-scroll.js":"49dc8198f97e0ccfd52ac2c6a5e1f9c95434712897e06d6fbb887249c2d595a3"}
+}

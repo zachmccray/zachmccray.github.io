@@ -8,22 +8,24 @@ and new substantive feature directions remain subject to owner review.
   typography/spacing/semantic roles; Homepage/Academics, Coursework and 64 posts;
   remaining content/Travel articles; approved Photography collage, Blog/Travel/Media
   components; initial UI/UX polish (PRs #13–18 and preceding maintenance).
-- Current review: PR #19 performance/core reliability—on-demand native search,
+- Completed: PR #19 performance/core reliability—on-demand native search,
   readiness/error/retry and exact-data session reuse; private, anonymous one-click
   likes/unlikes and receipt-enforced share logging; mobile focus exit; direct fonts/
   scoped icons; pinned dependencies and portable enforced/browser regressions.
-  Option A is implemented. Owner publication of the complete private rules and
-  coordinated Pages deployment remain required before normal production use.
-  See `_firebase/README.md`; no production writes, billing changes or migrations.
-  Finish owner review/activation before the next visual work.
-- Next image and visual-interaction PR: less intrusive Photography hover/focus
+  The owner published the private rules and merged/deployed this work. PR #20
+  repaired stale Travel asset delivery and excluded maintainer documents from
+  Pages publication, navigation and search. Keep its production-parity checks.
+- Current PR #21, awaiting owner review: less intrusive Photography hover/focus
   summary with full existing metadata in the viewer; mobile/touch/keyboard parity;
   Blog Timeline thumbnail gutters and vertical rhythm, including the known major
   thumbnail link issue; carousel copy count, readiness/centering, responsive geometry
-  and discoverable controls. Preserve image order/paths, original facts and media
-  interactions. Use actual asset dimensions when available; maintain native ratios
-  and appropriate above-fold priority. Keep these approved improvements together
-  rather than multiplying planning subphases.
+  and discoverable controls. Bounded viewport buffers replace six complete image
+  sets; small collections remain finite. Retain natural ratios, source order,
+  metadata, image paths and PR #19/#20 behavior. Camera/exposure details belong in
+  the enlarged viewer; ordinary touch opens it directly. See `visual-media.md`
+  and `_review/visual-media/README.md` for implementation, evidence and limitations.
+  Real intrinsic dimensions and selective loading remain deferred until actual
+  assets can be verified. No guessed dimensions or synthetic production metadata.
 - Later editorial/readiness and discovery work: owner-provided corrections for
   placeholder Blog bodies/descriptions, copied Travel text and legacy Washington
   labels/dates, generic photo alt/descriptive labels and prefix-shaped image URLs.

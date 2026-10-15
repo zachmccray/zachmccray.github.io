@@ -23,11 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach(entry => {
       const entryYear = entry.getAttribute("data-year");
       const visible = selectedYear === "all" || entryYear === selectedYear;
-      entry.style.display = visible ? "flex" : "none";
+      // Keep the page's grid layout; filtering should not impose a display mode.
+      entry.hidden = !visible;
     });
 
     // Sort visible entries
-    const visibleEntries = entries.filter(entry => entry.style.display !== "none");
+    const visibleEntries = entries.filter(entry => !entry.hidden);
 
     visibleEntries.sort((a, b) => {
       if (sortValue === "date-desc") {
@@ -48,6 +49,14 @@ document.addEventListener("DOMContentLoaded", function () {
   yearFilter.addEventListener("change", filterAndSort);
   sortFilter.addEventListener("change", filterAndSort);
   filterAndSort();
+
+  // Preserve historical URLs and alt text, while making a failed thumbnail a
+  // quiet, stable placeholder rather than a broken-image icon or changing gutter.
+  document.querySelectorAll('.blog-page .event-thumb img').forEach(image => {
+    const markMissing = () => image.closest('.event-thumb').classList.add('is-unavailable');
+    image.addEventListener('error', markMissing, { once: true });
+    if (image.complete && !image.naturalWidth) markMissing();
+  });
 
   // ============================
   // Lightbox + Zoom + Swipe

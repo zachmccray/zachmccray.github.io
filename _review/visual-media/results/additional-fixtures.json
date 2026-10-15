@@ -1,0 +1,28 @@
+{
+"passed": 16,
+"checks": [
+  {"check":"no-image Liquid branches 320: one major and one minor placeholder","passed":true,"details":null},
+  {"check":"no-image Liquid branches 320: text alignment and overflow","passed":true,"details":null},
+  {"check":"no-image Liquid branches 390: one major and one minor placeholder","passed":true,"details":null},
+  {"check":"no-image Liquid branches 390: text alignment and overflow","passed":true,"details":null},
+  {"check":"no-image Liquid branches 820: one major and one minor placeholder","passed":true,"details":null},
+  {"check":"no-image Liquid branches 820: text alignment and overflow","passed":true,"details":null},
+  {"check":"no-image Liquid branches 1440: one major and one minor placeholder","passed":true,"details":null},
+  {"check":"no-image Liquid branches 1440: text alignment and overflow","passed":true,"details":null},
+  {"check":"Reduced motion: library opening, closing and mobile slide effects are disabled","passed":true,"details":null},
+  {"check":"Missing original: viewer reports failure and retains full metadata","passed":true,"details":null},
+  {"check":"Missing original: loading spinner finishes","passed":true,"details":null},
+  {"check":"Missing original: navigation remains available","passed":true,"details":null},
+  {"check":"Missing original: Escape restores focus","passed":true,"details":null},
+  {"check":"Major thumbnail: keyboard activation opens the existing article","passed":true,"details":null},
+  {"check":"Major thumbnail: native Back returns to Timeline","passed":true,"details":null},
+  {"check":"No component JavaScript exceptions","passed":true,"details":[]}
+],
+"profiles": [
+
+],
+"errors": [
+
+],
+"fixtures": "Synthetic media and explicitly synthetic optional metadata; real served component scripts, actual GLightbox 3.3.1. No production auth/data/analytics."
+}

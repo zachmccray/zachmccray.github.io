@@ -1,0 +1,33 @@
+{
+"passed_checks": 27,
+"checks": [
+  {"check":"home/390 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"academics/390 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"coursework/390 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"travel/390 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"media/390 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"hobbies/390 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"post-major/390 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"post-minor/390 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"travel-outline/390 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"home/820 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"academics/820 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"coursework/820 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"travel/820 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"media/820 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"hobbies/820 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"post-major/820 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"post-minor/820 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"travel-outline/820 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"home/1440 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"academics/1440 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"coursework/1440 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"travel/1440 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"media/1440 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"hobbies/1440 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"post-major/1440 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"post-minor/1440 approved content typography/layout and pixels unchanged","passed":true,"details":null},
+  {"check":"travel-outline/1440 approved content typography/layout and pixels unchanged","passed":true,"details":null}
+],
+"comparison_scope": "27 comparisons of approved main-content geometry, typography and pixels. Shared navigation/search chrome hidden; native video spinner and select paint masked consistently (their DOM, styles, state and interaction tested separately)."
+}
