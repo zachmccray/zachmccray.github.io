@@ -17,6 +17,8 @@ def check(name,ok,detail=None):
 async def scan(page,name):
     global last_action
     last_action='axe: '+name
+    if os.getenv('GITHUB_ACTIONS'):
+        print('::notice title=Framework progress::'+a.browser+'; '+last_action,flush=True)
     await page.add_script_tag(path=str(a.deps/'axe-core/axe.min.js'))
     result=await asyncio.wait_for(page.evaluate('''async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa','best-practice']}});return {violations:r.violations,incomplete:r.incomplete,passes:r.passes.length}}'''),timeout=60)
     scans.append({'scenario':name,**result});check(name+' axe scan has no violations',not result['violations'],[(v['id'],[n['target'] for n in v['nodes']]) for v in result['violations']])
@@ -165,7 +167,7 @@ async def main():
         check('No framework JavaScript exceptions',not all_errors,all_errors)
         await b.close()
 
-try:asyncio.run(main())
+try:asyncio.run(asyncio.wait_for(main(),timeout=600))
 except Exception as error:
     failure=f'{a.browser}; last action: {last_action}; {type(error).__name__}: {error}'
     if os.getenv('GITHUB_ACTIONS'):
@@ -177,3 +179,6 @@ except Exception as error:
 finally:
     (a.out/'results.json').write_text(json.dumps({'browser':a.browser,'version':version,'passed':sum(c['passed'] for c in checks),'checks':checks,'axe':scans,'errors':all_errors,'failure':failure,'limits':'Local generated site; real component/axe code. Controlled image/font/library assets; Firebase fixture only. Reflow viewports simulate 200%/400% equivalence, not browser-chrome zoom. No physical device or screen-reader certification.'},indent=2)+'\n');site.close()
 print('Framework checks passed:',a.browser,len(checks))
+if os.getenv('GITHUB_ACTIONS'):
+    print(f'::notice title=Framework browser passed::{a.browser} {version}: {len(checks)} assertions; {len(scans)} axe scans; '
+          f'{sum(len(s["violations"]) for s in scans)} violations; {sum(len(s["incomplete"]) for s in scans)} incomplete rule instances requiring manual review.',flush=True)

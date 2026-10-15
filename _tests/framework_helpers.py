@@ -1,4 +1,5 @@
 """Shared local-only browser fixtures; never connect visitors to production services."""
+import asyncio
 import hashlib
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -54,5 +55,5 @@ async def context(browser,site,assets,deps,width=1440,height=900,mode=None,javas
     return ctx,p,errors,requests
 
 async def ready(page):
-    await page.evaluate('document.fonts.ready')
+    await asyncio.wait_for(page.evaluate('document.fonts.ready'),timeout=20)
     await page.wait_for_timeout(230)
