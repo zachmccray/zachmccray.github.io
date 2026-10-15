@@ -29,9 +29,9 @@ for name in r:
     check(name+' theme script deferred',all('defer' in s for s in scripts if s['src'].endswith('/just-the-docs.js')))
     check(name+' no eager Lunr script',not any(s['src'].endswith('/lunr.min.js') for s in scripts))
     icons=[attrs for tag,attrs in Tags(after).tags if tag=='link' and 'font-awesome' in attrs.get('href','')]
-    check(name+' icons only on Travel',len(icons)==(1 if name=='travel.html' else 0))
+    check(name+' no external icon font dependency',len(icons)==0)
     check(name+' direct same Inter request',len([attrs for tag,attrs in Tags(after).tags if tag=='link' and 'fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' in attrs.get('href','')])==1)
-    check(name+' no unused Firebase/Blog scripts',sum('firebase' in s['src'] for s in scripts)==(3 if name=='travel.html' else 0) and sum(s['src'].endswith(('/blog-controls.js', '/blog-controls-2.js')) for s in scripts)==(1 if name=='blog.html' else 0))
+    check(name+' no unused Firebase/Blog scripts',sum('firebase' in s['src'] for s in scripts)==(3 if name=='travel.html' else 0) and sum(s['src'].endswith(('/blog-controls.js', '/blog-controls-2.js', '/blog-controls-3.js')) for s in scripts)==(1 if name=='blog.html' else 0))
 search='assets/js/search-data.json'
 before=json.loads((a.baseline/search).read_text());after=json.loads((a.site/search).read_text())
 check('All 80 standard search records byte-equivalent',before==after and len(after)==80)

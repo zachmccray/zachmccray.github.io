@@ -1,0 +1,22 @@
+{
+"passed": 12,
+"checks": [
+  {"check":"BFCache=False: actual persisted/rebuilt lifecycle","passed":true,"detail":{"events":[false],"y":1257,"year":"2025","sort":"title-asc","type":"back_forward"}},
+  {"check":"BFCache=False: native controls restored","passed":true,"detail":null},
+  {"check":"BFCache=False: restored controls match actual entries","passed":true,"detail":null},
+  {"check":"BFCache=False: native cached-asset scroll preserved","passed":true,"detail":{"events":[false],"y":1257,"year":"2025","sort":"title-asc","type":"back_forward"}},
+  {"check":"BFCache=False: default history model retained","passed":true,"detail":null},
+  {"check":"BFCache=False: Forward retains article destination","passed":true,"detail":null},
+  {"check":"BFCache=True: actual persisted/rebuilt lifecycle","passed":true,"detail":{"events":[false,true],"y":1257,"year":"2025","sort":"title-asc","type":"navigate"}},
+  {"check":"BFCache=True: native controls restored","passed":true,"detail":null},
+  {"check":"BFCache=True: restored controls match actual entries","passed":true,"detail":null},
+  {"check":"BFCache=True: native cached-asset scroll preserved","passed":true,"detail":{"events":[false,true],"y":1257,"year":"2025","sort":"title-asc","type":"navigate"}},
+  {"check":"BFCache=True: default history model retained","passed":true,"detail":null},
+  {"check":"BFCache=True: Forward retains article destination","passed":true,"detail":null}
+],
+"traces": [
+  {"bfcache_enabled":false,"before_scroll":1257,"events":[false],"y":1257,"year":"2025","sort":"title-asc","type":"back_forward"},
+  {"bfcache_enabled":true,"before_scroll":1257,"events":[false,true],"y":1257,"year":"2025","sort":"title-asc","type":"navigate"}
+],
+"method": "Native HTTP font/media assets, no Playwright request routing. Explicitly exercise Chromium cached rebuild and actual BFCache persisted=true. CSP and external script substitution prevent all production services. This does not write or override browser history."
+}

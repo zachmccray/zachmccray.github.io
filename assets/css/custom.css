@@ -829,6 +829,9 @@ canvas {
 }
 .blog-page .timeline {
   position: relative;
+  /* Sorting restored controls must not anchor the viewport to a different
+   * entry in the pre-restoration DOM. Keep native history's scroll offset. */
+  overflow-anchor: none;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -1084,6 +1087,18 @@ canvas {
 }
 .travel-page .like-button.liked {
   color: #b5263c;
+}
+.travel-page .travel-action-icon {
+  display: block;
+  fill: currentColor;
+  flex: none;
+}
+.travel-page .heart-solid,
+.travel-page .like-button[aria-pressed="true"] .heart-outline {
+  display: none;
+}
+.travel-page .like-button[aria-pressed="true"] .heart-solid {
+  display: inline;
 }
 .travel-page .like-button:disabled,
 .travel-page .share-button:disabled {
@@ -1548,6 +1563,54 @@ a.skip-to-main:focus {
 #search-input:focus-visible {
   outline-offset: -3px;
 }
+.site-ui-ready #search-results:focus-visible {
+  outline: 3px solid #5540b8;
+  outline-offset: -3px;
+}
+/* Theme rem sizing shrinks these targets to 21px on narrow screens. */
+.main-content .anchor-heading {
+  min-width: 24px;
+  min-height: 24px;
+}
+.photography-page .gallery-fallback .photo-summary {
+  display: none;
+}
+.photography-page .photo-fallback-details {
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+.photography-page .photo-fallback-details summary {
+  min-height: 44px;
+  padding: 10px 4px;
+  font-size: 14px;
+  line-height: 24px;
+}
+.photography-page .photo-fallback-details summary:focus-visible {
+  outline: 3px solid #5540b8;
+  outline-offset: -3px;
+}
+.photography-page .photo-fallback-content {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #222;
+}
+.photography-page .photo-fallback-content dl {
+  display: block;
+  margin: 8px 0;
+}
+.photography-page .photo-fallback-content dt,
+.photography-page .photo-fallback-content dd {
+  margin: 0;
+  text-align: left;
+}
+.photography-page .photo-fallback-content dd {
+  margin-bottom: 8px;
+}
+/* The existing field labels already contain their punctuation. */
+.photography-lightbox dt::after,
+.photography-page .photo-fallback-content dt::after {
+  content: none;
+}
 #main-content,
 .main-content [id],
 .main-content .content-body [id],
@@ -1580,6 +1643,14 @@ a.skip-to-main:focus {
   }
   .site-ui-ready .side-bar .main-header.nav-open {
     display: flex;
+  }
+  /* Anchor the mobile results to the whole header, not the narrower input
+   * column beside GitHub. Avoid showing a second navigation layer behind it. */
+  .site-ui-ready .side-bar .main-header .search {
+    position: static;
+  }
+  .site-ui-ready.search-active .site-nav.nav-open {
+    visibility: hidden;
   }
   .site-ui-ready .site-nav.nav-open {
     position: absolute;

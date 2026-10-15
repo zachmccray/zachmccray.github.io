@@ -15,7 +15,7 @@ and new substantive feature directions remain subject to owner review.
   The owner published the private rules and merged/deployed this work. PR #20
   repaired stale Travel asset delivery and excluded maintainer documents from
   Pages publication, navigation and search. Keep its production-parity checks.
-- Current PR #21, awaiting owner review: less intrusive Photography hover/focus
+- Completed PR #21: less intrusive Photography hover/focus
   summary with full existing metadata in the viewer; mobile/touch/keyboard parity;
   Blog Timeline thumbnail gutters and vertical rhythm, including the known major
   thumbnail link issue; carousel copy count, readiness/centering, responsive geometry
@@ -26,6 +26,21 @@ and new substantive feature directions remain subject to owner review.
   and `_review/visual-media/README.md` for implementation, evidence and limitations.
   Real intrinsic dimensions and selective loading remain deferred until actual
   assets can be verified. No guessed dimensions or synthetic production metadata.
+- Current PR #22, awaiting owner review: targeted framework hardening after a
+  visitor/axe audit. Restore parent-section context on articles/Coursework; make
+  mobile navigation independent of theme startup and usable without JavaScript;
+  fix mobile search layering/keyboard scroll focus, lightbox slide exposure,
+  duplicate carousel labels and small anchor targets. Add native photo-detail
+  fallback when the library fails. Restore Blog controls/entries consistently on
+  Back/Forward without replacing native history, including scroll anchoring.
+  Inline the existing Travel icon shapes to remove an unnecessary font dependency;
+  keep the Firebase client, data model and private rules unchanged. Retain the
+  approved layouts, 82 routes and all 80 native search records. Add reusable axe,
+  three-engine CI and native cached/BFCache checks. See the internal
+  `owner-acceptance-checklist.md` for the next real-world review.
+- Next: owner acceptance using the published checklist, followed by one coherent
+  owner-feedback PR for confirmed remaining framework/design issues. No speculative
+  navigation features, content imports or photograph imports in the hardening PR.
 - Later editorial/readiness and discovery work: owner-provided corrections for
   placeholder Blog bodies/descriptions, copied Travel text and legacy Washington
   labels/dates, generic photo alt/descriptive labels and prefix-shaped image URLs.

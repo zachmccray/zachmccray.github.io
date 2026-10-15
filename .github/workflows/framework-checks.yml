@@ -1,0 +1,53 @@
+name: Framework accessibility and browser checks
+on:
+  pull_request:
+    branches: [gh-pages]
+  push:
+    branches: [gh-pages]
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, firefox, webkit]
+    env:
+      BUNDLE_GEMFILE: _tests/Gemfile.pages
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: _tests/accessibility/package-lock.json
+      - name: Install pinned test tools and browser
+        run: |
+          python -m pip install -r _tests/requirements.txt
+          npm ci --prefix _tests/accessibility --no-audit --no-fund
+          python -m playwright install --with-deps ${{ matrix.engine }}
+          python _tests/prepare-framework-assets.py --deps _tests/accessibility/node_modules --out "$RUNNER_TEMP/browser-assets"
+      - name: Build publication profile
+        run: |
+          JEKYLL_ENV=production bundle exec jekyll build --disable-disk-cache --config _config.yml,_tests/pages-parity.yml --destination "$RUNNER_TEMP/site"
+          python _tests/public-surface.py --site "$RUNNER_TEMP/site" --out "$RUNNER_TEMP/framework-results/surface.json"
+      - name: Check visitor journeys and accessibility
+        run: |
+          python _tests/framework-browser.py --site "$RUNNER_TEMP/site" --assets "$RUNNER_TEMP/browser-assets" --deps _tests/accessibility/node_modules --browser ${{ matrix.engine }} --out "$RUNNER_TEMP/framework-results/${{ matrix.engine }}"
+      - name: Check native cached rebuild and BFCache history
+        if: matrix.engine == 'chromium'
+        run: |
+          python _tests/framework-history.py --site "$RUNNER_TEMP/site" --assets "$RUNNER_TEMP/browser-assets" --out "$RUNNER_TEMP/framework-results/native-history"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: framework-${{ matrix.engine }}
+          path: ${{ runner.temp }}/framework-results

@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const sortFilter = document.getElementById("sort-filter");
 
   if (!yearFilter || !sortFilter) return;
+  let appliedYear;
+  let appliedSort;
 
   function getTitle(entry) {
     // Try to get title from h3 (major posts)
@@ -17,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function filterAndSort() {
     const selectedYear = yearFilter.value;
     const sortValue = sortFilter.value;
+    appliedYear = selectedYear;
+    appliedSort = sortValue;
     const entries = Array.from(document.querySelectorAll(".blog-entry"));
 
     // Filter
@@ -49,6 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
   yearFilter.addEventListener("change", filterAndSort);
   sortFilter.addEventListener("change", filterAndSort);
   filterAndSort();
+  // History can restore selects after DOMContentLoaded. Apply those values
+  // after native form restoration, without rebuilding an unchanged BFCache
+  // page or sorting twice on an ordinary first visit.
+  window.addEventListener('pageshow', () => {
+    if (yearFilter.value !== appliedYear || sortFilter.value !== appliedSort) filterAndSort();
+  });
 
   // Preserve historical URLs and alt text, while making a failed thumbnail a
   // quiet, stable placeholder rather than a broken-image icon or changing gutter.

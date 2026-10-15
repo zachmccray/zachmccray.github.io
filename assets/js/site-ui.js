@@ -19,10 +19,17 @@ function initializeSiteUI() {
   menu.setAttribute('aria-controls', 'site-nav main-header');
 
   // The theme removes the current link's href after scrolling its sidebar.
-  const current = nav.querySelector('.nav-list-link.active');
+  const path = location.pathname.replace(/\/index\.html$/, '/');
+  const links = Array.from(nav.querySelectorAll('.nav-list-link'));
+  const direct = nav.querySelector('.nav-list-link.active')
+    || links.find(link => link.getAttribute('href') === path);
+  const parent = document.getElementById('site-ui-script')?.dataset.parentNav;
+  const current = direct || links.find(link => link.getAttribute('href') === parent);
   if (current) {
     if (!current.hasAttribute('href')) current.setAttribute('href', location.pathname);
-    current.setAttribute('aria-current', 'page');
+    current.classList.add('active');
+    current.closest('.nav-list-item')?.classList.add('active');
+    current.setAttribute('aria-current', direct ? 'page' : 'location');
   }
 
   function measureNavigation() {
@@ -57,7 +64,24 @@ function initializeSiteUI() {
   const sizes = new ResizeObserver(measureNavigation);
   sizes.observe(brand);
   sizes.observe(header);
-  menu.addEventListener('click', measureNavigation);
+  // Own this disclosure even if the theme script fails. Capture avoids its
+  // second toggle when both scripts are present; the markup/layout stay native.
+  menu.addEventListener('click', event => {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    if (menu.getAttribute('aria-expanded') === 'true') closeMenu();
+    else {
+      [menu, nav, header].forEach(node => node.classList.add('nav-open'));
+      menu.setAttribute('aria-expanded', 'true');
+      measureNavigation();
+      if (current) {
+        const item = current.getBoundingClientRect();
+        const frame = nav.getBoundingClientRect();
+        if (item.bottom > frame.bottom) nav.scrollTop += item.bottom - frame.bottom;
+        else if (item.top < frame.top) nav.scrollTop -= frame.top - item.top;
+      }
+    }
+  }, true);
 
   let untouched = !location.hash;
   document.addEventListener('pointerdown', () => { untouched = false; }, { once: true });
@@ -107,9 +131,22 @@ function initializeSiteUI() {
   if (!input || !results) return;
   input.type = 'search';
   results.setAttribute('aria-label', 'Search results');
+  results.tabIndex = 0;
+  if (!window.jtd) {
+    input.disabled = true;
+    input.placeholder = 'Search unavailable';
+    input.setAttribute('aria-label', 'Search unavailable. Reload the page or use navigation.');
+    return;
+  }
 
   function safeSearchBlur(event) {
-    if (event.relatedTarget) return;
+    const next = event.relatedTarget;
+    if (next) {
+      // The native theme recognizes options, but not our keyboard-scrollable
+      // results region. Keep focus transitions inside this component open.
+      if (next === input || results.contains(next)) event.stopImmediatePropagation();
+      return;
+    }
     // Match the theme's intended dismissal, bypassing only its null dereference.
     root.classList.remove('search-active');
     event.stopImmediatePropagation();

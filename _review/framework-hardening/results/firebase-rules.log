@@ -1,0 +1,139 @@
+[2026-10-15T16:37:43.014Z]  @firebase/database: FIREBASE WARNING: set at /likes/travel-japan/count failed: permission_denied
+[2026-10-15T16:37:43.020Z]  @firebase/database: FIREBASE WARNING: transaction at /likes/travel-japan failed: permission_denied
+✔ Production rules: public counts, private own records, denied root/user maps and unauthenticated writes (298.341425ms)
+[2026-10-15T16:37:43.203Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:43.413Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Actual client like/unlike: atomic transitions, existing text/markers, no-op intents and duplicate retries (484.200357ms)
+[2026-10-15T16:37:43.758Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Lost acknowledgement after intervening opposite intent never resurrects the old like (288.832929ms)
+[2026-10-15T16:37:43.972Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:43.978Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Concurrent opposite intents use revision CAS; stale intent is superseded without rebasing (219.747172ms)
+✔ 20 distinct clients: contention preserves counts and all other users (993.970862ms)
+[2026-10-15T16:37:45.278Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.280Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.281Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.316Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.320Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.372Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.374Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.380Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.381Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.384Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.392Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.407Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.408Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.409Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.409Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.484Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.485Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.505Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.505Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.506Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.506Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.506Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.517Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.518Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Ten same-UID clients cannot increment one like repeatedly (597.791903ms)
+[2026-10-15T16:37:45.742Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.762Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.784Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.802Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.823Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.843Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.872Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.888Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.909Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:45.916Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Forged counts, split writes, cross-user edits, fake proofs and receipt deletion fail atomically (307.779075ms)
+[2026-10-15T16:37:46.124Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.127Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.159Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.189Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.221Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.253Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.287Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.353Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.391Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.422Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.471Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.515Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.602Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.644Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.676Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.712Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.744Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.801Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.835Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.876Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.911Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.943Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:46.991Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.024Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.061Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.096Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.127Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Historical under/overcounts retain their offsets; zero underflow and missing/malformed counts fail without repair (1250.929925ms)
+[2026-10-15T16:37:47.307Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.309Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Offline queue plus a newer opposite action: queued stale write cannot overwrite the confirmed state (156.742785ms)
+[2026-10-15T16:37:47.694Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.697Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.697Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.698Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.698Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.698Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.698Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.709Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.710Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.710Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.711Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.711Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.711Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.740Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.741Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.741Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.742Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.742Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.742Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.742Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:47.775Z]  @firebase/database: FIREBASE WARNING: set at /shares/travel-japan/count failed: permission_denied
+[2026-10-15T16:37:47.792Z]  @firebase/database: FIREBASE WARNING: set at /shares/travel-japan/actions/me/ddd174b1d3240fed9d551c4a507c6007 failed: permission_denied
+✔ Shares: 20 same-user concurrent completions, duplicates and lost results each count once; extra marker fields stay (501.033501ms)
+✔ Fresh empty articles initialize on an actual like/share without reconstructing historical data (126.467391ms)
+[2026-10-15T16:37:48.016Z]  @firebase/database: FIREBASE WARNING: set at /likes/travel-japan/users/me failed: permission_denied
+[2026-10-15T16:37:48.024Z]  @firebase/database: FIREBASE WARNING: transaction at /likes/travel-japan/count failed: permission_denied
+[2026-10-15T16:37:48.088Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.119Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.148Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.179Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.209Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Final rules reject old split clients and new client against old supplied rules fails without partial data (291.816025ms)
+[2026-10-15T16:37:48.298Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.318Z]  @firebase/database: FIREBASE WARNING: set at /likes/travel-not-published/count failed: permission_denied
+[2026-10-15T16:37:48.335Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.336Z]  @firebase/database: FIREBASE WARNING: update at /shares/travel-japan failed: permission_denied
+✔ Share forgery, multi-proof batches, unknown IDs and missing legacy counters reject whole writes (98.486611ms)
+[2026-10-15T16:37:48.461Z]  @firebase/database: FIREBASE WARNING: transaction at /likes/travel-japan/count failed: permission_denied
+✔ Cutover boundary preserves an already-committed legacy marker and denies its late split count write (144.750971ms)
+[2026-10-15T16:37:48.605Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.635Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.666Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.706Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.742Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ Private maintenance rules deny writes, retain own/count reads, and cannot expose root or another user (293.025316ms)
+✔ Malformed nonnumeric count values are not publicly exposed as aggregates (78.254811ms)
+[2026-10-15T16:37:48.906Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.937Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.966Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:48.995Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+[2026-10-15T16:37:49.026Z]  @firebase/database: FIREBASE WARNING: update at /likes/travel-japan failed: permission_denied
+✔ A mismatched historical private receipt cannot falsely acknowledge state or rewrite markers (208.034385ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6615.810495

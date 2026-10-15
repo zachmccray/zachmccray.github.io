@@ -1,0 +1,17 @@
+Travel action icons: Font Awesome Free 6.5.0 by Fonticons, Inc. (2023).
+https://fontawesome.com
+https://fontawesome.com/license/free
+
+The regular heart, solid heart and solid share-nodes paths are licensed under
+Creative Commons Attribution 4.0 International (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+Original sources, with paths retained unchanged:
+https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/svgs/regular/heart.svg
+https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/svgs/solid/heart.svg
+https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/svgs/solid/share-nodes.svg
+
+Site changes: package the paths as inline SVG symbols, keep the attribution in
+published HTML, and select the filled/outline heart using the existing button's
+aria-pressed state. No Font Awesome font or stylesheet dependency is required.

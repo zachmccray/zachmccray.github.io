@@ -17,4 +17,4 @@ layout: content
 </div>
 </section>
 
-<script defer src="{{ '/assets/js/photography-portfolio-1.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/photography-portfolio-2.js' | relative_url }}"></script>

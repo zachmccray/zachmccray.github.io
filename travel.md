@@ -4,6 +4,7 @@ layout: content
 ---
 
 <section class="travel-page" aria-label="{{ page.title }}">
+{% include travel-icons.html %}
 <div class="travel-grid">
    {% assign sorted_travel_posts = site.travel | sort: "date" | reverse %}
    {% for post in sorted_travel_posts %}
@@ -20,7 +21,7 @@ layout: content
    <a href="{{ clean_url }}" class="read-more">Read more →</a>
    <div class="travel-actions">
       <button class="like-button" type="button" data-id="{{ like_key }}" title="Like this post" aria-label="Like {{ post.title | escape }}" aria-pressed="false" aria-describedby="likes-{{ like_key }}" disabled>
-         <i class="fa-regular fa-heart" aria-hidden="true"></i>
+         <svg class="travel-action-icon" width="18" height="18" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use class="heart-outline" href="#travel-heart-outline"></use><use class="heart-solid" href="#travel-heart-solid"></use></svg>
       </button>
       <span class="like-count" id="likes-{{ like_key }}" aria-label="0 likes" aria-live="polite">0</span>
       <button
@@ -28,7 +29,7 @@ layout: content
         data-id="{{ like_key }}"
         onclick="sharePost('{{ site.url }}{{ clean_url }}', '{{ like_key }}')"
         title="Share this post">
-        <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+        <svg class="travel-action-icon" width="18" height="18" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#travel-share"></use></svg>
       </button>
       <span class="share-count" id="shares-{{ like_key }}" aria-label="0 shares" aria-live="polite">0</span>
    </div>
