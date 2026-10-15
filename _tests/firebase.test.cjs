@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const vm = require('node:vm');
 const fs = require('node:fs');
 const fixture = require('./firebase-fixture');
-const source = fs.readFileSync(require('node:path').join(__dirname, '../assets/js/travel.js'), 'utf8');
+const source = fs.readFileSync(require('node:path').join(__dirname, '../assets/js/travel-atomic-receipts-1.js'), 'utf8');
 function dom() {
   const status = { textContent: '' };
   const count = { textContent: '', setAttribute() {} };

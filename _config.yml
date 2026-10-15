@@ -14,10 +14,24 @@ just_the_docs:
     - "assets/css/custom.css"
   include_head:
     - _includes/head_custom.html
-  custom_js:
-    - assets/js/travel.js
 
 collections:
   travel:
     output: true
     permalink: /travel/:name/
+
+# Maintainer-only files must never become Pages pages, navigation, or search.
+exclude:
+  - docs/
+  - _firebase/
+  - _tests/
+  - _review/
+  - .github/
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - Gemfile
+  - Gemfile.lock

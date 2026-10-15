@@ -138,7 +138,7 @@ Before the PR is safe to merge:
    console/network permission errors. Do not merge while those checks fail.
 7. **Only the owner** merges PR #19 into `gh-pages` after review/testing. Wait for the
    GitHub Pages build to finish. Confirm newly served Travel HTML loads
-   `travel.js?v=atomic-receipts-1` and the new script, using a fresh/private browser.
+   `travel-atomic-receipts-1.js` and the new script, using a fresh/private browser.
    The version avoids reusing a cached old script on updated pages; advance it with
    future incompatible counter-client releases. Verify normal
    one-click interactions and private permissions again. Keep rules private during

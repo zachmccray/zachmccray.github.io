@@ -11,7 +11,7 @@ const sdkDatabase=Object.assign(()=>({}),{ServerValue:SV});
 const source=vm.createContext({crypto:webcrypto,Uint8Array,setTimeout,console,
  document:{readyState:'complete',querySelectorAll:()=>[]},
  firebase:{initializeApp(){},database:sdkDatabase,auth:()=>({signInAnonymously:()=>new Promise(()=>{})})}});
-vm.runInContext(fs.readFileSync(path.join(ROOT,'assets/js/travel.js'),'utf8'),source);
+vm.runInContext(fs.readFileSync(path.join(ROOT,'assets/js/travel-atomic-receipts-1.js'),'utf8'),source);
 const seed=()=>({count:4,note:'preserve',users:Object.fromEntries([1,2,3,4].map(i=>['other-'+i,{liked:true,timestamp:i}]))});
 async function scenario(work){
  const env=await initializeTestEnvironment({projectId:'demo-website-reliability',database:{host:'127.0.0.1',port:9008,rules:fs.readFileSync(path.join(ROOT,'_firebase/database.rules.json'),'utf8')}});

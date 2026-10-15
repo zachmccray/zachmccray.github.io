@@ -1,0 +1,8 @@
+# Publication-parity profile; leaves the normal application lockfile unchanged.
+eval_gemfile "../Gemfile"
+gem "jekyll-optional-front-matter", "0.3.2"
+gem "jekyll-default-layout", "0.1.5"
+gem "jekyll-titles-from-headings", "0.5.3"
+gem "jekyll-readme-index", "0.3.0"
+gem "jekyll-relative-links", "0.6.1"
+gem "jekyll-sitemap", "1.4.0"

@@ -1,6 +1,9 @@
 # Core reliability regressions
 
 These scripts are excluded from Jekyll output by the `_tests` directory name.
+The site also explicitly excludes `docs/`, `_firebase/`, `_tests/`, `_review/`,
+`.github/`, dependency directories and root build files. Do not rely on Markdown
+having no front matter: GitHub Pages automatically adds publication plugins.
 Use Node 18+ for isolated Firebase tests, and Python 3.10+ with Playwright for browser tests.
 No script writes to production Firebase; browser checks intercept all third-party requests.
 
@@ -98,6 +101,9 @@ writes. Native-share completion/cancellation is controlled because headless Linu
 cannot certify the platform dialog. Production Firebase/analytics requests are blocked.
 
 These checks reproduce old PR19 failures from commit `02839e0`; retain that history.
+They also reenact the pre-PR19 client from `19973eb` under current private rules,
+reproducing its exact stale-client error. The current phase verifies the browser
+requests one `travel-atomic-receipts-1.js` and receives the exact reviewed bytes.
 Pass `--fixtures /path/to/cached/fonts` for previews using Inter.ttf, Font Awesome
 6.5.0 CSS and its three WOFF2 files. Missing media remains synthetic/controlled.
 Emulator tests establish local behavior, not remote rules, physical devices or quotas.
@@ -108,3 +114,46 @@ NO_PROXY. In this cloud, run **only the fixed-localhost Node test process** insi
 `env -u HTTP_PROXY -u HTTPS_PROXY -u http_proxy -u https_proxy node --test ...`.
 Keep the normal proxy for downloads/nonlocal work. Never use a real project for these
 scripts, and never treat an optimistic cache/value event as commit confirmation.
+
+## GitHub Pages publication parity and deployed checks
+
+The previous checks only built the normal Jekyll profile, missing Pages' automatic
+`jekyll-optional-front-matter`, `jekyll-default-layout` and title generation.
+The pinned test-only profile adds these plus README/relative-link processing.
+Sitemap generation is an additional probe; this does **not** enable a production
+sitemap. This profile uses the repository's Jekyll 4.4.1 and pinned remote theme,
+not the entire GitHub Pages legacy dependency stack. Its before-fix search index
+was verified against the actual production index (all 84 records exactly equal).
+
+```sh
+BUNDLE_GEMFILE=_tests/Gemfile.pages bundle install
+JEKYLL_ENV=production BUNDLE_GEMFILE=_tests/Gemfile.pages bundle exec jekyll build \
+  --disable-disk-cache --config _config.yml,_tests/pages-parity.yml \
+  --destination /tmp/pages-site
+python _tests/public-surface.py --site /tmp/pages-site --out /tmp/pages-surface.json
+```
+
+Run `public-surface.py` against normal and localhost builds too. It rejects any
+route beyond the frozen 82-route manifest, all maintainer output (including raw
+Markdown), internal links/search/sitemap entries, stale or duplicate Travel scripts,
+incorrect served script bytes and broken course-search fragments. Update the route
+manifest only for intentional public content additions. The PR workflow runs normal,
+Pages-plugin and localhost profiles and content/search/SEO preservation comparisons.
+
+After the owner merges and the successful Pages deployment completes:
+
+```sh
+python _tests/verify-deployed.py --out /tmp/deployed-surface.json
+```
+
+This performs read-only HTTPS checks of all 82 routes, every internal `docs/` URL
+and its generated HTML counterpart, representative private paths, all sidebar
+links, search records, course fragments, sitemap and exact current Travel bytes.
+It never authenticates or executes Firebase. Before this hotfix, its expected
+failures demonstrate the production leak and absence of the new asset. It cannot
+pass before the hotfix is deployed. The owner should then reload an ordinary
+browser tab and verify one-click like/unlike; also use a fresh/private context.
+Already-open pages and cached HTML can retain an old reference until reloaded or
+expired (observed Pages cache lifetime: 600 seconds). The distinct script pathname
+prevents updated HTML from reusing the obsolete asset. Keep database rules private;
+no rules publication, resets or data migrations accompany this hotfix.
