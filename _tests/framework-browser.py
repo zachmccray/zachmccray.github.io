@@ -56,6 +56,20 @@ async def main():
             await page.keyboard.press('Escape')
             check(f'search/{width}: Escape returns to input',await page.locator('#search-input').evaluate('(e)=>e===document.activeElement'))
             if width<800:await page.keyboard.press('Escape')
+            # Exercise the real search links/keyboard selection in every engine,
+            # complementing the exhaustive 45-course Chromium regression suite.
+            for query,anchor in [('EECS 101','course-eecs101'),('ECON 144','course-econ144'),('Calculus I','course-math125')]:
+                await page.goto(site.base+'/hobbies.html',wait_until='networkidle');await ready(page)
+                if width<800:await page.locator('#menu-button').click()
+                await page.locator('#search-input').fill(query)
+                result=page.locator('#search-results a[href="/courses.html#'+anchor+'"]');await result.wait_for(state='visible')
+                if query=='EECS 101':
+                    await page.locator('#search-input').press('ArrowDown');await page.locator('#search-input').press('Enter')
+                else:await result.click()
+                await page.wait_for_url('**/courses.html#'+anchor);await page.wait_for_function('(id)=>document.activeElement.id===id',arg=anchor)
+                check(f'search/{width}/{query}: actual result opens and focuses correct course',await page.locator('#'+anchor).evaluate('(e)=>e.tagName==="H2"&&e===document.activeElement'))
+                rect=await page.locator('#'+anchor).bounding_box()
+                check(f'search/{width}/{query}: destination clears sticky header',rect['y']>=40 and rect['y']<900,rect)
             await page.goto(site.base+'/photography.html',wait_until='networkidle');await ready(page)
             first=page.locator('a.glightbox').first;await first.focus();await page.keyboard.press('Enter');await page.locator('.gslide.current').wait_for();await ready(page)
             check(f'lightbox/{width}: inactive slides are inert and hidden',await page.locator('.gslide:not(.current)').evaluate_all('(es)=>es.every(e=>e.inert&&e.getAttribute("aria-hidden")==="true")'))

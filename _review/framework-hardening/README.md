@@ -87,7 +87,7 @@ independent native-history tests verify the unmodified scroll position.
 | Native search/navigation/Travel UI | 557 production + 557 actual Jekyll-server assertions, including 135 queries and 90 code/title destination clicks |
 | Existing visual/media suite | 975 assertions, with focused 446-assertion Timeline rerun after the history correction |
 | Carousel native input/stress | 70 assertions; 1/2/5/12/150/180 images, wheel/touch, boundaries, resize, late/missing images, idempotence and independent strips |
-| Framework/browser/axe (local Chromium 154) | 256 assertions; 32 full-page/state axe scans, no violations; incomplete/manual-review items retained |
+| Framework/browser/axe (local Chromium 154) | 268 assertions; 32 full-page/state axe scans, no violations; incomplete/manual-review items retained |
 | Native cached history | 12 assertions; actual Chromium persisted=false rebuild and persisted=true BFCache paths, controls, entry state, exact scroll and Forward |
 | Enforced Firebase rules | 17 passed |
 | Real SDK/Anonymous Authentication UI | 85 passed with local RTDB/Auth emulators |
