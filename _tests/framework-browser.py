@@ -25,7 +25,11 @@ async def scan(page,name):
 async def visit(browser,path,width=390,height=900,mode=None,javascript=True):
     c,page,errors,requests=await context(browser,site,a.assets,a.deps,width,height,mode,javascript)
     if javascript:await c.add_init_script("window.__layoutShifts=[];if('PerformanceObserver' in window){try{new PerformanceObserver(es=>__layoutShifts.push(...es.getEntries().filter(e=>!e.hadRecentInput).map(e=>e.value))).observe({type:'layout-shift',buffered:true})}catch(_){}}")
-    response=await page.goto(site.base+path,wait_until='networkidle');check(path+' successful response',response.status==200);await ready(page)
+    response=await page.goto(site.base+path,wait_until='networkidle');check(f'{path}/{width}/{mode or "normal"}/javascript={javascript}: successful response',response.status==200)
+    # Firefox does not resolve this page-level Promise with JS disabled. The
+    # no-script fixture already waits for networkidle, then checks native layout.
+    if javascript:await ready(page)
+    else:await page.locator('main').wait_for(state='visible')
     return c,page,errors,requests
 async def close(c,errors):
     all_errors.extend(errors);await c.close()
@@ -73,6 +77,7 @@ async def main():
                     await page.locator('#search-input').press('ArrowDown');await page.locator('#search-input').press('Enter')
                 else:await result.click()
                 await page.wait_for_url('**/courses.html#'+anchor);await page.wait_for_function('(id)=>document.activeElement.id===id',arg=anchor)
+                await ready(page)
                 check(f'search/{width}/{query}: actual result opens and focuses correct course',await page.locator('#'+anchor).evaluate('(e)=>e.tagName==="H2"&&e===document.activeElement'))
                 rect=await page.locator('#'+anchor).bounding_box()
                 check(f'search/{width}/{query}: destination clears sticky header',rect['y']>=40 and rect['y']<900,rect)
@@ -130,7 +135,7 @@ async def main():
         check('Travel Back preserves index scroll',abs(await page.evaluate('scrollY')-saved_scroll)<3)
         await close(c,errors)
         # Isolated service failures, with no real Firebase/authentication requests.
-        for mode,path in [('no-theme','/hobbies.html'),('no-gallery','/photography.html'),('no-font','/hobbies.html'),('missing','/photography.html'),('search-failure','/courses.html')]:
+        for mode,path in [('no-theme','/hobbies.html'),('no-gallery','/photography.html'),('no-font','/hobbies.html'),('slow-font','/hobbies.html'),('missing','/photography.html'),('search-failure','/courses.html')]:
             c,page,errors,requests=await visit(b,path,mode=mode)
             if mode=='no-theme':
                 await page.locator('#menu-button').click()
@@ -145,6 +150,13 @@ async def main():
                 check('Library failure: metadata stays inside its photo column',await page.locator('details[open] dd').evaluate_all('(es)=>es.every(e=>{const r=e.getBoundingClientRect(),p=e.closest(".photo-tile").getBoundingClientRect();return r.left>=p.left&&r.right<=p.right+1})'))
                 await scan(page,'Unavailable gallery library')
             elif mode=='no-font':check('Font failure: readable page still fits',await page.evaluate('document.documentElement.scrollWidth<=innerWidth') and await page.locator('main h1').is_visible())
+            elif mode=='slow-font':
+                await page.locator('#menu-button').click();await page.locator('#search-input').fill('Calculus I')
+                await page.locator('#search-results a[href="/courses.html#course-math125"]').click()
+                await page.wait_for_url('**/courses.html#course-math125');await ready(page)
+                rect=await page.locator('#course-math125').bounding_box()
+                check('Delayed fonts: real course result settles below header and in viewport',rect['y']>=40 and rect['y']<900 and await page.evaluate('document.activeElement.id==="course-math125"'),rect)
+                check('Delayed fonts: no horizontal overflow',await page.evaluate('document.documentElement.scrollWidth<=innerWidth'))
             elif mode=='missing':
                 await page.locator('a.glightbox').first.click();await page.locator('.gslide.current .photo-viewer-error').wait_for();await page.locator('.gnext').click();await page.wait_for_timeout(150)
                 check('Missing media: current failed slide remains accessible',await page.locator('.gslide.current').get_attribute('aria-hidden')=='false' and await page.locator('.gloader').is_hidden())

@@ -44,7 +44,9 @@ async def context(browser,site,assets,deps,width=1440,height=900,mode=None,javas
         if u.hostname=='fonts.googleapis.com':
             if assets:await r.fulfill(content_type='text/css',body="@font-face{font-family:Inter;font-weight:100 900;src:url('"+site.base+"/__fixture/Inter.ttf') format('truetype')}\n");return
             await r.fulfill(body='',content_type='text/css');return
-        if name=='Inter.ttf' and assets:await r.fulfill(path=str(assets/name),content_type='font/ttf');return
+        if name=='Inter.ttf' and assets:
+            if mode=='slow-font':await asyncio.sleep(.8)
+            await r.fulfill(path=str(assets/name),content_type='font/ttf');return
         if 'font-awesome' in r.request.url and name.endswith('.css') and assets:await r.fulfill(path=str(assets/'fontawesome.css'),content_type='text/css');return
         if name.startswith('fa-') and assets and (assets/name).exists():await r.fulfill(path=str(assets/name),content_type='font/woff2',headers={'Access-Control-Allow-Origin':'*'});return
         if u.hostname not in ('127.0.0.1','localhost'):
