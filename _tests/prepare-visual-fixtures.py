@@ -20,7 +20,7 @@ assert not args.root.resolve().is_relative_to(source)
 args.root.mkdir(parents=True, exist_ok=True)
 copy = args.root/'source'
 shutil.copytree(source, copy, dirs_exist_ok=True,
-                ignore=shutil.ignore_patterns('.git', '_review', '__pycache__', '.jekyll-cache'))
+                ignore=shutil.ignore_patterns('.git', '_review', '__pycache__', '.jekyll-cache', 'node_modules'))
 settings = {'body': 'Sony a7R III (fixture)', 'shutter_speed': '1/800s',
             'aperture': 'f/4', 'iso': 100, 'focal_length': '35mm'}
 records = []

@@ -27,7 +27,8 @@
     const headings = Array.from(document.querySelectorAll('main h2, main h3'))
       .filter(h => h.compareDocumentPosition(container) & Node.DOCUMENT_POSITION_FOLLOWING);
     const title = headings.at(-1)?.textContent.trim();
-    container.setAttribute('aria-label', title ? `Photo carousel: ${title}` : 'Photo carousel');
+    const number = Array.from(document.querySelectorAll('.image-scroll-hyper')).indexOf(container) + 1;
+    container.setAttribute('aria-label', title ? `Photo carousel ${number}: ${title}` : `Photo carousel ${number}`);
     const controls = document.createElement('div');
     controls.className = 'carousel-controls';
     controls.hidden = true;

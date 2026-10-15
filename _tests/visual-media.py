@@ -45,7 +45,7 @@ async def context(browser, width=1440, height=900, mode='mixed', gate=None, meta
         u = urlparse(r.request.url); name = u.path.rsplit('/',1)[-1]
         if metadata and u.path in ('/photography.html', '/blog.html'):
             await r.fulfill(path=str(args.metadata_fixtures/'site'/u.path.lstrip('/')),content_type='text/html');return
-        if gate and name == 'photography-portfolio-1.js': await gate.wait()
+        if gate and name == 'photography-portfolio-2.js': await gate.wait()
         if '/assets/images/' in u.path:
             if mode == 'missing': await r.fulfill(status=404,body='Intentional missing-media fixture');return
             h = hashlib.sha256(u.path.encode()).digest()

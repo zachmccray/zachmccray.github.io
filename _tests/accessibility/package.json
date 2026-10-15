@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "axe-core": "4.11.0",
+    "glightbox": "3.3.1"
+  },
+  "name": "website-accessibility-tests",
+  "private": true
+}

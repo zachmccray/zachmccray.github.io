@@ -1,0 +1,20 @@
+[
+  {
+    "expired": false,
+    "id": 11996240238,
+    "name": "framework-firefox",
+    "size_in_bytes": 305230
+  },
+  {
+    "expired": false,
+    "id": 11995810739,
+    "name": "framework-webkit",
+    "size_in_bytes": 320160
+  },
+  {
+    "expired": false,
+    "id": 11995156985,
+    "name": "framework-chromium",
+    "size_in_bytes": 291938
+  }
+]

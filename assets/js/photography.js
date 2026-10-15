@@ -19,6 +19,30 @@ const lightbox = typeof GLightbox === 'function' ? GLightbox({
   if (!gallery) return;
   let returnFocus = null;
 
+  if (!lightbox) {
+    // The library is optional. Keep original-file links working and move, never
+    // copy, the existing facts into native keyboard/touch-accessible disclosures.
+    gallery.classList.add('gallery-fallback');
+    gallery.querySelectorAll('.photo-tile').forEach(tile => {
+      const info = tile.querySelector('.photo-info');
+      if (!info) return;
+      const details = document.createElement('details');
+      details.className = 'photo-fallback-details';
+      const summary = document.createElement('summary');
+      summary.textContent = 'Photo details';
+      summary.setAttribute('aria-label', `Photo details: ${tile.querySelector('a.glightbox').dataset.title || 'Photo'}`);
+      info.classList.replace('photo-info', 'photo-fallback-content');
+      info.before(details);
+      details.append(summary, info);
+    });
+    const hint = document.querySelector('.photography-page .gallery-hint');
+    if (hint) {
+      hint.textContent = 'The enlarged viewer is unavailable. Open an original image, or expand its photo details.';
+      hint.setAttribute('role', 'status');
+    }
+    return;
+  }
+
   // The summary belongs to its tile. Very short photographs keep only a title;
   // tiles too short for one readable line leave details to the normal viewer.
   // This observes rendered geometry; it does not invent source dimensions.
@@ -51,7 +75,20 @@ const lightbox = typeof GLightbox === 'function' ? GLightbox({
     controls[next].focus();
   }, true);
 
-  if (!lightbox) return;
+  function exposeSlide(index = lightbox.getActiveSlideIndex()) {
+    const dialog = document.querySelector('.glightbox-container');
+    if (!dialog) return;
+    const slides = Array.from(dialog.querySelectorAll('.gslide'));
+    const focused = document.activeElement?.closest('.gslide');
+    if (focused && focused !== slides[index]) {
+      dialog.querySelector('.gclose')?.focus({ preventScroll: true });
+    }
+    slides.forEach((slide, i) => {
+      slide.inert = i !== index;
+      slide.setAttribute('aria-hidden', String(i !== index));
+    });
+  }
+  lightbox.on('slide_before_change', ({ current }) => exposeSlide(current.index));
   // Let the library render its usual temporary caption from existing metadata.
   // Original fields and IDs stay intact; the library creates only its usual caption.
   lightbox.on('slide_before_load', ({ trigger, slideConfig }) => {
@@ -69,8 +106,10 @@ const lightbox = typeof GLightbox === 'function' ? GLightbox({
       description.setAttribute('role', 'region');
       description.setAttribute('aria-label', 'Photo details');
     }
+    exposeSlide();
   });
   lightbox.on('slide_changed', () => {
+    exposeSlide();
     // A caption from the previous slide must not retain offscreen keyboard focus.
     const oldSlide = document.activeElement?.closest('.gslide');
     if (oldSlide && !oldSlide.classList.contains('current')) {
@@ -83,6 +122,7 @@ const lightbox = typeof GLightbox === 'function' ? GLightbox({
     dialog.classList.add('photography-lightbox');
     dialog.setAttribute('aria-label', 'Photography image viewer');
     dialog.setAttribute('aria-modal', 'true');
+    exposeSlide();
     dialog.addEventListener('error', event => {
       const image = event.target;
       const slide = image.closest?.('.gslide');

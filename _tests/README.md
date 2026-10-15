@@ -213,3 +213,86 @@ not production Core Web Vitals or a physical-device benchmark.
 The publication workflow now also asserts exact compiled versioned component bytes,
 single scoped/deferred scripts and one current custom stylesheet on every page.
 No workflow/config/Firebase deployment changes are needed for this PR.
+
+## Framework hardening and accessibility
+
+Use the merged PR #21 source/build as the baseline. `framework-preservation.py`
+checks all 82 routes, exact SEO, functional links/media/IDs, all 80 byte-identical
+search records and protected post/Travel/course/photo/Firebase sources. Its only
+main-content exceptions are the declared Photography entry-point name and inline
+Travel action icons; it also freezes the Blog comparator logic. Keep the strict
+normal/Pages/localhost `preservation.py` comparison too.
+
+```sh
+mkdir -p /tmp/framework-tools
+cp _tests/accessibility/package*.json /tmp/framework-tools/
+npm ci --prefix /tmp/framework-tools --no-audit --no-fund
+python _tests/prepare-framework-assets.py --deps /tmp/framework-tools/node_modules \
+  --out /tmp/framework-browser-assets
+python _tests/framework-preservation.py --baseline /tmp/site-baseline \
+  --baseline-source /tmp/source-baseline --site /tmp/site-candidate \
+  --out /tmp/framework-preservation.json
+python -m playwright install --with-deps chromium firefox webkit
+python _tests/framework-browser.py --site /tmp/site-candidate \
+  --assets /tmp/framework-browser-assets --deps /tmp/framework-tools/node_modules \
+  --browser chromium --out /tmp/framework-chromium
+# Repeat the last command with --browser firefox and --browser webkit.
+python _tests/framework-history.py --site /tmp/site-candidate \
+  --assets /tmp/framework-browser-assets --out /tmp/framework-native-history
+```
+
+axe-core 4.11.0 and GLightbox 3.3.1 are test-only, lockfile-pinned dependencies.
+The asset helper downloads Inter from a pinned Google Fonts revision, verifies
+its SHA-256 and retains its license; it copies GLightbox from the verified npm
+package. Nothing is added to the production JavaScript dependency graph. The
+framework workflow runs all three Linux engines and the publication profile.
+Browser downloads may be unavailable in restricted local cloud networks; record
+that limitation and use the CI results rather than claiming local engine coverage.
+
+`framework-browser.py` runs full-page axe snapshots at desktop/mobile widths,
+search/failed-search/open-viewer/library-fallback scans, keyboard focus/scroll,
+direct anchors, twelve widths/eight orientations, primary navigation, native
+Back/Forward/refresh, restored Blog state, missing fonts/media/libraries/theme,
+SVG action feedback and no-JavaScript navigation. All production services are
+blocked and Firebase is only an in-memory UI fixture here; keep the enforced
+SDK/rules/transport suites separately. Axe findings and incomplete/manual-review
+items are saved, not treated as a WCAG certification. 640×450 and 320×225 CSS
+viewports cover 200%/400% reflow equivalence for a 1280×900 window; they do not
+claim actual browser-chrome zoom or physical-device testing.
+
+The routed tests disable HTTP caching and may see font reflow when returning.
+They assert the same visible Timeline context rather than exact scroll pixels.
+`framework-history.py` complements them with native HTTP/cached fonts and actual
+Chromium BFCache (persisted=true) and reconstructed-page (persisted=false) paths,
+verifying exact native scroll offsets. It uses full Chromium in CI, since the
+headless shell need not support BFCache. Test-only HTML URL mapping plus a
+self-only CSP prevent production SDK/analytics/font requests. No global history
+state or scroll-restoration override is shipped.
+
+For the icon delivery comparison, supply the baseline's cached Font Awesome 6.5.0
+CSS plus regular/solid WOFF2 files alongside Inter.ttf:
+
+```sh
+python _tests/framework-performance.py --baseline /tmp/site-baseline \
+  --site /tmp/site-candidate --assets /tmp/cached-visual-assets \
+  --out /tmp/framework-performance.json
+```
+
+This lab alternates seven fresh contexts per phase at 1×/4× CPU, serving real
+component code and font files over local HTTP. Only external font URLs in the
+test HTML are mapped locally; SDK/analytics are blocked and media are synthetic.
+Report browser transfer bytes including the document, requests, JS/layout/style
+work, DOM/heap and laboratory paint/layout shifts. Inter TTF fixture bytes differ
+from production WOFF subsets; this is not CDN latency, production Firebase timing,
+real-photo performance or production Core Web Vitals. Report the added inline SVG
+and DOM costs as well as the removed stylesheet/font requests.
+
+The framework suite waits for font/layout readiness before measuring actual search
+click destinations, with an explicit delayed-font case. Its JavaScript-disabled
+fixture uses completed network loading and native layout checks instead of awaiting
+a page-level FontFaceSet Promise (which does not resolve there in Firefox).
+Font/axe/whole-run time limits prevent unbounded CI stalls. Failure annotations and
+a compact final engine/version/assertion/axe summary are readable through GitHub's
+checks API even when the artifact-storage download host is blocked; the raw scans
+and screenshots remain attached to the Actions run. Only five progress notices are
+emitted per step, leaving room for the final summary within GitHub's annotation cap.

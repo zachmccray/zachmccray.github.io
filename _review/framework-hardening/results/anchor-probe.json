@@ -1,0 +1,38 @@
+[
+  {
+    "width": 390,
+    "initial": {
+      "x": 14,
+      "y": 65.96875,
+      "width": 362,
+      "height": 48.296875
+    },
+    "initial_fonts": "loaded",
+    "settled": {
+      "x": 14,
+      "y": 65.96875,
+      "width": 362,
+      "height": 48.296875
+    },
+    "fonts": "loaded",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "initial": {
+      "x": 484,
+      "y": 72.96875,
+      "width": 736,
+      "height": 49.4375
+    },
+    "initial_fonts": "loaded",
+    "settled": {
+      "x": 484,
+      "y": 72.96875,
+      "width": 736,
+      "height": 49.4375
+    },
+    "fonts": "loaded",
+    "errors": []
+  }
+]

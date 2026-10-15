@@ -24,7 +24,7 @@ async def main():
                 u=urlparse(r.request.url)
                 if u.path=='/':
                     items=''.join(f'<div class="image-scroll-item" id="photo-{i}"><img src="/image-{i}.svg" alt="Fixture {i}"></div>' for i in range(n))
-                    html=f'''<!doctype html><link rel="stylesheet" href="/assets/css/custom-visual-media-1.css"><style>body{{margin:0}}main{{width:calc(100% - 32px);margin:80px auto}}h2{{font-size:20px}}</style><main><h2>Controlled gallery</h2><div class="image-scroll-hyper"><div class="image-scroll-track">{items}</div></div></main><script defer src="/assets/js/image-carousel-1.js"></script>'''
+                    html=f'''<!doctype html><link rel="stylesheet" href="/assets/css/custom-hardening-1.css"><style>body{{margin:0}}main{{width:calc(100% - 32px);margin:80px auto}}h2{{font-size:20px}}</style><main><h2>Controlled gallery</h2><div class="image-scroll-hyper"><div class="image-scroll-track">{items}</div></div></main><script defer src="/assets/js/image-carousel-2.js"></script>'''
                     await r.fulfill(body=html,content_type='text/html');return
                 if u.path.startswith('/image-'):
                     i=int(u.path[7:-4]);w,h=[(640,480),(480,800),(800,450),(300,1400),(1600,100)][i%5]

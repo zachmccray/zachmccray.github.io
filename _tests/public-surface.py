@@ -9,7 +9,7 @@ import json
 import re
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urlsplit, unquote
+from urllib.parse import urlsplit, unquote, urljoin
 from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -45,6 +45,22 @@ def private_path(url):
 
 routes = sorted(str(p.relative_to(args.site)) for p in args.site.rglob('*.html'))
 expected = json.loads((ROOT/'_tests/public-routes.json').read_text())
+page_ids = {route: {a['id'] for _, a in Tags((args.site/route).read_text()).tags if 'id' in a}
+            for route in routes}
+
+
+def resolves(link, route):
+    url = urlsplit(urljoin('https://zachmccray.github.io/'+route, link))
+    if url.hostname not in ('zachmccray.github.io', 'localhost', '127.0.0.1'):
+        return True
+    path = unquote(url.path).lstrip('/')
+    # Historical media are intentionally absent; references are preserved by
+    # the content checks, not "repaired" or treated as generated HTML routes.
+    if path.startswith('assets/'):
+        return True
+    destination = path+'index.html' if not path or path.endswith('/') else path
+    return (args.site/destination).is_file() and (not url.fragment or
+           destination not in page_ids or unquote(url.fragment) in page_ids[destination])
 check('Exactly the 82 intentional public HTML routes', routes == expected and len(expected) == 82)
 files = [str(p.relative_to(args.site)) for p in args.site.rglob('*') if p.is_file()]
 check('No maintainer documents or test/rule/review files of any type published',
@@ -55,10 +71,12 @@ asset = args.site/client.lstrip('/')
 check('Served Travel asset bytes match the reviewed current source', asset.exists() and
       asset.read_bytes() == (ROOT/client.lstrip('/')).read_bytes())
 published = {
-    '/assets/css/custom-visual-media-1.css': 'assets/css/custom.css',
-    '/assets/js/photography-portfolio-1.js': 'assets/js/photography.js',
-    '/assets/js/image-carousel-1.js': 'assets/js/infinite-scroll.js',
-    '/assets/js/blog-controls-2.js': 'assets/js/blog-controls.js',
+    '/assets/css/custom-hardening-1.css': 'assets/css/custom.css',
+    '/assets/js/photography-portfolio-2.js': 'assets/js/photography.js',
+    '/assets/js/image-carousel-2.js': 'assets/js/infinite-scroll.js',
+    '/assets/js/blog-controls-3.js': 'assets/js/blog-controls.js',
+    '/assets/js/site-ui-2.js': 'assets/js/site-ui.js',
+    '/assets/css/no-script-1.css': 'assets/css/no-script-1.css',
 }
 for path, source in published.items():
     output = args.site/path.lstrip('/')
@@ -69,17 +87,28 @@ for route in routes:
     tags = Tags(html).tags
     links = [attrs.get('href', '') for tag, attrs in tags if tag == 'a']
     check(route+' has no internal sidebar or document links', not any(private_path(link) for link in links))
+    check(route+' all internal page links and footnotes resolve', all(resolves(link, route) for link in links))
     scripts = [attrs for tag, attrs in tags if tag == 'script' and 'src' in attrs]
+    parent = ('/academics.html' if route == 'courses.html' else '/travel.html' if
+              route.startswith('travel/') else '/blog.html' if re.match(r'^\d{4}/\d{2}/\d{2}/', route) else None)
+    adapters = [s for s in scripts if s.get('id') == 'site-ui-script']
+    check(route+' has correct generated parent navigation context', len(adapters) == 1 and
+          adapters[0].get('data-parent-nav') == parent)
+    check(route+' includes only the intentional no-script navigation fallback',
+          len([a for t, a in tags if t == 'link' and a.get('href') == '/assets/css/no-script-1.css']) == 1)
+    check(route+' has no external icon font dependency', not any(
+          'font-awesome' in a.get('href', '') for t, a in tags if t == 'link'))
     styles = [a.get('href', '') for tag, a in tags if tag == 'link' and
               '/assets/css/custom' in a.get('href', '')]
-    check(route+' loads exactly the versioned custom stylesheet', styles == ['/assets/css/custom-visual-media-1.css'])
-    for name, needed in [('photography-portfolio-1', route == 'photography.html'),
-                         ('blog-controls-2', route == 'blog.html'),
-                         ('image-carousel-1', any('image-scroll-hyper' in a.get('class', '').split() for _, a in tags))]:
+    check(route+' loads exactly the versioned custom stylesheet', styles == ['/assets/css/custom-hardening-1.css'])
+    for name, needed in [('photography-portfolio-2', route == 'photography.html'),
+                         ('blog-controls-3', route == 'blog.html'),
+                         ('site-ui-2', True),
+                         ('image-carousel-2', any('image-scroll-hyper' in a.get('class', '').split() for _, a in tags))]:
         matches = [s for s in scripts if s['src'] == '/assets/js/'+name+'.js']
         check(route+' scopes '+name+' once and deferred', len(matches) == int(needed) and all('defer' in s for s in matches))
     check(route+' does not load obsolete component assets', not any(urlsplit(s['src']).path in
-          ['/assets/js/photography.js', '/assets/js/infinite-scroll.js', '/assets/js/blog-controls.js'] for s in scripts))
+          ['/assets/js/photography.js', '/assets/js/infinite-scroll.js', '/assets/js/blog-controls.js', '/assets/js/site-ui.js', '/assets/js/photography-portfolio-1.js', '/assets/js/image-carousel-1.js', '/assets/js/blog-controls-2.js'] for s in scripts))
     travel = [s for s in scripts if re.search(r'/travel[^/]*\.js$', urlsplit(s['src']).path)]
     check(route+' loads exactly the intended Travel client on Travel only',
           ([s['src'] for s in travel] == [client] and 'defer' in travel[0])

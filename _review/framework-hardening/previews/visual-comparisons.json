@@ -1,0 +1,28 @@
+{
+"passed": 22,
+"checks": [
+  {"page":"/","width":390,"same_main_pixels":true},
+  {"page":"/academics.html","width":390,"same_main_pixels":true},
+  {"page":"/courses.html","width":390,"same_main_pixels":true},
+  {"page":"/hobbies.html","width":390,"same_main_pixels":true},
+  {"page":"/media.html","width":390,"same_main_pixels":true},
+  {"page":"/volunteering.html","width":390,"same_main_pixels":true},
+  {"page":"/photography.html","width":390,"same_main_pixels":true},
+  {"page":"/travel/washington/","width":390,"same_main_pixels":true},
+  {"page":"/travel/japan/","width":390,"same_main_pixels":true},
+  {"page":"/2025/10/07/japan.html","width":390,"same_main_pixels":true},
+  {"page":"/2024/08/24/alvvays-concert.html","width":390,"same_main_pixels":true},
+  {"page":"/","width":1440,"same_main_pixels":true},
+  {"page":"/academics.html","width":1440,"same_main_pixels":true},
+  {"page":"/courses.html","width":1440,"same_main_pixels":true},
+  {"page":"/hobbies.html","width":1440,"same_main_pixels":true},
+  {"page":"/media.html","width":1440,"same_main_pixels":true},
+  {"page":"/volunteering.html","width":1440,"same_main_pixels":true},
+  {"page":"/photography.html","width":1440,"same_main_pixels":true},
+  {"page":"/travel/washington/","width":1440,"same_main_pixels":true},
+  {"page":"/travel/japan/","width":1440,"same_main_pixels":true},
+  {"page":"/2025/10/07/japan.html","width":1440,"same_main_pixels":true},
+  {"page":"/2024/08/24/alvvays-concert.html","width":1440,"same_main_pixels":true}
+],
+"method": "Matched Inter/SVG/font/library fixtures on actual merged baseline/current builds. Main-content pixel comparisons exclude intentional navigation changes and mask native video controls only; no carousel recentering or DOM rewrites."
+}

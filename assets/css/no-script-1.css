@@ -1,0 +1,37 @@
+/* Progressive navigation when JavaScript is disabled, never loaded normally. */
+#menu-button,
+.search,
+.blog-controls,
+.travel-actions,
+.photography-page .gallery-hint {
+  display: none !important;
+}
+.site-nav {
+  display: block !important;
+}
+.site-nav .nav-list-link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.photography-page .photo-info {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 8px 0 16px;
+  clip-path: none;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.photography-page .photo-info dl {
+  display: block;
+}
+.photography-page .photo-info dt,
+.photography-page .photo-info dd {
+  margin: 0;
+  text-align: left;
+}
+.photography-page .photo-info dt::after {
+  content: none;
+}
