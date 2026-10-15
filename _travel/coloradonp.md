@@ -24,22 +24,22 @@ Text starts here.
 <div class="image-scroll-hyper" id="carousel-rmwa">
   <div class="image-scroll-track">
     <div class="image-scroll-item">
-      <img src="/assets/images/owl.webp" alt="Owl">
+      <img src="/assets/images/owl.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/event2.webp" alt="Owl">
+      <img src="/assets/images/event2.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/snake.webp" alt="Snake">
+      <img src="/assets/images/snake.webp" alt="Snake" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/event3.webp" alt="Owl">
+      <img src="/assets/images/event3.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/raptor.webp" alt="Raptor">
+      <img src="/assets/images/raptor.webp" alt="Raptor" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/atosha.webp" alt="Owl">
+      <img src="/assets/images/atosha.webp" alt="Owl" decoding="async">
     </div>
   </div>
 </div>
@@ -82,31 +82,31 @@ I discovered Rocky Mountain Wildlife Alliance (RMWA) – a 501(c)(3) nonprofit o
 <div class="image-scroll-hyper" id="carousel-dzca">
   <div class="image-scroll-track">
         <div class="image-scroll-item">
-      <img src="/assets/images/lorikeets.webp" alt="Raptor">
+      <img src="/assets/images/lorikeets.webp" alt="Raptor" decoding="async">
     </div>
         <div class="image-scroll-item">
-      <img src="/assets/images/hyena1.webp" alt="Raptor">
+      <img src="/assets/images/hyena1.webp" alt="Raptor" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/elephant.webp" alt="Owl">
+      <img src="/assets/images/elephant.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/flamingo.webp" alt="Snake">
+      <img src="/assets/images/flamingo.webp" alt="Snake" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/hyena.webp" alt="Raptor">
+      <img src="/assets/images/hyena.webp" alt="Raptor" decoding="async">
     </div>
         <div class="image-scroll-item">
-      <img src="/assets/images/lion.webp" alt="Raptor">
+      <img src="/assets/images/lion.webp" alt="Raptor" decoding="async">
     </div>
         <div class="image-scroll-item">
-      <img src="/assets/images/lorikeet.webp" alt="Raptor">
+      <img src="/assets/images/lorikeet.webp" alt="Raptor" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/monkey.webp" alt="Raptor">
+      <img src="/assets/images/monkey.webp" alt="Raptor" decoding="async">
         </div>
       <div class="image-scroll-item">
-      <img src="/assets/images/tiger.webp" alt="Raptor">
+      <img src="/assets/images/tiger.webp" alt="Raptor" decoding="async">
     </div>
   </div>
 </div>

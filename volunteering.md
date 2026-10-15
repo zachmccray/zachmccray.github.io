@@ -46,28 +46,28 @@ As a volunteer at RMWA, I perform a wide range of tasks, including but not limit
 <div class="image-scroll-hyper" id="carousel-rmwa">
   <div class="image-scroll-track">
     <div class="image-scroll-item">
-      <img src="/assets/images/rmwa/owl.webp" alt="Owl">
+      <img src="/assets/images/rmwa/owl.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/rmwa/event2.webp" alt="Owl">
+      <img src="/assets/images/rmwa/event2.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/rmwa/snake.webp" alt="Snake">
+      <img src="/assets/images/rmwa/snake.webp" alt="Snake" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/rmwa/event3.webp" alt="Owl">
+      <img src="/assets/images/rmwa/event3.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/rmwa/raptor.webp" alt="Raptor">
+      <img src="/assets/images/rmwa/raptor.webp" alt="Raptor" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/rmwa/atosha.webp" alt="Owl">
+      <img src="/assets/images/rmwa/atosha.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/rmwa/kingston.webp" alt="Hawk">
+      <img src="/assets/images/rmwa/kingston.webp" alt="Hawk" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/rmwa/boo2025_2.webp" alt="Hawk">
+      <img src="/assets/images/rmwa/boo2025_2.webp" alt="Hawk" decoding="async">
     </div>
   </div>
 </div>
@@ -102,37 +102,37 @@ Similarly to how I approached Rocky Mountain Wildlife Alliance, I wanted to ensu
 <div class="image-scroll-hyper" id="carousel-dzca">
   <div class="image-scroll-track">
         <div class="image-scroll-item">
-      <img src="/assets/images/dzca/lorikeets.webp" alt="Raptor">
+      <img src="/assets/images/dzca/lorikeets.webp" alt="Raptor" decoding="async">
     </div>
         <div class="image-scroll-item">
-      <img src="/assets/images/dzca/hyena1.webp" alt="Raptor">
+      <img src="/assets/images/dzca/hyena1.webp" alt="Raptor" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/dzca/elephant.webp" alt="Owl">
+      <img src="/assets/images/dzca/elephant.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/dzca/flamingo.webp" alt="Snake">
+      <img src="/assets/images/dzca/flamingo.webp" alt="Snake" decoding="async">
     </div>
         <div class="image-scroll-item">
-      <img src="/assets/images/dzca/lion.webp" alt="Raptor">
+      <img src="/assets/images/dzca/lion.webp" alt="Raptor" decoding="async">
     </div>
         <div class="image-scroll-item">
-      <img src="/assets/images/dzca/lorikeet.webp" alt="Raptor">
+      <img src="/assets/images/dzca/lorikeet.webp" alt="Raptor" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/dzca/hyena.webp" alt="Raptor">
+      <img src="/assets/images/dzca/hyena.webp" alt="Raptor" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/dzca/monkey.webp" alt="Raptor">
+      <img src="/assets/images/dzca/monkey.webp" alt="Raptor" decoding="async">
         </div>
       <div class="image-scroll-item">
-      <img src="/assets/images/dzca/tiger.webp" alt="Raptor">
+      <img src="/assets/images/dzca/tiger.webp" alt="Raptor" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/dzca/elephant.webp" alt="Raptor">
+      <img src="/assets/images/dzca/elephant.webp" alt="Raptor" decoding="async">
     </div>
         <div class="image-scroll-item">
-      <img src="/assets/images/dzca/giraffe.webp" alt="Raptor">
+      <img src="/assets/images/dzca/giraffe.webp" alt="Raptor" decoding="async">
     </div>
   </div>
 </div>

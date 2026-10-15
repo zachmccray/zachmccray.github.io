@@ -157,3 +157,59 @@ Already-open pages and cached HTML can retain an old reference until reloaded or
 expired (observed Pages cache lifetime: 600 seconds). The distinct script pathname
 prevents updated HTML from reusing the obsolete asset. Keep database rules private;
 no rules publication, resets or data migrations accompany this hotfix.
+
+## Photography, Timeline and bounded carousels
+
+Keep a build/source archive of merged `8bd2daa` outside the checkout. For this
+intentional visual change use the component-aware preservation check below;
+`preservation.py` remains strict for normal/Pages/localhost parity of one revision.
+Neither script relaxes route, course-anchor, SEO or Firebase preservation.
+
+```sh
+python _tests/component-preservation.py --baseline /tmp/site-baseline \
+  --baseline-source /tmp/source-baseline --site /tmp/site-candidate \
+  --out /tmp/component-preservation.json
+python _tests/prepare-visual-fixtures.py --root /tmp/visual-metadata-fixtures
+python _tests/visual-media.py --site /tmp/site-candidate \
+  --fixtures /tmp/cached-visual-assets --metadata-fixtures /tmp/visual-metadata-fixtures \
+  --out /tmp/visual-media
+python _tests/carousel-behavior.py --site /tmp/site-candidate --out /tmp/carousel-behavior
+python _tests/carousel-performance.py --baseline /tmp/site-baseline \
+  --site /tmp/site-candidate --out /tmp/carousel-performance
+```
+
+Visual assets are `Inter.ttf`, `glightbox.js` and `glightbox.css` (GLightbox 3.3.1,
+the site's pinned jsDelivr version). Supply these cached files with their upstream
+licenses; the review manifest records their hashes. They are browser-test fixtures,
+not new production dependencies. Image SVGs are generated locally. The real
+Liquid fixture build uses 110 labeled synthetic photo records, every one of the
+32 optional camera-field combinations, long/absent metadata, and one major/one
+minor post without an image. Original data/posts are never edited. `--source`
+can build the same controlled records using the baseline include for previews.
+
+`visual-media.py` exercises actual served controllers, GLightbox, native links and
+sorting/filtering at twelve widths and eight orientations; 30/60/110-photo
+portrait/landscape/mixed galleries, keyboard/touch/modal focus, failed originals
+and both real Liquid no-image branches. `--only gallery|timeline|carousels|fixtures`
+supports focused reruns. External analytics, auth and production databases are
+blocked. Use the separately enforced Firebase suites for permission guarantees.
+
+`carousel-behavior.py` checks actual wheel input and Chromium touch input, finite
+one/two-photo sets, source order/ratios, bounded copies, held-pointer release,
+equivalent boundary content (allowing <1px fractional rounding), resize selection,
+late/error events and idempotent refresh for 1/2/5/12/150/180 images. It does not
+certify physical iOS/Android inertia or substitute for owner visual acceptance.
+
+The performance lab runs seven alternating fresh contexts per phase/count at 1×
+and 4× CPU. It uses actual baseline/current CSS/JS with native local HTTP/cache,
+not route-mocked timing. Report DOM/images, initialization callback work including
+layout, CDP layout/script time, image resources/transfers, repeated scroll/resize
+tasks, post-GC DOM and JS heap. Do not claim sixfold network/decoded-memory savings:
+browsers reuse duplicate URLs, unique transfers can be unchanged, and this does
+not measure decoded-image/GPU memory. Small-set overhead may rise because controls,
+readiness and resize preservation are now implemented. This is a shared-cloud lab,
+not production Core Web Vitals or a physical-device benchmark.
+
+The publication workflow now also asserts exact compiled versioned component bytes,
+single scoped/deferred scripts and one current custom stylesheet on every page.
+No workflow/config/Firebase deployment changes are needed for this PR.

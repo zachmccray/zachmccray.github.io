@@ -1,13 +1,19 @@
 {% assign photo = include.photo %}
-{% assign photo_name = photo.label | default: photo.title | default: photo.alt | default: 'Photo' %}
+{% assign photo_name = photo.title | default: photo.label | default: photo.alt | default: 'Photo' %}
 {% assign label = photo.label | default: photo.title | append: '' | strip %}
 {% assign date = photo.date | append: '' | strip %}
 {% assign location = photo.location | append: '' | strip %}
 <div class="photo-tile">
   <a href="{{ photo.href | default: photo.src | escape }}" class="glightbox" data-gallery="{{ photo.gallery | default: 'gallery1' | escape }}" data-title="{{ photo.title | escape }}" data-description="{{ photo.description | escape }}" aria-label="Open photo {{ include.number }}: {{ photo_name | escape }}" aria-describedby="{{ photo.id | escape }}" data-alt="{{ photo.alt | escape }}">
     <img decoding="async" src="{{ photo.src | escape }}" alt="{{ photo.alt | escape }}">
+    <span class="photo-summary" aria-hidden="true">
+      <span class="photo-summary-title">{{ photo_name | escape }}</span>
+      {% if location != '' %}<span class="photo-summary-secondary">{{ location | escape }}</span>{% elsif date != '' %}<span class="photo-summary-secondary">{{ date | escape }}</span>{% endif %}
+    </span>
   </a>
   <div class="photo-info" id="{{ photo.id | escape }}">
+    {% assign description = photo.description | append: '' | strip %}
+    {% if description != '' %}<p class="photo-description">{{ description | escape }}</p>{% endif %}
     {% if label != '' %}<p class="photo-title">{{ label | escape }}</p>{% endif %}
     {% if date != '' or location != '' %}
     <dl class="photo-facts">
@@ -15,23 +21,28 @@
       {% if location != '' %}<div class="photo-meta-row"><dt>Location:</dt> <dd>{{ location | escape }}</dd></div>{% endif %}
     </dl>
     {% endif %}
-    {% assign camera_fields = 'body,shutter_speed,aperture,iso,focal_length' | split: ',' %}
-    {% capture camera_rows %}
+    {% assign camera_body = photo.camera.body | append: '' | strip %}
+    {% assign camera_fields = 'shutter_speed,aperture,iso,focal_length' | split: ',' %}
+    {% capture exposure %}
       {% for field in camera_fields %}
         {% assign value = photo.camera[field] | append: '' | strip %}
         {% if value != '' %}
           {% case field %}
-            {% when 'body' %}{% assign label = 'Camera' %}
-            {% when 'shutter_speed' %}{% assign label = 'Shutter speed' %}
-            {% when 'aperture' %}{% assign label = 'Aperture' %}
-            {% when 'iso' %}{% assign label = 'ISO' %}
-            {% when 'focal_length' %}{% assign label = 'Focal length' %}
+            {% when 'shutter_speed' %}{% assign setting_label = 'Shutter speed' %}
+            {% when 'aperture' %}{% assign setting_label = 'Aperture' %}
+            {% when 'iso' %}{% assign setting_label = 'ISO' %}
+            {% when 'focal_length' %}{% assign setting_label = 'Focal length' %}
           {% endcase %}
-          <div class="photo-meta-row"><dt>{{ label }}:</dt> <dd>{{ value | escape }}</dd></div>
+          <span class="photo-setting"><span class="photo-setting-name{% if field == 'iso' %} photo-iso{% endif %}">{{ setting_label }}: </span>{{ value | escape }}</span>
         {% endif %}
       {% endfor %}
     {% endcapture %}
-    {% assign camera_rows = camera_rows | strip %}
-    {% if camera_rows != '' %}<dl class="photo-settings">{{ camera_rows }}</dl>{% endif %}
+    {% assign exposure = exposure | strip %}
+    {% if camera_body != '' or exposure != '' %}
+    <dl class="photo-settings">
+      {% if camera_body != '' %}<div class="photo-camera-body"><dt>Camera:</dt><dd>{{ camera_body | escape }}</dd></div>{% endif %}
+      {% if exposure != '' %}<div class="photo-exposure-row"><dt>Exposure:</dt><dd class="photo-exposure">{{ exposure }}</dd></div>{% endif %}
+    </dl>
+    {% endif %}
   </div>
 </div>

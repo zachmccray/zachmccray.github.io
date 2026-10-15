@@ -1,0 +1,19 @@
+✔ One-click like/unlike updates atomically without reading other users (9.784419ms)
+✔ Acknowledgement loss preserves fixed like/unlike intents and does not increment twice (1.627838ms)
+✔ Pending write prevents repeat activation and preserves counts until acknowledgement (1.215647ms)
+✔ Legacy markers and counts are not reconstructed on initialization (0.859602ms)
+✔ Invalid historic counts have distinct feedback and are never repaired (2.465266ms)
+✔ Authentication, own-marker read and count-read errors are distinguished without private logging (2.58742ms)
+✔ Missing SDK leaves navigation/sharing usable and like controls disabled (0.635605ms)
+✔ Voluntary native-share cancellation is normal and does not log a share (0.736487ms)
+✔ Shares atomically update existing paths and count every completed share (2.27444ms)
+✔ Rejected share child cannot leave either half committed; no implicit replay (1.536309ms)
+✔ Queued share logging keeps controls responsive and counts each completion on reconnection (4.537101ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 80.233039

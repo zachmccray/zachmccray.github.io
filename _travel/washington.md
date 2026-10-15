@@ -127,31 +127,31 @@ I awoke later with a jolt, instantly understanding the situation. I could tell i
 <div class="image-scroll-hyper" id="carousel-msk">
   <div class="image-scroll-track">
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/msk.webp" alt="Owl">
+      <img src="/assets/images/washington/msk.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/msk14.webp" alt="Owl">
+      <img src="/assets/images/washington/msk14.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/mskstart.webp" alt="Owl">
+      <img src="/assets/images/washington/mskstart.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/msk13.webp" alt="Snake">
+      <img src="/assets/images/washington/msk13.webp" alt="Snake" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/mskhike.webp" alt="Owl">
+      <img src="/assets/images/washington/mskhike.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/msk4.webp" alt="Owl">
+      <img src="/assets/images/washington/msk4.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/msk9.webp" alt="Owl">
+      <img src="/assets/images/washington/msk9.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/msk11.webp" alt="Owl">
+      <img src="/assets/images/washington/msk11.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/msktop1.webp" alt="Owl">
+      <img src="/assets/images/washington/msktop1.webp" alt="Owl" decoding="async">
     </div>
   </div>
 </div>
@@ -226,31 +226,31 @@ I awoke later with a jolt, instantly understanding the situation. I could tell i
 <div class="image-scroll-hyper" id="carousel-ruby">
   <div class="image-scroll-track">
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/ruby.webp" alt="Owl">
+      <img src="/assets/images/washington/ruby.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/ruby6.webp" alt="Owl">
+      <img src="/assets/images/washington/ruby6.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/ruby7.webp" alt="Owl">
+      <img src="/assets/images/washington/ruby7.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/ruby8.webp" alt="Owl">
+      <img src="/assets/images/washington/ruby8.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/ruby10.webp" alt="Owl">
+      <img src="/assets/images/washington/ruby10.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/ruby9.webp" alt="Owl">
+      <img src="/assets/images/washington/ruby9.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/ruby3.webp" alt="Owl">
+      <img src="/assets/images/washington/ruby3.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/ruby13.webp" alt="Owl">
+      <img src="/assets/images/washington/ruby13.webp" alt="Owl" decoding="async">
     </div>
     <div class="image-scroll-item">
-      <img src="/assets/images/washington/ruby12.webp" alt="Owl">
+      <img src="/assets/images/washington/ruby12.webp" alt="Owl" decoding="async">
     </div>
   </div>
 </div>

@@ -45,9 +45,11 @@ layout: content
            data-year="{{ year }}" 
            data-date="{{ post.date | date_to_xmlschema }}">
         {% if post.image %}
-          <div class="event-thumb">
-            <img src="{{ post.image }}" alt="{{ post.title }}">
-          </div>
+          <a class="event-thumb" href="{{ post.url }}" aria-label="Read {{ post.title | escape }}">
+            <img decoding="async" src="{{ post.image }}" alt="{{ post.title }}">
+          </a>
+        {% else %}
+          <span class="event-thumb event-thumb-empty" aria-hidden="true"></span>
         {% endif %}
         <div class="event-content">
           <a href="{{ post.url }}" class="event-link">
@@ -69,8 +71,10 @@ layout: content
            data-date="{{ post.date | date_to_xmlschema }}">
         {% if post.image %}
           <div class="event-thumb">
-            <img src="{{ post.image }}" alt="{{ post.title }}">
+            <img decoding="async" src="{{ post.image }}" alt="{{ post.title }}">
           </div>
+        {% else %}
+          <span class="event-thumb event-thumb-empty" aria-hidden="true"></span>
         {% endif %}
         <div class="event-content">
           {% if post.title %}
