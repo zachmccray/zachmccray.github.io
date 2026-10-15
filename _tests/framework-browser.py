@@ -1,20 +1,24 @@
 """Real DOM/axe/native navigation checks, portable across three Playwright engines."""
-import argparse,asyncio,json,shutil
+import argparse,asyncio,json,os,shutil
 from pathlib import Path
 from urllib.parse import urlparse
 from playwright.async_api import async_playwright
 from framework_helpers import Site,context,ready
 
 p=argparse.ArgumentParser();p.add_argument('--site',type=Path,required=True);p.add_argument('--assets',type=Path,required=True);p.add_argument('--deps',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--browser',choices=['chromium','firefox','webkit'],default='chromium');a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
-site=Site(a.site);checks=[];scans=[];all_errors=[];version=None
+site=Site(a.site);checks=[];scans=[];all_errors=[];version=None;last_action='launch';failure=None
 WIDTHS=[320,375,390,430,600,601,768,820,1024,1280,1440,1920]
 ORIENTATIONS=[(375,812),(812,375),(390,844),(844,390),(768,1024),(1024,768),(820,1180),(1180,820)]
 PAGES=['/','/academics.html','/courses.html','/blog.html','/2025/10/07/japan.html','/2024/08/24/alvvays-concert.html','/travel.html','/travel/washington/','/travel/japan/','/photography.html','/volunteering.html','/hobbies.html','/media.html']
 def check(name,ok,detail=None):
+    global last_action
+    last_action=name
     checks.append({'check':name,'passed':bool(ok),'detail':detail});assert ok,(name,detail)
 async def scan(page,name):
+    global last_action
+    last_action='axe: '+name
     await page.add_script_tag(path=str(a.deps/'axe-core/axe.min.js'))
-    result=await page.evaluate('''async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa','best-practice']}});return {violations:r.violations,incomplete:r.incomplete,passes:r.passes.length}}''')
+    result=await asyncio.wait_for(page.evaluate('''async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa','best-practice']}});return {violations:r.violations,incomplete:r.incomplete,passes:r.passes.length}}'''),timeout=60)
     scans.append({'scenario':name,**result});check(name+' axe scan has no violations',not result['violations'],[(v['id'],[n['target'] for n in v['nodes']]) for v in result['violations']])
 async def visit(browser,path,width=390,height=900,mode=None,javascript=True):
     c,page,errors,requests=await context(browser,site,a.assets,a.deps,width,height,mode,javascript)
@@ -162,6 +166,14 @@ async def main():
         await b.close()
 
 try:asyncio.run(main())
+except Exception as error:
+    failure=f'{a.browser}; last action: {last_action}; {type(error).__name__}: {error}'
+    if os.getenv('GITHUB_ACTIONS'):
+        # Keep the failing assertion available through GitHub's annotations API,
+        # even in environments unable to fetch the artifact-storage host.
+        message=failure[:6000].replace('%','%25').replace('\r','%0D').replace('\n','%0A')
+        print('::error title=Framework browser failure::'+message,flush=True)
+    raise
 finally:
-    (a.out/'results.json').write_text(json.dumps({'browser':a.browser,'version':version,'passed':sum(c['passed'] for c in checks),'checks':checks,'axe':scans,'errors':all_errors,'limits':'Local generated site; real component/axe code. Controlled image/font/library assets; Firebase fixture only. Reflow viewports simulate 200%/400% equivalence, not browser-chrome zoom. No physical device or screen-reader certification.'},indent=2)+'\n');site.close()
+    (a.out/'results.json').write_text(json.dumps({'browser':a.browser,'version':version,'passed':sum(c['passed'] for c in checks),'checks':checks,'axe':scans,'errors':all_errors,'failure':failure,'limits':'Local generated site; real component/axe code. Controlled image/font/library assets; Firebase fixture only. Reflow viewports simulate 200%/400% equivalence, not browser-chrome zoom. No physical device or screen-reader certification.'},indent=2)+'\n');site.close()
 print('Framework checks passed:',a.browser,len(checks))
