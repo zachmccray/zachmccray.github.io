@@ -1,0 +1,32 @@
+name: Public site publication checks
+on:
+  pull_request:
+    branches: [gh-pages]
+  push:
+    branches: [gh-pages]
+permissions:
+  contents: read
+jobs:
+  public-surface:
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_GEMFILE: _tests/Gemfile.pages
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+      - name: Build normal and Pages publication profiles
+        run: |
+          JEKYLL_ENV=production bundle exec jekyll build --disable-disk-cache --destination "$RUNNER_TEMP/normal"
+          JEKYLL_ENV=production bundle exec jekyll build --disable-disk-cache --config _config.yml,_tests/pages-parity.yml --destination "$RUNNER_TEMP/pages"
+          printf 'url: http://localhost:4000\n' > "$RUNNER_TEMP/local.yml"
+          JEKYLL_ENV=development bundle exec jekyll build --disable-disk-cache --config _config.yml,_tests/pages-parity.yml,"$RUNNER_TEMP/local.yml" --destination "$RUNNER_TEMP/local"
+      - name: Reject leaked pages, navigation, search, sitemap and stale clients
+        run: |
+          python3 _tests/public-surface.py --site "$RUNNER_TEMP/normal" --out "$RUNNER_TEMP/normal.json"
+          python3 _tests/public-surface.py --site "$RUNNER_TEMP/pages" --out "$RUNNER_TEMP/pages.json"
+          python3 _tests/public-surface.py --site "$RUNNER_TEMP/local" --out "$RUNNER_TEMP/local.json"
+          python3 _tests/preservation.py --baseline "$RUNNER_TEMP/normal" --site "$RUNNER_TEMP/pages" --out "$RUNNER_TEMP/parity.json"
+          python3 _tests/preservation.py --baseline "$RUNNER_TEMP/normal" --site "$RUNNER_TEMP/local" --local-url http://localhost:4000 --out "$RUNNER_TEMP/local-parity.json"

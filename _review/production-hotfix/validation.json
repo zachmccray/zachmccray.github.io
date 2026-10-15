@@ -1,0 +1,91 @@
+{
+  "normal-public-surface.json": {
+    "passed": 253,
+    "failed": 0
+  },
+  "pages-public-surface.json": {
+    "passed": 254,
+    "failed": 0
+  },
+  "local-public-surface.json": {
+    "passed": 253,
+    "failed": 0
+  },
+  "preservation.json": {
+    "passed": 580,
+    "failed": 0
+  },
+  "local-preservation.json": {
+    "passed": 580,
+    "failed": 0
+  },
+  "browser-pages/browser-results.json": {
+    "passed": 557,
+    "failed": 0
+  },
+  "browser-local/browser-results.json": {
+    "passed": 557,
+    "failed": 0
+  },
+  "firebase-browser/results.json": {
+    "passed": 85,
+    "failed": 0
+  },
+  "firebase-transport/transport-results.json": {
+    "passed": 18,
+    "failed": 0
+  },
+  "gallery-matrix-results.json": {
+    "passed": 100,
+    "failed": 0
+  },
+  "like-visual/visual-results.json": {
+    "passed": 36,
+    "failed": 0
+  },
+  "browser-results.json": {
+    "passed": 110,
+    "failed": 0
+  },
+  "navigation-sharing-results.json": {
+    "passed": 88,
+    "failed": 0
+  },
+  "carousel-navigation-results.json": {
+    "passed": 64,
+    "failed": 0
+  },
+  "deployed-before.json": {
+    "passed": 84,
+    "failed": 86
+  },
+  "asset": {
+    "sha256": "bd584bf25d8a3180dd67d1d281fa314868bfd8df8a2bb2372a70fb0e85a6d78c",
+    "byte_identical_to_merged_client": true,
+    "production_before_asset_identical": true
+  },
+  "firebase_policy_unchanged": true,
+  "production_build": {
+    "commit": "0daaf0d3c98496bea4b178036b131f749e0d57f2",
+    "status": "built",
+    "observed_cache_max_age_seconds": 600,
+    "sitemap_status": 404,
+    "before_live_search_matches_pages_plugin_reproduction": true
+  },
+  "enforced_node": {
+    "passed": 17,
+    "failed": 0
+  },
+  "isolated_node": {
+    "passed": 11,
+    "failed": 0
+  },
+  "ci-local-preservation.json": {
+    "passed": 580,
+    "failed": 0
+  },
+  "ci-local-public-surface.json": {
+    "passed": 254,
+    "failed": 0
+  }
+}

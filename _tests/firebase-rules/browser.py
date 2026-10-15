@@ -16,6 +16,7 @@ assert urlparse(args.url).hostname in ('127.0.0.1','localhost'), 'Locally served
 args.out.mkdir(parents=True,exist_ok=True)
 assert json.loads((args.sdk/'package.json').read_text())['version']=='9.22.1'
 old_source=subprocess.check_output(['git','show','02839e0:assets/js/travel.js'],cwd=ROOT,text=True)
+stale_source=subprocess.check_output(['git','show','19973eb:assets/js/travel.js'],cwd=ROOT,text=True)
 checks=[]; frames=[]; console=[]; errors=[]; anonymous_uids=[]
 def check(name,condition):
     checks.append({'check':name,'passed':bool(condition)}); assert condition,name
@@ -57,8 +58,12 @@ async def install_routes(ctx,phase="private-atomic-after"):
                             source=(args.sdk/filename).read_text()+'''\nconst emulatorInitialize=firebase.initializeApp;
     firebase.initializeApp=()=>{const app=emulatorInitialize({projectId:'demo-website-reliability',apiKey:'demo-only',databaseURL:'http://127.0.0.1:9008/?ns=demo-website-reliability'});app.auth().useEmulator('http://127.0.0.1:9098',{disableWarnings:true});app.database().useEmulator('127.0.0.1',9008);return app;};'''
                             await r.fulfill(content_type='text/javascript',body=source);return
-                        if filename=='travel.js' and phase=='provided-before':
+                        if filename=='travel-atomic-receipts-1.js' and phase=='provided-before':
                             await r.fulfill(content_type='text/javascript',body=old_source);return
+                        if filename=='travel-atomic-receipts-1.js' and phase=='stale-private-before':
+                            # Reenact an old client under current rules, not a claim
+                            # that Playwright interception reproduces HTTP caching.
+                            await r.fulfill(content_type='text/javascript',body=stale_source);return
                         if '/assets/images/' in url.path:
                             await r.fulfill(content_type='image/svg+xml',body='<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480"/>');return
                         if url.hostname not in ('127.0.0.1','localhost'):
@@ -69,7 +74,7 @@ async def install_routes(ctx,phase="private-atomic-after"):
 async def main():
     async with async_playwright() as pw:
         browser=await pw.chromium.launch(executable_path=shutil.which('chromium'),args=['--no-sandbox'])
-        for phase in ['provided-before','private-atomic-after']:
+        for phase in ['provided-before','stale-private-before','private-atomic-after']:
             rule_path=Path(__file__).parent/'provided.rules.json' if phase=='provided-before' else ROOT/'_firebase/database.rules.json'
             rest('.settings/rules.json','PUT',json.loads(rule_path.read_text()))
             for width in [390,1440]:
@@ -77,7 +82,7 @@ async def main():
                 ctx=await browser.new_context(viewport={'width':width,'height':900})
                 await ctx.add_init_script("Object.defineProperty(navigator,'share',{configurable:true,value:async()=>{throw new DOMException('Dismissed','AbortError')}})")
                 await install_routes(ctx,phase)
-                p=await ctx.new_page();p.on('pageerror',lambda e:errors.append(str(e)))
+                p=await ctx.new_page();responses=[];p.on('response',lambda r:responses.append(r));p.on('pageerror',lambda e:errors.append(str(e)))
                 p.on('console',lambda m:console.append({'phase':phase,'type':m.type,'text':m.text}) if 'permission_denied' in m.text.lower() else None)
                 p.on('websocket',lambda ws:ws.on('framesent',lambda payload:sent(phase,payload)))
                 # Get public IDs without invoking the runtime before seeding.
@@ -94,13 +99,17 @@ async def main():
                 await p.goto(args.url+'/travel.html',wait_until='networkidle')
                 await p.wait_for_function("Array.from(document.querySelectorAll('.like-count')).every(e=>Number(e.textContent)>=1)&&Array.from(document.querySelectorAll('.like-button')).every(e=>!e.disabled)")
                 await p.evaluate('document.fonts.ready')
-                if phase=='provided-before':
+                if phase!='private-atomic-after':
                     button=p.locator('.like-button').first;await button.click()
-                    await p.wait_for_function("document.querySelector('.travel-feedback').textContent.includes('Could not confirm')")
-                    check(f'{width}: actual PR19 UI reproduces transaction failure',not await button.is_disabled())
+                    message='Could not confirm' if phase=='provided-before' else 'Could not update the like. Please try again.'
+                    await p.wait_for_function('(message)=>document.querySelector(".travel-feedback").textContent.includes(message)',arg=message)
+                    check(f'{width}/{phase}: actual old client reproduces the expected failure',not await button.is_disabled())
                     check(f'{width}: rejected transaction preserves seeded data',rest('.json')==original)
-                    await p.screenshot(path=str(args.out/f'before-travel-{width}.png'))
+                    await p.screenshot(path=str(args.out/f'{phase}-travel-{width}.png'))
                 else:
+                    travel_responses=[r for r in responses if '/assets/js/travel' in r.url]
+                    check(f'{width}: exactly one current Travel asset requested',len(travel_responses)==1 and urlparse(travel_responses[0].url).path=='/assets/js/travel-atomic-receipts-1.js')
+                    check(f'{width}: browser executed the reviewed Travel source',await travel_responses[0].body()==(ROOT/'assets/js/travel-atomic-receipts-1.js').read_bytes())
                     uid=await p.evaluate('firebase.auth().currentUser.uid');anonymous_uids.append(uid)
                     check(f'{width}: anonymous sign-in is invisible',await p.evaluate("firebase.auth().currentUser.isAnonymous") and await p.locator('input[type=email],input[type=password],iframe[src*=captcha]').count()==0)
                     # Fixture own state is initially absent for the actual anonymous UID.

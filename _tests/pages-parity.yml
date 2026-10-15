@@ -1,0 +1,15 @@
+# GitHub Pages adds these publication plugins even when _config.yml omits them.
+# jekyll-sitemap is an additional test probe, not a production SEO change.
+plugins:
+  - jekyll-remote-theme
+  - jekyll-optional-front-matter
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+  - jekyll-readme-index
+  - jekyll-relative-links
+  - jekyll-sitemap
+future: true
+kramdown:
+  input: GFM
+  hard_wrap: false
+  gfm_quirks: paragraph_end
