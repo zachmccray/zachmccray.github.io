@@ -87,7 +87,8 @@ independent native-history tests verify the unmodified scroll position.
 | Native search/navigation/Travel UI | 557 production + 557 actual Jekyll-server assertions, including 135 queries and 90 code/title destination clicks |
 | Existing visual/media suite | 975 assertions, with focused 446-assertion Timeline rerun after the history correction |
 | Carousel native input/stress | 70 assertions; 1/2/5/12/150/180 images, wheel/touch, boundaries, resize, late/missing images, idempotence and independent strips |
-| Framework/browser/axe (local Chromium 154) | 268 assertions; 32 full-page/state axe scans, no violations; incomplete/manual-review items retained |
+| Framework/browser/axe (local Chromium 154) | 272 assertions; 32 full-page/state axe scans, no violations; incomplete/manual-review items retained |
+| Actual Chromium/Firefox/WebKit CI | 272 assertions and 32 zero-violation axe scans per engine; all jobs passed, with raw engine artifacts retained in Actions |
 | Native cached history | 12 assertions; actual Chromium persisted=false rebuild and persisted=true BFCache paths, controls, entry state, exact scroll and Forward |
 | Enforced Firebase rules | 17 passed |
 | Real SDK/Anonymous Authentication UI | 85 passed with local RTDB/Auth emulators |
@@ -97,10 +98,18 @@ independent native-history tests verify the unmodified scroll position.
 | Delivery benchmark | 28 paired runs; all samples and trade-offs retained |
 | Syntax/whitespace | Maintained/generated JavaScript and git diff checks passed |
 
-The Firefox/WebKit/Chromium GitHub Actions matrix and final publication run are
-checked on the PR; CI evidence will be linked here once the run finishes. Local
-Firefox/WebKit downloads returned network-policy 403s. They are not claimed as
-local tests. The CI workflow installs each actual engine independently on Linux;
+The [verified GitHub Actions matrix](https://github.com/zachmccray/zachmccray.github.io/actions/runs/38780058619)
+passed **272 assertions and 32 axe scans with no violations in each of Chromium,
+Firefox and WebKit**, plus the separate Chromium native-history checks. All three
+engines ran on Linux against the Pages-plugin build. [Machine-readable job status](results/ci-verified.json)
+and [artifact inventory](results/ci-artifacts.json) are retained; per-engine JSON,
+incomplete/manual cases and screenshots are attached to the Actions run. Check the
+PR's latest checks for subsequent evidence/documentation commits.
+
+Local Firefox/WebKit downloads and the Actions artifact-storage download were
+blocked by this environment's network policy. No local Firefox/WebKit pass or
+local copy of their raw axe results is claimed. Actions status/annotations are
+available through the GitHub API; owners can inspect the retained run artifacts.
 Linux WebKit is not macOS/iOS Safari.
 
 Widths: 320/375/390/430/600/601/768/820/1024/1280/1440/1920px, plus the eight
@@ -114,6 +123,20 @@ font reflow while retaining the same visible Timeline context. The separate
 native-HTTP test verifies exact scroll with cached assets and real BFCache.
 The test-only server maps external font/script URLs locally and enforces a
 self-only CSP. No such CSP, proxy or history override is added to production.
+
+During cross-browser validation, two **test-harness** problems were corrected:
+Firefox stalled when the JavaScript-disabled fixture awaited the page-level
+`document.fonts.ready` Promise. That case now relies on completed network loading
+and native layout/navigation checks; enabled-JavaScript cases retain explicit font
+readiness. CI also caught a correct Calculus I URL/focus with an unsettled geometry
+sample below the viewport. Search destination checks now wait for font/layout
+readiness before measuring, without manually scrolling or changing production
+anchor behavior. A delayed-font interaction is covered in every engine. A separate
+[0.8-second-font / 4× CPU probe](results/anchor-probe.json) retained correct settled
+positions at 390/1440px; no persistent wrong-course/hidden-target defect was reproduced.
+Scan/font/whole-run time limits and API-readable failure/success annotations now
+make these failures diagnosable; the final three-engine run passes the stronger
+checks. These harness corrections made no additional production-source changes.
 
 All Firebase automation uses fixtures or official isolated emulators; **no real
 visitor writes, production rules/auth/billing/analytics changes or data migrations**.

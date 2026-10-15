@@ -286,3 +286,13 @@ work, DOM/heap and laboratory paint/layout shifts. Inter TTF fixture bytes diffe
 from production WOFF subsets; this is not CDN latency, production Firebase timing,
 real-photo performance or production Core Web Vitals. Report the added inline SVG
 and DOM costs as well as the removed stylesheet/font requests.
+
+The framework suite waits for font/layout readiness before measuring actual search
+click destinations, with an explicit delayed-font case. Its JavaScript-disabled
+fixture uses completed network loading and native layout checks instead of awaiting
+a page-level FontFaceSet Promise (which does not resolve there in Firefox).
+Font/axe/whole-run time limits prevent unbounded CI stalls. Failure annotations and
+a compact final engine/version/assertion/axe summary are readable through GitHub's
+checks API even when the artifact-storage download host is blocked; the raw scans
+and screenshots remain attached to the Actions run. Only five progress notices are
+emitted per step, leaving room for the final summary within GitHub's annotation cap.

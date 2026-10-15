@@ -17,7 +17,7 @@ def check(name,ok,detail=None):
 async def scan(page,name):
     global last_action
     last_action='axe: '+name
-    if os.getenv('GITHUB_ACTIONS'):
+    if os.getenv('GITHUB_ACTIONS') and len(scans)<5:
         print('::notice title=Framework progress::'+a.browser+'; '+last_action,flush=True)
     await page.add_script_tag(path=str(a.deps/'axe-core/axe.min.js'))
     result=await asyncio.wait_for(page.evaluate('''async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa','best-practice']}});return {violations:r.violations,incomplete:r.incomplete,passes:r.passes.length}}'''),timeout=60)

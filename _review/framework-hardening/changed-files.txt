@@ -40,10 +40,13 @@ _review/framework-hardening/previews/comparison-no-theme.jpg
 _review/framework-hardening/previews/comparison-search.jpg
 _review/framework-hardening/previews/comparison-viewer.jpg
 _review/framework-hardening/previews/visual-comparisons.json
+_review/framework-hardening/results/anchor-probe.json
 _review/framework-hardening/results/baseline-axe.json
 _review/framework-hardening/results/browser-install.log
 _review/framework-hardening/results/carousels.json
 _review/framework-hardening/results/chromium.json
+_review/framework-hardening/results/ci-artifacts.json
+_review/framework-hardening/results/ci-verified.json
 _review/framework-hardening/results/components.json
 _review/framework-hardening/results/enforced-transport.json
 _review/framework-hardening/results/enforced-travel.json
