@@ -3,24 +3,45 @@ title: Hobbies
 layout: content
 ---
 
-<h2 class="content-heading" id="hiking" tabindex="-1">Hiking</h2>
+<h2 class="content-heading" id="outdoor" tabindex="-1">Outdoor Activities</h2>
+
+<h3 class="content-heading" id="hiking" tabindex="-1">Hiking</h3>
 
 <p>
-I maintain a detailed list of the hikes I’ve finished alongside hikes I would like to complete.
-Currently, my goal is to visit all 63 national parks in the United States. As of January 2026, I have travelled to 11. I would also like to hike as many popular hikes in America as I can, travel to notable national lands, monuments, etc across the country, and explore famous hiking regions like the Dolomites, Swiss Alps, Pyrenees, Patagonia, and so forth.
+I maintain a detailed list of the hikes I’ve finished alongside hikes I would like to complete. The sheet is a WIP and will be posted shortly. Currently, my goal is to visit all <s>63</s> (64 as of October 2026!) National Parks in the United States. As of 2026, I have travelled to 15!
 </p>
 
 <p>
-The sheet I use to track hikes can be found <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQo6ctoKVc5wEqVaBM3VVsT2x_nMoQiiobXvBfGs_h8428znpyKsOeucHah_5hbKUgz_Xobk0mfGN_Q/pubhtml" target="_blank">here.</a> You can view my AllTrails <a href="https://www.alltrails.com/members/zach-mccray-1/stats" target="_blank">here.</a>
+You can view my AllTrails <a href="https://www.alltrails.com/members/zach-mccray-1/stats" target="_blank">here.</a>
 </p>
 
-<h2 class="content-heading" id="mile-high-freedom-band" tabindex="-1">Mile High Freedom Band</h2>
+<h3 class="content-heading" id="sand-volleyball" tabindex="-1">Sand Volleyball</h3>
+
+<p>
+TBD!
+</p>
+
+<h3 class="content-heading" id="pickleball" tabindex="-1">Pickleball</h3>
+
+<p>
+TBD!
+</p>
+
+<h3 class="content-heading" id="skiing" tabindex="-1">Skiing</h3>
+
+<p>
+TBD!
+</p>
+
+<h2 class="content-heading" id="music" tabindex="-1">Music</h2>
+
+<h3 class="content-heading" id="mile-high-freedom-band" tabindex="-1">Mile High Freedom Band</h3>
 
 <p>
 I joined <a href="https://www.mhfb.org" target="_blank" rel="noopener noreferrer">Mile High Freedom Band (MHFB)</a> in August 2025 as a member of the Alto Saxophone section. MHFB is Denver’s LGBTQ+ and ally community music organization formed in 1984. Through the Mile High Freedom Band, I have received the opportunity to perform halftime at Ball Arena for the Denver Nuggets, the Ellie Caulkins Opera House, as well as parades, theater performances, and everything in between.
 </p>
 
-<h3 class="content-subheading" id="saxophone-details" tabindex="-1">Saxophone Details</h3>
+<h4 class="content-subheading" id="saxophone-details" tabindex="-1">Saxophone Details</h4>
 
 <ul class="styled-list">
   <li>Saxophone: Yamaha YAS-62 Alto Saxophone</li>
@@ -30,7 +51,7 @@ I joined <a href="https://www.mhfb.org" target="_blank" rel="noopener noreferrer
   <li>Jazz Reeds: Rigotti Gold Classics</li>
 </ul>
 
-<h3 class="content-subheading" id="preferred-exercises-repertoire-books" tabindex="-1">Preferred Exercises & Repertoire Books</h3>
+<h4 class="content-subheading" id="preferred-exercises-repertoire-books" tabindex="-1">Favorite Exercises & Repertoire Books</h4>
 
 <ul class="styled-list">
   <li>25 Daily Exercises for Saxophone by Klose (Editor), McAllister (Editor)</li>
@@ -40,20 +61,20 @@ I joined <a href="https://www.mhfb.org" target="_blank" rel="noopener noreferrer
   <li>Top-Tones for the Saxophone: Four-Octave Range by Sigurd M. Rascher (Author)</li>
 </ul>
 
-<h2 class="content-heading" id="piano" tabindex="-1">Piano</h2>
+<h3 class="content-heading" id="piano" tabindex="-1">Piano</h3>
 
 <p>
-I began playing piano in April 2025. I took lessons for the first several months working through Nancy Faber's "Faber All In One Adult Piano Adventures" Book 1. At the conclusion of Book 1, I decided to continue as a self-learner and began the second book in the Adult All in One Series on my first (and only) keyboard: a used Casio PX-160 I bought from Facebook Marketplace. As of 2026, I am continuing to work through Book 2.
+I began playing piano in April 2025. I took lessons for the first several months working through Nancy Faber's "Faber All In One Adult Piano Adventures" Book 1. At the conclusion of Book 1, I decided to continue as a self-learner and began the second book in the Adult All in One Series on my first (and only) keyboard: a used Casio PX-160 I bought from Facebook Marketplace. While my progress slowed dramatically, mostly due to bouts of fleeting motivation, at the conclusion of 2026 I completed Faber's "Faber All In One Adult Piano Adventures" Book 2 to satisfaction. 
 </p>
 
-<h3 class="content-subheading" id="all-in-one-adult-piano-adventures-book-1-by-faber" tabindex="-1">All-In-One Adult Piano Adventures Book 1 by Faber</h3>
+<h4 class="content-subheading" id="all-in-one-adult-piano-adventures-book-1-by-faber" tabindex="-1">All-In-One Adult Piano Adventures Book 1 by Faber</h4>
 
 <ul class="styled-list">
   <li>Piano Adventures Level 1 Christmas</li>
   <li>Piano Adventures Level 1 Popular</li>
 </ul>
 
-<h3 class="content-subheading" id="all-in-one-adult-piano-adventures-book-2-by-faber" tabindex="-1">All-In-One Adult Piano Adventures Book 2 by Faber</h3>
+<h4 class="content-subheading" id="all-in-one-adult-piano-adventures-book-2-by-faber" tabindex="-1">All-In-One Adult Piano Adventures Book 2 by Faber</h4>
 
 <ul class="styled-list">
   <li>Piano Adventures Level 2 Christmas Book</li>
@@ -61,7 +82,7 @@ I began playing piano in April 2025. I took lessons for the first several months
   <li>Disney Collection – Easy Piano Songbook</li>
 </ul>
 
-<h3 class="content-subheading" id="basic-piano-adventures-level-4-by-faber" tabindex="-1">Basic Piano Adventures Level 4 by Faber</h3>
+<h4 class="content-subheading" id="basic-piano-adventures-level-4-by-faber" tabindex="-1">Basic Piano Adventures Level 4 by Faber</h4>
 
 <ul class="styled-list">
   <li>Royal Conservatory Celebration Series – Piano Repertoire Level 3</li>
@@ -69,33 +90,31 @@ I began playing piano in April 2025. I took lessons for the first several months
   <li>Harry Potter Sheet Music from the Complete Film Series: Easy Piano</li>
 </ul>
 
-<h2 class="content-heading" id="foreign-languages" tabindex="-1">Foreign Languages</h2>
+<h2 class="content-heading" id="language" tabindex="-1">Languages</h2>
 
-<h3 class="content-subheading" id="japanese-a2-elementary-n4" tabindex="-1">Japanese (A2 Elementary / N4)</h3>
+<h3 class="content-heading" id="foreign-languages" tabindex="-1">Foreign Languages</h3>
+
+<h4 class="content-subheading" id="japanese-a2-elementary-n4" tabindex="-1">Japanese (A2 Elementary / N4)</h4>
 
 <p> Following the completion of my undergraduate degree, I began studying Japanese at Johnson County Community College, completing Elementary Japanese I and Elementary Japanese II. <strong>[eng]</strong> </p>
 
 <p lang="ja"> 大学卒業後、1年間日本語を勉強した、今も日本語の勉強を続けています. <strong>[jpn]</strong> </p>
 
-<h3 class="content-subheading" id="mandarin-a2-elementary-hsk2" tabindex="-1">Mandarin (A2 Elementary / HSK2)</h3>
+<h4 class="content-subheading" id="mandarin-a2-elementary-hsk2" tabindex="-1">Mandarin (A2 Elementary / HSK2)</h4>
 
 <p> During high school I completed 1 year of beginning Mandarin. <strong>[eng]</strong> </p>
 
 <p lang="zh"> 我在高中学习了一年的中文. <strong>[zho]</strong> </p>
 
-<h3 class="content-subheading" id="spanish-b2-intermediate" tabindex="-1">Spanish (B2 Intermediate)</h3>
+<h4 class="content-subheading" id="spanish-b2-intermediate" tabindex="-1">Spanish (B2 Intermediate)</h4>
 
 <p> I began studying Spanish when I was 12 and continued through the age of 18, completing the Advanced Placement Spanish course – the highest course offered – at my high school. <strong>[eng]</strong> </p>
 
 <p lang="es"> Empecé a estudiar español a los 12 años y continué hasta los 18, completando el curso de AP Español – el más alto que se ofrecía – en mi instituto. <strong>[spa]</strong> </p>
 
-<h2 class="content-heading" id="sand-volleyball" tabindex="-1">Sand Volleyball</h2>
+<h2 class="content-heading" id="other" tabindex="-1">Other Hobbies</h2>
 
-<p>
-TBD!
-</p>
-
-<h2 class="content-heading" id="mixology" tabindex="-1">Mixology</h2>
+<h3 class="content-heading" id="mixology" tabindex="-1">Mixology</h3>
 
 <p>
 TBD!
