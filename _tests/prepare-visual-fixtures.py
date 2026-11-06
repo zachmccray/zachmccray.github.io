@@ -14,6 +14,7 @@ from pathlib import Path
 parser = argparse.ArgumentParser()
 parser.add_argument('--root', type=Path, required=True)
 parser.add_argument('--source', type=Path, default=Path(__file__).resolve().parent.parent)
+parser.add_argument('--editorial', action='store_true', help='Also exercise future article navigation/disclosures')
 args = parser.parse_args()
 source = args.source.resolve()
 assert not args.root.resolve().is_relative_to(source)
@@ -52,6 +53,16 @@ for importance in ('major', 'minor'):
             empty_media.append(str(post.relative_to(copy)))
             break
 (args.root/'blog-fixtures.json').write_text(json.dumps(empty_media, indent=2)+'\n')
+if args.editorial:
+    # Replace one empty fixture body only, never a production article. The same
+    # synthetic content can be built against the old and new shared templates.
+    post = copy/'_posts/2025-10-07-japan.md'
+    if not post.exists():
+        post = next(p for p in (copy/'_posts').glob('2025-10-07-*'))
+    front = post.read_text().split('---', 2)[1]
+    body = '\n'.join(f'<h2 id="fixture-section-{i}" tabindex="-1">Fixture section {i}</h2>\n<p>Synthetic article navigation fixture, section {i}.</p>' for i in range(1,17))
+    body += '<details><summary>Fixture supporting material</summary><h2 id="fixture-hidden-section" tabindex="-1">Fixture hidden section</h2><p>Explicitly synthetic supporting details.</p></details>'
+    post.write_text('---'+front+'---\n'+body+'\n')
 subprocess.run(['bundle', 'exec', 'jekyll', 'build', '--source', str(copy), '--destination',
                 str(args.root/'site'), '--disable-disk-cache'], check=True,
                cwd=source, env={**os.environ, 'JEKYLL_ENV': 'production'})

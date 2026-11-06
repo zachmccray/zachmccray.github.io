@@ -1,11 +1,21 @@
-<link rel="stylesheet" href="{{ '/assets/css/custom-hardening-1.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/custom-editorial-1.css' | relative_url }}">
 <noscript><link rel="stylesheet" href="{{ '/assets/css/no-script-1.css' | relative_url }}"></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <script id="site-ui-script" defer src="{{ '/assets/js/site-ui-2.js' | relative_url }}"{% if page.collection == 'posts' %} data-parent-nav="{{ '/blog.html' | relative_url }}"{% elsif page.collection == 'travel' %} data-parent-nav="{{ '/travel.html' | relative_url }}"{% elsif page.url == '/courses.html' %} data-parent-nav="{{ '/academics.html' | relative_url }}"{% endif %}></script>
 {% if page.content contains 'image-scroll-hyper' %}
-<script defer src="{{ '/assets/js/image-carousel-2.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/image-viewer-1.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/image-carousel-3.js' | relative_url }}"></script>
+{% elsif page.url == '/photography.html' %}
+<script defer src="{{ '/assets/js/image-viewer-1.js' | relative_url }}"></script>
+{% endif %}
+{% assign article_navigation = false %}
+{% if page.collection == 'posts' or page.collection == 'travel' %}
+  {% if page.content contains '<h2' or page.content contains '<details' %}{% assign article_navigation = true %}{% endif %}
+{% endif %}
+{% if page.section_navigation or article_navigation %}
+<script defer src="{{ '/assets/js/section-navigation-1.js' | relative_url }}"></script>
 {% endif %}
 {% if page.url == '/travel.html' %}
 <script defer src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>

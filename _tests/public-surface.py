@@ -72,11 +72,13 @@ asset = args.site/client.lstrip('/')
 check('Served Travel asset bytes match the reviewed current source', asset.exists() and
       asset.read_bytes() == (ROOT/client.lstrip('/')).read_bytes())
 published = {
-    '/assets/css/custom-hardening-1.css': 'assets/css/custom.css',
-    '/assets/js/photography-portfolio-2.js': 'assets/js/photography.js',
-    '/assets/js/image-carousel-2.js': 'assets/js/infinite-scroll.js',
+    '/assets/css/custom-editorial-1.css': 'assets/css/custom.css',
+    '/assets/js/photography-portfolio-3.js': 'assets/js/photography.js',
+    '/assets/js/image-carousel-3.js': 'assets/js/infinite-scroll.js',
     '/assets/js/blog-controls-3.js': 'assets/js/blog-controls.js',
     '/assets/js/site-ui-2.js': 'assets/js/site-ui.js',
+    '/assets/js/image-viewer-1.js': 'assets/js/image-viewer-1.js',
+    '/assets/js/section-navigation-1.js': 'assets/js/section-navigation-1.js',
     '/assets/css/no-script-1.css': 'assets/css/no-script-1.css',
 }
 for path, source in published.items():
@@ -101,15 +103,18 @@ for route in routes:
           'font-awesome' in a.get('href', '') for t, a in tags if t == 'link'))
     styles = [a.get('href', '') for tag, a in tags if tag == 'link' and
               '/assets/css/custom' in a.get('href', '')]
-    check(route+' loads exactly the versioned custom stylesheet', styles == ['/assets/css/custom-hardening-1.css'])
-    for name, needed in [('photography-portfolio-2', route == 'photography.html'),
+    check(route+' loads exactly the versioned custom stylesheet', styles == ['/assets/css/custom-editorial-1.css'])
+    for name, needed in [('photography-portfolio-3', route == 'photography.html'),
                          ('blog-controls-3', route == 'blog.html'),
                          ('site-ui-2', True),
-                         ('image-carousel-2', any('image-scroll-hyper' in a.get('class', '').split() for _, a in tags))]:
+                         ('image-viewer-1', route == 'photography.html' or any('image-scroll-hyper' in a.get('class', '').split() for _, a in tags)),
+                         ('section-navigation-1', route in ('hobbies.html','media.html','volunteering.html') or
+                          (route.startswith('travel/') or re.match(r'^\d{4}/', route)) and any(t in ('h2','details') for t, _ in tags)),
+                         ('image-carousel-3', any('image-scroll-hyper' in a.get('class', '').split() for _, a in tags))]:
         matches = [s for s in scripts if s['src'] == '/assets/js/'+name+'.js']
-        check(route+' scopes '+name+' once and deferred', len(matches) == int(needed) and all('defer' in s for s in matches))
+        check(route+' scopes '+name+' once and deferred', len(matches) == int(bool(needed)) and all('defer' in s for s in matches))
     check(route+' does not load obsolete component assets', not any(urlsplit(s['src']).path in
-          ['/assets/js/photography.js', '/assets/js/infinite-scroll.js', '/assets/js/blog-controls.js', '/assets/js/site-ui.js', '/assets/js/photography-portfolio-1.js', '/assets/js/image-carousel-1.js', '/assets/js/blog-controls-2.js'] for s in scripts))
+          ['/assets/js/photography.js', '/assets/js/infinite-scroll.js', '/assets/js/blog-controls.js', '/assets/js/site-ui.js', '/assets/js/photography-portfolio-1.js', '/assets/js/image-carousel-1.js', '/assets/js/blog-controls-2.js', '/assets/js/image-carousel-2.js', '/assets/js/photography-portfolio-2.js'] for s in scripts))
     travel = [s for s in scripts if re.search(r'/travel[^/]*\.js$', urlsplit(s['src']).path)]
     check(route+' loads exactly the intended Travel client on Travel only',
           ([s['src'] for s in travel] == [client] and 'defer' in travel[0])

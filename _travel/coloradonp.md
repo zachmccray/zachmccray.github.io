@@ -3,6 +3,7 @@ title: "Colorado, USA"
 description: "Camping and Hiking National Parks in Colorado"
 date: 2025-08-15
 layout: content
+section_navigation: false # Copied placeholder outline; enable when authored.
 image: /assets/images/colorado2025/gsdnp1.webp
 permalink: /travel/coloradonp/
 published: true

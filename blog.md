@@ -54,10 +54,11 @@ layout: content
         <div class="event-content">
           <a href="{{ post.url }}" class="event-link">
             <h3 class="event-title no_anchor">{{ post.title }}</h3>
-            <p class="event-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+            <div class="event-meta"><p class="event-date">{{ post.date | date: "%B %-d, %Y" }}</p>
             {% if post.location %}
               <p class="event-location">{{ post.location }}</p>
             {% endif %}
+            </div>
             {% if post.description %}
               <p class="event-desc">{{ post.description }}</p>
             {% endif %}
@@ -80,10 +81,11 @@ layout: content
           {% if post.title %}
             <p class="event-title">{{ post.title }}</p>
           {% endif %}
-          <p class="event-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+          <div class="event-meta"><p class="event-date">{{ post.date | date: "%B %-d, %Y" }}</p>
           {% if post.location %}
             <p class="event-location">{{ post.location }}</p>
           {% endif %}
+          </div>
           {% if post.description %}
             <p class="event-desc">{{ post.description }}</p>
           {% endif %}

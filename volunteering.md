@@ -1,6 +1,7 @@
 ---
 title: Volunteering
 layout: content
+section_navigation: true
 footnotes:
   - id: fn-iwrc
     num: 1

@@ -3,6 +3,7 @@ title: "Utah, USA"
 description: "TBD."
 date: 2026-02-28
 layout: content
+section_navigation: false # Copied placeholder outline; enable when authored.
 image: /assets/images/
 permalink: /travel/saltlakecity2026/
 published: true

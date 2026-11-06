@@ -45,7 +45,7 @@ async def context(browser, width=1440, height=900, mode='mixed', gate=None, meta
         u = urlparse(r.request.url); name = u.path.rsplit('/',1)[-1]
         if metadata and u.path in ('/photography.html', '/blog.html'):
             await r.fulfill(path=str(args.metadata_fixtures/'site'/u.path.lstrip('/')),content_type='text/html');return
-        if gate and name == 'photography-portfolio-2.js': await gate.wait()
+        if gate and name == 'photography-portfolio-3.js': await gate.wait()
         if '/assets/images/' in u.path:
             if mode == 'missing': await r.fulfill(status=404,body='Intentional missing-media fixture');return
             h = hashlib.sha256(u.path.encode()).digest()
@@ -83,12 +83,16 @@ async def gallery(browser):
         check(f'gallery {w}x{h}: uncropped natural ratios',all(abs(s['w']/s['h']-s['nw']/s['nh'])<.02 for s in sizes),sizes)
         check(f'gallery {w}x{h}: no horizontal overflow',await p.evaluate('document.documentElement.scrollWidth<=innerWidth'))
         cols = await p.locator('.masonry-gallery').evaluate('(e)=>getComputedStyle(e).columnCount')
-        check(f'gallery {w}x{h}: constrained column count',int(cols)==1 if w<=360 else int(cols)<=4 and int(cols)>=2,cols)
+        actual_cols=await p.locator('.photo-tile').evaluate_all('(es)=>new Set(es.map(e=>Math.round(e.getBoundingClientRect().left))).size')
+        available=(await p.locator('.masonry-gallery').bounding_box())['width']
+        expected_cols=1 if w<=360 else 2 if w<=768 else max(1,min(3,int((available+6)//226)))
+        check(f'gallery {w}x{h}: actual responsive three-column cap',actual_cols==expected_cols,{'actual':actual_cols,'available':available,'expected':expected_cols})
+        check(f'gallery {w}x{h}: minimum operable panorama targets',await p.locator('a.glightbox').evaluate_all('(es)=>es.every(e=>e.getBoundingClientRect().height>=24)'))
         link = p.locator('a.glightbox').first
         await link.focus()
         summary = await link.locator('.photo-summary').evaluate('(e)=>({visible:getComputedStyle(e).opacity,rect:e.getBoundingClientRect().toJSON(),pos:getComputedStyle(e).position})')
         tile = await link.bounding_box()
-        if not await link.evaluate('(e)=>e.classList.contains("no-summary")'):
+        if await link.get_attribute('data-summary-lines') != '0':
             check(f'gallery {w}x{h}: focus summary stays inside tile',summary['visible']=='1' and summary['pos']=='absolute' and summary['rect']['left']>=tile['x']-1 and summary['rect']['right']<=tile['x']+tile['width']+1 and summary['rect']['top']>=tile['y']-1,summary)
         before = await p.evaluate('scrollY')
         await p.keyboard.press('Enter');await p.locator('.gslide.current img').wait_for()
@@ -143,7 +147,7 @@ async def timeline(browser):
         await p.goto(base+'/blog.html',wait_until='networkidle');await ready(p)
         check(f'blog {w}: 64 entries and grid layout',await p.locator('.blog-entry').count()==64 and await p.locator('.blog-entry').first.evaluate('(e)=>getComputedStyle(e).display')=='grid')
         geom=await p.locator('.blog-entry').evaluate_all('''es=>es.slice(0,20).map(e=>{const t=e.querySelector('.event-thumb').getBoundingClientRect(),c=e.querySelector('.event-content').getBoundingClientRect();return {gutter:c.left-t.right,text:c.left,major:e.classList.contains('major')}})''')
-        check(f'blog {w}: consistent major/minor gutter and title alignment',max(g['gutter'] for g in geom)-min(g['gutter'] for g in geom)<1 and max(g['text'] for g in geom)-min(g['text'] for g in geom)<1,geom)
+        check(f'blog {w}: compact minor column and consistent alignment within each role',all(abs(g['gutter']-(12 if w>600 else 8))<1 for g in geom if not g['major']) and all(max(g['text'] for g in geom if g['major']==role)-min(g['text'] for g in geom if g['major']==role)<1 for role in [True,False]) and min(g['text'] for g in geom if g['major'])>min(g['text'] for g in geom if not g['major']),geom)
         check(f'blog {w}: major thumbnails share title destinations; minor events stay unlinked',await p.locator('.blog-entry').evaluate_all('''es=>es.every(e=>e.classList.contains('major')?e.querySelector('a.event-thumb')?.getAttribute('href')===e.querySelector('a.event-link').getAttribute('href'):!e.querySelector('a'))'''))
         for year in ['all','2026','2025','2024']:
             await p.locator('#year-filter').select_option(year)
@@ -177,7 +181,7 @@ async def carousels(browser):
             status=await strip.evaluate('(e)=>e.nextElementSibling.querySelector(".carousel-position").textContent')
             check(f'carousel {w}x{h}/{i}: keyboard next and no page jump','Photo 2 ' in status and abs(await p.evaluate('scrollY')-start)<2,status)
             await p.keyboard.press('Home');await p.wait_for_timeout(240)
-            check(f'carousel {w}x{h}/{i}: initial first image centered',await strip.evaluate('''e=>{const img=e.querySelector(':not([data-carousel-clone]) > img'),r=img.getBoundingClientRect(),c=e.getBoundingClientRect();return Math.abs(r.left+r.width/2-c.left-c.width/2)<2}'''))
+            check(f'carousel {w}x{h}/{i}: initial first image centered',await strip.evaluate('''e=>{const img=e.querySelector('.image-scroll-track > :not([data-carousel-clone]) img'),r=img.getBoundingClientRect(),c=e.getBoundingClientRect();return Math.abs(r.left+r.width/2-c.left-c.width/2)<2}'''))
             other=await p.locator('.image-scroll-hyper').nth(1-i).evaluate('(e)=>e.scrollLeft')
             await strip.evaluate('(e)=>e.scrollLeft=0');await p.wait_for_timeout(260)
             check(f'carousel {w}x{h}/{i}: left edge settles into a finite or looping valid view',await strip.evaluate('(e)=>!e.classList.contains("is-looping")||e.scrollLeft>0'))
@@ -189,7 +193,7 @@ async def carousels(browser):
     c,p=await context(browser,390,mode='slow');await p.goto(base+'/volunteering.html',wait_until='domcontentloaded')
     await ready(p)
     await p.wait_for_timeout(900)
-    check('Late images settle to correctly centered first source',await p.locator('.image-scroll-hyper').evaluate_all('''cs=>cs.every(e=>{const img=e.querySelector('.image-scroll-track > :not([data-carousel-clone]) > img'),r=img.getBoundingClientRect(),c=e.getBoundingClientRect();return Math.abs(r.left+r.width/2-c.left-c.width/2)<2})'''))
+    check('Late images settle to correctly centered first source',await p.locator('.image-scroll-hyper').evaluate_all('''cs=>cs.every(e=>{const img=e.querySelector('.image-scroll-track > :not([data-carousel-clone]) img'),r=img.getBoundingClientRect(),c=e.getBoundingClientRect();return Math.abs(r.left+r.width/2-c.left-c.width/2)<2})'''))
     before=await p.locator('.image-scroll-track').evaluate_all('(es)=>es.map(e=>e.children.length)')
     for _ in range(12):await p.evaluate('ImageCarousels.init()')
     await p.wait_for_timeout(240)
@@ -207,6 +211,7 @@ async def fixtures(browser):
         await c.close()
     c,p=await context(browser,390,mode='missing')
     await p.goto(base+'/photography.html',wait_until='networkidle');await ready(p)
+    check('Missing photos retain comfortable original-image targets',await p.locator('a.glightbox').evaluate_all('(es)=>es.every(e=>e.getBoundingClientRect().height>=44)'))
     await p.locator('a.glightbox').first.tap()
     await p.locator('.gslide.current .photo-viewer-error').wait_for()
     check('Reduced motion: library opening, closing and mobile slide effects are disabled',await p.evaluate('lightbox.settings.openEffect==="none"&&lightbox.settings.closeEffect==="none"&&lightbox.settings.cssEfects.slide.in==="none"'))
