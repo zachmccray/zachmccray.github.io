@@ -1,0 +1,470 @@
+[
+  {
+    "doc": "About Me",
+    "title": " Welcome, Bienvenidos, 欢迎, and いらっしゃいませ! ",
+    "url": "/",
+    "relUrl": "/"
+  },
+  {
+    "doc": "About Me",
+    "title": "About Me",
+    "url": "/",
+    "relUrl": "/"
+  },
+  {
+    "doc": "Academics",
+    "title": "Academics",
+    "url": "/academics.html",
+    "relUrl": "/academics.html"
+  },
+  {
+    "doc": "Academics",
+    "title": "Continuing Education",
+    "url": "/academics.html",
+    "relUrl": "/academics.html"
+  },
+  {
+    "doc": "Academics",
+    "title": "Undergraduate Education",
+    "url": "/academics.html",
+    "relUrl": "/academics.html"
+  },
+  {
+    "doc": "Blog",
+    "title": "Blog",
+    "url": "/blog.html",
+    "relUrl": "/blog.html"
+  },
+  {
+    "doc": "Blog",
+    "title": "Blog Timeline",
+    "url": "/blog.html#blog-timeline",
+    "relUrl": "/blog.html#blog-timeline"
+  },
+  {
+    "doc": "Hobbies",
+    "title": "Hobbies",
+    "url": "/hobbies.html",
+    "relUrl": "/hobbies.html"
+  },
+  {
+    "doc": "Hobbies",
+    "title": "Languages",
+    "url": "/hobbies.html#language",
+    "relUrl": "/hobbies.html#language"
+  },
+  {
+    "doc": "Hobbies",
+    "title": "Music",
+    "url": "/hobbies.html#music",
+    "relUrl": "/hobbies.html#music"
+  },
+  {
+    "doc": "Hobbies",
+    "title": "Other Hobbies",
+    "url": "/hobbies.html#other",
+    "relUrl": "/hobbies.html#other"
+  },
+  {
+    "doc": "Hobbies",
+    "title": "Outdoor Activities",
+    "url": "/hobbies.html#outdoor",
+    "relUrl": "/hobbies.html#outdoor"
+  },
+  {
+    "doc": "Media",
+    "title": "Board Games",
+    "url": "/media.html#board-games",
+    "relUrl": "/media.html#board-games"
+  },
+  {
+    "doc": "Media",
+    "title": "Books and Films",
+    "url": "/media.html#books-and-films",
+    "relUrl": "/media.html#books-and-films"
+  },
+  {
+    "doc": "Media",
+    "title": "Media",
+    "url": "/media.html",
+    "relUrl": "/media.html"
+  },
+  {
+    "doc": "Media",
+    "title": "Musicals and Plays",
+    "url": "/media.html#musicals-and-plays",
+    "relUrl": "/media.html#musicals-and-plays"
+  },
+  {
+    "doc": "Media",
+    "title": "Physical Media",
+    "url": "/media.html#physical-media",
+    "relUrl": "/media.html#physical-media"
+  },
+  {
+    "doc": "My Courses",
+    "title": "COMS 130 Speaker-Audience Communication - Public Speaking",
+    "url": "/courses.html#course-coms130",
+    "relUrl": "/courses.html#course-coms130"
+  },
+  {
+    "doc": "My Courses",
+    "title": "ECON 142 Principles of Microeconomics",
+    "url": "/courses.html#course-econ142",
+    "relUrl": "/courses.html#course-econ142"
+  },
+  {
+    "doc": "My Courses",
+    "title": "ECON 144 Principles of Macroeconomics",
+    "url": "/courses.html#course-econ144",
+    "relUrl": "/courses.html#course-econ144"
+  },
+  {
+    "doc": "My Courses",
+    "title": "ECON 426 Statistics and Data Analysis",
+    "url": "/courses.html#course-econ426",
+    "relUrl": "/courses.html#course-econ426"
+  },
+  {
+    "doc": "My Courses",
+    "title": "ECON 510 Energy Economics",
+    "url": "/courses.html#course-econ510",
+    "relUrl": "/courses.html#course-econ510"
+  },
+  {
+    "doc": "My Courses",
+    "title": "ECON 520 Microeconomics",
+    "url": "/courses.html#course-econ520",
+    "relUrl": "/courses.html#course-econ520"
+  },
+  {
+    "doc": "My Courses",
+    "title": "ECON 522 Macroeconomics",
+    "url": "/courses.html#course-econ522",
+    "relUrl": "/courses.html#course-econ522"
+  },
+  {
+    "doc": "My Courses",
+    "title": "ECON 526 Introduction to Econometrics",
+    "url": "/courses.html#course-econ526",
+    "relUrl": "/courses.html#course-econ526"
+  },
+  {
+    "doc": "My Courses",
+    "title": "ECON 590 Game Theory",
+    "url": "/courses.html#course-econ590",
+    "relUrl": "/courses.html#course-econ590"
+  },
+  {
+    "doc": "My Courses",
+    "title": "ECON 609 Sports Economics",
+    "url": "/courses.html#course-econ609",
+    "relUrl": "/courses.html#course-econ609"
+  },
+  {
+    "doc": "My Courses",
+    "title": "ECON 664 Topics in Economics: Economic Demography",
+    "url": "/courses.html#course-econ664",
+    "relUrl": "/courses.html#course-econ664"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 101 New Student Seminar",
+    "url": "/courses.html#course-eecs101",
+    "relUrl": "/courses.html#course-eecs101"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 140 Introduction to Digital Logic Design",
+    "url": "/courses.html#course-eecs140",
+    "relUrl": "/courses.html#course-eecs140"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 168 Programming I",
+    "url": "/courses.html#course-eecs168",
+    "relUrl": "/courses.html#course-eecs168"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 210 Discrete Structures",
+    "url": "/courses.html#course-eecs210",
+    "relUrl": "/courses.html#course-eecs210"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 268 Programming II",
+    "url": "/courses.html#course-eecs268",
+    "relUrl": "/courses.html#course-eecs268"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 368 Programming Language Paradigms",
+    "url": "/courses.html#course-eecs368",
+    "relUrl": "/courses.html#course-eecs368"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 388 Embedded Systems",
+    "url": "/courses.html#course-eecs388",
+    "relUrl": "/courses.html#course-eecs388"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 448 Software Engineering I",
+    "url": "/courses.html#course-eecs448",
+    "relUrl": "/courses.html#course-eecs448"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 465 Cyber Defense",
+    "url": "/courses.html#course-eecs465",
+    "relUrl": "/courses.html#course-eecs465"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 510 Introduction to the Theory of Computing",
+    "url": "/courses.html#course-eecs510",
+    "relUrl": "/courses.html#course-eecs510"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 560 Data Structures",
+    "url": "/courses.html#course-eecs560",
+    "relUrl": "/courses.html#course-eecs560"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 563 Introduction to Communication Networks",
+    "url": "/courses.html#course-eecs563",
+    "relUrl": "/courses.html#course-eecs563"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 565 Introduction to Information and Computer Security",
+    "url": "/courses.html#course-eecs565",
+    "relUrl": "/courses.html#course-eecs565"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 569 Computer Forensics",
+    "url": "/courses.html#course-eecs569",
+    "relUrl": "/courses.html#course-eecs569"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 581 Software Engineering II",
+    "url": "/courses.html#course-eecs581",
+    "relUrl": "/courses.html#course-eecs581"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 582 Computer Science &amp; Interdisciplinary Computing Capstone",
+    "url": "/courses.html#course-eecs582",
+    "relUrl": "/courses.html#course-eecs582"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 649 Introduction to Artificial Intelligence",
+    "url": "/courses.html#course-eecs649",
+    "relUrl": "/courses.html#course-eecs649"
+  },
+  {
+    "doc": "My Courses",
+    "title": "EECS 678 Introduction to Operating Systems",
+    "url": "/courses.html#course-eecs678",
+    "relUrl": "/courses.html#course-eecs678"
+  },
+  {
+    "doc": "My Courses",
+    "title": "ENGL 102 Critical Reading and Writing",
+    "url": "/courses.html#course-engl102",
+    "relUrl": "/courses.html#course-engl102"
+  },
+  {
+    "doc": "My Courses",
+    "title": "MATH 125 Calculus I",
+    "url": "/courses.html#course-math125",
+    "relUrl": "/courses.html#course-math125"
+  },
+  {
+    "doc": "My Courses",
+    "title": "MATH 127 Calculus III",
+    "url": "/courses.html#course-math127",
+    "relUrl": "/courses.html#course-math127"
+  },
+  {
+    "doc": "My Courses",
+    "title": "MATH 146 Calculus II, Honors",
+    "url": "/courses.html#course-math146",
+    "relUrl": "/courses.html#course-math146"
+  },
+  {
+    "doc": "My Courses",
+    "title": "MATH 290 Elementary Linear Algebra",
+    "url": "/courses.html#course-math290",
+    "relUrl": "/courses.html#course-math290"
+  },
+  {
+    "doc": "My Courses",
+    "title": "MATH 526 Applied Mathematical Statistics I",
+    "url": "/courses.html#course-math526",
+    "relUrl": "/courses.html#course-math526"
+  },
+  {
+    "doc": "My Courses",
+    "title": "MATH 558 Introductory Modern Algebra",
+    "url": "/courses.html#course-math558",
+    "relUrl": "/courses.html#course-math558"
+  },
+  {
+    "doc": "My Courses",
+    "title": "MATH 590 Linear Algebra",
+    "url": "/courses.html#course-math590",
+    "relUrl": "/courses.html#course-math590"
+  },
+  {
+    "doc": "My Courses",
+    "title": "My Courses",
+    "url": "/courses.html",
+    "relUrl": "/courses.html"
+  },
+  {
+    "doc": "My Courses",
+    "title": "PHIL 140 Introduction to Philosophy",
+    "url": "/courses.html#course-phil140",
+    "relUrl": "/courses.html#course-phil140"
+  },
+  {
+    "doc": "My Courses",
+    "title": "PHIL 148 Reason and Argument",
+    "url": "/courses.html#course-phil148",
+    "relUrl": "/courses.html#course-phil148"
+  },
+  {
+    "doc": "My Courses",
+    "title": "PHSX 210 General Physics I for Engineers",
+    "url": "/courses.html#course-phsx210",
+    "relUrl": "/courses.html#course-phsx210"
+  },
+  {
+    "doc": "My Courses",
+    "title": "PHSX 212 General Physics II",
+    "url": "/courses.html#course-phsx212",
+    "relUrl": "/courses.html#course-phsx212"
+  },
+  {
+    "doc": "My Courses",
+    "title": "PHSX 216 General Physics I Laboratory",
+    "url": "/courses.html#course-phsx216",
+    "relUrl": "/courses.html#course-phsx216"
+  },
+  {
+    "doc": "My Courses",
+    "title": "PHSX 236 General Physics II Laboratory",
+    "url": "/courses.html#course-phsx236",
+    "relUrl": "/courses.html#course-phsx236"
+  },
+  {
+    "doc": "My Courses",
+    "title": "POLS 170 Introduction to International Politics",
+    "url": "/courses.html#course-pols170",
+    "relUrl": "/courses.html#course-pols170"
+  },
+  {
+    "doc": "My Courses",
+    "title": "SOC 104 Elements of Sociology",
+    "url": "/courses.html#course-soc104",
+    "relUrl": "/courses.html#course-soc104"
+  },
+  {
+    "doc": "Photography",
+    "title": "Photography",
+    "url": "/photography.html",
+    "relUrl": "/photography.html"
+  },
+  {
+    "doc": "Travel",
+    "title": "Cancun, Mexico",
+    "url": "/travel.html#travel-cancun2026",
+    "relUrl": "/travel.html#travel-cancun2026"
+  },
+  {
+    "doc": "Travel",
+    "title": "Colorado, USA",
+    "url": "/travel.html#travel-coloradonp",
+    "relUrl": "/travel.html#travel-coloradonp"
+  },
+  {
+    "doc": "Travel",
+    "title": "Montréal, QC, CA",
+    "url": "/travel.html#travel-montreal",
+    "relUrl": "/travel.html#travel-montreal"
+  },
+  {
+    "doc": "Travel",
+    "title": "New Mexico &amp; Texas, USA",
+    "url": "/travel.html#travel-southwestroadtrip2026",
+    "relUrl": "/travel.html#travel-southwestroadtrip2026"
+  },
+  {
+    "doc": "Travel",
+    "title": "Oregon, USA",
+    "url": "/travel.html#travel-oregon",
+    "relUrl": "/travel.html#travel-oregon"
+  },
+  {
+    "doc": "Travel",
+    "title": "Tokyo, Japan",
+    "url": "/travel.html#travel-japan",
+    "relUrl": "/travel.html#travel-japan"
+  },
+  {
+    "doc": "Travel",
+    "title": "Travel",
+    "url": "/travel.html",
+    "relUrl": "/travel.html"
+  },
+  {
+    "doc": "Travel",
+    "title": "Utah, USA",
+    "url": "/travel.html#travel-saltlakecity2026",
+    "relUrl": "/travel.html#travel-saltlakecity2026"
+  },
+  {
+    "doc": "Travel",
+    "title": "Washington, USA",
+    "url": "/travel.html#travel-washington",
+    "relUrl": "/travel.html#travel-washington"
+  },
+  {
+    "doc": "Travel",
+    "title": "Wyoming, South Dakota, &amp; North Dakota, USA",
+    "url": "/travel.html#travel-roadtrip",
+    "relUrl": "/travel.html#travel-roadtrip"
+  },
+  {
+    "doc": "Volunteering",
+    "title": "Denver Food Rescue",
+    "url": "/volunteering.html#denver-food-rescue",
+    "relUrl": "/volunteering.html#denver-food-rescue"
+  },
+  {
+    "doc": "Volunteering",
+    "title": "Denver Zoo Conservation Alliance",
+    "url": "/volunteering.html#denver-zoo-conservation-alliance",
+    "relUrl": "/volunteering.html#denver-zoo-conservation-alliance"
+  },
+  {
+    "doc": "Volunteering",
+    "title": "Rocky Mountain Wildlife Alliance",
+    "url": "/volunteering.html#rocky-mountain-wildlife-alliance",
+    "relUrl": "/volunteering.html#rocky-mountain-wildlife-alliance"
+  },
+  {
+    "doc": "Volunteering",
+    "title": "Volunteering",
+    "url": "/volunteering.html",
+    "relUrl": "/volunteering.html"
+  }
+]

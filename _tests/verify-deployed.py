@@ -1,4 +1,5 @@
 """Read-only post-deployment checks. Never runs JS or authenticates to Firebase."""
+from search_contract import expected_destinations, identities
 import argparse
 import concurrent.futures
 import hashlib
@@ -67,7 +68,7 @@ for path in paths[:82]:
     check(path+' contains no internal navigation',
           not any(urlsplit(a.get('href', '')).path.startswith('/docs/') for tag, a in tags if tag == 'a'))
 search = json.loads(responses['/assets/js/search-data.json'][1])
-check('Exactly 80 search entries and no internal documents', len(search) == 80 and
+check('All intended search destinations and no internal documents', expected_destinations(search) and
       not any(urlsplit(r['url']).path.startswith('/docs/') for r in search.values()))
 course = [r for r in search.values() if r['doc'] == 'My Courses' and r['title'] != 'My Courses']
 ids = [a['id'] for _, a in Tags(responses['/courses.html'][1].decode()).tags if 'id' in a]

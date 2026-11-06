@@ -3,6 +3,7 @@
 Run against normal, localhost, and Pages-plugin builds. This is deliberately
 independent of the baseline route count: a baseline with leaked docs must fail too.
 """
+from search_contract import expected_destinations, identities
 import argparse
 import hashlib
 import json
@@ -118,7 +119,7 @@ for route in routes:
           (['firebase-app-compat.js', 'firebase-auth-compat.js', 'firebase-database-compat.js']
            if route == 'travel.html' else []))
 search = json.loads((args.site/'assets/js/search-data.json').read_text())
-check('Exactly 80 standard search entries with no maintainer results', len(search) == 80 and
+check('All intended standard search destinations with no maintainer results', expected_destinations(search) and
       not any(private_path(r['url']) for r in search.values()))
 course = [r for r in search.values() if r['doc'] == 'My Courses' and r['title'] != 'My Courses']
 course_html = (args.site/'courses.html').read_text()
