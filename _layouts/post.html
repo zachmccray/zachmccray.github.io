@@ -8,5 +8,6 @@ layout: default
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>{% assign post_location = page.location | default: '' | strip %}{% if post_location != '' %}<span aria-hidden="true"> · </span><span class="post-location">{{ page.location | escape }}</span>{% endif %}
     </p>
   </header>
+  {% include section-navigation.html html=content %}
   <div class="post-body content-prose">{{ content }}</div>
 </article>

@@ -3,6 +3,7 @@ title: "Oregon, USA"
 description: "Visiting Portland, Crater Lake National Park, and Seeing ランプ (Lamp) in Concert."
 date: 2024-10-10
 layout: content
+section_navigation: false # Copied placeholder outline; enable when authored.
 image: /assets/images/oregon2025/clnp23.webp
 permalink: /travel/oregon/
 

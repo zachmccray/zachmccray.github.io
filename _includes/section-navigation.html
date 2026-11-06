@@ -1,0 +1,41 @@
+{%- comment -%}
+Native fragment links outside page.content, so navigation labels do not pollute
+the standard search snippets. Use authored H2 IDs; never guess or mint anchors.
+An article with fewer than two sections has no empty navigation. Authors may opt
+out of an unfinished/copied outline with section_navigation: false.
+{%- endcomment -%}
+{%- assign sections = include.html | split: '<h2' -%}
+{%- assign section_count = 0 -%}
+{%- assign seen_sections = '|' -%}
+{%- capture section_links -%}
+  {%- for section in sections offset: 1 -%}
+    {%- assign heading = section | split: '</h2>' | first -%}
+    {%- assign id_parts = heading | split: 'id="' -%}
+    {%- if id_parts.size == 2 -%}
+      {%- assign heading_id = id_parts[1] | split: '"' | first -%}
+      {%- assign heading_key = heading_id | prepend: '|' | append: '|' -%}
+      {%- assign heading_label = heading | split: '>' | shift | join: '>' | strip_html | strip -%}
+      {%- if heading_id != '' and heading_label != '' -%}
+        {%- unless seen_sections contains heading_key -%}
+          {%- assign section_count = section_count | plus: 1 -%}
+          {%- assign seen_sections = seen_sections | append: heading_key -%}
+          {%- assign short_label = heading_label -%}
+          {%- assign day_start = heading_label | slice: 0, 4 -%}
+          {%- if day_start == 'Day ' -%}
+            {%- assign day_number = heading_label | remove_first: 'Day ' | split: ' ' | first -%}
+            {%- assign short_label = day_number | prepend: 'Day ' -%}
+          {%- endif -%}
+          {%- assign short_label = page.section_navigation_labels[heading_id] | default: short_label -%}
+          <li><a href="#{{ heading_id | escape_once }}"{% if short_label != heading_label %} aria-label="{{ heading_label | escape_once }}"{% endif %}>{{ short_label | escape_once }}</a></li>
+        {%- endunless -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if section_count > 1 and page.section_navigation != false -%}
+<nav class="section-nav" aria-label="On this page">
+  {% if section_count > 12 %}<details><summary>On this page <span>({{ section_count }} sections)</span></summary>{% endif %}
+  <ul>{{ section_links }}</ul>
+  {% if section_count > 12 %}</details>{% endif %}
+</nav>
+{%- endif -%}

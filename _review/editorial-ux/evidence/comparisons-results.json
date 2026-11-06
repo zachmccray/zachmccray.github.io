@@ -1,0 +1,1465 @@
+{
+  "passed": 52,
+  "failed": [],
+  "checks": [
+    {
+      "check": "//390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "//390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "//390: unrelated pixels identical",
+      "passed": true,
+      "detail": {
+        "before": "1242104d5915214eaf490276f8710006d30c8479ce69df6f1edcc3c2cf429301",
+        "after": "1242104d5915214eaf490276f8710006d30c8479ce69df6f1edcc3c2cf429301"
+      }
+    },
+    {
+      "check": "/academics.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/academics.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/academics.html/390: unrelated pixels identical",
+      "passed": true,
+      "detail": {
+        "before": "8980e90263e420d75c43f696d3b44655f8f7e38e527bc7d12249b3016e22ce4e",
+        "after": "8980e90263e420d75c43f696d3b44655f8f7e38e527bc7d12249b3016e22ce4e"
+      }
+    },
+    {
+      "check": "/courses.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/courses.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/courses.html/390: unrelated pixels identical",
+      "passed": true,
+      "detail": {
+        "before": "4033cb3ed2c8f448cceaa9458e2e6fd2733cf924f7f80829347859607db740f8",
+        "after": "4033cb3ed2c8f448cceaa9458e2e6fd2733cf924f7f80829347859607db740f8"
+      }
+    },
+    {
+      "check": "/2025/10/07/japan.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/2025/10/07/japan.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/2025/10/07/japan.html/390: unrelated pixels identical",
+      "passed": true,
+      "detail": {
+        "before": "f8c76f903144c60a8d4ce7ab2805c81450b0ea72f39c9cecd0bb84d1eb772778",
+        "after": "f8c76f903144c60a8d4ce7ab2805c81450b0ea72f39c9cecd0bb84d1eb772778"
+      }
+    },
+    {
+      "check": "/travel/washington//390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/travel/washington//390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/travel/washington//390: unrelated pixels identical",
+      "passed": true,
+      "detail": {
+        "before": "62f5154bb88c961ac4a908986c84cb5182e7414d0128c989a3b20e7080fa4d94",
+        "after": "62f5154bb88c961ac4a908986c84cb5182e7414d0128c989a3b20e7080fa4d94"
+      }
+    },
+    {
+      "check": "/travel.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/travel.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "Travel has exactly one removable styling block",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "Travel/390: reversing scoped block restores exact baseline pixels",
+      "passed": true,
+      "detail": {
+        "before": "e1253bd7ca896a90c394b72c614002919143a6f73d8a681284287730da9af56f",
+        "reversed": "e1253bd7ca896a90c394b72c614002919143a6f73d8a681284287730da9af56f"
+      }
+    },
+    {
+      "check": "/hobbies.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/hobbies.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/blog.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/blog.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/photography.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/photography.html/390: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "//1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "//1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "//1440: unrelated pixels identical",
+      "passed": true,
+      "detail": {
+        "before": "2305685ebd4d479d09355fc39c38c7662059adcc58b4a64910842ce3fbb833ff",
+        "after": "2305685ebd4d479d09355fc39c38c7662059adcc58b4a64910842ce3fbb833ff"
+      }
+    },
+    {
+      "check": "/academics.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/academics.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/academics.html/1440: unrelated pixels identical",
+      "passed": true,
+      "detail": {
+        "before": "b0e0bba4cb1b57325dd708956861df3d2d3b100688f09e281d1223999929b0ed",
+        "after": "b0e0bba4cb1b57325dd708956861df3d2d3b100688f09e281d1223999929b0ed"
+      }
+    },
+    {
+      "check": "/courses.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/courses.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/courses.html/1440: unrelated pixels identical",
+      "passed": true,
+      "detail": {
+        "before": "4c7a4b209a475e1c1329b9f3e6eeb07011f134a1492914c1c741560863b48acf",
+        "after": "4c7a4b209a475e1c1329b9f3e6eeb07011f134a1492914c1c741560863b48acf"
+      }
+    },
+    {
+      "check": "/2025/10/07/japan.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/2025/10/07/japan.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/2025/10/07/japan.html/1440: unrelated pixels identical",
+      "passed": true,
+      "detail": {
+        "before": "7dc92d85cf24bbae561e58a7aae7fd10c751d3569829bb7b5545d1fbcf203c6b",
+        "after": "7dc92d85cf24bbae561e58a7aae7fd10c751d3569829bb7b5545d1fbcf203c6b"
+      }
+    },
+    {
+      "check": "/travel/washington//1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/travel/washington//1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/travel/washington//1440: unrelated pixels identical",
+      "passed": true,
+      "detail": {
+        "before": "79a13cdd408bac5e89cb8a77044dd7cf27e374f71e2bd81d5b91e818e47f2d40",
+        "after": "79a13cdd408bac5e89cb8a77044dd7cf27e374f71e2bd81d5b91e818e47f2d40"
+      }
+    },
+    {
+      "check": "/travel.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/travel.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "Travel has exactly one removable styling block",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "Travel/1440: reversing scoped block restores exact baseline pixels",
+      "passed": true,
+      "detail": {
+        "before": "315bb36e06fca39c9ce739dabb4aad085d86b8a8848eb12765dc1e6e5c73af92",
+        "reversed": "315bb36e06fca39c9ce739dabb4aad085d86b8a8848eb12765dc1e6e5c73af92"
+      }
+    },
+    {
+      "check": "/hobbies.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/hobbies.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/blog.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/blog.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/photography.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/photography.html/1440: no exceptions",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "travel_computed_styles": [
+    {
+      "phase": "before",
+      "width": 390,
+      "properties": [
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 8px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 12px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 0px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 8px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 12px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 0px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "width": 390,
+      "properties": [
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(228, 228, 234)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 6px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 10px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(228, 228, 234)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 6px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 10px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(228, 228, 234)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        }
+      ]
+    },
+    {
+      "phase": "reversed",
+      "width": 390,
+      "properties": [
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 8px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 12px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 0px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 8px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 12px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 0px",
+          "fontSize": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        }
+      ]
+    },
+    {
+      "phase": "before",
+      "width": 1440,
+      "properties": [
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 8px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 12px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 0px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 8px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 12px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 0px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "width": 1440,
+      "properties": [
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(228, 228, 234)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 6px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 10px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(228, 228, 234)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 6px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 10px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 10px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(228, 228, 234)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        }
+      ]
+    },
+    {
+      "phase": "reversed",
+      "width": 1440,
+      "properties": [
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 8px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 12px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 0px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        },
+        {
+          "role": "travel-date",
+          "tag": "TIME",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "0px 0px 8px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "",
+          "tag": "P",
+          "border": "rgb(34, 34, 34)",
+          "padding": "0px",
+          "margin": "0px 0px 12px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-actions",
+          "tag": "DIV",
+          "border": "rgb(238, 238, 238) rgb(102, 102, 102) rgb(102, 102, 102)",
+          "padding": "8px 0px 0px",
+          "margin": "0px",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "8px",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-feedback",
+          "tag": "P",
+          "border": "rgb(102, 102, 102)",
+          "padding": "0px",
+          "margin": "8px 0px 0px",
+          "fontSize": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-card",
+          "tag": "ARTICLE",
+          "border": "rgb(222, 222, 229)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "gap": "normal",
+          "aspectRatio": "auto"
+        },
+        {
+          "role": "travel-cover",
+          "tag": "A",
+          "border": "rgb(114, 83, 237)",
+          "padding": "0px",
+          "margin": "0px",
+          "fontSize": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(114, 83, 237)",
+          "gap": "normal",
+          "aspectRatio": "3 / 2"
+        }
+      ]
+    }
+  ],
+  "payloads": [
+    {
+      "before": "assets/css/custom-hardening-1.css",
+      "after": "assets/css/custom-editorial-1.css",
+      "before_raw_bytes": 38681,
+      "before_gzip_bytes": 7855,
+      "after_raw_bytes": 46381,
+      "after_gzip_bytes": 9443
+    },
+    {
+      "before": "assets/js/image-carousel-2.js",
+      "after": "assets/js/image-carousel-3.js",
+      "before_raw_bytes": 11420,
+      "before_gzip_bytes": 3608,
+      "after_raw_bytes": 19794,
+      "after_gzip_bytes": 5669
+    },
+    {
+      "before": "assets/js/photography-portfolio-2.js",
+      "after": "assets/js/photography-portfolio-3.js",
+      "before_raw_bytes": 7465,
+      "before_gzip_bytes": 2478,
+      "after_raw_bytes": 3075,
+      "after_gzip_bytes": 1232
+    },
+    {
+      "before": null,
+      "after": "assets/js/image-viewer-1.js",
+      "before_raw_bytes": 0,
+      "before_gzip_bytes": 0,
+      "after_raw_bytes": 6572,
+      "after_gzip_bytes": 2216
+    },
+    {
+      "before": null,
+      "after": "assets/js/section-navigation-1.js",
+      "before_raw_bytes": 0,
+      "before_gzip_bytes": 0,
+      "after_raw_bytes": 5155,
+      "after_gzip_bytes": 1932
+    }
+  ],
+  "layout_heights": [
+    {
+      "page": "/hobbies.html",
+      "phase": "before",
+      "width": 390,
+      "main_height": 3100.078125
+    },
+    {
+      "page": "/hobbies.html",
+      "phase": "after",
+      "width": 390,
+      "main_height": 2252.453125
+    },
+    {
+      "page": "/blog.html",
+      "phase": "before",
+      "width": 390,
+      "main_height": 11138.875
+    },
+    {
+      "page": "/blog.html",
+      "phase": "after",
+      "width": 390,
+      "main_height": 8748.3125
+    },
+    {
+      "page": "/photography.html",
+      "phase": "before",
+      "width": 390,
+      "main_height": 3685.953125
+    },
+    {
+      "page": "/photography.html",
+      "phase": "after",
+      "width": 390,
+      "main_height": 3633.359375
+    },
+    {
+      "page": "/hobbies.html",
+      "phase": "before",
+      "width": 1440,
+      "main_height": 2282.46875
+    },
+    {
+      "page": "/hobbies.html",
+      "phase": "after",
+      "width": 1440,
+      "main_height": 1493.734375
+    },
+    {
+      "page": "/blog.html",
+      "phase": "before",
+      "width": 1440,
+      "main_height": 8353.71875
+    },
+    {
+      "page": "/blog.html",
+      "phase": "after",
+      "width": 1440,
+      "main_height": 6743.890625
+    },
+    {
+      "page": "/photography.html",
+      "phase": "before",
+      "width": 1440,
+      "main_height": 2016.34375
+    },
+    {
+      "page": "/photography.html",
+      "phase": "after",
+      "width": 1440,
+      "main_height": 3465.96875
+    }
+  ],
+  "limits": "Chromium local synthetic media and pinned Inter, not real-photo performance or production Web Vitals. gzip is computed artifact size, not a measured CDN response."
+}

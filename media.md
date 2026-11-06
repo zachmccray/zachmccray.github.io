@@ -1,6 +1,7 @@
 ---
 title: Media
 layout: content
+section_navigation: true
 ---
 
 <h2 class="content-heading no_anchor" id="books-and-films" tabindex="-1">Books and Films</h2>
@@ -35,14 +36,23 @@ and
 <script src="/assets/js/literature-chart.js"></script>
 -->
 
+<div class="media-categories">
+<div class="media-category-row">
 <h2 class="content-heading no_anchor" id="musicals-and-plays" tabindex="-1">Musicals and Plays</h2>
 <p>TBD!</p>
 
+</div>
+<div class="media-category-row">
 <h2 class="content-heading no_anchor" id="board-games" tabindex="-1">Board Games</h2>
 <p>TBD!</p>
 
+</div>
+<div class="media-category-row">
 <h2 class="content-heading no_anchor" id="physical-media" tabindex="-1">Physical Media</h2>
 <p>TBD!</p>
+
+</div>
+</div>
 
 ----
 

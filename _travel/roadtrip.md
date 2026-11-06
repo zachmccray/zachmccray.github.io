@@ -3,6 +3,7 @@ title: "Wyoming, South Dakota, & North Dakota, USA"
 description: "Exploring National Parks in South Dakota, North Dakota, and Wyoming"
 date: 2025-09-05
 layout: content
+section_navigation: false # Copied placeholder outline; enable when authored.
 image: /assets/images/roadtrip2025/roadtrip26.webp
 permalink: /travel/roadtrip/
 published: true

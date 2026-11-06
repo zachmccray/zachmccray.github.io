@@ -3,6 +3,7 @@ title: "Montréal, QC, CA"
 description: "En route pour Montréal pour voir The Weeknd, bien manger, et passer un bon moment."
 date: 2025-07-23
 layout: content
+section_navigation: false # Copied placeholder outline; enable when authored.
 image: /assets/images/montreal2025/montreal18.webp
 permalink: /travel/montreal/
 

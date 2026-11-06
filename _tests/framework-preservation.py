@@ -1,4 +1,5 @@
 """Strong merged-baseline preservation with explicit framework-only exceptions."""
+from search_contract import expected_destinations, identities
 import argparse,json,re
 from html.parser import HTMLParser
 from pathlib import Path
@@ -34,7 +35,7 @@ for route in expected:
         new=re.sub(r'<svg class="travel-action-icon"[^>]*>.*?</svg>',lambda m:'<i class="fa-regular fa-heart" aria-hidden="true"></i>' if 'heart-outline' in m[0] else '<i class="fa-solid fa-share-nodes" aria-hidden="true"></i>',new,flags=re.S)
     check(route+' exact content/structure except declared icon/entry-point changes',normalize(old)==normalize(new))
 old=(a.baseline/'assets/js/search-data.json').read_text();new=(a.site/'assets/js/search-data.json').read_text()
-check('All 80 search records byte-identical',old==new and len(json.loads(new))==80)
+check('All search records byte-identical with intended destinations',old==new and expected_destinations(json.loads(new)))
 old_controls=(a.baseline_source/'assets/js/blog-controls.js').read_text();new_controls=(root/'assets/js/blog-controls.js').read_text()
 pattern=r'visibleEntries.sort\((.*?)\n    \}\);'
 check('Blog comparators unchanged; only history lifecycle corrected',len(re.findall(pattern,old_controls,re.S))==1 and re.findall(pattern,old_controls,re.S)==re.findall(pattern,new_controls,re.S))

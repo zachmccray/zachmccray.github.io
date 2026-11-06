@@ -20,8 +20,8 @@ class Site:
     def close(self):
         self.server.shutdown();self.server.server_close()
 
-async def context(browser,site,assets,deps,width=1440,height=900,mode=None,javascript=True):
-    ctx=await browser.new_context(viewport={'width':width,'height':height},reduced_motion='reduce',java_script_enabled=javascript)
+async def context(browser,site,assets,deps,width=1440,height=900,mode=None,javascript=True,touch=False):
+    ctx=await browser.new_context(viewport={'width':width,'height':height},reduced_motion='reduce',java_script_enabled=javascript,has_touch=touch)
     mock=(ROOT/'_tests/firebase-fixture.js').read_text()+'''\nwindow.__fixture=firebaseFixture();window.firebase=__fixture.firebase;
     Object.defineProperty(navigator,'share',{configurable:true,value:undefined});
     Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{}}});'''
@@ -37,7 +37,7 @@ async def context(browser,site,assets,deps,width=1440,height=900,mode=None,javas
         if '/assets/images/' in u.path:
             if mode=='missing':await r.fulfill(status=404,body='Controlled missing image');return
             h=hashlib.sha256(u.path.encode()).digest();w,ht=[(640,480),(480,800),(800,450)][h[0]%3]
-            await r.fulfill(content_type='image/svg+xml',body=f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{ht}"><rect width="100%" height="100%" fill="#{h.hex()[:6]}"/><path d="M0 {ht} L{w//2} {ht//3} L{w} {ht}" fill="#dde4e9"/></svg>');return
+            await r.fulfill(content_type='image/svg+xml',body=f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{ht}"><rect width="100%" height="100%" fill="#{h.hex()[:6]}"/><path d="M0 {ht} L{w//2} {ht//3} L{w} {ht}" fill="#dde4e9"/><text x="12" y="30" fill="white" font-size="18" font-family="sans-serif">Synthetic image fixture</text></svg>');return
         if 'glightbox@' in r.request.url:
             p=(assets/('glightbox.css' if name.endswith('.css') else 'glightbox.js')) if assets else deps/'glightbox/dist'/('css/glightbox.min.css' if name.endswith('.css') else 'js/glightbox.min.js')
             await r.fulfill(path=str(p),content_type='text/css' if name.endswith('.css') else 'text/javascript');return

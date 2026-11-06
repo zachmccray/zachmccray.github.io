@@ -26,7 +26,7 @@ and new substantive feature directions remain subject to owner review.
   and `_review/visual-media/README.md` for implementation, evidence and limitations.
   Real intrinsic dimensions and selective loading remain deferred until actual
   assets can be verified. No guessed dimensions or synthetic production metadata.
-- Current PR #22, awaiting owner review: targeted framework hardening after a
+- Completed PR #22: targeted framework hardening after a
   visitor/axe audit. Restore parent-section context on articles/Coursework; make
   mobile navigation independent of theme startup and usable without JavaScript;
   fix mobile search layering/keyboard scroll focus, lightbox slide exposure,
@@ -35,12 +35,20 @@ and new substantive feature directions remain subject to owner review.
   Back/Forward without replacing native history, including scroll anchoring.
   Inline the existing Travel icon shapes to remove an unnecessary font dependency;
   keep the Firebase client, data model and private rules unchanged. Retain the
-  approved layouts, 82 routes and all 80 native search records. Add reusable axe,
+  approved layouts and 82 routes. The owner's later Hobbies grouping produces
+  78 native search records; the editorial PR documents that baseline correction.
+  Add reusable axe,
   three-engine CI and native cached/BFCache checks. See the internal
   `owner-acceptance-checklist.md` for the next real-world review.
-- Next: owner acceptance using the published checklist, followed by one coherent
-  owner-feedback PR for confirmed remaining framework/design issues. No speculative
-  navigation features, content imports or photograph imports in the hardening PR.
+- Current approved editorial refinement PR: bare carousel chevrons, controlled
+  hold navigation and shared image enlargement; compact thumbnail-based minor
+  Timeline rows; three-column Photography masonry and flat inset summaries;
+  independently reversible Travel CSS; editorial Hobbies groups/disclosures;
+  compact Hobbies/Media/Volunteering and reusable Blog/Travel section links.
+  Preserve all existing content, anchors, search destinations, private Firebase
+  behavior and publication guards. No photo imports, R2 changes or content rewrite.
+  One coherent deliverable with small commits, browser evidence and rollback
+  boundaries; owner local review before merge. See `editorial-ux-refinements.md`.
 - Later editorial/readiness and discovery work: owner-provided corrections for
   placeholder Blog bodies/descriptions, copied Travel text and legacy Washington
   labels/dates, generic photo alt/descriptive labels and prefix-shaped image URLs.

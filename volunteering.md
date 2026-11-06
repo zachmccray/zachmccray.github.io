@@ -1,6 +1,11 @@
 ---
 title: Volunteering
 layout: content
+section_navigation: true
+section_navigation_labels:
+  rocky-mountain-wildlife-alliance: Wildlife Alliance
+  denver-zoo-conservation-alliance: Denver Zoo
+  denver-food-rescue: Food Rescue
 footnotes:
   - id: fn-iwrc
     num: 1

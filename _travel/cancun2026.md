@@ -3,6 +3,7 @@ title: "Cancun, Mexico"
 description: "TBD."
 date: 2026-03-16
 layout: content
+section_navigation: false # Copied placeholder outline; enable when authored.
 image: /assets/images/
 permalink: /travel/cancun2026/
 published: true

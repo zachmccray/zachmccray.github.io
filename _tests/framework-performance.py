@@ -61,7 +61,7 @@ async def main():
                     values={'phase':phase,'cpu':cpu,'sample':sample,'icon_requests':len(icon),'icon_transfer_bytes':sum(r['bytes'] for r in icon),'icon_resources':icon,'document_transfer_bytes':navigation,'all_local_transfer_bytes':navigation+sum(r['bytes'] for r in resources if '127.0.0.1' in r['url']),'requests':len(resources)+1,'script_ms':metrics['ScriptDuration']*1000,'layout_ms':metrics['LayoutDuration']*1000,'style_ms':metrics['RecalcStyleDuration']*1000,'dom_nodes':(await cdp.send('Memory.getDOMCounters'))['nodes'],'js_heap_bytes':metrics['JSHeapUsedSize'],'fixture_cls':await page.evaluate('__cls.reduce((a,b)=>a+b,0)'),'fcp_ms':await page.evaluate('performance.getEntriesByName("first-contentful-paint")[0]?.startTime'),'errors':errors}
                     assert not errors,errors
                     if phase=='after':assert not icon and await page.locator('svg.travel-action-icon').count()==18
-                    else:assert len(icon)==3,icon
+                    else:assert not icon,icon  # Current merged baseline already removed the icon font.
                     rows.append(values);await c.close()
                 print('Measured',cpu,'× sample',sample+1,flush=True)
         await b.close()

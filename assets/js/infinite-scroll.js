@@ -39,18 +39,19 @@
     position.id = `${container.id}-position`;
     position.setAttribute('role', 'status');
     position.setAttribute('aria-live', 'polite');
-    [[previous, 'Previous photo', '←'], [next, 'Next photo', '→']].forEach(([button, label, arrow]) => {
+    const help = document.createElement('span');
+    help.id = `${container.id}-help`;
+    help.className = 'carousel-help';
+    help.textContent = 'Use arrow keys to browse. Press Enter or Space to enlarge the current photo.';
+    [[previous, 'Previous photo', 'm14 6-6 6 6 6'], [next, 'Next photo', 'm10 6 6 6-6 6']].forEach(([button, label, path]) => {
       button.type = 'button';
       button.setAttribute('aria-label', label);
       button.setAttribute('aria-controls', container.id);
-      const icon = document.createElement('span');
-      icon.setAttribute('aria-hidden', 'true');
-      icon.textContent = arrow;
-      button.appendChild(icon);
+      button.innerHTML = `<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="${path}"/></svg>`;
     });
-    controls.append(previous, position, next);
+    controls.append(previous, position, next, help);
     container.after(controls);
-    container.setAttribute('aria-describedby', position.id);
+    container.setAttribute('aria-describedby', `${position.id} ${help.id}`);
     let snapshot = null;
     let pointerDown = false;
     let scrolling = false;
@@ -58,6 +59,31 @@
     let frame = 0;
     let idle = 0;
     let lastSizeKey = '';
+    let commandTarget = null;
+    let hold = null;
+    let holdTimer = 0;
+    let holdFrame = 0;
+    let suppressClick = false;
+    let tap = null;
+    let viewer = null;
+    const viewerStatus = document.createElement('p');
+    viewerStatus.className = 'carousel-viewer-status';
+    viewerStatus.setAttribute('role', 'status');
+    controls.after(viewerStatus);
+    originals.forEach((item, index) => {
+      item.dataset.carouselIndex = String(index);
+      const image = item.querySelector('img');
+      if (!image) return;
+      // Original links are a viewer-failure fallback. Keyboard users open the
+      // selected photo from the strip, rather than tabbing through hidden copies.
+      let link = image.closest('a');
+      if (!link) {
+        link = document.createElement('a');
+        link.href = image.currentSrc || image.src;
+        image.before(link); link.append(image);
+      }
+      link.tabIndex = -1;
+    });
     function anchor() {
       if (!snapshot) return { index: 0, fraction: 0 };
       // Use the geometry belonging to this snapshot. ResizeObserver runs after
@@ -136,25 +162,33 @@
         const rect = item.getBoundingClientRect();
         return rect.left - left + container.scrollLeft + rect.width / 2;
       });
-      snapshot = { loop, period, widths, centers, viewport, start: centers[0] - widths[0] / 2 };
+      const slots = Array.from(track.children).map(item => {
+        const rect = item.getBoundingClientRect();
+        return { index: Number(item.dataset.carouselIndex),
+          left: rect.left - left + container.scrollLeft,
+          right: rect.right - left + container.scrollLeft };
+      });
+      snapshot = { loop, period, widths, centers, slots, viewport, start: centers[0] - widths[0] / 2 };
       container.scrollLeft = overflow ? centers[saved.index] + saved.fraction * widths[saved.index] - viewport / 2 : 0;
       controls.hidden = !overflow;
       status();
     }
     function scheduleLayout() {
+      stopHold();
       pendingLayout = true;
       if (!frame) frame = requestAnimationFrame(layout);
     }
-    function normalize() {
-      if (!snapshot?.loop || pointerDown || scrolling) return;
+    function normalize(controlled = false) {
+      if (!snapshot?.loop || (!controlled && (pointerDown || scrolling))) return;
       const center = container.scrollLeft + container.clientWidth / 2;
       const delta = Math.floor((center - snapshot.start) / snapshot.period) * snapshot.period;
       if (Math.abs(delta) > 1) container.scrollLeft -= delta;
     }
     function finish() {
       clearTimeout(idle);
-      if (pointerDown) return;
+      if (pointerDown || hold?.started) return;
       scrolling = false;
+      commandTarget = null;
       if (pendingLayout) layout(); else normalize();
       status();
     }
@@ -170,14 +204,31 @@
       clearTimeout(idle); idle = setTimeout(finish, 180);
     };
     container.addEventListener('pointerdown', event => {
+      if (event.button !== 0) return;
+      stopHold();
+      tap = { id: event.pointerId, x: event.clientX, y: event.clientY,
+        left: container.scrollLeft, moved: false, inMotion: scrolling,
+        mouse: event.pointerType === 'mouse' };
       pointerDown = true;
       pointers.set(event.pointerId, release);
     }, { passive: true });
     container.addEventListener('lostpointercapture', release, { passive: true });
+    container.addEventListener('pointermove', event => {
+      if (!tap || tap.id !== event.pointerId) return;
+      const dx = event.clientX - tap.x, dy = event.clientY - tap.y;
+      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) tap.moved = true;
+      if (tap.mouse && event.buttons === 1 && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8) {
+        container.setPointerCapture(event.pointerId);
+        container.scrollLeft = tap.left - dx;
+      }
+    }, { passive: true });
+    container.addEventListener('dragstart', event => event.preventDefault());
+    container.addEventListener('pointercancel', () => { if (tap) tap.moved = true; }, { passive: true });
+    container.addEventListener('wheel', () => stopHold(), { passive: true });
     function move(direction, endpoint) {
       if (!snapshot) return;
       scrolling = false; normalize();
-      const current = anchor().index;
+      const current = commandTarget ?? anchor().index;
       let target = endpoint ?? current + direction;
       let center;
       if (snapshot.loop) {
@@ -187,12 +238,129 @@
       } else {
         target = Math.max(0, Math.min(target, originals.length - 1)); center = snapshot.centers[target];
       }
+      commandTarget = target;
       container.scrollTo({ left: center - container.clientWidth / 2, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
       if (reducedMotion.matches) finish();
     }
-    previous.addEventListener('click', () => move(-1));
-    next.addEventListener('click', () => move(1));
+    function stopHold() {
+      clearTimeout(holdTimer); cancelAnimationFrame(holdFrame);
+      if (!hold) return;
+      suppressClick = hold.started || hold.canceled;
+      const settled = hold.started || hold.canceled;
+      const id = hold.pointer;
+      hold = null;
+      if (id !== undefined) pointers.delete(id);
+      if (settled) finish();
+    }
+    function beginHold(direction, event) {
+      stopHold(); suppressClick = false;
+      hold = { direction, pointer: event.pointerId, button: event.currentTarget, started: false };
+      if (event.pointerId !== undefined) {
+        pointers.set(event.pointerId, stopHold);
+        event.currentTarget.setPointerCapture(event.pointerId);
+      }
+      holdTimer = setTimeout(() => {
+        if (!hold) return;
+        hold.started = true;
+        container.scrollTo({ left: container.scrollLeft, behavior: 'instant' });
+        commandTarget = null;
+        let last, stepped = 0;
+        function tick(now) {
+          if (!hold) return;
+          if (last === undefined) last = now;
+          if (reducedMotion.matches) {
+            if (now - stepped >= 500) { move(hold.direction); stepped = now; }
+          } else if (snapshot) {
+            const speed = Math.max(120, Math.min(300, snapshot.viewport * .6));
+            container.scrollLeft += hold.direction * speed * Math.min(50, now - last) / 1000;
+            // Equivalent-position writes are allowed only during button-owned
+            // movement. Native touch/trackpad wrapping still waits for rest.
+            normalize(true);
+          }
+          last = now;
+          holdFrame = requestAnimationFrame(tick);
+        }
+        holdFrame = requestAnimationFrame(tick);
+      }, 350);
+    }
+    [[previous, -1], [next, 1]].forEach(([button, direction]) => {
+      button.addEventListener('pointerdown', event => { if (event.button === 0) beginHold(direction, event); });
+      button.addEventListener('pointercancel', () => { if (hold) hold.canceled = true; stopHold(); });
+      button.addEventListener('lostpointercapture', stopHold);
+      button.addEventListener('blur', stopHold);
+      button.addEventListener('keydown', event => {
+        if (!['Enter', ' '].includes(event.key)) return;
+        event.preventDefault();
+        if (!event.repeat) beginHold(direction, event);
+      });
+      button.addEventListener('keyup', event => {
+        if (!['Enter', ' '].includes(event.key)) return;
+        event.preventDefault();
+        // A canceled/blurred hold no longer owns this release. Do not turn it
+        // into an extra one-photo command after cancellation.
+        if (!hold || hold.button !== button || hold.pointer !== undefined) return;
+        const started = hold.started; stopHold();
+        if (!started) move(direction);
+      });
+      button.addEventListener('click', () => {
+        if (suppressClick) { suppressClick = false; return; }
+        move(direction);
+      });
+    });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) stopHold(); });
+    window.addEventListener('blur', stopHold);
+    window.addEventListener('pagehide', stopHold);
+    window.addEventListener('resize', stopHold, { passive: true });
+    const escapeText = text => { const span = document.createElement('span'); span.textContent = text; return span.innerHTML; };
+    async function enlarge(index) {
+      stopHold();
+      const image = originals[index]?.querySelector('img');
+      if (!image || !window.ImageViewers || document.querySelector('.glightbox-container')) return;
+      const intent = ImageViewers.begin(() => {
+        viewerStatus.textContent = '';
+        container.removeAttribute('aria-busy');
+      });
+      viewerStatus.textContent = 'Loading image viewer…';
+      container.setAttribute('aria-busy', 'true');
+      try {
+        await ImageViewers.load();
+        if (!ImageViewers.current(intent) || !container.isConnected) return;
+        if (!viewer) viewer = ImageViewers.create({ selector: null,
+          label: container.getAttribute('aria-label'),
+          elements: originals.map(item => {
+            const img = item.querySelector('img');
+            const caption = item.querySelector('figcaption')?.textContent || '';
+            return { href: img.closest('a')?.href || img.currentSrc || img.src,
+              type: 'image', alt: img.alt, title: escapeText(img.alt), description: escapeText(caption) };
+          }) });
+        viewer.setReturnFocus(container);
+        viewerStatus.textContent = '';
+        ImageViewers.finish(intent);
+        viewer.openAt(index);
+      } catch (_) {
+        if (!ImageViewers.current(intent)) return;
+        ImageViewers.finish(intent);
+        viewerStatus.textContent = 'The viewer is unavailable. ';
+        const link = document.createElement('a');
+        link.href = image.closest('a')?.href || image.currentSrc || image.src;
+        link.textContent = 'Open the original image';
+        viewerStatus.append(link);
+      } finally { if (ImageViewers.current(intent)) container.removeAttribute('aria-busy'); }
+    }
+    container.addEventListener('click', event => {
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || !snapshot || !window.ImageViewers) return;
+      const box = container.getBoundingClientRect();
+      const x = event.clientX - box.left + container.scrollLeft;
+      const slot = snapshot.slots.find(item => x >= item.left && x <= item.right);
+      if (!slot) return;
+      event.preventDefault();
+      if (tap && (tap.moved || tap.inMotion || Math.abs(container.scrollLeft - tap.left) > 8)) return;
+      enlarge(slot.index);
+    });
     container.addEventListener('keydown', event => {
+      if (event.target === container && ['Enter', ' '].includes(event.key)) {
+        event.preventDefault(); if (!event.repeat && snapshot) enlarge(anchor().index); return;
+      }
       if (event.target !== container || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
       event.preventDefault();
       if (event.key === 'Home') move(0, 0);

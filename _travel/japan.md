@@ -3,6 +3,7 @@ title: "Tokyo, Japan"
 description: "Endulging in Japanese Culture"
 date: 2025-10-07
 layout: content
+section_navigation: false # Copied placeholder outline; enable when authored.
 image: /assets/images/japan2025/japan34.webp
 permalink: /travel/japan/
 published: true

@@ -1,0 +1,2970 @@
+diff --git a/.github/workflows/framework-checks.yml b/.github/workflows/framework-checks.yml
+index 3926194..a1eeac0 100644
+--- a/.github/workflows/framework-checks.yml
++++ b/.github/workflows/framework-checks.yml
+@@ -9,7 +9,7 @@ permissions:
+ jobs:
+   browser:
+     runs-on: ubuntu-latest
+-    timeout-minutes: 15
++    timeout-minutes: 25
+     strategy:
+       fail-fast: false
+       matrix:
+@@ -47,8 +47,36 @@ jobs:
+         if: matrix.engine == 'chromium'
+         run: |
+           python _tests/framework-history.py --site "$RUNNER_TEMP/site" --assets "$RUNNER_TEMP/browser-assets" --out "$RUNNER_TEMP/framework-results/native-history"
++      - name: Build controlled future article and optional-photo fixtures
++        run: |
++          python _tests/prepare-visual-fixtures.py --editorial --root "$RUNNER_TEMP/editorial-fixtures"
++      - name: Check editorial navigation, disclosures and carousel viewer
++        run: |
++          python _tests/editorial-browser.py --site "$RUNNER_TEMP/site" --baseline "$RUNNER_TEMP/site" --assets "$RUNNER_TEMP/browser-assets" --deps _tests/accessibility/node_modules --fixtures "$RUNNER_TEMP/editorial-fixtures/site" --browser ${{ matrix.engine }} --only text --out "$RUNNER_TEMP/framework-results/editorial-text"
++          python _tests/editorial-browser.py --site "$RUNNER_TEMP/site" --baseline "$RUNNER_TEMP/site" --assets "$RUNNER_TEMP/browser-assets" --deps _tests/accessibility/node_modules --fixtures "$RUNNER_TEMP/editorial-fixtures/site" --browser ${{ matrix.engine }} --only carousel --out "$RUNNER_TEMP/framework-results/editorial-carousel"
+       - uses: actions/upload-artifact@v4
+         if: always()
+         with:
+           name: framework-${{ matrix.engine }}
+           path: ${{ runner.temp }}/framework-results
++  firebase-regression:
++    runs-on: ubuntu-latest
++    timeout-minutes: 12
++    steps:
++      - uses: actions/checkout@v4
++      - uses: actions/setup-node@v4
++        with:
++          node-version: '22'
++      - uses: actions/setup-java@v4
++        with:
++          distribution: temurin
++          java-version: '21'
++      - name: Run private-rules regression on demo emulators only
++        run: |
++          mkdir -p "$RUNNER_TEMP/firebase-tools"
++          cp _tests/firebase-rules/package.json "$RUNNER_TEMP/firebase-tools/package.json"
++          npm install --prefix "$RUNNER_TEMP/firebase-tools" --no-audit --no-fund
++          node --test _tests/firebase.test.cjs
++          export NODE_PATH="$RUNNER_TEMP/firebase-tools/node_modules"
++          export FIREBASE_EMULATORS_PATH="$RUNNER_TEMP/firebase-emulators"
++          "$RUNNER_TEMP/firebase-tools/node_modules/.bin/firebase" emulators:exec --only database,auth --project demo-website-reliability --config _tests/firebase-rules/firebase.json 'node --test _tests/firebase-rules/option-a.test.cjs'
+diff --git a/_includes/head_custom.html b/_includes/head_custom.html
+index 7605873..65af351 100644
+--- a/_includes/head_custom.html
++++ b/_includes/head_custom.html
+@@ -1,11 +1,21 @@
+-<link rel="stylesheet" href="{{ '/assets/css/custom-hardening-1.css' | relative_url }}">
++<link rel="stylesheet" href="{{ '/assets/css/custom-editorial-1.css' | relative_url }}">
+ <noscript><link rel="stylesheet" href="{{ '/assets/css/no-script-1.css' | relative_url }}"></noscript>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+ <script id="site-ui-script" defer src="{{ '/assets/js/site-ui-2.js' | relative_url }}"{% if page.collection == 'posts' %} data-parent-nav="{{ '/blog.html' | relative_url }}"{% elsif page.collection == 'travel' %} data-parent-nav="{{ '/travel.html' | relative_url }}"{% elsif page.url == '/courses.html' %} data-parent-nav="{{ '/academics.html' | relative_url }}"{% endif %}></script>
+ {% if page.content contains 'image-scroll-hyper' %}
+-<script defer src="{{ '/assets/js/image-carousel-2.js' | relative_url }}"></script>
++<script defer src="{{ '/assets/js/image-viewer-1.js' | relative_url }}"></script>
++<script defer src="{{ '/assets/js/image-carousel-3.js' | relative_url }}"></script>
++{% elsif page.url == '/photography.html' %}
++<script defer src="{{ '/assets/js/image-viewer-1.js' | relative_url }}"></script>
++{% endif %}
++{% assign article_navigation = false %}
++{% if page.collection == 'posts' or page.collection == 'travel' %}
++  {% if page.content contains '<h2' or page.content contains '<details' %}{% assign article_navigation = true %}{% endif %}
++{% endif %}
++{% if page.section_navigation or article_navigation %}
++<script defer src="{{ '/assets/js/section-navigation-1.js' | relative_url }}"></script>
+ {% endif %}
+ {% if page.url == '/travel.html' %}
+ <script defer src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+diff --git a/_includes/photo-tile.html b/_includes/photo-tile.html
+index 268bc43..b7d19a7 100644
+--- a/_includes/photo-tile.html
++++ b/_includes/photo-tile.html
+@@ -8,7 +8,13 @@
+     <img decoding="async" src="{{ photo.src | escape }}" alt="{{ photo.alt | escape }}">
+     <span class="photo-summary" aria-hidden="true">
+       <span class="photo-summary-title">{{ photo_name | escape }}</span>
+-      {% if location != '' %}<span class="photo-summary-secondary">{{ location | escape }}</span>{% elsif date != '' %}<span class="photo-summary-secondary">{{ date | escape }}</span>{% endif %}
++      {% if location != '' %}<span class="photo-summary-secondary">{{ location | escape }}</span>{% endif %}
++      {% if date != '' %}<span class="photo-summary-secondary">{{ date | escape }}</span>{% endif %}
++      {% assign summary_body = photo.camera.body | append: '' | strip %}
++      {% if summary_body != '' %}<span class="photo-summary-secondary">{{ summary_body | escape }}</span>{% endif %}
++      {% capture summary_exposure %}{% if photo.camera.shutter_speed %}{{ photo.camera.shutter_speed | escape }} {% endif %}{% if photo.camera.aperture %}{{ photo.camera.aperture | escape }} {% endif %}{% if photo.camera.iso %}ISO {{ photo.camera.iso | escape }} {% endif %}{% if photo.camera.focal_length %}{{ photo.camera.focal_length | escape }}{% endif %}{% endcapture %}
++      {% assign summary_exposure = summary_exposure | strip %}
++      {% if summary_exposure != '' %}<span class="photo-summary-secondary">{{ summary_exposure }}</span>{% endif %}
+     </span>
+   </a>
+   <div class="photo-info" id="{{ photo.id | escape }}">
+diff --git a/_includes/section-navigation.html b/_includes/section-navigation.html
+new file mode 100644
+index 0000000..c85f8f8
+--- /dev/null
++++ b/_includes/section-navigation.html
+@@ -0,0 +1,41 @@
++{%- comment -%}
++Native fragment links outside page.content, so navigation labels do not pollute
++the standard search snippets. Use authored H2 IDs; never guess or mint anchors.
++An article with fewer than two sections has no empty navigation. Authors may opt
++out of an unfinished/copied outline with section_navigation: false.
++{%- endcomment -%}
++{%- assign sections = include.html | split: '<h2' -%}
++{%- assign section_count = 0 -%}
++{%- assign seen_sections = '|' -%}
++{%- capture section_links -%}
++  {%- for section in sections offset: 1 -%}
++    {%- assign heading = section | split: '</h2>' | first -%}
++    {%- assign id_parts = heading | split: 'id="' -%}
++    {%- if id_parts.size == 2 -%}
++      {%- assign heading_id = id_parts[1] | split: '"' | first -%}
++      {%- assign heading_key = heading_id | prepend: '|' | append: '|' -%}
++      {%- assign heading_label = heading | split: '>' | shift | join: '>' | strip_html | strip -%}
++      {%- if heading_id != '' and heading_label != '' -%}
++        {%- unless seen_sections contains heading_key -%}
++          {%- assign section_count = section_count | plus: 1 -%}
++          {%- assign seen_sections = seen_sections | append: heading_key -%}
++          {%- assign short_label = heading_label -%}
++          {%- assign day_start = heading_label | slice: 0, 4 -%}
++          {%- if day_start == 'Day ' -%}
++            {%- assign day_number = heading_label | remove_first: 'Day ' | split: ' ' | first -%}
++            {%- assign short_label = day_number | prepend: 'Day ' -%}
++          {%- endif -%}
++          {%- assign short_label = page.section_navigation_labels[heading_id] | default: short_label -%}
++          <li><a href="#{{ heading_id | escape_once }}"{% if short_label != heading_label %} aria-label="{{ heading_label | escape_once }}"{% endif %}>{{ short_label | escape_once }}</a></li>
++        {%- endunless -%}
++      {%- endif -%}
++    {%- endif -%}
++  {%- endfor -%}
++{%- endcapture -%}
++{%- if section_count > 1 and page.section_navigation != false -%}
++<nav class="section-nav" aria-label="On this page">
++  {% if section_count > 12 %}<details><summary>On this page <span>({{ section_count }} sections)</span></summary>{% endif %}
++  <ul>{{ section_links }}</ul>
++  {% if section_count > 12 %}</details>{% endif %}
++</nav>
++{%- endif -%}
+diff --git a/_layouts/content.html b/_layouts/content.html
+index 296790d..7b826c5 100644
+--- a/_layouts/content.html
++++ b/_layouts/content.html
+@@ -7,5 +7,6 @@ layout: default
+     {% if page.legacy_destination %}<p class="content-meta">{{ page.legacy_destination | escape }}</p>{% endif %}
+     {% if page.trip_dates %}<p class="content-meta">{{ page.trip_dates | escape }}</p>{% endif %}
+   </header>
++  {% if page.section_navigation or page.collection == 'travel' %}{% include section-navigation.html html=content %}{% endif %}
+   <div class="content-body content-prose">{{ content }}</div>
+ </article>
+diff --git a/_layouts/post.html b/_layouts/post.html
+index 307ce3f..d350e5c 100644
+--- a/_layouts/post.html
++++ b/_layouts/post.html
+@@ -8,5 +8,6 @@ layout: default
+       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>{% assign post_location = page.location | default: '' | strip %}{% if post_location != '' %}<span aria-hidden="true"> · </span><span class="post-location">{{ page.location | escape }}</span>{% endif %}
+     </p>
+   </header>
++  {% include section-navigation.html html=content %}
+   <div class="post-body content-prose">{{ content }}</div>
+ </article>
+diff --git a/_tests/README.md b/_tests/README.md
+index 94e5ab9..6da1283 100644
+--- a/_tests/README.md
++++ b/_tests/README.md
+@@ -217,7 +217,7 @@ No workflow/config/Firebase deployment changes are needed for this PR.
+ ## Framework hardening and accessibility
+ 
+ Use the merged PR #21 source/build as the baseline. `framework-preservation.py`
+-checks all 82 routes, exact SEO, functional links/media/IDs, all 80 byte-identical
++checks all 82 routes, exact SEO, functional links/media/IDs, all declared byte-identical
+ search records and protected post/Travel/course/photo/Firebase sources. Its only
+ main-content exceptions are the declared Photography entry-point name and inline
+ Travel action icons; it also freezes the Blog comparator logic. Keep the strict
+@@ -296,3 +296,51 @@ a compact final engine/version/assertion/axe summary are readable through GitHub
+ checks API even when the artifact-storage download host is blocked; the raw scans
+ and screenshots remain attached to the Actions run. Only five progress notices are
+ emitted per step, leaving room for the final summary within GitHub's annotation cap.
++
++## Approved editorial refinements
++
++The owner's Hobbies grouping reduced the standard index from 80 to 78 records.
++`search-destinations.json` freezes every intended identity/URL rather than a bare
++count or numeric generator key. All 45 course destinations remain. The source
++comparison and real Hobbies search checks are documented in
++[editorial-ux-refinements.md](../docs/editorial-ux-refinements.md).
++
++Use `editorial-preservation.py` for this intentional markup migration; the older
++phase-specific structural checks remain historical tools. The new guard verifies
++exact wording/order, functional links/media, language attributes, old IDs, SEO,
++all non-Photography index records, original posts/data and the unchanged Firebase,
++search, Blog and navigation controllers. Normal/Pages/localhost parity remains
++strict through `preservation.py` and `public-surface.py`.
++
++```sh
++python _tests/prepare-visual-fixtures.py --editorial --root /tmp/editorial-fixtures
++python _tests/editorial-preservation.py --baseline /tmp/site-baseline --baseline-source /tmp/source-baseline --site /tmp/site-candidate --out /tmp/editorial-preservation.json
++python _tests/editorial-browser.py --site /tmp/site-candidate --baseline /tmp/site-baseline --assets /tmp/framework-browser-assets --deps /tmp/framework-tools/node_modules --fixtures /tmp/editorial-fixtures/site --out /tmp/editorial-browser
++python _tests/editorial-comparisons.py --site /tmp/site-candidate --baseline /tmp/site-baseline --assets /tmp/framework-browser-assets --deps /tmp/framework-tools/node_modules --out /tmp/editorial-comparisons
++```
++
++The browser check supports `--browser chromium|firefox|webkit` and
++`--only text|carousel|screenshots`. `--screenshots-for volunteering` refreshes only
++that comparison. Use `--full-page` for complete long-page screenshot comparisons.
++CI passes the same site as `--baseline` only for interaction-only runs; it does not
++generate or claim before/after screenshots from that pair.
++The real review screenshots use archived merged source.
++
++The fixture option replaces one empty **copied** post body with 17 explicitly
++synthetic sections/native details, exercising future layout-generated navigation
++and its long-list disclosure without editing any real post. Existing 110-photo,
++32-camera-combination and missing-image fixtures remain.
++
++New tests exercise real search result clicks to every Hobbies group and equipment/
++book content, disclosures/deep links/refresh/Back/Forward, compact navigation,
++keyboard controls, actual rapid pointer clicks, hold cancellation, no idle hold
++RAF work, cloned-pixel enlargement, original-only viewer counts, native touch taps,
++focus return, library/CSS-only failures, retry and canceled/competing load intents.
++The existing 135 queries/90 course clicks and all Firebase suites remain. Public
++checks freeze the new single/deferred asset paths and exact served source bytes.
++
++The CI workflow adds these checks to all three browser engines and runs current
++private rules on demo emulators. No production deployment or rule publication is
++performed. Physical devices, screen readers, real-photo rendering and production
++Web Vitals still require owner evaluation. Intentional HTTP 404/503 fixtures are
++not unexpected production console errors. Record blocked downloads as unrun.
+diff --git a/_tests/browser.py b/_tests/browser.py
+index 380baca..c0f4bd8 100644
+--- a/_tests/browser.py
++++ b/_tests/browser.py
+@@ -172,7 +172,8 @@ async def main():
+                 await p.locator('#menu-button').focus(); await p.keyboard.press('Enter')
+                 await p.locator('#site-nav a.nav-list-link').last.focus(); await p.keyboard.press('Tab')
+                 check(f'{width}x{height} focus exit dismisses menu', await p.locator('#menu-button').get_attribute('aria-expanded')=='false')
+-                check(f'{width}x{height} focused content is unobscured', await p.evaluate('''()=>{const e=document.activeElement,r=e.getBoundingClientRect();return !e.closest('.side-bar')&&e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))}'''))
++                focus_state=await p.evaluate('''()=>{const e=document.activeElement,r=e.getBoundingClientRect(),hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return {clear:!e.closest('.side-bar')&&e.contains(hit),active:e.outerHTML,rect:r.toJSON(),hit:hit?.outerHTML,scroll:scrollY,menu:document.querySelector('#menu-button').getAttribute('aria-expanded')}}''')
++                check(f'{width}x{height} focused content is unobscured',focus_state['clear'],focus_state)
+                 await p.locator('#menu-button').click()
+             await p.locator('#search-input').fill('Calculus I')
+             await p.locator('#search-results a[href="/courses.html#course-math125"]').wait_for(state='visible')
+diff --git a/_tests/carousel-behavior.py b/_tests/carousel-behavior.py
+index 9226595..6abe66a 100644
+--- a/_tests/carousel-behavior.py
++++ b/_tests/carousel-behavior.py
+@@ -24,7 +24,7 @@ async def main():
+                 u=urlparse(r.request.url)
+                 if u.path=='/':
+                     items=''.join(f'<div class="image-scroll-item" id="photo-{i}"><img src="/image-{i}.svg" alt="Fixture {i}"></div>' for i in range(n))
+-                    html=f'''<!doctype html><link rel="stylesheet" href="/assets/css/custom-hardening-1.css"><style>body{{margin:0}}main{{width:calc(100% - 32px);margin:80px auto}}h2{{font-size:20px}}</style><main><h2>Controlled gallery</h2><div class="image-scroll-hyper"><div class="image-scroll-track">{items}</div></div></main><script defer src="/assets/js/image-carousel-2.js"></script>'''
++                    html=f'''<!doctype html><link rel="stylesheet" href="/assets/css/custom-editorial-1.css"><style>body{{margin:0}}main{{width:calc(100% - 32px);margin:80px auto}}h2{{font-size:20px}}</style><main><h2>Controlled gallery</h2><div class="image-scroll-hyper"><div class="image-scroll-track">{items}</div></div></main><script defer src="/assets/js/image-carousel-3.js"></script>'''
+                     await r.fulfill(body=html,content_type='text/html');return
+                 if u.path.startswith('/image-'):
+                     i=int(u.path[7:-4]);w,h=[(640,480),(480,800),(800,450),(300,1400),(1600,100)][i%5]
+diff --git a/_tests/carousel-performance.py b/_tests/carousel-performance.py
+index a833d44..131a0f4 100644
+--- a/_tests/carousel-performance.py
++++ b/_tests/carousel-performance.py
+@@ -84,7 +84,9 @@ async def main():
+                             assert values['images']<=n*3 and values['images']<n*6
+                             assert values['final_images']<=n*3
+                             assert await p.locator('.carousel-controls').count()==1
+-                        else:assert count==n*6
++                        else:
++                            # Latest merged baseline also uses bounded buffers.
++                            assert count<=n*3 and count<n*6
+                         rows.append(values);await c.close()
+                 print('Measured',cpu,'× CPU,',n,'source images',flush=True)
+         await b.close()
+diff --git a/_tests/component-preservation.py b/_tests/component-preservation.py
+index a98473b..1f44f78 100644
+--- a/_tests/component-preservation.py
++++ b/_tests/component-preservation.py
+@@ -1,4 +1,5 @@
+ """Compare approved component changes against a merged build without broad skips."""
++from search_contract import expected_destinations, identities
+ import argparse
+ import json
+ import re
+@@ -97,11 +98,9 @@ for route in routes:
+         check(route+' exact main content except native image loading attributes', loading_only(main(before)) == loading_only(main(after)))
+ old = json.loads((args.baseline/'assets/js/search-data.json').read_text())
+ new = json.loads((args.site/'assets/js/search-data.json').read_text())
+-check('All 80 existing native search identities/destinations', len(old) == len(new) == 80 and
+-      {k: {f: r[f] for f in ['doc', 'title', 'url', 'relUrl']} for k, r in old.items()} ==
+-      {k: {f: r[f] for f in ['doc', 'title', 'url', 'relUrl']} for k, r in new.items()})
+-check('All 79 non-Photography search records exactly unchanged',
+-      all(r == new[k] for k, r in old.items() if r['doc'] != 'Photography'))
++check('All intended native search identities/destinations', identities(old) == identities(new) and expected_destinations(new))
++check('All non-Photography search records exactly unchanged',
++      [r for r in old.values() if r['doc'] != 'Photography'] == [r for r in new.values() if r['doc'] != 'Photography'])
+ for file in ['_data/photography.yml', '_data/coursework.yml', 'assets/js/travel-atomic-receipts-1.js',
+              '_firebase/database.rules.json', '_firebase/maintenance.rules.json',
+              'assets/js/search.js', 'assets/js/site-ui.js', 'assets/js/just-the-docs.js', '_config.yml']:
+diff --git a/_tests/editorial-browser.py b/_tests/editorial-browser.py
+new file mode 100644
+index 0000000..c7d41ba
+--- /dev/null
++++ b/_tests/editorial-browser.py
+@@ -0,0 +1,273 @@
++"""Approved editorial interactions on served builds, not isolated index mocks.
++
++Uses the real theme/search/controllers and pinned GLightbox. Only external
++services and absent photographs are fixtures. Never writes to production.
++"""
++import argparse, asyncio, hashlib, json, re, shutil
++from pathlib import Path
++from playwright.async_api import async_playwright
++from framework_helpers import Site, context, ready
++
++p=argparse.ArgumentParser()
++for name in ('site','baseline','assets','deps','fixtures','out'):
++    p.add_argument('--'+name,type=Path,required=True)
++p.add_argument('--browser',choices=['chromium','firefox','webkit'],default='chromium')
++p.add_argument('--only',choices=['text','carousel','screenshots'])
++p.add_argument('--screenshots-for',help='Comma-separated component names for targeted screenshot refreshes')
++p.add_argument('--full-page',action='store_true',help='Capture the complete page in screenshot-only mode')
++a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
++site=Site(a.site);before=Site(a.baseline);fixtures=Site(a.fixtures)
++checks=[];errors=[];scans=[];shots=[];typography=[]
++WIDTHS=[320,375,390,430,600,601,768,820,1024,1280,1440,1920]
++ORIENTATIONS=[(375,812),(812,375),(390,844),(844,390),(768,1024),(1024,768),(820,1180),(1180,820)]
++
++def check(name,ok,detail=None):
++    checks.append({'check':name,'passed':bool(ok),'detail':detail})
++    assert ok,(name,detail)
++
++async def visit(browser,path,width=1440,height=900,server=site,motion='reduce',touch=False,mode=None,javascript=True):
++    c,page,pe,requests=await context(browser,server,a.assets,a.deps,width,height,mode,javascript,touch)
++    await page.emulate_media(reduced_motion=motion)
++    await page.goto(server.base+path,wait_until='networkidle')
++    if javascript:await ready(page)
++    return c,page,pe,requests
++
++async def close(c,pe):errors.extend(pe);await c.close()
++
++async def axe(page,name):
++    await page.add_script_tag(path=str(a.deps/'axe-core/axe.min.js'))
++    r=await page.evaluate("async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa','best-practice']}});return {violations:r.violations,incomplete:r.incomplete}}")
++    scans.append({'name':name,**r});check(name+': axe zero violations',not r['violations'],r['violations'])
++
++async def text_pages(browser):
++    for width,height in [(w,900) for w in WIDTHS]+ORIENTATIONS+[(640,450),(320,225)]:
++        c,page,pe,_=await visit(browser,'/hobbies.html',width,height)
++        for route,count in [('/hobbies.html',4),('/media.html',4),('/volunteering.html',3),('/travel/southwestroadtrip2026/',8)]:
++            await page.goto(site.base+route,wait_until='networkidle');await ready(page)
++            label=f'{route}/{width}x{height}'
++            nav=page.locator('.section-nav')
++            check(label+': actual heading targets',await nav.locator('a').count()==count and await nav.locator('a').evaluate_all('(es)=>es.every(a=>document.querySelectorAll("[id]").length===new Set(Array.from(document.querySelectorAll("[id]"),e=>e.id)).size&&!!document.getElementById(decodeURIComponent(a.hash.slice(1))))'))
++            check(label+': navigation left aligns with H1',abs((await nav.bounding_box())['x']-(await page.locator('main h1').bounding_box())['x'])<1)
++            check(label+': no horizontal overflow',await page.evaluate('document.documentElement.scrollWidth<=innerWidth'))
++            check(label+': navigation targets at least 24px high',await nav.locator('a').evaluate_all('(es)=>es.every(e=>e.getBoundingClientRect().height>=24)'))
++            check(label+': one visible H1',await page.locator('main h1:visible').count()==1)
++            if route=='/hobbies.html':
++                check(label+': five disclosures and 18 source items',await page.locator('.support-button').count()==5 and await page.locator('.support-panel li').count()==18)
++                check(label+': all language samples visible',await page.locator('main p[lang]:visible').count()==3)
++                if height>=900:check(label+': compact four-link navigation',(await nav.bounding_box())['height']<=68)
++            if route=='/volunteering.html':
++                check(label+': compact organization labels',(await nav.bounding_box())['height']<=(68 if width<375 else 36))
++                check(label+': full organization names remain accessible',await nav.locator('a[aria-label]').count()==3)
++            if width in (390,1440) and height==900:
++                await axe(page,label)
++                typography.append({'page':route,'width':width,'roles':await page.locator('main h1,main h2,main p,main .section-nav a').evaluate_all('(es)=>es.slice(0,12).map(e=>{const s=getComputedStyle(e);return {tag:e.tagName,role:e.className,text:e.textContent.trim().slice(0,60),font:s.fontSize,lineHeight:s.lineHeight,color:s.color,marginTop:s.marginTop,marginBottom:s.marginBottom}})')})
++        await close(c,pe)
++    c,page,pe,_=await visit(browser,'/hobbies.html',390)
++    for button in await page.locator('.support-button').all():
++        await button.focus();await page.keyboard.press('Enter')
++        check('Keyboard opens '+await button.inner_text(),await button.get_attribute('aria-expanded')=='true')
++        await page.keyboard.press(' ');check('Space closes supporting list',await button.get_attribute('aria-expanded')=='false')
++    await page.get_by_role('button',name='Expand supporting lists',exact=True).click()
++    check('Expand-all reveals every original list',await page.locator('.support-panel[hidden]').count()==0)
++    await page.get_by_role('button',name='Collapse supporting lists',exact=True).click()
++    ids=await page.locator('[data-support-heading]').evaluate_all('(es)=>es.map(e=>e.id)')
++    for id in ids:
++        await page.goto(site.base+'/hobbies.html#'+id,wait_until='networkidle');await ready(page)
++        check('Direct fragment exposes '+id,await page.locator('#'+id+' button').get_attribute('aria-expanded')=='true')
++        check('Direct fragment clears sticky header', (await page.locator('#'+id).bounding_box())['y']>=40)
++        await page.reload(wait_until='networkidle');await ready(page)
++        check('Refresh exposes '+id,await page.locator('#'+id+' button').get_attribute('aria-expanded')=='true')
++    for query,hash in [('YAS-62','music'),('Royal Conservatory','music'),('Piano','music'),('Spanish','language'),('Pickleball','outdoor'),('Hiking','outdoor'),('Mile High Freedom Band','music'),('Foreign Languages','language'),('Sand Volleyball','outdoor'),('Mixology','other'),('Skiing','outdoor'),('Japanese','language'),('Mandarin','language')]:
++        await page.goto(site.base+'/hobbies.html',wait_until='networkidle');await ready(page)
++        await page.locator('#menu-button').click();await page.locator('#search-input').fill(query)
++        result=page.locator('#search-results a[href="/hobbies.html#'+hash+'"]');await result.wait_for();await result.click()
++        await page.wait_for_url('**/hobbies.html#'+hash);await ready(page)
++        check('Real standard search reaches '+query,await page.locator('#'+hash).is_visible())
++        check('Search focuses the correct group for '+query,await page.locator('#'+hash).evaluate('(e)=>e===document.activeElement'))
++        if hash=='music':check('Search exposes matching equipment/books',await page.locator('.support-panel[hidden]').count()==0)
++    await page.goto(site.base+'/hobbies.html#saxophone-details',wait_until='networkidle');await ready(page)
++    await page.locator('.section-nav a[href="#language"]').click();await page.wait_for_url('**#language')
++    await page.go_back();await ready(page);check('Fragment Back restores visible supporting heading',page.url.endswith('#saxophone-details') and await page.locator('#saxophone-details button').get_attribute('aria-expanded')=='true')
++    await page.go_forward();await ready(page);check('Fragment Forward keeps native history',page.url.endswith('#language') and await page.evaluate('history.scrollRestoration')=='auto')
++    await close(c,pe)
++    for path in ['/2025/10/07/japan.html','/travel/washington/','/travel/japan/']:
++        c,page,pe,_=await visit(browser,path,390)
++        check(path+': no empty or copied-outline navigation',await page.locator('.section-nav').count()==0);await close(c,pe)
++    for javascript in [True,False]:
++        c,page,pe,_=await visit(browser,'/2025/10/07/japan.html',390,server=fixtures,javascript=javascript)
++        check('Future long article: native compact expansion',await page.locator('.section-nav details').count()==1)
++        await page.locator('.section-nav summary').click();await page.locator('.section-nav a[href="#fixture-hidden-section"]').click()
++        check('Future article: hidden heading opens via fragment',await page.locator('#fixture-hidden-section').is_visible())
++        check('Future article: no duplicate IDs',await page.locator('[id]').evaluate_all('(es)=>es.length===new Set(es.map(e=>e.id)).size'))
++        await close(c,pe)
++    c,page,pe,_=await visit(browser,'/hobbies.html',390,javascript=False)
++    check('No JS: all supporting content visible',await page.locator('.support-panel li:visible').count()==18)
++    check('No JS: native four-link navigation remains',await page.locator('.section-nav a').count()==4)
++    await close(c,pe)
++
++async def carousel(browser):
++    for motion in ['reduce','no-preference']:
++        c,page,pe,requests=await visit(browser,'/volunteering.html',390,motion=motion)
++        strip=page.locator('.image-scroll-hyper').first
++        controls=page.locator('.carousel-controls').first
++        next=controls.get_by_role('button',name='Next photo',exact=True)
++        status=controls.locator('.carousel-position')
++        await strip.scroll_into_view_if_needed()
++        check(motion+': no eager carousel GLightbox request',not any('glightbox@' in u for u in requests))
++        check(motion+': keyboard opening instructions remain accessible','Enter or Space' in await controls.locator('.carousel-help').inner_text() and await strip.get_attribute('aria-describedby')==await controls.locator('.carousel-position').get_attribute('id')+' '+await controls.locator('.carousel-help').get_attribute('id'))
++        check(motion+': bare 44px controls',await next.evaluate('(e)=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return r.width>=44&&r.height>=44&&s.borderTopWidth==="0px"&&s.backgroundColor==="rgba(0, 0, 0, 0)"}'))
++        await next.click();await page.wait_for_timeout(800)
++        check(motion+': one arrow click advances once','Photo 2 ' in await status.inner_text())
++        await strip.focus();await page.keyboard.press('Home');await page.wait_for_timeout(800)
++        # Actual rapid pointer clicks must use the intended destination, not the
++        # still-moving center of a smooth scroll.
++        rect=await next.bounding_box()
++        for _ in range(3):await page.mouse.click(rect['x']+22,rect['y']+22,delay=20)
++        await page.wait_for_timeout(1000)
++        check(motion+': rapid commands advance three slots','Photo 4 ' in await status.inner_text(),await status.inner_text())
++        rect=await next.bounding_box();await page.mouse.move(rect['x']+22,rect['y']+22)
++        hold_start=await strip.evaluate('(e)=>e.scrollLeft')
++        await page.evaluate('''()=>{const native=requestAnimationFrame;window.__holdFrames=0;window.requestAnimationFrame=f=>native(t=>{__holdFrames++;f(t)})}''')
++        await page.mouse.down();await page.wait_for_timeout(1050)
++        during=await strip.evaluate('(e)=>e.scrollLeft');await page.mouse.up();await page.wait_for_timeout(260)
++        stopped=await strip.evaluate('(e)=>e.scrollLeft');await page.wait_for_timeout(300)
++        check(motion+': hold moves and release stops',abs(stopped-await strip.evaluate('(e)=>e.scrollLeft'))<1 and abs(during-hold_start)>4)
++        idle_frames=await page.evaluate('__holdFrames');await page.wait_for_timeout(250)
++        check(motion+': no idle hold animation callbacks',await page.evaluate('__holdFrames')==idle_frames)
++        for cancel in ['pointercancel','lostpointercapture','blur']:
++            await next.focus();await page.keyboard.down('Space');await page.wait_for_timeout(700)
++            if cancel=='blur':await strip.focus()
++            else:await next.dispatch_event(cancel)
++            canceled=await strip.evaluate('(e)=>e.scrollLeft')
++            await page.keyboard.up('Space');await page.wait_for_timeout(260)
++            stop=await strip.evaluate('(e)=>e.scrollLeft');await page.wait_for_timeout(300)
++            check(motion+': '+cancel+' stops motion',abs(stop-await strip.evaluate('(e)=>e.scrollLeft'))<1)
++            check(motion+': '+cancel+' release adds no command',abs(stop-canceled)<1)
++        await next.focus();await page.keyboard.down('Space');await page.wait_for_timeout(700);await page.keyboard.up('Space');await page.wait_for_timeout(240)
++        check(motion+': keyboard hold stops on release',await next.evaluate('(e)=>e===document.activeElement'))
++        # Open a stable source slot using the region keyboard interface.
++        await strip.focus();await page.keyboard.press('Home');await page.wait_for_timeout(800)
++        originals=await strip.locator('.image-scroll-track > :not([data-carousel-clone]) img').count()
++        await page.keyboard.press('Enter');await page.get_by_role('dialog').wait_for();await ready(page)
++        check(motion+': exactly original slide count',await page.locator('.gslide').count()==originals)
++        check(motion+': opening keeps inactive slides inert',await page.locator('.gslide:not(.current)').evaluate_all('(es)=>es.every(e=>e.inert)'))
++        await page.keyboard.press('Tab');check(motion+': focus remains in viewer',await page.evaluate('!!document.activeElement.closest(".glightbox-container")'))
++        await page.keyboard.press('ArrowRight');await page.wait_for_timeout(450)
++        check(motion+': keyboard next displays second original',await page.locator('.gslide.current img').get_attribute('src')==await strip.locator('.image-scroll-track > :not([data-carousel-clone]) img').nth(1).get_attribute('src') or (await page.locator('.gslide.current img').get_attribute('src')).endswith(await strip.locator('.image-scroll-track > :not([data-carousel-clone]) img').nth(1).get_attribute('src')))
++        await page.keyboard.press('Escape');await page.wait_for_function('!document.querySelector(".glightbox-container")')
++        check(motion+': focus returns to stable strip',await strip.evaluate('(e)=>e===document.activeElement'))
++        check(motion+': one lazy JS and CSS fetch',sum('glightbox@' in u and u.endswith('.js') for u in requests)==1 and sum('glightbox@' in u and u.endswith('.css') for u in requests)==1)
++        check(motion+': copies have no interactive keyboard stops',await page.locator('[data-carousel-clone]').evaluate_all('(es)=>es.every(e=>e.inert&&e.getAttribute("aria-hidden")==="true"&&Array.from(e.querySelectorAll("a,button,[tabindex]")).every(n=>n.tabIndex===-1))'))
++        # Home centers the first original and leaves a genuine prefix-buffer
++        # neighbor visible. Click its pixels, not an inert element locator.
++        await strip.focus();await page.keyboard.press('Home');await page.wait_for_timeout(800)
++        # A wide first photograph can fill the entire centered viewport. Move
++        # within the valid first-original range, then let native scrolling rest.
++        await strip.evaluate('''e=>{const first=e.querySelector('.image-scroll-track > :not([data-carousel-clone])'),r=first.getBoundingClientRect(),c=e.getBoundingClientRect();e.scrollLeft+=r.left-c.left-e.clientWidth/2+12}''')
++        await page.wait_for_timeout(300)
++        hit=await strip.evaluate('''e=>{const r=e.getBoundingClientRect();for(const n of e.querySelectorAll('[data-carousel-clone]')){const b=n.getBoundingClientRect(),l=Math.max(b.left,r.left),right=Math.min(b.right,r.right);if(right-l>12)return {x:(l+right)/2,y:r.top+r.height/2,index:Number(n.dataset.carouselIndex)}}return null}''')
++        check(motion+': a cloned neighbor is visibly available',bool(hit))
++        await page.mouse.click(hit['x'],hit['y']);await page.get_by_role('dialog').wait_for();await ready(page)
++        source_url=await strip.locator('.image-scroll-track > :not([data-carousel-clone]) img').nth(hit['index']).get_attribute('src')
++        check(motion+': clicking cloned pixels opens corresponding original',(await page.locator('.gslide.current img').get_attribute('src')).endswith(source_url))
++        check(motion+': clone opening has no duplicate viewer slides',await page.locator('.gslide').count()==originals)
++        await page.keyboard.press('Escape');await page.wait_for_function('!document.querySelector(".glightbox-container")')
++        check(motion+': warm enlargement reuses library',sum('glightbox@' in u and u.endswith('.js') for u in requests)==1)
++        await strip.scroll_into_view_if_needed();box=await strip.bounding_box()
++        await page.mouse.move(box['x']+box['width']*.6,box['y']+box['height']/2)
++        await page.mouse.down();await page.mouse.move(box['x']+box['width']*.3,box['y']+box['height']/2,steps=8);await page.mouse.up();await page.wait_for_timeout(300)
++        check(motion+': horizontal drag does not enlarge',await page.locator('.glightbox-container').count()==0)
++        await close(c,pe)
++    c,page,pe,_=await visit(browser,'/volunteering.html',390,touch=True)
++    strip=page.locator('.image-scroll-hyper').first
++    await strip.scroll_into_view_if_needed();await page.wait_for_timeout(250)
++    box=await strip.bounding_box();await page.touchscreen.tap(box['x']+box['width']/2,box['y']+box['height']/2)
++    await page.get_by_role('dialog').wait_for();check('Native touch tap enlarges immediately',await page.locator('.gslide.current').count()==1)
++    await page.locator('.gclose').tap();await page.wait_for_function('!document.querySelector(".glightbox-container")');await close(c,pe)
++    c,page,pe,_=await visit(browser,'/volunteering.html',390,mode='no-gallery')
++    strip=page.locator('.image-scroll-hyper').first;await strip.focus();await page.keyboard.press('Enter')
++    fallback=page.locator('.carousel-viewer-status a').first;await fallback.wait_for()
++    check('Viewer download failure retains original URL',await fallback.get_attribute('href')==await strip.locator('.image-scroll-track > :not([data-carousel-clone]) a').first.get_attribute('href'))
++    async def recover(route):
++        name='glightbox.css' if '.css' in route.request.url else 'glightbox.js'
++        await route.fulfill(path=str(a.assets/name),content_type='text/css' if name.endswith('.css') else 'text/javascript')
++    await c.route(re.compile('.*glightbox@.*'),recover)
++    await strip.focus();await page.keyboard.press('Enter');await page.get_by_role('dialog').wait_for()
++    check('Viewer download can recover on retry',await page.locator('.gslide.current').count()==1)
++    await close(c,pe)
++    for cancel_open in [True,False]:
++        c,page,pe,_=await visit(browser,'/volunteering.html',390)
++        gate=asyncio.Event()
++        async def delayed(route):
++            await gate.wait()
++            name='glightbox.css' if '.css' in route.request.url else 'glightbox.js'
++            await route.fulfill(path=str(a.assets/name),content_type='text/css' if name.endswith('.css') else 'text/javascript')
++        await c.route(re.compile('.*glightbox@.*'),delayed)
++        first=page.locator('.image-scroll-hyper').first;second=page.locator('.image-scroll-hyper').nth(1)
++        await first.focus();await page.keyboard.press('Enter')
++        await page.locator('.carousel-viewer-status').first.get_by_text('Loading image viewer…').wait_for()
++        if cancel_open:
++            await page.keyboard.press('Tab')
++            check('Tab cancels pending viewer feedback immediately',await page.locator('.carousel-viewer-status').first.inner_text()=='')
++        else:
++            await second.focus();await page.keyboard.press('Enter')
++            check('New strip intent clears first pending feedback',await page.locator('.carousel-viewer-status').first.inner_text()=='')
++        gate.set();await page.wait_for_timeout(900)
++        if cancel_open:check('Late library does not steal focus/open canceled viewer',await page.locator('.glightbox-container').count()==0)
++        else:
++            await page.get_by_role('dialog').wait_for()
++            check('Latest strip owns the delayed viewer',await page.get_by_role('dialog').get_attribute('aria-label')==await second.get_attribute('aria-label'))
++            check('Delayed viewer contains only second originals',await page.locator('.gslide').count()==await second.locator('.image-scroll-track > :not([data-carousel-clone])').count())
++        await close(c,pe)
++    c,page,pe,_=await visit(browser,'/volunteering.html',390)
++    fail_css=asyncio.Event()
++    async def partial_load(route):
++        if '.css' in route.request.url:
++            await fail_css.wait();await route.fulfill(status=503,body='Controlled stylesheet failure')
++        else:await route.fulfill(path=str(a.assets/'glightbox.js'),content_type='text/javascript')
++    await c.route(re.compile('.*glightbox@.*'),partial_load)
++    strip=page.locator('.image-scroll-hyper').first;await strip.focus();await page.keyboard.press('Enter')
++    await page.wait_for_function('typeof GLightbox==="function"');fail_css.set()
++    await page.locator('.carousel-viewer-status a').first.wait_for()
++    check('CSS-only viewer failure leaves a working original link',await page.locator('.glightbox-container').count()==0)
++    await c.route(re.compile('.*glightbox@.*'),recover)
++    await strip.focus();await page.keyboard.press('Enter');await page.get_by_role('dialog').wait_for()
++    check('Retry restores stylesheet even if JS was already installed',await page.get_by_role('dialog').evaluate('(e)=>getComputedStyle(e).position')=='fixed')
++    await close(c,pe)
++
++async def screenshots(browser):
++    out=a.out/'screenshots';out.mkdir(exist_ok=True)
++    paths=[('carousels','/volunteering.html'),('blog','/blog.html'),('photography','/photography.html'),('travel','/travel.html'),('hobbies','/hobbies.html'),('media','/media.html'),('volunteering','/volunteering.html'),('article-short','/2025/10/07/japan.html'),('article-days','/travel/southwestroadtrip2026/')]
++    if a.screenshots_for:paths=[item for item in paths if item[0] in a.screenshots_for.split(',')]
++    for width in [390,1440]:
++        for phase,server in [('before',before),('after',site)]:
++            for name,path in paths:
++                c,page,pe,_=await visit(browser,path,width,1100,server)
++                # Match scroll positions/content region across comparisons.
++                if name=='carousels':await page.locator('.image-scroll-hyper').first.scroll_into_view_if_needed()
++                if name=='photography':await page.locator('a.glightbox').first.focus()
++                filename=f'{name}-{phase}-{width}.png';await page.screenshot(path=str(out/filename),full_page=a.full_page)
++                shots.append(filename)
++                if name=='hobbies' and phase=='after':
++                    await page.get_by_role('button',name='Expand supporting lists',exact=True).click()
++                    filename=f'hobbies-details-open-{width}.png';await page.screenshot(path=str(out/filename),full_page=True);shots.append(filename)
++                if name=='carousels' and phase=='after':
++                    await page.locator('.image-scroll-hyper').first.focus();await page.keyboard.press('Enter');await page.get_by_role('dialog').wait_for();await ready(page)
++                    filename=f'carousel-viewer-{width}.png';await page.screenshot(path=str(out/filename));shots.append(filename)
++                await close(c,pe)
++
++async def main():
++    async with async_playwright() as pw:
++        options={'executable_path':shutil.which('chromium'),'args':['--no-sandbox']} if a.browser=='chromium' else {}
++        browser=await getattr(pw,a.browser).launch(**options)
++        if not a.only or a.only=='text':await text_pages(browser)
++        if not a.only or a.only=='carousel':await carousel(browser)
++        if not a.only or a.only=='screenshots':await screenshots(browser)
++        check('No new page exceptions',not errors,errors)
++        await browser.close()
++
++try:asyncio.run(main())
++finally:
++    (a.out/'results.json').write_text(json.dumps({'browser':a.browser,'passed':sum(c['passed'] for c in checks),'failed':[c for c in checks if not c['passed']],'checks':checks,'axe':scans,'typography':typography,'errors':errors,'screenshots':shots,'limitations':'Synthetic geometry/media; Chromium/Firefox/WebKit where installed, no physical devices or screen-reader certification.'},indent=2)+'\n')
++    for s in [site,before,fixtures]:s.close()
++print('Editorial browser checks passed:',len(checks))
+diff --git a/_tests/editorial-comparisons.py b/_tests/editorial-comparisons.py
+new file mode 100644
+index 0000000..7fe0c38
+--- /dev/null
++++ b/_tests/editorial-comparisons.py
+@@ -0,0 +1,54 @@
++"""Controlled unrelated-page pixels, reversible Travel CSS and payload budgets."""
++import argparse,asyncio,gzip,hashlib,json,re,shutil
++from pathlib import Path
++from playwright.async_api import async_playwright
++from framework_helpers import Site,context,ready
++
++p=argparse.ArgumentParser()
++for n in ('baseline','site','assets','deps','out'):p.add_argument('--'+n,type=Path,required=True)
++a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
++sites=[Site(a.baseline),Site(a.site)];checks=[];styles=[];payload=[];heights=[]
++def check(name,ok,detail=None):checks.append({'check':name,'passed':bool(ok),'detail':detail})
++async def shot(browser,index,path,width,undo=False):
++    c,page,errors,requests=await context(browser,sites[index],a.assets,a.deps,width,1100)
++    if undo:
++        css=(a.site/'assets/css/custom-editorial-1.css').read_text()
++        css,count=re.subn(r'/\* Travel refinements:.*?(?=/\* The normal instructions)', '',css,flags=re.S)
++        check('Travel has exactly one removable styling block',count==1)
++        await c.route('**/assets/css/custom-editorial-1.css',lambda r:r.fulfill(body=css,content_type='text/css'))
++    await page.goto(sites[index].base+path,wait_until='networkidle');await ready(page)
++    data=await page.screenshot()
++    if path=='/travel.html':
++        values=await page.locator('.travel-card,.travel-date,.travel-card-content > p,.travel-actions,.travel-cover').evaluate_all('(es)=>es.slice(0,14).map(e=>{const s=getComputedStyle(e);return {role:e.className,tag:e.tagName,border:s.borderColor,padding:s.padding,margin:s.margin,fontSize:s.fontSize,lineHeight:s.lineHeight,color:s.color,gap:s.gap,aspectRatio:s.aspectRatio}})')
++        styles.append({'phase':'before' if index==0 else 'reversed' if undo else 'after','width':width,'properties':values})
++    if path in ('/hobbies.html','/blog.html','/photography.html'):
++        height=await page.locator('main').evaluate('(e)=>e.getBoundingClientRect().height')
++        heights.append({'page':path,'phase':'before' if index==0 else 'after','width':width,'main_height':height})
++    check(path+'/'+str(width)+': no exceptions',not errors,errors)
++    await c.close();return hashlib.sha256(data).hexdigest()
++async def main():
++    async with async_playwright() as pw:
++        browser=await pw.chromium.launch(executable_path=shutil.which('chromium'),args=['--no-sandbox'])
++        for width in [390,1440]:
++            for path in ['/','/academics.html','/courses.html','/2025/10/07/japan.html','/travel/washington/']:
++                x=await shot(browser,0,path,width);y=await shot(browser,1,path,width)
++                check(path+'/'+str(width)+': unrelated pixels identical',x==y,{'before':x,'after':y})
++            x=await shot(browser,0,'/travel.html',width)
++            await shot(browser,1,'/travel.html',width)
++            y=await shot(browser,1,'/travel.html',width,undo=True)
++            check('Travel/'+str(width)+': reversing scoped block restores exact baseline pixels',x==y,{'before':x,'reversed':y})
++            for path in ['/hobbies.html','/blog.html','/photography.html']:
++                for index in [0,1]:await shot(browser,index,path,width)
++        await browser.close()
++asyncio.run(main())
++for old,new in [('assets/css/custom-hardening-1.css','assets/css/custom-editorial-1.css'),('assets/js/image-carousel-2.js','assets/js/image-carousel-3.js'),('assets/js/photography-portfolio-2.js','assets/js/photography-portfolio-3.js'),(None,'assets/js/image-viewer-1.js'),(None,'assets/js/section-navigation-1.js')]:
++    row={'before':old,'after':new}
++    for label,file,root in [('before',old,a.baseline),('after',new,a.site)]:
++        data=(root/file).read_bytes() if file else b''
++        row[label+'_raw_bytes']=len(data);row[label+'_gzip_bytes']=len(gzip.compress(data,mtime=0)) if data else 0
++    payload.append(row)
++for s in sites:s.close()
++result={'passed':sum(c['passed'] for c in checks),'failed':[c for c in checks if not c['passed']],'checks':checks,'travel_computed_styles':styles,'payloads':payload,'layout_heights':heights,'limits':'Chromium local synthetic media and pinned Inter, not real-photo performance or production Web Vitals. gzip is computed artifact size, not a measured CDN response.'}
++(a.out/'results.json').write_text(json.dumps(result,indent=2)+'\n')
++print('Controlled comparisons:',result['passed'],'passed;',len(result['failed']),'failed')
++raise SystemExit(bool(result['failed']))
+diff --git a/_tests/editorial-preservation.py b/_tests/editorial-preservation.py
+new file mode 100644
+index 0000000..324b357
+--- /dev/null
++++ b/_tests/editorial-preservation.py
+@@ -0,0 +1,61 @@
++"""Exact content/SEO/source preservation with declared editorial UI additions."""
++import argparse, json, re
++from collections import Counter
++from html.parser import HTMLParser
++from pathlib import Path
++from search_contract import expected_destinations
++
++p = argparse.ArgumentParser()
++for name in ('baseline', 'baseline-source', 'site', 'out'):
++    p.add_argument('--'+name, type=Path, required=True)
++a = p.parse_args(); source = Path(__file__).resolve().parent.parent; checks = []
++
++def check(name, ok):
++    checks.append({'check': name, 'passed': bool(ok)})
++
++class Content(HTMLParser):
++    def __init__(self, html):
++        super().__init__(); self.stack=[]; self.words=[]; self.links=[]; self.media=[]; self.ids=[]; self.seo=[]; self.lang=[]; self.feed(html)
++    def handle_starttag(self, tag, attrs):
++        d=dict(attrs); classes=d.get('class','').split()
++        ignore=any(x[1] for x in self.stack) or bool(set(classes)&{'section-nav','photo-summary','gallery-hint'}) or tag in ('script','style')
++        if 'id' in d:self.ids.append(d['id'])
++        if tag=='meta' or tag=='link' and d.get('rel')=='canonical':self.seo.append((tag,d))
++        in_main=tag=='main' or any(x[0]=='main' for x in self.stack)
++        if in_main and not ignore:
++            if tag=='a':self.links.append(d.get('href'))
++            if tag in ('img','source','video'):self.media.append((tag,d))
++            if 'lang' in d:self.lang.append(d['lang'])
++        if tag not in ('img','source','br','hr','input','meta','link','wbr','area','embed'):
++            self.stack.append((tag,ignore))
++    def handle_endtag(self, tag):
++        if tag in ('img','source','br','hr','input','meta','link','wbr','area','embed'):return
++        while self.stack:
++            current=self.stack.pop()
++            if current[0]==tag:break
++    def handle_data(self, text):
++        if any(x[0]=='main' for x in self.stack) and not any(x[1] for x in self.stack):self.words.extend(text.split())
++
++routes=lambda root:sorted(str(f.relative_to(root)) for f in root.rglob('*.html'))
++check('Exactly the 82 baseline routes',len(routes(a.baseline))==82 and routes(a.baseline)==routes(a.site))
++for route in routes(a.baseline):
++    before=(a.baseline/route).read_text();after=(a.site/route).read_text();x=Content(before);y=Content(after)
++    check(route+': exact meaningful wording/order', x.words==y.words)
++    check(route+': exact existing functional links/order', x.links==y.links)
++    check(route+': exact media attributes and language samples',x.media==y.media and x.lang==y.lang)
++    check(route+': all old fragment IDs retained once',not (Counter(x.ids)-Counter(y.ids)) and len(y.ids)==len(set(y.ids)))
++    check(route+': unchanged SEO',x.seo==y.seo and re.findall(r'<title>.*?</title>|<script type="application/ld\+json">.*?</script>',before,re.S)==re.findall(r'<title>.*?</title>|<script type="application/ld\+json">.*?</script>',after,re.S))
++old=json.loads((a.baseline/'assets/js/search-data.json').read_text());new=json.loads((a.site/'assets/js/search-data.json').read_text())
++check('All exact intended standard search identities',expected_destinations(new))
++check('All non-Photography search snippets byte-identical', [r for r in old.values() if r['doc']!='Photography']==[r for r in new.values() if r['doc']!='Photography'])
++protected=['_config.yml','Gemfile','Gemfile.lock','assets/js/search.js','assets/js/site-ui.js','assets/js/just-the-docs.js','assets/js/blog-controls.js','assets/js/travel-atomic-receipts-1.js','_includes/course-list.md','courses.md','index.md','academics.md']
++for folder in ('_data','_posts','_firebase'):
++    protected += [str(f.relative_to(a.baseline_source)) for f in (a.baseline_source/folder).rglob('*') if f.is_file()]
++for name in protected:check(name+': source byte-identical',(a.baseline_source/name).read_bytes()==(source/name).read_bytes())
++for file in (a.baseline_source/'_travel').glob('*.md'):
++    text=(source/'_travel'/file.name).read_text().replace('\nsection_navigation: false # Copied placeholder outline; enable when authored.','')
++    check(file.name+': only curated navigation opt-out added',text==file.read_text())
++result={'passed':sum(c['passed'] for c in checks),'failed':[c for c in checks if not c['passed']],'checks':checks}
++a.out.parent.mkdir(parents=True,exist_ok=True);a.out.write_text(json.dumps(result,indent=2)+'\n')
++print('Editorial preservation:',result['passed'],'passed;',len(result['failed']),'failed')
++raise SystemExit(bool(result['failed']))
+diff --git a/_tests/framework-performance.py b/_tests/framework-performance.py
+index d12ebd9..8ec1541 100644
+--- a/_tests/framework-performance.py
++++ b/_tests/framework-performance.py
+@@ -61,7 +61,7 @@ async def main():
+                     values={'phase':phase,'cpu':cpu,'sample':sample,'icon_requests':len(icon),'icon_transfer_bytes':sum(r['bytes'] for r in icon),'icon_resources':icon,'document_transfer_bytes':navigation,'all_local_transfer_bytes':navigation+sum(r['bytes'] for r in resources if '127.0.0.1' in r['url']),'requests':len(resources)+1,'script_ms':metrics['ScriptDuration']*1000,'layout_ms':metrics['LayoutDuration']*1000,'style_ms':metrics['RecalcStyleDuration']*1000,'dom_nodes':(await cdp.send('Memory.getDOMCounters'))['nodes'],'js_heap_bytes':metrics['JSHeapUsedSize'],'fixture_cls':await page.evaluate('__cls.reduce((a,b)=>a+b,0)'),'fcp_ms':await page.evaluate('performance.getEntriesByName("first-contentful-paint")[0]?.startTime'),'errors':errors}
+                     assert not errors,errors
+                     if phase=='after':assert not icon and await page.locator('svg.travel-action-icon').count()==18
+-                    else:assert len(icon)==3,icon
++                    else:assert not icon,icon  # Current merged baseline already removed the icon font.
+                     rows.append(values);await c.close()
+                 print('Measured',cpu,'× sample',sample+1,flush=True)
+         await b.close()
+diff --git a/_tests/framework-preservation.py b/_tests/framework-preservation.py
+index bf468f9..10e35b2 100644
+--- a/_tests/framework-preservation.py
++++ b/_tests/framework-preservation.py
+@@ -1,4 +1,5 @@
+ """Strong merged-baseline preservation with explicit framework-only exceptions."""
++from search_contract import expected_destinations, identities
+ import argparse,json,re
+ from html.parser import HTMLParser
+ from pathlib import Path
+@@ -34,7 +35,7 @@ for route in expected:
+         new=re.sub(r'<svg class="travel-action-icon"[^>]*>.*?</svg>',lambda m:'<i class="fa-regular fa-heart" aria-hidden="true"></i>' if 'heart-outline' in m[0] else '<i class="fa-solid fa-share-nodes" aria-hidden="true"></i>',new,flags=re.S)
+     check(route+' exact content/structure except declared icon/entry-point changes',normalize(old)==normalize(new))
+ old=(a.baseline/'assets/js/search-data.json').read_text();new=(a.site/'assets/js/search-data.json').read_text()
+-check('All 80 search records byte-identical',old==new and len(json.loads(new))==80)
++check('All search records byte-identical with intended destinations',old==new and expected_destinations(json.loads(new)))
+ old_controls=(a.baseline_source/'assets/js/blog-controls.js').read_text();new_controls=(root/'assets/js/blog-controls.js').read_text()
+ pattern=r'visibleEntries.sort\((.*?)\n    \}\);'
+ check('Blog comparators unchanged; only history lifecycle corrected',len(re.findall(pattern,old_controls,re.S))==1 and re.findall(pattern,old_controls,re.S)==re.findall(pattern,new_controls,re.S))
+diff --git a/_tests/framework_helpers.py b/_tests/framework_helpers.py
+index fb1fbe2..a9e45e7 100644
+--- a/_tests/framework_helpers.py
++++ b/_tests/framework_helpers.py
+@@ -20,8 +20,8 @@ class Site:
+     def close(self):
+         self.server.shutdown();self.server.server_close()
+ 
+-async def context(browser,site,assets,deps,width=1440,height=900,mode=None,javascript=True):
+-    ctx=await browser.new_context(viewport={'width':width,'height':height},reduced_motion='reduce',java_script_enabled=javascript)
++async def context(browser,site,assets,deps,width=1440,height=900,mode=None,javascript=True,touch=False):
++    ctx=await browser.new_context(viewport={'width':width,'height':height},reduced_motion='reduce',java_script_enabled=javascript,has_touch=touch)
+     mock=(ROOT/'_tests/firebase-fixture.js').read_text()+'''\nwindow.__fixture=firebaseFixture();window.firebase=__fixture.firebase;
+     Object.defineProperty(navigator,'share',{configurable:true,value:undefined});
+     Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async()=>{}}});'''
+@@ -37,7 +37,7 @@ async def context(browser,site,assets,deps,width=1440,height=900,mode=None,javas
+         if '/assets/images/' in u.path:
+             if mode=='missing':await r.fulfill(status=404,body='Controlled missing image');return
+             h=hashlib.sha256(u.path.encode()).digest();w,ht=[(640,480),(480,800),(800,450)][h[0]%3]
+-            await r.fulfill(content_type='image/svg+xml',body=f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{ht}"><rect width="100%" height="100%" fill="#{h.hex()[:6]}"/><path d="M0 {ht} L{w//2} {ht//3} L{w} {ht}" fill="#dde4e9"/></svg>');return
++            await r.fulfill(content_type='image/svg+xml',body=f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{ht}"><rect width="100%" height="100%" fill="#{h.hex()[:6]}"/><path d="M0 {ht} L{w//2} {ht//3} L{w} {ht}" fill="#dde4e9"/><text x="12" y="30" fill="white" font-size="18" font-family="sans-serif">Synthetic image fixture</text></svg>');return
+         if 'glightbox@' in r.request.url:
+             p=(assets/('glightbox.css' if name.endswith('.css') else 'glightbox.js')) if assets else deps/'glightbox/dist'/('css/glightbox.min.css' if name.endswith('.css') else 'js/glightbox.min.js')
+             await r.fulfill(path=str(p),content_type='text/css' if name.endswith('.css') else 'text/javascript');return
+diff --git a/_tests/prepare-visual-fixtures.py b/_tests/prepare-visual-fixtures.py
+index a38bfbe..b400c5d 100644
+--- a/_tests/prepare-visual-fixtures.py
++++ b/_tests/prepare-visual-fixtures.py
+@@ -14,6 +14,7 @@ from pathlib import Path
+ parser = argparse.ArgumentParser()
+ parser.add_argument('--root', type=Path, required=True)
+ parser.add_argument('--source', type=Path, default=Path(__file__).resolve().parent.parent)
++parser.add_argument('--editorial', action='store_true', help='Also exercise future article navigation/disclosures')
+ args = parser.parse_args()
+ source = args.source.resolve()
+ assert not args.root.resolve().is_relative_to(source)
+@@ -52,6 +53,16 @@ for importance in ('major', 'minor'):
+             empty_media.append(str(post.relative_to(copy)))
+             break
+ (args.root/'blog-fixtures.json').write_text(json.dumps(empty_media, indent=2)+'\n')
++if args.editorial:
++    # Replace one empty fixture body only, never a production article. The same
++    # synthetic content can be built against the old and new shared templates.
++    post = copy/'_posts/2025-10-07-japan.md'
++    if not post.exists():
++        post = next(p for p in (copy/'_posts').glob('2025-10-07-*'))
++    front = post.read_text().split('---', 2)[1]
++    body = '\n'.join(f'<h2 id="fixture-section-{i}" tabindex="-1">Fixture section {i}</h2>\n<p>Synthetic article navigation fixture, section {i}.</p>' for i in range(1,17))
++    body += '<details><summary>Fixture supporting material</summary><h2 id="fixture-hidden-section" tabindex="-1">Fixture hidden section</h2><p>Explicitly synthetic supporting details.</p></details>'
++    post.write_text('---'+front+'---\n'+body+'\n')
+ subprocess.run(['bundle', 'exec', 'jekyll', 'build', '--source', str(copy), '--destination',
+                 str(args.root/'site'), '--disable-disk-cache'], check=True,
+                cwd=source, env={**os.environ, 'JEKYLL_ENV': 'production'})
+diff --git a/_tests/preservation.py b/_tests/preservation.py
+index 9ac19c0..d47310f 100644
+--- a/_tests/preservation.py
++++ b/_tests/preservation.py
+@@ -1,4 +1,5 @@
+ """Compare generated routes, content, SEO, native search, and resource budgets."""
++from search_contract import expected_destinations, identities
+ import argparse, json, re
+ from html.parser import HTMLParser
+ from pathlib import Path
+@@ -34,7 +35,7 @@ for name in r:
+     check(name+' no unused Firebase/Blog scripts',sum('firebase' in s['src'] for s in scripts)==(3 if name=='travel.html' else 0) and sum(s['src'].endswith(('/blog-controls.js', '/blog-controls-2.js', '/blog-controls-3.js')) for s in scripts)==(1 if name=='blog.html' else 0))
+ search='assets/js/search-data.json'
+ before=json.loads((a.baseline/search).read_text());after=json.loads((a.site/search).read_text())
+-check('All 80 standard search records byte-equivalent',before==after and len(after)==80)
++check('All standard search records byte-equivalent with intended destinations',before==after and expected_destinations(after))
+ course=[record for record in after.values() if record['doc']=='My Courses' and record['title']!='My Courses']
+ check('All 45 unique stable course destinations preserved',len(course)==45 and len(set(record['url'] for record in course))==45 and all('#course-' in record['url'] for record in course))
+ # Guard the intentionally small upstream fork: remove only initSearch and attribution.
+diff --git a/_tests/public-surface.py b/_tests/public-surface.py
+index 415ac38..cea60e1 100644
+--- a/_tests/public-surface.py
++++ b/_tests/public-surface.py
+@@ -3,6 +3,7 @@
+ Run against normal, localhost, and Pages-plugin builds. This is deliberately
+ independent of the baseline route count: a baseline with leaked docs must fail too.
+ """
++from search_contract import expected_destinations, identities
+ import argparse
+ import hashlib
+ import json
+@@ -71,11 +72,13 @@ asset = args.site/client.lstrip('/')
+ check('Served Travel asset bytes match the reviewed current source', asset.exists() and
+       asset.read_bytes() == (ROOT/client.lstrip('/')).read_bytes())
+ published = {
+-    '/assets/css/custom-hardening-1.css': 'assets/css/custom.css',
+-    '/assets/js/photography-portfolio-2.js': 'assets/js/photography.js',
+-    '/assets/js/image-carousel-2.js': 'assets/js/infinite-scroll.js',
++    '/assets/css/custom-editorial-1.css': 'assets/css/custom.css',
++    '/assets/js/photography-portfolio-3.js': 'assets/js/photography.js',
++    '/assets/js/image-carousel-3.js': 'assets/js/infinite-scroll.js',
+     '/assets/js/blog-controls-3.js': 'assets/js/blog-controls.js',
+     '/assets/js/site-ui-2.js': 'assets/js/site-ui.js',
++    '/assets/js/image-viewer-1.js': 'assets/js/image-viewer-1.js',
++    '/assets/js/section-navigation-1.js': 'assets/js/section-navigation-1.js',
+     '/assets/css/no-script-1.css': 'assets/css/no-script-1.css',
+ }
+ for path, source in published.items():
+@@ -100,15 +103,18 @@ for route in routes:
+           'font-awesome' in a.get('href', '') for t, a in tags if t == 'link'))
+     styles = [a.get('href', '') for tag, a in tags if tag == 'link' and
+               '/assets/css/custom' in a.get('href', '')]
+-    check(route+' loads exactly the versioned custom stylesheet', styles == ['/assets/css/custom-hardening-1.css'])
+-    for name, needed in [('photography-portfolio-2', route == 'photography.html'),
++    check(route+' loads exactly the versioned custom stylesheet', styles == ['/assets/css/custom-editorial-1.css'])
++    for name, needed in [('photography-portfolio-3', route == 'photography.html'),
+                          ('blog-controls-3', route == 'blog.html'),
+                          ('site-ui-2', True),
+-                         ('image-carousel-2', any('image-scroll-hyper' in a.get('class', '').split() for _, a in tags))]:
++                         ('image-viewer-1', route == 'photography.html' or any('image-scroll-hyper' in a.get('class', '').split() for _, a in tags)),
++                         ('section-navigation-1', route in ('hobbies.html','media.html','volunteering.html') or
++                          (route.startswith('travel/') or re.match(r'^\d{4}/', route)) and any(t in ('h2','details') for t, _ in tags)),
++                         ('image-carousel-3', any('image-scroll-hyper' in a.get('class', '').split() for _, a in tags))]:
+         matches = [s for s in scripts if s['src'] == '/assets/js/'+name+'.js']
+-        check(route+' scopes '+name+' once and deferred', len(matches) == int(needed) and all('defer' in s for s in matches))
++        check(route+' scopes '+name+' once and deferred', len(matches) == int(bool(needed)) and all('defer' in s for s in matches))
+     check(route+' does not load obsolete component assets', not any(urlsplit(s['src']).path in
+-          ['/assets/js/photography.js', '/assets/js/infinite-scroll.js', '/assets/js/blog-controls.js', '/assets/js/site-ui.js', '/assets/js/photography-portfolio-1.js', '/assets/js/image-carousel-1.js', '/assets/js/blog-controls-2.js'] for s in scripts))
++          ['/assets/js/photography.js', '/assets/js/infinite-scroll.js', '/assets/js/blog-controls.js', '/assets/js/site-ui.js', '/assets/js/photography-portfolio-1.js', '/assets/js/image-carousel-1.js', '/assets/js/blog-controls-2.js', '/assets/js/image-carousel-2.js', '/assets/js/photography-portfolio-2.js'] for s in scripts))
+     travel = [s for s in scripts if re.search(r'/travel[^/]*\.js$', urlsplit(s['src']).path)]
+     check(route+' loads exactly the intended Travel client on Travel only',
+           ([s['src'] for s in travel] == [client] and 'defer' in travel[0])
+@@ -118,7 +124,7 @@ for route in routes:
+           (['firebase-app-compat.js', 'firebase-auth-compat.js', 'firebase-database-compat.js']
+            if route == 'travel.html' else []))
+ search = json.loads((args.site/'assets/js/search-data.json').read_text())
+-check('Exactly 80 standard search entries with no maintainer results', len(search) == 80 and
++check('All intended standard search destinations with no maintainer results', expected_destinations(search) and
+       not any(private_path(r['url']) for r in search.values()))
+ course = [r for r in search.values() if r['doc'] == 'My Courses' and r['title'] != 'My Courses']
+ course_html = (args.site/'courses.html').read_text()
+diff --git a/_tests/search-destinations.json b/_tests/search-destinations.json
+new file mode 100644
+index 0000000..6f89673
+--- /dev/null
++++ b/_tests/search-destinations.json
+@@ -0,0 +1,470 @@
++[
++  {
++    "doc": "About Me",
++    "title": " Welcome, Bienvenidos, 欢迎, and いらっしゃいませ! ",
++    "url": "/",
++    "relUrl": "/"
++  },
++  {
++    "doc": "About Me",
++    "title": "About Me",
++    "url": "/",
++    "relUrl": "/"
++  },
++  {
++    "doc": "Academics",
++    "title": "Academics",
++    "url": "/academics.html",
++    "relUrl": "/academics.html"
++  },
++  {
++    "doc": "Academics",
++    "title": "Continuing Education",
++    "url": "/academics.html",
++    "relUrl": "/academics.html"
++  },
++  {
++    "doc": "Academics",
++    "title": "Undergraduate Education",
++    "url": "/academics.html",
++    "relUrl": "/academics.html"
++  },
++  {
++    "doc": "Blog",
++    "title": "Blog",
++    "url": "/blog.html",
++    "relUrl": "/blog.html"
++  },
++  {
++    "doc": "Blog",
++    "title": "Blog Timeline",
++    "url": "/blog.html#blog-timeline",
++    "relUrl": "/blog.html#blog-timeline"
++  },
++  {
++    "doc": "Hobbies",
++    "title": "Hobbies",
++    "url": "/hobbies.html",
++    "relUrl": "/hobbies.html"
++  },
++  {
++    "doc": "Hobbies",
++    "title": "Languages",
++    "url": "/hobbies.html#language",
++    "relUrl": "/hobbies.html#language"
++  },
++  {
++    "doc": "Hobbies",
++    "title": "Music",
++    "url": "/hobbies.html#music",
++    "relUrl": "/hobbies.html#music"
++  },
++  {
++    "doc": "Hobbies",
++    "title": "Other Hobbies",
++    "url": "/hobbies.html#other",
++    "relUrl": "/hobbies.html#other"
++  },
++  {
++    "doc": "Hobbies",
++    "title": "Outdoor Activities",
++    "url": "/hobbies.html#outdoor",
++    "relUrl": "/hobbies.html#outdoor"
++  },
++  {
++    "doc": "Media",
++    "title": "Board Games",
++    "url": "/media.html#board-games",
++    "relUrl": "/media.html#board-games"
++  },
++  {
++    "doc": "Media",
++    "title": "Books and Films",
++    "url": "/media.html#books-and-films",
++    "relUrl": "/media.html#books-and-films"
++  },
++  {
++    "doc": "Media",
++    "title": "Media",
++    "url": "/media.html",
++    "relUrl": "/media.html"
++  },
++  {
++    "doc": "Media",
++    "title": "Musicals and Plays",
++    "url": "/media.html#musicals-and-plays",
++    "relUrl": "/media.html#musicals-and-plays"
++  },
++  {
++    "doc": "Media",
++    "title": "Physical Media",
++    "url": "/media.html#physical-media",
++    "relUrl": "/media.html#physical-media"
++  },
++  {
++    "doc": "My Courses",
++    "title": "COMS 130 Speaker-Audience Communication - Public Speaking",
++    "url": "/courses.html#course-coms130",
++    "relUrl": "/courses.html#course-coms130"
++  },
++  {
++    "doc": "My Courses",
++    "title": "ECON 142 Principles of Microeconomics",
++    "url": "/courses.html#course-econ142",
++    "relUrl": "/courses.html#course-econ142"
++  },
++  {
++    "doc": "My Courses",
++    "title": "ECON 144 Principles of Macroeconomics",
++    "url": "/courses.html#course-econ144",
++    "relUrl": "/courses.html#course-econ144"
++  },
++  {
++    "doc": "My Courses",
++    "title": "ECON 426 Statistics and Data Analysis",
++    "url": "/courses.html#course-econ426",
++    "relUrl": "/courses.html#course-econ426"
++  },
++  {
++    "doc": "My Courses",
++    "title": "ECON 510 Energy Economics",
++    "url": "/courses.html#course-econ510",
++    "relUrl": "/courses.html#course-econ510"
++  },
++  {
++    "doc": "My Courses",
++    "title": "ECON 520 Microeconomics",
++    "url": "/courses.html#course-econ520",
++    "relUrl": "/courses.html#course-econ520"
++  },
++  {
++    "doc": "My Courses",
++    "title": "ECON 522 Macroeconomics",
++    "url": "/courses.html#course-econ522",
++    "relUrl": "/courses.html#course-econ522"
++  },
++  {
++    "doc": "My Courses",
++    "title": "ECON 526 Introduction to Econometrics",
++    "url": "/courses.html#course-econ526",
++    "relUrl": "/courses.html#course-econ526"
++  },
++  {
++    "doc": "My Courses",
++    "title": "ECON 590 Game Theory",
++    "url": "/courses.html#course-econ590",
++    "relUrl": "/courses.html#course-econ590"
++  },
++  {
++    "doc": "My Courses",
++    "title": "ECON 609 Sports Economics",
++    "url": "/courses.html#course-econ609",
++    "relUrl": "/courses.html#course-econ609"
++  },
++  {
++    "doc": "My Courses",
++    "title": "ECON 664 Topics in Economics: Economic Demography",
++    "url": "/courses.html#course-econ664",
++    "relUrl": "/courses.html#course-econ664"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 101 New Student Seminar",
++    "url": "/courses.html#course-eecs101",
++    "relUrl": "/courses.html#course-eecs101"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 140 Introduction to Digital Logic Design",
++    "url": "/courses.html#course-eecs140",
++    "relUrl": "/courses.html#course-eecs140"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 168 Programming I",
++    "url": "/courses.html#course-eecs168",
++    "relUrl": "/courses.html#course-eecs168"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 210 Discrete Structures",
++    "url": "/courses.html#course-eecs210",
++    "relUrl": "/courses.html#course-eecs210"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 268 Programming II",
++    "url": "/courses.html#course-eecs268",
++    "relUrl": "/courses.html#course-eecs268"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 368 Programming Language Paradigms",
++    "url": "/courses.html#course-eecs368",
++    "relUrl": "/courses.html#course-eecs368"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 388 Embedded Systems",
++    "url": "/courses.html#course-eecs388",
++    "relUrl": "/courses.html#course-eecs388"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 448 Software Engineering I",
++    "url": "/courses.html#course-eecs448",
++    "relUrl": "/courses.html#course-eecs448"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 465 Cyber Defense",
++    "url": "/courses.html#course-eecs465",
++    "relUrl": "/courses.html#course-eecs465"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 510 Introduction to the Theory of Computing",
++    "url": "/courses.html#course-eecs510",
++    "relUrl": "/courses.html#course-eecs510"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 560 Data Structures",
++    "url": "/courses.html#course-eecs560",
++    "relUrl": "/courses.html#course-eecs560"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 563 Introduction to Communication Networks",
++    "url": "/courses.html#course-eecs563",
++    "relUrl": "/courses.html#course-eecs563"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 565 Introduction to Information and Computer Security",
++    "url": "/courses.html#course-eecs565",
++    "relUrl": "/courses.html#course-eecs565"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 569 Computer Forensics",
++    "url": "/courses.html#course-eecs569",
++    "relUrl": "/courses.html#course-eecs569"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 581 Software Engineering II",
++    "url": "/courses.html#course-eecs581",
++    "relUrl": "/courses.html#course-eecs581"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 582 Computer Science &amp; Interdisciplinary Computing Capstone",
++    "url": "/courses.html#course-eecs582",
++    "relUrl": "/courses.html#course-eecs582"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 649 Introduction to Artificial Intelligence",
++    "url": "/courses.html#course-eecs649",
++    "relUrl": "/courses.html#course-eecs649"
++  },
++  {
++    "doc": "My Courses",
++    "title": "EECS 678 Introduction to Operating Systems",
++    "url": "/courses.html#course-eecs678",
++    "relUrl": "/courses.html#course-eecs678"
++  },
++  {
++    "doc": "My Courses",
++    "title": "ENGL 102 Critical Reading and Writing",
++    "url": "/courses.html#course-engl102",
++    "relUrl": "/courses.html#course-engl102"
++  },
++  {
++    "doc": "My Courses",
++    "title": "MATH 125 Calculus I",
++    "url": "/courses.html#course-math125",
++    "relUrl": "/courses.html#course-math125"
++  },
++  {
++    "doc": "My Courses",
++    "title": "MATH 127 Calculus III",
++    "url": "/courses.html#course-math127",
++    "relUrl": "/courses.html#course-math127"
++  },
++  {
++    "doc": "My Courses",
++    "title": "MATH 146 Calculus II, Honors",
++    "url": "/courses.html#course-math146",
++    "relUrl": "/courses.html#course-math146"
++  },
++  {
++    "doc": "My Courses",
++    "title": "MATH 290 Elementary Linear Algebra",
++    "url": "/courses.html#course-math290",
++    "relUrl": "/courses.html#course-math290"
++  },
++  {
++    "doc": "My Courses",
++    "title": "MATH 526 Applied Mathematical Statistics I",
++    "url": "/courses.html#course-math526",
++    "relUrl": "/courses.html#course-math526"
++  },
++  {
++    "doc": "My Courses",
++    "title": "MATH 558 Introductory Modern Algebra",
++    "url": "/courses.html#course-math558",
++    "relUrl": "/courses.html#course-math558"
++  },
++  {
++    "doc": "My Courses",
++    "title": "MATH 590 Linear Algebra",
++    "url": "/courses.html#course-math590",
++    "relUrl": "/courses.html#course-math590"
++  },
++  {
++    "doc": "My Courses",
++    "title": "My Courses",
++    "url": "/courses.html",
++    "relUrl": "/courses.html"
++  },
++  {
++    "doc": "My Courses",
++    "title": "PHIL 140 Introduction to Philosophy",
++    "url": "/courses.html#course-phil140",
++    "relUrl": "/courses.html#course-phil140"
++  },
++  {
++    "doc": "My Courses",
++    "title": "PHIL 148 Reason and Argument",
++    "url": "/courses.html#course-phil148",
++    "relUrl": "/courses.html#course-phil148"
++  },
++  {
++    "doc": "My Courses",
++    "title": "PHSX 210 General Physics I for Engineers",
++    "url": "/courses.html#course-phsx210",
++    "relUrl": "/courses.html#course-phsx210"
++  },
++  {
++    "doc": "My Courses",
++    "title": "PHSX 212 General Physics II",
++    "url": "/courses.html#course-phsx212",
++    "relUrl": "/courses.html#course-phsx212"
++  },
++  {
++    "doc": "My Courses",
++    "title": "PHSX 216 General Physics I Laboratory",
++    "url": "/courses.html#course-phsx216",
++    "relUrl": "/courses.html#course-phsx216"
++  },
++  {
++    "doc": "My Courses",
++    "title": "PHSX 236 General Physics II Laboratory",
++    "url": "/courses.html#course-phsx236",
++    "relUrl": "/courses.html#course-phsx236"
++  },
++  {
++    "doc": "My Courses",
++    "title": "POLS 170 Introduction to International Politics",
++    "url": "/courses.html#course-pols170",
++    "relUrl": "/courses.html#course-pols170"
++  },
++  {
++    "doc": "My Courses",
++    "title": "SOC 104 Elements of Sociology",
++    "url": "/courses.html#course-soc104",
++    "relUrl": "/courses.html#course-soc104"
++  },
++  {
++    "doc": "Photography",
++    "title": "Photography",
++    "url": "/photography.html",
++    "relUrl": "/photography.html"
++  },
++  {
++    "doc": "Travel",
++    "title": "Cancun, Mexico",
++    "url": "/travel.html#travel-cancun2026",
++    "relUrl": "/travel.html#travel-cancun2026"
++  },
++  {
++    "doc": "Travel",
++    "title": "Colorado, USA",
++    "url": "/travel.html#travel-coloradonp",
++    "relUrl": "/travel.html#travel-coloradonp"
++  },
++  {
++    "doc": "Travel",
++    "title": "Montréal, QC, CA",
++    "url": "/travel.html#travel-montreal",
++    "relUrl": "/travel.html#travel-montreal"
++  },
++  {
++    "doc": "Travel",
++    "title": "New Mexico &amp; Texas, USA",
++    "url": "/travel.html#travel-southwestroadtrip2026",
++    "relUrl": "/travel.html#travel-southwestroadtrip2026"
++  },
++  {
++    "doc": "Travel",
++    "title": "Oregon, USA",
++    "url": "/travel.html#travel-oregon",
++    "relUrl": "/travel.html#travel-oregon"
++  },
++  {
++    "doc": "Travel",
++    "title": "Tokyo, Japan",
++    "url": "/travel.html#travel-japan",
++    "relUrl": "/travel.html#travel-japan"
++  },
++  {
++    "doc": "Travel",
++    "title": "Travel",
++    "url": "/travel.html",
++    "relUrl": "/travel.html"
++  },
++  {
++    "doc": "Travel",
++    "title": "Utah, USA",
++    "url": "/travel.html#travel-saltlakecity2026",
++    "relUrl": "/travel.html#travel-saltlakecity2026"
++  },
++  {
++    "doc": "Travel",
++    "title": "Washington, USA",
++    "url": "/travel.html#travel-washington",
++    "relUrl": "/travel.html#travel-washington"
++  },
++  {
++    "doc": "Travel",
++    "title": "Wyoming, South Dakota, &amp; North Dakota, USA",
++    "url": "/travel.html#travel-roadtrip",
++    "relUrl": "/travel.html#travel-roadtrip"
++  },
++  {
++    "doc": "Volunteering",
++    "title": "Denver Food Rescue",
++    "url": "/volunteering.html#denver-food-rescue",
++    "relUrl": "/volunteering.html#denver-food-rescue"
++  },
++  {
++    "doc": "Volunteering",
++    "title": "Denver Zoo Conservation Alliance",
++    "url": "/volunteering.html#denver-zoo-conservation-alliance",
++    "relUrl": "/volunteering.html#denver-zoo-conservation-alliance"
++  },
++  {
++    "doc": "Volunteering",
++    "title": "Rocky Mountain Wildlife Alliance",
++    "url": "/volunteering.html#rocky-mountain-wildlife-alliance",
++    "relUrl": "/volunteering.html#rocky-mountain-wildlife-alliance"
++  },
++  {
++    "doc": "Volunteering",
++    "title": "Volunteering",
++    "url": "/volunteering.html",
++    "relUrl": "/volunteering.html"
++  }
++]
+diff --git a/_tests/search_contract.py b/_tests/search_contract.py
+new file mode 100644
+index 0000000..d51bb6a
+--- /dev/null
++++ b/_tests/search_contract.py
+@@ -0,0 +1,14 @@
++"""Frozen intended destinations, independent of the generator's numeric keys."""
++import json
++from pathlib import Path
++
++EXPECTED = json.loads(Path(__file__).with_name('search-destinations.json').read_text())
++
++
++def identities(records):
++    return sorted(({key: row[key] for key in ('doc', 'title', 'url', 'relUrl')}
++                   for row in records.values()), key=lambda r: (r['doc'], r['title'], r['url']))
++
++
++def expected_destinations(records):
++    return identities(records) == EXPECTED
+diff --git a/_tests/verify-deployed.py b/_tests/verify-deployed.py
+index 54bdb5b..1297097 100644
+--- a/_tests/verify-deployed.py
++++ b/_tests/verify-deployed.py
+@@ -1,4 +1,5 @@
+ """Read-only post-deployment checks. Never runs JS or authenticates to Firebase."""
++from search_contract import expected_destinations, identities
+ import argparse
+ import concurrent.futures
+ import hashlib
+@@ -67,7 +68,7 @@ for path in paths[:82]:
+     check(path+' contains no internal navigation',
+           not any(urlsplit(a.get('href', '')).path.startswith('/docs/') for tag, a in tags if tag == 'a'))
+ search = json.loads(responses['/assets/js/search-data.json'][1])
+-check('Exactly 80 search entries and no internal documents', len(search) == 80 and
++check('All intended search destinations and no internal documents', expected_destinations(search) and
+       not any(urlsplit(r['url']).path.startswith('/docs/') for r in search.values()))
+ course = [r for r in search.values() if r['doc'] == 'My Courses' and r['title'] != 'My Courses']
+ ids = [a['id'] for _, a in Tags(responses['/courses.html'][1].decode()).tags if 'id' in a]
+diff --git a/_tests/visual-media.py b/_tests/visual-media.py
+index 4dbce97..e2c06b2 100644
+--- a/_tests/visual-media.py
++++ b/_tests/visual-media.py
+@@ -45,7 +45,7 @@ async def context(browser, width=1440, height=900, mode='mixed', gate=None, meta
+         u = urlparse(r.request.url); name = u.path.rsplit('/',1)[-1]
+         if metadata and u.path in ('/photography.html', '/blog.html'):
+             await r.fulfill(path=str(args.metadata_fixtures/'site'/u.path.lstrip('/')),content_type='text/html');return
+-        if gate and name == 'photography-portfolio-2.js': await gate.wait()
++        if gate and name == 'photography-portfolio-3.js': await gate.wait()
+         if '/assets/images/' in u.path:
+             if mode == 'missing': await r.fulfill(status=404,body='Intentional missing-media fixture');return
+             h = hashlib.sha256(u.path.encode()).digest()
+@@ -83,12 +83,16 @@ async def gallery(browser):
+         check(f'gallery {w}x{h}: uncropped natural ratios',all(abs(s['w']/s['h']-s['nw']/s['nh'])<.02 for s in sizes),sizes)
+         check(f'gallery {w}x{h}: no horizontal overflow',await p.evaluate('document.documentElement.scrollWidth<=innerWidth'))
+         cols = await p.locator('.masonry-gallery').evaluate('(e)=>getComputedStyle(e).columnCount')
+-        check(f'gallery {w}x{h}: constrained column count',int(cols)==1 if w<=360 else int(cols)<=4 and int(cols)>=2,cols)
++        actual_cols=await p.locator('.photo-tile').evaluate_all('(es)=>new Set(es.map(e=>Math.round(e.getBoundingClientRect().left))).size')
++        available=(await p.locator('.masonry-gallery').bounding_box())['width']
++        expected_cols=1 if w<=360 else 2 if w<=768 else max(1,min(3,int((available+6)//226)))
++        check(f'gallery {w}x{h}: actual responsive three-column cap',actual_cols==expected_cols,{'actual':actual_cols,'available':available,'expected':expected_cols})
++        check(f'gallery {w}x{h}: minimum operable panorama targets',await p.locator('a.glightbox').evaluate_all('(es)=>es.every(e=>e.getBoundingClientRect().height>=24)'))
+         link = p.locator('a.glightbox').first
+         await link.focus()
+         summary = await link.locator('.photo-summary').evaluate('(e)=>({visible:getComputedStyle(e).opacity,rect:e.getBoundingClientRect().toJSON(),pos:getComputedStyle(e).position})')
+         tile = await link.bounding_box()
+-        if not await link.evaluate('(e)=>e.classList.contains("no-summary")'):
++        if await link.get_attribute('data-summary-lines') != '0':
+             check(f'gallery {w}x{h}: focus summary stays inside tile',summary['visible']=='1' and summary['pos']=='absolute' and summary['rect']['left']>=tile['x']-1 and summary['rect']['right']<=tile['x']+tile['width']+1 and summary['rect']['top']>=tile['y']-1,summary)
+         before = await p.evaluate('scrollY')
+         await p.keyboard.press('Enter');await p.locator('.gslide.current img').wait_for()
+@@ -143,7 +147,7 @@ async def timeline(browser):
+         await p.goto(base+'/blog.html',wait_until='networkidle');await ready(p)
+         check(f'blog {w}: 64 entries and grid layout',await p.locator('.blog-entry').count()==64 and await p.locator('.blog-entry').first.evaluate('(e)=>getComputedStyle(e).display')=='grid')
+         geom=await p.locator('.blog-entry').evaluate_all('''es=>es.slice(0,20).map(e=>{const t=e.querySelector('.event-thumb').getBoundingClientRect(),c=e.querySelector('.event-content').getBoundingClientRect();return {gutter:c.left-t.right,text:c.left,major:e.classList.contains('major')}})''')
+-        check(f'blog {w}: consistent major/minor gutter and title alignment',max(g['gutter'] for g in geom)-min(g['gutter'] for g in geom)<1 and max(g['text'] for g in geom)-min(g['text'] for g in geom)<1,geom)
++        check(f'blog {w}: compact minor column and consistent alignment within each role',all(abs(g['gutter']-(12 if w>600 else 8))<1 for g in geom if not g['major']) and all(max(g['text'] for g in geom if g['major']==role)-min(g['text'] for g in geom if g['major']==role)<1 for role in [True,False]) and min(g['text'] for g in geom if g['major'])>min(g['text'] for g in geom if not g['major']),geom)
+         check(f'blog {w}: major thumbnails share title destinations; minor events stay unlinked',await p.locator('.blog-entry').evaluate_all('''es=>es.every(e=>e.classList.contains('major')?e.querySelector('a.event-thumb')?.getAttribute('href')===e.querySelector('a.event-link').getAttribute('href'):!e.querySelector('a'))'''))
+         for year in ['all','2026','2025','2024']:
+             await p.locator('#year-filter').select_option(year)
+@@ -177,7 +181,7 @@ async def carousels(browser):
+             status=await strip.evaluate('(e)=>e.nextElementSibling.querySelector(".carousel-position").textContent')
+             check(f'carousel {w}x{h}/{i}: keyboard next and no page jump','Photo 2 ' in status and abs(await p.evaluate('scrollY')-start)<2,status)
+             await p.keyboard.press('Home');await p.wait_for_timeout(240)
+-            check(f'carousel {w}x{h}/{i}: initial first image centered',await strip.evaluate('''e=>{const img=e.querySelector(':not([data-carousel-clone]) > img'),r=img.getBoundingClientRect(),c=e.getBoundingClientRect();return Math.abs(r.left+r.width/2-c.left-c.width/2)<2}'''))
++            check(f'carousel {w}x{h}/{i}: initial first image centered',await strip.evaluate('''e=>{const img=e.querySelector('.image-scroll-track > :not([data-carousel-clone]) img'),r=img.getBoundingClientRect(),c=e.getBoundingClientRect();return Math.abs(r.left+r.width/2-c.left-c.width/2)<2}'''))
+             other=await p.locator('.image-scroll-hyper').nth(1-i).evaluate('(e)=>e.scrollLeft')
+             await strip.evaluate('(e)=>e.scrollLeft=0');await p.wait_for_timeout(260)
+             check(f'carousel {w}x{h}/{i}: left edge settles into a finite or looping valid view',await strip.evaluate('(e)=>!e.classList.contains("is-looping")||e.scrollLeft>0'))
+@@ -189,7 +193,7 @@ async def carousels(browser):
+     c,p=await context(browser,390,mode='slow');await p.goto(base+'/volunteering.html',wait_until='domcontentloaded')
+     await ready(p)
+     await p.wait_for_timeout(900)
+-    check('Late images settle to correctly centered first source',await p.locator('.image-scroll-hyper').evaluate_all('''cs=>cs.every(e=>{const img=e.querySelector('.image-scroll-track > :not([data-carousel-clone]) > img'),r=img.getBoundingClientRect(),c=e.getBoundingClientRect();return Math.abs(r.left+r.width/2-c.left-c.width/2)<2})'''))
++    check('Late images settle to correctly centered first source',await p.locator('.image-scroll-hyper').evaluate_all('''cs=>cs.every(e=>{const img=e.querySelector('.image-scroll-track > :not([data-carousel-clone]) img'),r=img.getBoundingClientRect(),c=e.getBoundingClientRect();return Math.abs(r.left+r.width/2-c.left-c.width/2)<2})'''))
+     before=await p.locator('.image-scroll-track').evaluate_all('(es)=>es.map(e=>e.children.length)')
+     for _ in range(12):await p.evaluate('ImageCarousels.init()')
+     await p.wait_for_timeout(240)
+@@ -207,6 +211,7 @@ async def fixtures(browser):
+         await c.close()
+     c,p=await context(browser,390,mode='missing')
+     await p.goto(base+'/photography.html',wait_until='networkidle');await ready(p)
++    check('Missing photos retain comfortable original-image targets',await p.locator('a.glightbox').evaluate_all('(es)=>es.every(e=>e.getBoundingClientRect().height>=44)'))
+     await p.locator('a.glightbox').first.tap()
+     await p.locator('.gslide.current .photo-viewer-error').wait_for()
+     check('Reduced motion: library opening, closing and mobile slide effects are disabled',await p.evaluate('lightbox.settings.openEffect==="none"&&lightbox.settings.closeEffect==="none"&&lightbox.settings.cssEfects.slide.in==="none"'))
+diff --git a/_travel/cancun2026.md b/_travel/cancun2026.md
+index 3084b02..58a6da4 100644
+--- a/_travel/cancun2026.md
++++ b/_travel/cancun2026.md
+@@ -3,6 +3,7 @@ title: "Cancun, Mexico"
+ description: "TBD."
+ date: 2026-03-16
+ layout: content
++section_navigation: false # Copied placeholder outline; enable when authored.
+ image: /assets/images/
+ permalink: /travel/cancun2026/
+ published: true
+diff --git a/_travel/coloradonp.md b/_travel/coloradonp.md
+index 43a1e30..f257665 100644
+--- a/_travel/coloradonp.md
++++ b/_travel/coloradonp.md
+@@ -3,6 +3,7 @@ title: "Colorado, USA"
+ description: "Camping and Hiking National Parks in Colorado"
+ date: 2025-08-15
+ layout: content
++section_navigation: false # Copied placeholder outline; enable when authored.
+ image: /assets/images/colorado2025/gsdnp1.webp
+ permalink: /travel/coloradonp/
+ published: true
+diff --git a/_travel/japan.md b/_travel/japan.md
+index 7d16e97..f11286d 100644
+--- a/_travel/japan.md
++++ b/_travel/japan.md
+@@ -3,6 +3,7 @@ title: "Tokyo, Japan"
+ description: "Endulging in Japanese Culture"
+ date: 2025-10-07
+ layout: content
++section_navigation: false # Copied placeholder outline; enable when authored.
+ image: /assets/images/japan2025/japan34.webp
+ permalink: /travel/japan/
+ published: true
+diff --git a/_travel/montreal.md b/_travel/montreal.md
+index dcf93ca..cc6fde7 100644
+--- a/_travel/montreal.md
++++ b/_travel/montreal.md
+@@ -3,6 +3,7 @@ title: "Montréal, QC, CA"
+ description: "En route pour Montréal pour voir The Weeknd, bien manger, et passer un bon moment."
+ date: 2025-07-23
+ layout: content
++section_navigation: false # Copied placeholder outline; enable when authored.
+ image: /assets/images/montreal2025/montreal18.webp
+ permalink: /travel/montreal/
+ 
+diff --git a/_travel/oregon.md b/_travel/oregon.md
+index bf85bb8..6db49cf 100644
+--- a/_travel/oregon.md
++++ b/_travel/oregon.md
+@@ -3,6 +3,7 @@ title: "Oregon, USA"
+ description: "Visiting Portland, Crater Lake National Park, and Seeing ランプ (Lamp) in Concert."
+ date: 2024-10-10
+ layout: content
++section_navigation: false # Copied placeholder outline; enable when authored.
+ image: /assets/images/oregon2025/clnp23.webp
+ permalink: /travel/oregon/
+ 
+diff --git a/_travel/roadtrip.md b/_travel/roadtrip.md
+index 18662d3..8814d64 100644
+--- a/_travel/roadtrip.md
++++ b/_travel/roadtrip.md
+@@ -3,6 +3,7 @@ title: "Wyoming, South Dakota, & North Dakota, USA"
+ description: "Exploring National Parks in South Dakota, North Dakota, and Wyoming"
+ date: 2025-09-05
+ layout: content
++section_navigation: false # Copied placeholder outline; enable when authored.
+ image: /assets/images/roadtrip2025/roadtrip26.webp
+ permalink: /travel/roadtrip/
+ published: true
+diff --git a/_travel/saltlakecity2026.md b/_travel/saltlakecity2026.md
+index d5780c3..93d75f4 100644
+--- a/_travel/saltlakecity2026.md
++++ b/_travel/saltlakecity2026.md
+@@ -3,6 +3,7 @@ title: "Utah, USA"
+ description: "TBD."
+ date: 2026-02-28
+ layout: content
++section_navigation: false # Copied placeholder outline; enable when authored.
+ image: /assets/images/
+ permalink: /travel/saltlakecity2026/
+ published: true
+diff --git a/assets/css/custom-editorial-1.css b/assets/css/custom-editorial-1.css
+new file mode 100644
+index 0000000..6ed66dc
+--- /dev/null
++++ b/assets/css/custom-editorial-1.css
+@@ -0,0 +1,4 @@
++---
++layout: null
++---
++{%- include_relative custom.css -%}
+diff --git a/assets/css/custom.css b/assets/css/custom.css
+index 926811c..a5e609c 100644
+--- a/assets/css/custom.css
++++ b/assets/css/custom.css
+@@ -598,7 +598,7 @@ p { font-size: 0.7rem; }
+   display: flex;
+   align-items: center;
+   justify-content: center;
+-  gap: 12px;
++  gap: 8px;
+   margin: 8px 0 0;
+ }
+ .carousel-controls[hidden] {
+@@ -611,10 +611,10 @@ p { font-size: 0.7rem; }
+   width: 44px;
+   height: 44px;
+   padding: 0;
+-  border: 1px solid #d9d9e1;
+-  border-radius: 3px;
+-  background: #fff;
+-  color: #5540b8;
++  border: 0;
++  border-radius: 50%;
++  background: transparent;
++  color: #555;
+   font: inherit;
+   font-size: 20px;
+   cursor: pointer;
+@@ -634,7 +634,7 @@ p { font-size: 0.7rem; }
+   min-width: 90px;
+   text-align: center;
+   font-family: 'Inter', sans-serif;
+-  font-size: 14px;
++  font-size: 13px;
+   line-height: 1.5;
+   color: #666;
+ }
+@@ -1126,7 +1126,10 @@ canvas {
+ /* Natural-ratio collage, a small tile-bound summary, and one accessible
+  * metadata node for the viewer. No floating viewport cards or hold gestures. */
+ .photography-page .masonry-gallery {
+-  columns: 170px 4;
++  /* Independently reversible: change only these two gallery settings. */
++  --gallery-column-width: 220px;
++  --gallery-column-count: 3;
++  columns: var(--gallery-column-width) var(--gallery-column-count);
+   column-gap: 6px;
+ }
+ .photography-page .photo-tile {
+@@ -1137,6 +1140,7 @@ canvas {
+ .photography-page .photo-tile > a {
+   display: block;
+   position: relative;
++  min-height: 24px; /* Keep extreme panoramas operable without cropping images. */
+   color: inherit;
+   text-decoration: none;
+ }
+@@ -1158,16 +1162,16 @@ canvas {
+ }
+ .photography-page .photo-summary {
+   position: absolute;
+-  inset: auto 0 0;
++  inset: auto 4px 4px;
+   box-sizing: border-box;
+-  max-height: 100%;
++  max-height: 40%;
+   overflow: hidden;
+-  padding: 12px 8px 6px;
+-  color: #fff;
+-  background: linear-gradient(transparent, rgba(12, 14, 18, .76) 12px);
++  padding: 4px 6px;
++  color: #222;
++  background: rgba(250, 250, 250, .97);
+   opacity: 0;
+   pointer-events: none;
+-  transition: opacity 100ms ease;
++  transition: none;
+ }
+ .photography-page .photo-summary-title,
+ .photography-page .photo-summary-secondary {
+@@ -1176,21 +1180,28 @@ canvas {
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   font-family: 'Inter', sans-serif;
+-  font-size: 14px;
+-  line-height: 1.35;
++  font-size: 13px;
++  line-height: 17px;
+   font-weight: 500;
+ }
+ .photography-page .photo-summary-secondary {
+-  margin-top: 2px;
+-  font-size: 13px;
++  margin-top: 0;
++  font-size: 12px;
++  line-height: 16px;
+   font-weight: 400;
++  color: #555;
+ }
+ @media (hover: hover) {
+   .photography-page a:hover .photo-summary { opacity: 1; }
+ }
+ .photography-page a:focus-visible .photo-summary { opacity: 1; }
+-.photography-page a.compact-summary .photo-summary-secondary { display: none; }
+-.photography-page a.no-summary .photo-summary { display: none; }
++.photography-page .photo-summary > span { display: none; }
++.photography-page [data-summary-lines="1"] .photo-summary > span:nth-child(-n+1),
++.photography-page [data-summary-lines="2"] .photo-summary > span:nth-child(-n+2),
++.photography-page [data-summary-lines="3"] .photo-summary > span:nth-child(-n+3),
++.photography-page [data-summary-lines="4"] .photo-summary > span:nth-child(-n+4),
++.photography-page [data-summary-lines="5"] .photo-summary > span:nth-child(-n+5) { display: block; }
++.photography-page a[data-summary-lines="0"] .photo-summary { display: none; }
+ .main-content .photography-page a:focus-visible {
+   outline-offset: -3px;
+ }
+@@ -1720,3 +1731,100 @@ a.skip-to-main:focus {
+ .travel-card .like-button:disabled[aria-busy="false"] {
+   cursor: not-allowed;
+ }
++
++/* ==========================================================================
++   12. Approved editorial refinements (opt-in components, no global type reset)
++   ========================================================================== */
++.carousel-controls button { touch-action: manipulation; }
++.carousel-controls button svg { flex: none; }
++.carousel-help { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
++.image-scroll-item > a { display: block; height: 100%; cursor: zoom-in; }
++.carousel-viewer-status:empty { display: none; }
++.main-content .carousel-viewer-status { margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: #666; }
++.image-scroll-hyper[aria-busy="true"] { cursor: progress; }
++
++.blog-page .timeline { gap: 12px; }
++.blog-page .timeline-event.major:not(:first-child),
++.blog-page .timeline-event.major + .timeline-event { margin-top: 12px; }
++.blog-page .timeline-event.minor { --timeline-thumb: 48px; gap: 12px; }
++.blog-page .minor .event-thumb { width: var(--timeline-thumb); }
++.main-content .blog-page .minor .event-title { font-size: 15px; color: #333; }
++.blog-page .event-meta { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 8px; row-gap: 0; margin-top: 4px; }
++.main-content .blog-page .event-meta > p { margin: 0; }
++.main-content .blog-page .minor .event-desc { margin-top: 4px; }
++
++/* Travel refinements: this entire block can be removed independently.
++ * No action-state selectors, Firebase classes or counters are changed. */
++.travel-page .travel-card { border-color: #e4e4ea; }
++.travel-page .travel-date { margin-bottom: 6px; }
++.main-content .travel-page .travel-card-content > p { margin-bottom: 10px; }
++.travel-page .travel-actions { font-variant-numeric: tabular-nums; }
++.travel-page .travel-actions button:hover:not(:disabled) { border-color: transparent; }
++.travel-page .travel-actions button:active:not(:disabled) { background: #ece9f8; }
++.travel-page .travel-cover:hover + .travel-card-content .travel-card-title a { text-decoration: underline; text-underline-offset: 3px; }
++.travel-page .travel-cover:focus-visible { outline-offset: -3px; }
++
++/* The normal instructions remain available to assistive technology. Failure
++ * feedback deliberately remains visible when the viewer cannot initialize. */
++.photography-page .gallery-hint:not([role="status"]) {
++  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
++  overflow: hidden; clip-path: inset(50%);
++}
++.photography-page a.is-unavailable { min-height: 44px; background: #f4f4f8; }
++
++/* Compact, in-flow navigation: native fragment URLs and wrapping lists. */
++.main-content .section-nav { margin: -12px 0 16px; padding: 0; }
++.main-content .section-nav ul { display: block; margin: 0; padding: 0; list-style: none; }
++.main-content .section-nav li { display: inline; margin: 0; padding: 0; }
++.main-content .section-nav li::before { display: none; }
++.main-content .section-nav li + li::before { display: inline; position: static; content: '·'; color: #777; margin: 0 8px; }
++.main-content .section-nav a { display: inline-flex; align-items: center; min-height: 28px; padding: 2px 0; font-size: 13px; line-height: 20px; color: #5540b8; text-decoration: none; scroll-margin-block: var(--ui-header-offset) 12px; }
++.main-content .section-nav a:hover { text-decoration: underline; text-underline-offset: 3px; }
++.main-content .section-nav summary { min-height: 28px; font-size: 13px; line-height: 20px; color: #5540b8; cursor: pointer; }
++.content-page > .section-nav + .content-body > h2:first-child,
++.post-article > .section-nav + .post-body > h2:first-child { margin-top: 0; }
++.section-nav summary:focus-visible,.support-button:focus-visible,.expand-support:focus-visible { outline: 3px solid #5540b8; outline-offset: 2px; }
++
++.main-content .hobby-group { margin: 0 0 24px; }
++.main-content .hobby-group > h2,.main-content .hobby-group-heading > h2 { margin-top: 0; }
++.hobby-topic { min-width: 0; }
++.hobby-topic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px 24px; align-items: start; }
++.hobby-topic-grid > .hobby-wide { grid-column: 1 / -1; }
++.main-content .hobby-topic-grid h3:first-child,.main-content .hobby-topic-grid h4:first-child { margin-top: 0; }
++.main-content .hobby-group > .hobby-topic > p { max-width: 68ch; }
++.hobby-short-topics { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; }
++.hobby-short-topics .hobby-topic { display: flex; align-items: baseline; gap: 8px; }
++.main-content .hobby-short-topics h3 { font-size: 16px !important; line-height: 1.4; margin: 0; }
++.main-content .hobby-short-topics p { font-size: 14px; color: #666; margin: 0; }
++.hobby-group-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 8px; }
++.main-content .hobby-group-heading > h2 { margin-bottom: 0; }
++.main-content .hobbies-editorial [data-support-heading] { margin: 0; }
++.support-button { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; width: 100%; padding: 8px 0; margin: 0; background: transparent; border: 0; font: 500 15px/1.4 Inter,sans-serif; color: #333; text-align: left; cursor: pointer; }
++.support-button span { min-width: 0; overflow-wrap: anywhere; }
++.support-button svg { flex: none; }
++.support-button[aria-expanded="true"] svg { transform: rotate(180deg); }
++.support-panel { padding: 4px 0 12px; }
++.support-panel[hidden] { display: none; }
++.main-content .support-panel ul { margin-top: 0; margin-bottom: 0; }
++.expand-support { min-height: 32px; margin: 0; padding: 4px 0; border: 0; background: transparent; color: #5540b8; font: 400 13px/20px Inter,sans-serif; cursor: pointer; }
++.expand-support:hover { text-decoration: underline; }
++.main-content .media-categories { margin-top: 16px; }
++.media-category-row { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: baseline; gap: 12px; padding: 10px 0; }
++.main-content .media-category-row h2,.main-content .media-category-row p { margin: 0; }
++.main-content .media-category-row p { color: #666; }
++@media(max-width:600px) {
++  .blog-page .timeline-event.minor { --timeline-thumb: 40px; gap: 8px; }
++  .photography-page .photo-summary-title,.photography-page .photo-summary-secondary { font-size: 14px; line-height: 18px; }
++  .photography-page .photo-summary-secondary { font-size: 13px; }
++  .main-content .section-nav a,.main-content .section-nav summary,.expand-support { font-size: 14px; min-height: 32px; }
++  .hobby-short-topics { column-gap: 20px; }
++}
++@media(max-width:430px) {
++  /* A compact status list avoids an orphaned third outdoor topic on phones. */
++  .hobby-short-topics { display: grid; grid-template-columns: 1fr; gap: 4px; }
++  .hobby-short-topics .hobby-topic { justify-content: space-between; min-height: 24px; }
++}
++@media print {
++  .main-content .support-panel[hidden] { display: block !important; }
++  .section-nav,.expand-support,.support-button svg,.carousel-controls { display: none !important; }
++}
+diff --git a/assets/js/image-carousel-3.js b/assets/js/image-carousel-3.js
+new file mode 100644
+index 0000000..0d063a5
+--- /dev/null
++++ b/assets/js/image-carousel-3.js
+@@ -0,0 +1,4 @@
++---
++layout: null
++---
++{%- include_relative infinite-scroll.js -%}
+diff --git a/assets/js/image-viewer-1.js b/assets/js/image-viewer-1.js
+new file mode 100644
+index 0000000..e2a9ea1
+--- /dev/null
++++ b/assets/js/image-viewer-1.js
+@@ -0,0 +1,143 @@
++/* Shared GLightbox adapter. Carousel pages fetch the existing pinned library
++ * only on first activation; Photography retains its existing eager dependency.
++ */
++(() => {
++  if (window.ImageViewers) return;
++  let pending;
++  let requested = false;
++  let loaded = false;
++  let active;
++  let intent = 0;
++  let cancelIntent;
++  function cancel() {
++    intent++;
++    const cleanup = cancelIntent; cancelIntent = null;
++    cleanup?.();
++  }
++  window.addEventListener('pagehide', cancel);
++  window.addEventListener('blur', cancel);
++  document.addEventListener('visibilitychange', () => { if (document.hidden) cancel(); });
++  // Capture runs before a new image's target handler claims its own intent.
++  // A later Tab, press or unrelated click cancels a still-loading opening.
++  document.addEventListener('pointerdown', cancel, { capture: true, passive: true });
++  document.addEventListener('keydown', cancel, true);
++  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
++  function load() {
++    if (pending) return pending;
++    if (loaded || (!requested && typeof GLightbox === 'function')) return Promise.resolve();
++    requested = true;
++    const css = document.createElement('link');
++    css.rel = 'stylesheet';
++    css.href = 'https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/css/glightbox.min.css';
++    const script = document.createElement('script');
++    script.src = 'https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js';
++    script.async = true;
++    pending = Promise.all([css, script].map(node => new Promise((resolve, reject) => {
++      node.onload = resolve;
++      node.onerror = () => reject(new Error('Image viewer unavailable'));
++    })));
++    const timer = setTimeout(() => { css.dispatchEvent(new Event('error')); script.dispatchEvent(new Event('error')); }, 8000);
++    pending = pending.then(() => {
++      clearTimeout(timer);
++      if (typeof GLightbox !== 'function') throw new Error('Image viewer unavailable');
++      loaded = true;
++    }).catch(error => {
++      clearTimeout(timer); css.remove(); script.remove(); pending = null;
++      throw error;
++    });
++    document.head.append(css, script);
++    return pending;
++  }
++  document.addEventListener('keydown', event => {
++    if (!active || event.key !== 'Tab') return;
++    const dialog = document.querySelector('.glightbox-container');
++    if (!dialog) return;
++    const controls = Array.from(dialog.querySelectorAll('button, a[href], [tabindex="0"]'))
++      .filter(control => !control.disabled && !control.classList.contains('disabled')
++        && control.getClientRects().length && !control.closest('[inert]'));
++    if (!controls.length) return;
++    event.preventDefault(); event.stopPropagation();
++    const index = controls.indexOf(document.activeElement);
++    controls[index < 0 ? (event.shiftKey ? controls.length - 1 : 0)
++      : (index + (event.shiftKey ? -1 : 1) + controls.length) % controls.length].focus();
++  }, true);
++  function create(options = {}) {
++    if (typeof GLightbox !== 'function') return null;
++    const { label = 'Image viewer', className = 'photography-lightbox', ...config } = options;
++    const instance = GLightbox({
++      moreLength: 0,
++      openEffect: reduce.matches ? 'none' : 'zoom',
++      closeEffect: reduce.matches ? 'none' : 'zoom',
++      slideEffect: reduce.matches ? 'none' : 'slide',
++      ...(reduce.matches ? { cssEfects: {
++        slide: { in: 'none', out: 'none' }, slideBack: { in: 'none', out: 'none' }
++      } } : {}),
++      ...config
++    });
++    let trigger;
++    const background = [];
++    function expose(index = instance.getActiveSlideIndex()) {
++      const dialog = document.querySelector('.glightbox-container');
++      if (!dialog) return;
++      const slides = Array.from(dialog.querySelectorAll('.gslide'));
++      const focused = document.activeElement?.closest('.gslide');
++      if (focused && focused !== slides[index]) dialog.querySelector('.gclose')?.focus({ preventScroll: true });
++      slides.forEach((slide, i) => { slide.inert = i !== index; slide.setAttribute('aria-hidden', String(i !== index)); });
++    }
++    instance.on('slide_before_change', ({ current }) => expose(current.index));
++    instance.on('slide_after_load', ({ slide }) => {
++      const description = slide.querySelector('.gslide-description');
++      if (description) {
++        description.tabIndex = 0;
++        description.setAttribute('role', 'region');
++        description.setAttribute('aria-label', 'Photo details');
++      }
++      expose();
++    });
++    instance.on('slide_changed', () => expose());
++    instance.on('open', () => {
++      active = instance;
++      const dialog = document.querySelector('.glightbox-container');
++      dialog.classList.add(className);
++      dialog.setAttribute('aria-label', label);
++      dialog.setAttribute('aria-modal', 'true');
++      expose();
++      dialog.addEventListener('error', event => {
++        const image = event.target;
++        const slide = image.closest?.('.gslide');
++        if (!(image instanceof HTMLImageElement) || !slide || slide.querySelector('.photo-viewer-error')) return;
++        const message = document.createElement('p');
++        message.className = 'photo-viewer-error'; message.setAttribute('role', 'status');
++        message.textContent = 'This photograph is unavailable.';
++        image.after(message);
++        const description = slide.querySelector('.gslide-description');
++        if (description) {
++          description.tabIndex = 0;
++          description.setAttribute('role', 'region');
++          description.setAttribute('aria-label', 'Photo details');
++        }
++        if (slide === instance.getActiveSlide()) instance.goToSlide(instance.getActiveSlideIndex());
++      }, true);
++      Array.from(document.body.children).forEach(node => {
++        if (node instanceof HTMLElement && node !== dialog && !node.inert) {
++          node.inert = true; background.push(node);
++        }
++      });
++      dialog.querySelector('.gclose')?.focus();
++    });
++    instance.on('close', () => {
++      background.splice(0).forEach(node => { node.inert = false; });
++      active = null;
++      if (trigger?.isConnected && !trigger.closest('[inert]')) trigger.focus({ preventScroll: true });
++    });
++    // Keep the public GLightbox API available to existing gallery consumers.
++    instance.setReturnFocus = element => { trigger = element; };
++    return instance;
++  }
++  window.ImageViewers = {
++    load, create,
++    begin(cleanup) { cancel(); cancelIntent = cleanup; return intent; },
++    current: value => value === intent,
++    finish(value) { if (value === intent) cancelIntent = null; }
++  };
++})();
+diff --git a/assets/js/infinite-scroll.js b/assets/js/infinite-scroll.js
+index 0d79783..118c8c7 100644
+--- a/assets/js/infinite-scroll.js
++++ b/assets/js/infinite-scroll.js
+@@ -39,18 +39,19 @@
+     position.id = `${container.id}-position`;
+     position.setAttribute('role', 'status');
+     position.setAttribute('aria-live', 'polite');
+-    [[previous, 'Previous photo', '←'], [next, 'Next photo', '→']].forEach(([button, label, arrow]) => {
++    const help = document.createElement('span');
++    help.id = `${container.id}-help`;
++    help.className = 'carousel-help';
++    help.textContent = 'Use arrow keys to browse. Press Enter or Space to enlarge the current photo.';
++    [[previous, 'Previous photo', 'm14 6-6 6 6 6'], [next, 'Next photo', 'm10 6 6 6-6 6']].forEach(([button, label, path]) => {
+       button.type = 'button';
+       button.setAttribute('aria-label', label);
+       button.setAttribute('aria-controls', container.id);
+-      const icon = document.createElement('span');
+-      icon.setAttribute('aria-hidden', 'true');
+-      icon.textContent = arrow;
+-      button.appendChild(icon);
++      button.innerHTML = `<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="${path}"/></svg>`;
+     });
+-    controls.append(previous, position, next);
++    controls.append(previous, position, next, help);
+     container.after(controls);
+-    container.setAttribute('aria-describedby', position.id);
++    container.setAttribute('aria-describedby', `${position.id} ${help.id}`);
+     let snapshot = null;
+     let pointerDown = false;
+     let scrolling = false;
+@@ -58,6 +59,31 @@
+     let frame = 0;
+     let idle = 0;
+     let lastSizeKey = '';
++    let commandTarget = null;
++    let hold = null;
++    let holdTimer = 0;
++    let holdFrame = 0;
++    let suppressClick = false;
++    let tap = null;
++    let viewer = null;
++    const viewerStatus = document.createElement('p');
++    viewerStatus.className = 'carousel-viewer-status';
++    viewerStatus.setAttribute('role', 'status');
++    controls.after(viewerStatus);
++    originals.forEach((item, index) => {
++      item.dataset.carouselIndex = String(index);
++      const image = item.querySelector('img');
++      if (!image) return;
++      // Original links are a viewer-failure fallback. Keyboard users open the
++      // selected photo from the strip, rather than tabbing through hidden copies.
++      let link = image.closest('a');
++      if (!link) {
++        link = document.createElement('a');
++        link.href = image.currentSrc || image.src;
++        image.before(link); link.append(image);
++      }
++      link.tabIndex = -1;
++    });
+     function anchor() {
+       if (!snapshot) return { index: 0, fraction: 0 };
+       // Use the geometry belonging to this snapshot. ResizeObserver runs after
+@@ -136,25 +162,33 @@
+         const rect = item.getBoundingClientRect();
+         return rect.left - left + container.scrollLeft + rect.width / 2;
+       });
+-      snapshot = { loop, period, widths, centers, viewport, start: centers[0] - widths[0] / 2 };
++      const slots = Array.from(track.children).map(item => {
++        const rect = item.getBoundingClientRect();
++        return { index: Number(item.dataset.carouselIndex),
++          left: rect.left - left + container.scrollLeft,
++          right: rect.right - left + container.scrollLeft };
++      });
++      snapshot = { loop, period, widths, centers, slots, viewport, start: centers[0] - widths[0] / 2 };
+       container.scrollLeft = overflow ? centers[saved.index] + saved.fraction * widths[saved.index] - viewport / 2 : 0;
+       controls.hidden = !overflow;
+       status();
+     }
+     function scheduleLayout() {
++      stopHold();
+       pendingLayout = true;
+       if (!frame) frame = requestAnimationFrame(layout);
+     }
+-    function normalize() {
+-      if (!snapshot?.loop || pointerDown || scrolling) return;
++    function normalize(controlled = false) {
++      if (!snapshot?.loop || (!controlled && (pointerDown || scrolling))) return;
+       const center = container.scrollLeft + container.clientWidth / 2;
+       const delta = Math.floor((center - snapshot.start) / snapshot.period) * snapshot.period;
+       if (Math.abs(delta) > 1) container.scrollLeft -= delta;
+     }
+     function finish() {
+       clearTimeout(idle);
+-      if (pointerDown) return;
++      if (pointerDown || hold?.started) return;
+       scrolling = false;
++      commandTarget = null;
+       if (pendingLayout) layout(); else normalize();
+       status();
+     }
+@@ -170,14 +204,31 @@
+       clearTimeout(idle); idle = setTimeout(finish, 180);
+     };
+     container.addEventListener('pointerdown', event => {
++      if (event.button !== 0) return;
++      stopHold();
++      tap = { id: event.pointerId, x: event.clientX, y: event.clientY,
++        left: container.scrollLeft, moved: false, inMotion: scrolling,
++        mouse: event.pointerType === 'mouse' };
+       pointerDown = true;
+       pointers.set(event.pointerId, release);
+     }, { passive: true });
+     container.addEventListener('lostpointercapture', release, { passive: true });
++    container.addEventListener('pointermove', event => {
++      if (!tap || tap.id !== event.pointerId) return;
++      const dx = event.clientX - tap.x, dy = event.clientY - tap.y;
++      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) tap.moved = true;
++      if (tap.mouse && event.buttons === 1 && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8) {
++        container.setPointerCapture(event.pointerId);
++        container.scrollLeft = tap.left - dx;
++      }
++    }, { passive: true });
++    container.addEventListener('dragstart', event => event.preventDefault());
++    container.addEventListener('pointercancel', () => { if (tap) tap.moved = true; }, { passive: true });
++    container.addEventListener('wheel', () => stopHold(), { passive: true });
+     function move(direction, endpoint) {
+       if (!snapshot) return;
+       scrolling = false; normalize();
+-      const current = anchor().index;
++      const current = commandTarget ?? anchor().index;
+       let target = endpoint ?? current + direction;
+       let center;
+       if (snapshot.loop) {
+@@ -187,12 +238,129 @@
+       } else {
+         target = Math.max(0, Math.min(target, originals.length - 1)); center = snapshot.centers[target];
+       }
++      commandTarget = target;
+       container.scrollTo({ left: center - container.clientWidth / 2, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+       if (reducedMotion.matches) finish();
+     }
+-    previous.addEventListener('click', () => move(-1));
+-    next.addEventListener('click', () => move(1));
++    function stopHold() {
++      clearTimeout(holdTimer); cancelAnimationFrame(holdFrame);
++      if (!hold) return;
++      suppressClick = hold.started || hold.canceled;
++      const settled = hold.started || hold.canceled;
++      const id = hold.pointer;
++      hold = null;
++      if (id !== undefined) pointers.delete(id);
++      if (settled) finish();
++    }
++    function beginHold(direction, event) {
++      stopHold(); suppressClick = false;
++      hold = { direction, pointer: event.pointerId, button: event.currentTarget, started: false };
++      if (event.pointerId !== undefined) {
++        pointers.set(event.pointerId, stopHold);
++        event.currentTarget.setPointerCapture(event.pointerId);
++      }
++      holdTimer = setTimeout(() => {
++        if (!hold) return;
++        hold.started = true;
++        container.scrollTo({ left: container.scrollLeft, behavior: 'instant' });
++        commandTarget = null;
++        let last, stepped = 0;
++        function tick(now) {
++          if (!hold) return;
++          if (last === undefined) last = now;
++          if (reducedMotion.matches) {
++            if (now - stepped >= 500) { move(hold.direction); stepped = now; }
++          } else if (snapshot) {
++            const speed = Math.max(120, Math.min(300, snapshot.viewport * .6));
++            container.scrollLeft += hold.direction * speed * Math.min(50, now - last) / 1000;
++            // Equivalent-position writes are allowed only during button-owned
++            // movement. Native touch/trackpad wrapping still waits for rest.
++            normalize(true);
++          }
++          last = now;
++          holdFrame = requestAnimationFrame(tick);
++        }
++        holdFrame = requestAnimationFrame(tick);
++      }, 350);
++    }
++    [[previous, -1], [next, 1]].forEach(([button, direction]) => {
++      button.addEventListener('pointerdown', event => { if (event.button === 0) beginHold(direction, event); });
++      button.addEventListener('pointercancel', () => { if (hold) hold.canceled = true; stopHold(); });
++      button.addEventListener('lostpointercapture', stopHold);
++      button.addEventListener('blur', stopHold);
++      button.addEventListener('keydown', event => {
++        if (!['Enter', ' '].includes(event.key)) return;
++        event.preventDefault();
++        if (!event.repeat) beginHold(direction, event);
++      });
++      button.addEventListener('keyup', event => {
++        if (!['Enter', ' '].includes(event.key)) return;
++        event.preventDefault();
++        // A canceled/blurred hold no longer owns this release. Do not turn it
++        // into an extra one-photo command after cancellation.
++        if (!hold || hold.button !== button || hold.pointer !== undefined) return;
++        const started = hold.started; stopHold();
++        if (!started) move(direction);
++      });
++      button.addEventListener('click', () => {
++        if (suppressClick) { suppressClick = false; return; }
++        move(direction);
++      });
++    });
++    document.addEventListener('visibilitychange', () => { if (document.hidden) stopHold(); });
++    window.addEventListener('blur', stopHold);
++    window.addEventListener('pagehide', stopHold);
++    window.addEventListener('resize', stopHold, { passive: true });
++    const escapeText = text => { const span = document.createElement('span'); span.textContent = text; return span.innerHTML; };
++    async function enlarge(index) {
++      stopHold();
++      const image = originals[index]?.querySelector('img');
++      if (!image || !window.ImageViewers || document.querySelector('.glightbox-container')) return;
++      const intent = ImageViewers.begin(() => {
++        viewerStatus.textContent = '';
++        container.removeAttribute('aria-busy');
++      });
++      viewerStatus.textContent = 'Loading image viewer…';
++      container.setAttribute('aria-busy', 'true');
++      try {
++        await ImageViewers.load();
++        if (!ImageViewers.current(intent) || !container.isConnected) return;
++        if (!viewer) viewer = ImageViewers.create({ selector: null,
++          label: container.getAttribute('aria-label'),
++          elements: originals.map(item => {
++            const img = item.querySelector('img');
++            const caption = item.querySelector('figcaption')?.textContent || '';
++            return { href: img.closest('a')?.href || img.currentSrc || img.src,
++              type: 'image', alt: img.alt, title: escapeText(img.alt), description: escapeText(caption) };
++          }) });
++        viewer.setReturnFocus(container);
++        viewerStatus.textContent = '';
++        ImageViewers.finish(intent);
++        viewer.openAt(index);
++      } catch (_) {
++        if (!ImageViewers.current(intent)) return;
++        ImageViewers.finish(intent);
++        viewerStatus.textContent = 'The viewer is unavailable. ';
++        const link = document.createElement('a');
++        link.href = image.closest('a')?.href || image.currentSrc || image.src;
++        link.textContent = 'Open the original image';
++        viewerStatus.append(link);
++      } finally { if (ImageViewers.current(intent)) container.removeAttribute('aria-busy'); }
++    }
++    container.addEventListener('click', event => {
++      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || !snapshot || !window.ImageViewers) return;
++      const box = container.getBoundingClientRect();
++      const x = event.clientX - box.left + container.scrollLeft;
++      const slot = snapshot.slots.find(item => x >= item.left && x <= item.right);
++      if (!slot) return;
++      event.preventDefault();
++      if (tap && (tap.moved || tap.inMotion || Math.abs(container.scrollLeft - tap.left) > 8)) return;
++      enlarge(slot.index);
++    });
+     container.addEventListener('keydown', event => {
++      if (event.target === container && ['Enter', ' '].includes(event.key)) {
++        event.preventDefault(); if (!event.repeat && snapshot) enlarge(anchor().index); return;
++      }
+       if (event.target !== container || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+       event.preventDefault();
+       if (event.key === 'Home') move(0, 0);
+diff --git a/assets/js/photography-portfolio-3.js b/assets/js/photography-portfolio-3.js
+new file mode 100644
+index 0000000..4e9601d
+--- /dev/null
++++ b/assets/js/photography-portfolio-3.js
+@@ -0,0 +1,4 @@
++---
++layout: null
++---
++{%- include_relative photography.js -%}
+diff --git a/assets/js/photography.js b/assets/js/photography.js
+index 473a06d..0012ad5 100644
+--- a/assets/js/photography.js
++++ b/assets/js/photography.js
+@@ -1,24 +1,16 @@
+-// Use the existing image sequence and library; no masonry measurements or clones.
+-const photographyReduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+-const lightbox = typeof GLightbox === 'function' ? GLightbox({
+-  selector: '.photography-page a.glightbox',
+-  moreLength: 0,
+-  openEffect: photographyReduceMotion ? 'none' : 'zoom',
+-  closeEffect: photographyReduceMotion ? 'none' : 'zoom',
+-  slideEffect: photographyReduceMotion ? 'none' : 'slide',
+-  // The library forces "slide" on mobile at open. Its supported effect map
+-  // keeps that path motion-free too, without replacing library internals.
+-  ...(photographyReduceMotion ? { cssEfects: {
+-    slide: { in: 'none', out: 'none' },
+-    slideBack: { in: 'none', out: 'none' }
+-  } } : {})
+-}) : null;
++// The gallery keeps its existing pinned library; modal behavior is shared.
++const lightbox = window.ImageViewers?.create({
++  selector: '.photography-page a.glightbox', label: 'Photography image viewer'
++}) || null;
+ 
+ (() => {
+   const gallery = document.querySelector('.photography-page .masonry-gallery');
+   if (!gallery) return;
+-  let returnFocus = null;
+-
++  gallery.querySelectorAll('a.glightbox img').forEach(image => {
++    const failed = () => image.closest('a').classList.add('is-unavailable');
++    image.addEventListener('error', failed, { once: true });
++    if (image.complete && !image.naturalWidth) failed();
++  });
+   if (!lightbox) {
+     // The library is optional. Keep original-file links working and move, never
+     // copy, the existing facts into native keyboard/touch-accessible disclosures.
+@@ -43,54 +35,27 @@ const lightbox = typeof GLightbox === 'function' ? GLightbox({
+     return;
+   }
+ 
+-  // The summary belongs to its tile. Very short photographs keep only a title;
+-  // tiles too short for one readable line leave details to the normal viewer.
+-  // This observes rendered geometry; it does not invent source dimensions.
++  // Observe images, never summary/link height: no feedback loop or invented
++  // intrinsic dimensions. Fit only complete lines inside 40% of the photograph.
+   const summaries = new ResizeObserver(entries => {
+     entries.forEach(({ target, contentRect }) => {
+-      target.classList.toggle('compact-summary', contentRect.height < 100);
+-      target.classList.toggle('no-summary', contentRect.height < 80);
++      const link = target.closest('a.glightbox');
++      const summary = link.querySelector('.photo-summary');
++      const line = summary?.firstElementChild;
++      if (!line) return;
++      const lineHeight = parseFloat(getComputedStyle(line).lineHeight);
++      const lines = Math.max(0, Math.min(summary.children.length,
++        Math.floor((contentRect.height * .4 - 8) / lineHeight)));
++      link.dataset.summaryLines = String(lines);
+     });
+   });
+-  gallery.querySelectorAll('a.glightbox').forEach(link => summaries.observe(link));
++  gallery.querySelectorAll('a.glightbox img').forEach(image => {
++    summaries.observe(image);
++  });
+   gallery.addEventListener('click', event => {
+     const trigger = event.target.closest('a.glightbox');
+-    if (trigger) returnFocus = trigger;
+-  }, true);
+-
+-  document.addEventListener('keydown', event => {
+-    if (!lightbox?.lightboxOpen) return;
+-    if (event.key !== 'Tab') return;
+-    const dialog = document.querySelector('.glightbox-container');
+-    if (!dialog) return;
+-    const controls = Array.from(dialog.querySelectorAll('button, a[href], [tabindex="0"]'))
+-      .filter(control => !control.disabled && !control.classList.contains('disabled') && control.getClientRects().length
+-        && (!control.closest('.gslide') || control.closest('.gslide').classList.contains('current')));
+-    if (!controls.length) return;
+-    event.preventDefault();
+-    event.stopPropagation();
+-    const index = controls.indexOf(document.activeElement);
+-    const next = index < 0 ? (event.shiftKey ? controls.length - 1 : 0)
+-      : (index + (event.shiftKey ? -1 : 1) + controls.length) % controls.length;
+-    controls[next].focus();
++    if (trigger) lightbox.setReturnFocus(trigger);
+   }, true);
+-
+-  function exposeSlide(index = lightbox.getActiveSlideIndex()) {
+-    const dialog = document.querySelector('.glightbox-container');
+-    if (!dialog) return;
+-    const slides = Array.from(dialog.querySelectorAll('.gslide'));
+-    const focused = document.activeElement?.closest('.gslide');
+-    if (focused && focused !== slides[index]) {
+-      dialog.querySelector('.gclose')?.focus({ preventScroll: true });
+-    }
+-    slides.forEach((slide, i) => {
+-      slide.inert = i !== index;
+-      slide.setAttribute('aria-hidden', String(i !== index));
+-    });
+-  }
+-  lightbox.on('slide_before_change', ({ current }) => exposeSlide(current.index));
+-  // Let the library render its usual temporary caption from existing metadata.
+-  // Original fields and IDs stay intact; the library creates only its usual caption.
+   lightbox.on('slide_before_load', ({ trigger, slideConfig }) => {
+     const info = trigger?.closest?.('.photo-tile')?.querySelector('.photo-info');
+     if (!info) return;
+@@ -99,63 +64,4 @@ const lightbox = typeof GLightbox === 'function' ? GLightbox({
+     slideConfig.title = title.innerHTML;
+     slideConfig.description = info.innerHTML.trim();
+   });
+-  lightbox.on('slide_after_load', ({ slide }) => {
+-    const description = slide.querySelector('.gslide-description');
+-    if (description) {
+-      description.tabIndex = 0;
+-      description.setAttribute('role', 'region');
+-      description.setAttribute('aria-label', 'Photo details');
+-    }
+-    exposeSlide();
+-  });
+-  lightbox.on('slide_changed', () => {
+-    exposeSlide();
+-    // A caption from the previous slide must not retain offscreen keyboard focus.
+-    const oldSlide = document.activeElement?.closest('.gslide');
+-    if (oldSlide && !oldSlide.classList.contains('current')) {
+-      document.querySelector('.glightbox-container .gclose')?.focus({ preventScroll: true });
+-    }
+-  });
+-  const background = [];
+-  lightbox.on('open', () => {
+-    const dialog = document.querySelector('.glightbox-container');
+-    dialog.classList.add('photography-lightbox');
+-    dialog.setAttribute('aria-label', 'Photography image viewer');
+-    dialog.setAttribute('aria-modal', 'true');
+-    exposeSlide();
+-    dialog.addEventListener('error', event => {
+-      const image = event.target;
+-      const slide = image.closest?.('.gslide');
+-      if (!(image instanceof HTMLImageElement) || !slide || slide.querySelector('.photo-viewer-error')) return;
+-      const message = document.createElement('p');
+-      message.className = 'photo-viewer-error';
+-      message.setAttribute('role', 'status');
+-      message.textContent = 'This photograph is unavailable.';
+-      image.after(message);
+-      const description = slide.querySelector('.gslide-description');
+-      if (description) {
+-        description.tabIndex = 0;
+-        description.setAttribute('role', 'region');
+-        description.setAttribute('aria-label', 'Photo details');
+-      }
+-      // GLightbox marks content loaded before fetching, but only finishes its
+-      // first transition on image load. Revisit the active, now-failed slide via
+-      // its public API so the error/details are visible and navigation unlocks.
+-      // A failed preload must never move the visitor to a different photograph.
+-      if (slide === lightbox.getActiveSlide()) {
+-        lightbox.goToSlide(lightbox.getActiveSlideIndex());
+-      }
+-    }, true);
+-    Array.from(document.body.children).forEach(node => {
+-      if (node instanceof HTMLElement && node !== dialog && !node.inert) {
+-        node.inert = true;
+-        background.push(node);
+-      }
+-    });
+-    dialog.querySelector('.gclose').focus();
+-  });
+-  lightbox.on('close', () => {
+-    background.splice(0).forEach(node => { node.inert = false; });
+-    if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
+-  });
+ })();
+diff --git a/assets/js/section-navigation-1.js b/assets/js/section-navigation-1.js
+new file mode 100644
+index 0000000..05e813f
+--- /dev/null
++++ b/assets/js/section-navigation-1.js
+@@ -0,0 +1,118 @@
++/* Progressive supporting-list disclosures; native section links and history.
++ * The server renders every word. Without this enhancement all lists stay open.
++ */
++(() => {
++  const controls = [];
++  const root = document.querySelector('[data-supporting-lists]');
++  const headings = root?.querySelectorAll('[data-support-heading]') || [];
++  let expand;
++  function updateExpand() {
++    if (expand) expand.textContent = controls.every(c => !c.panel.hidden)
++      ? 'Collapse supporting lists' : 'Expand supporting lists';
++  }
++  headings.forEach(heading => {
++    const panel = document.getElementById(heading.dataset.supportHeading);
++    if (!panel) return;
++    const button = document.createElement('button');
++    button.type = 'button';
++    button.className = 'support-button';
++    button.setAttribute('aria-controls', panel.id);
++    const label = document.createElement('span');
++    Array.from(heading.childNodes).forEach(node => {
++      if (!(node instanceof Element && node.classList.contains('anchor-heading'))) label.append(node);
++    });
++    button.append(label);
++    button.insertAdjacentHTML('beforeend', '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m6 9 6 6 6-6"/></svg>');
++    heading.append(button);
++    function set(open) {
++      // Never leave keyboard focus inside a newly hidden panel.
++      if (!open && panel.contains(document.activeElement)) button.focus({ preventScroll: true });
++      panel.hidden = !open;
++      button.setAttribute('aria-expanded', String(open));
++      updateExpand();
++    }
++    set(false);
++    button.addEventListener('click', () => set(panel.hidden));
++    controls.push({ heading, panel, set });
++  });
++  if (controls.length) {
++    expand = document.createElement('button');
++    expand.type = 'button';
++    expand.className = 'expand-support';
++    expand.addEventListener('click', () => {
++      const open = controls.some(c => c.panel.hidden);
++      controls.forEach(c => c.set(open));
++    });
++    root.querySelector('[data-support-toolbar]')?.append(expand);
++    updateExpand();
++  }
++  let localSectionLink = false;
++  let localFragmentLink = false;
++  let restoringFragment = false;
++  function reveal(target, fromSectionLink = false) {
++    if (!target) return;
++    for (let node = target.parentElement; node; node = node.parentElement) {
++      if (node instanceof HTMLDetailsElement) node.open = true;
++    }
++    controls.forEach(c => {
++      const topic = target.closest('.hobby-topic') || target.closest('.hobby-group');
++      if (target === c.heading || c.panel.contains(target)
++          || (!fromSectionLink && target.matches('h2,h3') && topic?.contains(c.heading))) c.set(true);
++    });
++  }
++  function targetFromHash() {
++    try {
++      const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
++      return target?.closest('.content-body,.post-body') ? target : null;
++    }
++    catch (_) { return null; }
++  }
++  function arrive(fromSectionLink = false, focus = false) {
++    const target = targetFromHash();
++    if (!target) return;
++    reveal(target, fromSectionLink);
++    // scrollIntoView resolves the newly opened panel's layout synchronously.
++    // No deferred focus callback may steal the visitor's next Tab/search action.
++    target.scrollIntoView({ block: 'start', behavior: 'instant' });
++    if (focus) {
++      if (!target.hasAttribute('tabindex')) target.tabIndex = -1;
++      target.focus({ preventScroll: true });
++    }
++  }
++  document.addEventListener('click', event => {
++    const link = event.target.closest('a[href]');
++    if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
++    const url = new URL(link.href, location.href);
++    if (url.origin !== location.origin || url.pathname !== location.pathname || !url.hash) return;
++    let target;
++    try { target = document.getElementById(decodeURIComponent(url.hash.slice(1))); } catch (_) { return; }
++    if (!target?.closest('.content-body,.post-body')) return;
++    const inSectionNav = !!link.closest('.section-nav');
++    reveal(target, inSectionNav);
++    localSectionLink = inSectionNav;
++    localFragmentLink = true;
++    // Do not preventDefault or push/replace history: native hash entries work.
++    if (url.hash === location.hash) {
++      arrive(inSectionNav, true);
++      localFragmentLink = false;
++    }
++  });
++  window.addEventListener('popstate', () => {
++    if (!localFragmentLink) {
++      restoringFragment = true;
++      // Reveal before the browser restores its saved native scroll offset.
++      reveal(targetFromHash());
++    }
++  });
++  window.addEventListener('hashchange', () => {
++    if (restoringFragment) reveal(targetFromHash());
++    else arrive(localSectionLink, true);
++    localSectionLink = false;
++    localFragmentLink = false;
++    restoringFragment = false;
++  });
++  // BFCache retains the whole DOM. On a reconstructed Back/Forward entry, reveal
++  // the target without overriding native restoration; a new URL/reload scrolls.
++  if (performance.getEntriesByType('navigation')[0]?.type === 'back_forward') reveal(targetFromHash());
++  else arrive(false, false);
++})();
+diff --git a/blog.md b/blog.md
+index 3b1d92c..92a567b 100644
+--- a/blog.md
++++ b/blog.md
+@@ -54,10 +54,11 @@ layout: content
+         <div class="event-content">
+           <a href="{{ post.url }}" class="event-link">
+             <h3 class="event-title no_anchor">{{ post.title }}</h3>
+-            <p class="event-date">{{ post.date | date: "%B %-d, %Y" }}</p>
++            <div class="event-meta"><p class="event-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+             {% if post.location %}
+               <p class="event-location">{{ post.location }}</p>
+             {% endif %}
++            </div>
+             {% if post.description %}
+               <p class="event-desc">{{ post.description }}</p>
+             {% endif %}
+@@ -80,10 +81,11 @@ layout: content
+           {% if post.title %}
+             <p class="event-title">{{ post.title }}</p>
+           {% endif %}
+-          <p class="event-date">{{ post.date | date: "%B %-d, %Y" }}</p>
++          <div class="event-meta"><p class="event-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+           {% if post.location %}
+             <p class="event-location">{{ post.location }}</p>
+           {% endif %}
++          </div>
+           {% if post.description %}
+             <p class="event-desc">{{ post.description }}</p>
+           {% endif %}
+diff --git a/docs/editorial-ux-refinements.md b/docs/editorial-ux-refinements.md
+new file mode 100644
+index 0000000..2e29ae3
+--- /dev/null
++++ b/docs/editorial-ux-refinements.md
+@@ -0,0 +1,132 @@
++# Editorial UI/UX refinements
++
++## Baseline search correction (separate from visual work)
++
++Baseline: `34222340f367e4222c3a38212425e6bebe399467` on `gh-pages`.
++Compared its generated standard search index with `d85ea557` before the owner's
++Hobbies/Academics edits. Hobbies previously emitted six H2 topic records plus its
++page record; it now emits four H2 group records plus its page record: 80 → 78 total.
++The standard pinned-theme generator indexes H1/H2 by default. H3/H4 topic, gear,
++book and language text remains in the appropriate parent group's content. No
++course destination changed; all 45 remain. Academics snippets also reflect the
++owner's separate paragraph edit; that is not responsible for the record count.
++
++Hiking, band, Piano, language, volleyball and Mixology results have lost the old
++topic-specific result fragments, but their old HTML anchors remain valid. Keep
++the intentional semantic hierarchy and standard generator. Real search checks
++must confirm that group destinations reveal the equipment/book lists on arrival,
++including same-page searches; directly linked historical anchors must still work.
++Do not introduce a copied search generator to reproduce a historical record count.
++
++`_tests/search-destinations.json` freezes all 78 intended document/title/URL
++identities, rather than a bare count or the generator's numeric keys. Publication
++and parity checks reject missing, duplicate or substituted destinations and still
++verify all course fragments against actual generated headings. Intended content
++changes must explicitly review this contract. No failing assertion is skipped.
++
++## Approved implementation
++
++- Bare 18px chevrons retain 44px buttons, visible focus and a quiet position
++  indicator. A click advances one original; a 350ms hold scrolls at bounded speed.
++  Reduced motion uses discrete steps at least 500ms apart. Release, cancellation,
++  capture loss, blur, resize and hidden tabs stop the hold.
++- Carousel images open pinned GLightbox on demand. A registry keyed by original
++  slot, not URL, maps inert buffer copies without extra keyboard stops or slides.
++  Native scrolling, mouse dragging and bounded buffers remain. One cached library
++  promise supports retries, loading cancellation and competing strip intents.
++  Library/CSS failure leaves the existing original-file URL available.
++- Minor Timeline records retain real 48px desktop / 40px mobile thumbnail columns,
++  15px titles, full 15px/24px descriptions and wrapping metadata. Major titles and
++  thumbnails remain linked. Filters, comparators and history logic are unchanged.
++- Photography uses three-column natural-ratio masonry and 6px gaps. The flat inset
++  is 4px from its tile with 4px/6px padding: no gradient, border, shadow or animation.
++  Title/secondary text is 13px/12px desktop, 14px/13px mobile. Only complete lines
++  fitting within 40% of the image appear. Very short panoramas use the full viewer
++  for details. All supplied facts remain accessible there and in the original
++  description. Panoramas retain a 24px activation area; missing files retain 44px
++  targets. Source ratios are unchanged. Normal instructions are assistive-only;
++  viewer-failure feedback remains visible.
++- Hobbies retains every word, heading, language sample, link and old ID. Hiking
++  prose stays intact; short outdoor topics form a compact status group; independent
++  Music/language topics share responsive columns. Small phones stack the short
++  topics consistently. Five secondary lists progressively collapse. All 18 items
++  remain visible without JS and in print; narratives are always readable. Native
++  search arrivals and old deep links reveal relevant lists.
++- Media retains all four links and unfinished text in compact category rows.
++  Hobbies, Media and Volunteering share small left-aligned wrapping navigation.
++  Short organization labels retain full accessible names. Volunteering's narrative,
++  figures, footnotes and media order are unchanged.
++
++Modal focus containment, inactive-slide inertness, Escape, missing-image feedback
++and stable focus return now share a small adapter. No new production library,
++theme fork, backend or visitor authentication step is introduced.
++
++## Reusable article navigation
++
++`_includes/section-navigation.html` serves the shared post/content layouts. It
++links to authored H2 IDs outside indexed `page.content`. Day labels come from actual
++Day headings, with full accessible names. No body IDs or days are guessed; duplicate
++targets are not emitted. Entities are escaped once. Markdown H2 IDs still come
++from the existing renderer. HTML headings without an ID are omitted.
++
++Two useful sections are required. Short/empty Blog bodies and the single-section
++Washington article have no empty list. The Southwest itinerary has eight day links.
++More than twelve sections use a small native disclosure. Native details containing
++a fragment target are revealed. Ordinary links remain functional without JS.
++
++Seven copied placeholder Travel outlines opt out with `section_navigation: false`;
++remove that flag when genuine sections are authored. No content is rewritten. The
++five copied Washington labels/dates remain legacy metadata, not newly verified facts.
++Other content pages can opt in with `section_navigation: true`. Optional
++`section_navigation_labels` maps existing IDs to short labels while preserving full
++heading names in `aria-label`, as on Volunteering.
++
++The fragment helper excludes the theme's skip-to-main target and changes focus
++synchronously. An early regression exposed deferred focus stealing search focus;
++the original 557-check suite detected it and passes with the correction. There is
++no `pushState`, `replaceState` or global scroll-restoration override. BFCache keeps
++its DOM; reconstructed history reveals targets before native scroll restoration.
++
++## Independently reversible presentation
++
++The single marked **Travel refinements** CSS block changes only:
++
++| Property | Baseline → approved |
++| --- | --- |
++| Card border | `#dedee5` → `#e4e4ea` |
++| Date bottom margin | `8px` → `6px` |
++| Excerpt bottom margin | `12px` → `10px` |
++| Counter digits | proportional → tabular |
++| Enabled action hover border | visible neutral → transparent |
++| Enabled action press background | existing treatment → `#ece9f8` |
++| Cover hover | also underlines its existing title |
++| Cover focus outline offset | `3px` → `-3px`, inside the cover |
++
++Fonts, grid/padding, image ratios, wording, links, receipts and confirmed likes
++are unchanged. Removing the block restores exact baseline Travel pixels in the
++controlled desktop/mobile comparison. Press feedback never implies a Firebase write.
++
++Photography's adjacent CSS variables are `--gallery-column-width: 220px` and
++`--gallery-column-count: 3`. Use `170px` / `4` to restore the previous cap without
++changing metadata styling. Mobile two/one-column rules remain. Update geometry
++acceptance expectations alongside an intentionally changed cap.
++
++Publish CSS/JS changes through a new current pathname and matching publication
++guard. Keep old entry points for cached HTML. For full rollback, prepare a rollback
++PR around the feature commits, retain the baseline search correction, and retain
++compatibility assets while cached HTML can reference them. Do not revert Firebase
++rules, counters, data or its unchanged `travel-atomic-receipts-1.js` client. No
++Firebase deployment action accompanies this PR.
++
++## Evidence and remaining gates
++
++The excluded `_review/editorial-ux/` report contains exact files, source diff,
++desktop/mobile PNGs, computed values, performance samples and results. Images are
++labeled synthetic fixtures. Gallery stress uses 110 records and all 32 optional
++camera combinations, including long/absent metadata. Production facts are untouched.
++
++Chromium and zero axe violations do not certify physical iOS/Android, screen readers,
++native sharing dialogs or browser-chrome zoom. Checks include 200%/400% equivalent
++reflow viewports. Complete owner/device review and required CI gates before merge.
++CI also exercises Firefox/WebKit and demo Firebase rules. Blocked local downloads
++must be reported as unrun, never replaced with mock permission certification.
+diff --git a/docs/modernization-roadmap.md b/docs/modernization-roadmap.md
+index af8f3bc..6e440a1 100644
+--- a/docs/modernization-roadmap.md
++++ b/docs/modernization-roadmap.md
+@@ -26,7 +26,7 @@ and new substantive feature directions remain subject to owner review.
+   and `_review/visual-media/README.md` for implementation, evidence and limitations.
+   Real intrinsic dimensions and selective loading remain deferred until actual
+   assets can be verified. No guessed dimensions or synthetic production metadata.
+-- Current PR #22, awaiting owner review: targeted framework hardening after a
++- Completed PR #22: targeted framework hardening after a
+   visitor/axe audit. Restore parent-section context on articles/Coursework; make
+   mobile navigation independent of theme startup and usable without JavaScript;
+   fix mobile search layering/keyboard scroll focus, lightbox slide exposure,
+@@ -35,12 +35,20 @@ and new substantive feature directions remain subject to owner review.
+   Back/Forward without replacing native history, including scroll anchoring.
+   Inline the existing Travel icon shapes to remove an unnecessary font dependency;
+   keep the Firebase client, data model and private rules unchanged. Retain the
+-  approved layouts, 82 routes and all 80 native search records. Add reusable axe,
++  approved layouts and 82 routes. The owner's later Hobbies grouping produces
++  78 native search records; the editorial PR documents that baseline correction.
++  Add reusable axe,
+   three-engine CI and native cached/BFCache checks. See the internal
+   `owner-acceptance-checklist.md` for the next real-world review.
+-- Next: owner acceptance using the published checklist, followed by one coherent
+-  owner-feedback PR for confirmed remaining framework/design issues. No speculative
+-  navigation features, content imports or photograph imports in the hardening PR.
++- Current approved editorial refinement PR: bare carousel chevrons, controlled
++  hold navigation and shared image enlargement; compact thumbnail-based minor
++  Timeline rows; three-column Photography masonry and flat inset summaries;
++  independently reversible Travel CSS; editorial Hobbies groups/disclosures;
++  compact Hobbies/Media/Volunteering and reusable Blog/Travel section links.
++  Preserve all existing content, anchors, search destinations, private Firebase
++  behavior and publication guards. No photo imports, R2 changes or content rewrite.
++  One coherent deliverable with small commits, browser evidence and rollback
++  boundaries; owner local review before merge. See `editorial-ux-refinements.md`.
+ - Later editorial/readiness and discovery work: owner-provided corrections for
+   placeholder Blog bodies/descriptions, copied Travel text and legacy Washington
+   labels/dates, generic photo alt/descriptive labels and prefix-shaped image URLs.
+diff --git a/hobbies.md b/hobbies.md
+index fb877b4..28ccd32 100644
+--- a/hobbies.md
++++ b/hobbies.md
+@@ -1,11 +1,17 @@
+ ---
+ title: Hobbies
+ layout: content
++section_navigation: true
+ ---
++<div class="hobbies-editorial" data-supporting-lists>
+ 
++
++
++<section class="hobby-group" aria-labelledby="outdoor">
+ <h2 class="content-heading" id="outdoor" tabindex="-1">Outdoor Activities</h2>
+ 
+-<h3 class="content-heading" id="hiking" tabindex="-1">Hiking</h3>
++<section class="hobby-topic" aria-labelledby="hiking">
++<h3 class="content-subheading" id="hiking" tabindex="-1">Hiking</h3>
+ 
+ <p>
+ I maintain a detailed list of the hikes I’ve finished alongside hikes I would like to complete. The sheet is a WIP and will be posted shortly. Currently, my goal is to visit all <s>63</s> (64 as of October 2026!) National Parks in the United States. As of 2026, I have travelled to 15!
+@@ -15,34 +21,50 @@ I maintain a detailed list of the hikes I’ve finished alongside hikes I would
+ You can view my AllTrails <a href="https://www.alltrails.com/members/zach-mccray-1/stats" target="_blank">here.</a>
+ </p>
+ 
+-<h3 class="content-heading" id="sand-volleyball" tabindex="-1">Sand Volleyball</h3>
++
++</section>
++<div class="hobby-short-topics"><section class="hobby-topic" aria-labelledby="sand-volleyball">
++<h3 class="content-subheading" id="sand-volleyball" tabindex="-1">Sand Volleyball</h3>
+ 
+ <p>
+ TBD!
+ </p>
+ 
+-<h3 class="content-heading" id="pickleball" tabindex="-1">Pickleball</h3>
++
++</section>
++<section class="hobby-topic" aria-labelledby="pickleball">
++<h3 class="content-subheading" id="pickleball" tabindex="-1">Pickleball</h3>
+ 
+ <p>
+ TBD!
+ </p>
+ 
+-<h3 class="content-heading" id="skiing" tabindex="-1">Skiing</h3>
++
++</section>
++<section class="hobby-topic" aria-labelledby="skiing">
++<h3 class="content-subheading" id="skiing" tabindex="-1">Skiing</h3>
+ 
+ <p>
+ TBD!
+ </p>
+ 
+-<h2 class="content-heading" id="music" tabindex="-1">Music</h2>
+ 
+-<h3 class="content-heading" id="mile-high-freedom-band" tabindex="-1">Mile High Freedom Band</h3>
++</section></div>
++</section>
++
++<section class="hobby-group" aria-labelledby="music">
++<div class="hobby-group-heading" data-support-toolbar><h2 class="content-heading" id="music" tabindex="-1">Music</h2></div>
++
++<div class="hobby-topic-grid"><section class="hobby-topic" aria-labelledby="mile-high-freedom-band">
++<h3 class="content-subheading" id="mile-high-freedom-band" tabindex="-1">Mile High Freedom Band</h3>
+ 
+ <p>
+ I joined <a href="https://www.mhfb.org" target="_blank" rel="noopener noreferrer">Mile High Freedom Band (MHFB)</a> in August 2025 as a member of the Alto Saxophone section. MHFB is Denver’s LGBTQ+ and ally community music organization formed in 1984. Through the Mile High Freedom Band, I have received the opportunity to perform halftime at Ball Arena for the Denver Nuggets, the Ellie Caulkins Opera House, as well as parades, theater performances, and everything in between.
+ </p>
+ 
+-<h4 class="content-subheading" id="saxophone-details" tabindex="-1">Saxophone Details</h4>
++<h4 data-support-heading="support-saxophone-details" class="content-topic" id="saxophone-details" tabindex="-1">Saxophone Details</h4>
+ 
++<div class="support-panel" id="support-saxophone-details">
+ <ul class="styled-list">
+   <li>Saxophone: Yamaha YAS-62 Alto Saxophone</li>
+   <li>Mouthpiece: Philtone Solstice</li>
+@@ -50,9 +72,11 @@ I joined <a href="https://www.mhfb.org" target="_blank" rel="noopener noreferrer
+   <li>Classical Reeds: Légère Signatures / Rigotti Reds</li>
+   <li>Jazz Reeds: Rigotti Gold Classics</li>
+ </ul>
++</div>
+ 
+-<h4 class="content-subheading" id="preferred-exercises-repertoire-books" tabindex="-1">Favorite Exercises & Repertoire Books</h4>
++<h4 data-support-heading="support-preferred-exercises-repertoire-books" class="content-topic" id="preferred-exercises-repertoire-books" tabindex="-1">Favorite Exercises & Repertoire Books</h4>
+ 
++<div class="support-panel" id="support-preferred-exercises-repertoire-books">
+ <ul class="styled-list">
+   <li>25 Daily Exercises for Saxophone by Klose (Editor), McAllister (Editor)</li>
+   <li>Rubank Advanced Method: Saxophone Vol. 1 by H. Voxman (Editor)</li>
+@@ -60,64 +84,97 @@ I joined <a href="https://www.mhfb.org" target="_blank" rel="noopener noreferrer
+   <li>48 Famous Studies (1st and 3rd Part): Melodious Etudes for Oboe and Saxophone Players by Andraud (Arranger), Ferling (Composer)</li>
+   <li>Top-Tones for the Saxophone: Four-Octave Range by Sigurd M. Rascher (Author)</li>
+ </ul>
++</div>
++
+ 
+-<h3 class="content-heading" id="piano" tabindex="-1">Piano</h3>
++</section>
++<section class="hobby-topic" aria-labelledby="piano">
++<h3 class="content-subheading" id="piano" tabindex="-1">Piano</h3>
+ 
+ <p>
+ I began playing piano in April 2025. I took lessons for the first several months working through Nancy Faber's "Faber All In One Adult Piano Adventures" Book 1. At the conclusion of Book 1, I decided to continue as a self-learner and began the second book in the Adult All in One Series on my first (and only) keyboard: a used Casio PX-160 I bought from Facebook Marketplace. While my progress slowed dramatically, mostly due to bouts of fleeting motivation, at the conclusion of 2026 I completed Faber's "Faber All In One Adult Piano Adventures" Book 2 to satisfaction. 
+ </p>
+ 
+-<h4 class="content-subheading" id="all-in-one-adult-piano-adventures-book-1-by-faber" tabindex="-1">All-In-One Adult Piano Adventures Book 1 by Faber</h4>
++<h4 data-support-heading="support-all-in-one-adult-piano-adventures-book-1-by-faber" class="content-topic" id="all-in-one-adult-piano-adventures-book-1-by-faber" tabindex="-1">All-In-One Adult Piano Adventures Book 1 by Faber</h4>
+ 
++<div class="support-panel" id="support-all-in-one-adult-piano-adventures-book-1-by-faber">
+ <ul class="styled-list">
+   <li>Piano Adventures Level 1 Christmas</li>
+   <li>Piano Adventures Level 1 Popular</li>
+ </ul>
++</div>
+ 
+-<h4 class="content-subheading" id="all-in-one-adult-piano-adventures-book-2-by-faber" tabindex="-1">All-In-One Adult Piano Adventures Book 2 by Faber</h4>
++<h4 data-support-heading="support-all-in-one-adult-piano-adventures-book-2-by-faber" class="content-topic" id="all-in-one-adult-piano-adventures-book-2-by-faber" tabindex="-1">All-In-One Adult Piano Adventures Book 2 by Faber</h4>
+ 
++<div class="support-panel" id="support-all-in-one-adult-piano-adventures-book-2-by-faber">
+ <ul class="styled-list">
+   <li>Piano Adventures Level 2 Christmas Book</li>
+   <li>Journey Through the Classics – Hal Leonard Complete Piano Repertoire</li>
+   <li>Disney Collection – Easy Piano Songbook</li>
+ </ul>
++</div>
+ 
+-<h4 class="content-subheading" id="basic-piano-adventures-level-4-by-faber" tabindex="-1">Basic Piano Adventures Level 4 by Faber</h4>
++<h4 data-support-heading="support-basic-piano-adventures-level-4-by-faber" class="content-topic" id="basic-piano-adventures-level-4-by-faber" tabindex="-1">Basic Piano Adventures Level 4 by Faber</h4>
+ 
++<div class="support-panel" id="support-basic-piano-adventures-level-4-by-faber">
+ <ul class="styled-list">
+   <li>Royal Conservatory Celebration Series – Piano Repertoire Level 3</li>
+   <li>Studio Ghibli Beginner Piano Solo Sheet Music</li>
+   <li>Harry Potter Sheet Music from the Complete Film Series: Easy Piano</li>
+ </ul>
++</div>
+ 
++
++</section></div>
++</section>
++
++<section class="hobby-group" aria-labelledby="language">
+ <h2 class="content-heading" id="language" tabindex="-1">Languages</h2>
+ 
+-<h3 class="content-heading" id="foreign-languages" tabindex="-1">Foreign Languages</h3>
++<section class="hobby-topic" aria-labelledby="foreign-languages">
++<h3 class="content-subheading" id="foreign-languages" tabindex="-1">Foreign Languages</h3>
++<div class="hobby-topic-grid">
+ 
+-<h4 class="content-subheading" id="japanese-a2-elementary-n4" tabindex="-1">Japanese (A2 Elementary / N4)</h4>
++<section class="hobby-topic"><h4 class="content-topic" id="japanese-a2-elementary-n4" tabindex="-1">Japanese (A2 Elementary / N4)</h4>
+ 
+ <p> Following the completion of my undergraduate degree, I began studying Japanese at Johnson County Community College, completing Elementary Japanese I and Elementary Japanese II. <strong>[eng]</strong> </p>
+ 
+ <p lang="ja"> 大学卒業後、1年間日本語を勉強した、今も日本語の勉強を続けています. <strong>[jpn]</strong> </p>
+ 
+-<h4 class="content-subheading" id="mandarin-a2-elementary-hsk2" tabindex="-1">Mandarin (A2 Elementary / HSK2)</h4>
++</section>
++<section class="hobby-topic"><h4 class="content-topic" id="mandarin-a2-elementary-hsk2" tabindex="-1">Mandarin (A2 Elementary / HSK2)</h4>
+ 
+ <p> During high school I completed 1 year of beginning Mandarin. <strong>[eng]</strong> </p>
+ 
+ <p lang="zh"> 我在高中学习了一年的中文. <strong>[zho]</strong> </p>
+ 
+-<h4 class="content-subheading" id="spanish-b2-intermediate" tabindex="-1">Spanish (B2 Intermediate)</h4>
++</section>
++<section class="hobby-topic hobby-wide"><h4 class="content-topic" id="spanish-b2-intermediate" tabindex="-1">Spanish (B2 Intermediate)</h4>
+ 
+ <p> I began studying Spanish when I was 12 and continued through the age of 18, completing the Advanced Placement Spanish course – the highest course offered – at my high school. <strong>[eng]</strong> </p>
+ 
+ <p lang="es"> Empecé a estudiar español a los 12 años y continué hasta los 18, completando el curso de AP Español – el más alto que se ofrecía – en mi instituto. <strong>[spa]</strong> </p>
++</section>
++
++</div>
++
++</section>
++</section>
+ 
++<section class="hobby-group" aria-labelledby="other">
+ <h2 class="content-heading" id="other" tabindex="-1">Other Hobbies</h2>
+ 
+-<h3 class="content-heading" id="mixology" tabindex="-1">Mixology</h3>
++<section class="hobby-topic" aria-labelledby="mixology">
++<h3 class="content-subheading" id="mixology" tabindex="-1">Mixology</h3>
+ 
+ <p>
+ TBD!
+ </p>
+ 
++
++</section>
++</section>
++
++</div>
++
+ ----
+diff --git a/media.md b/media.md
+index 934bd15..6f547ca 100644
+--- a/media.md
++++ b/media.md
+@@ -1,6 +1,7 @@
+ ---
+ title: Media
+ layout: content
++section_navigation: true
+ ---
+ 
+ <h2 class="content-heading no_anchor" id="books-and-films" tabindex="-1">Books and Films</h2>
+@@ -35,14 +36,23 @@ and
+ <script src="/assets/js/literature-chart.js"></script>
+ -->
+ 
++<div class="media-categories">
++<div class="media-category-row">
+ <h2 class="content-heading no_anchor" id="musicals-and-plays" tabindex="-1">Musicals and Plays</h2>
+ <p>TBD!</p>
+ 
++</div>
++<div class="media-category-row">
+ <h2 class="content-heading no_anchor" id="board-games" tabindex="-1">Board Games</h2>
+ <p>TBD!</p>
+ 
++</div>
++<div class="media-category-row">
+ <h2 class="content-heading no_anchor" id="physical-media" tabindex="-1">Physical Media</h2>
+ <p>TBD!</p>
+ 
++</div>
++</div>
++
+ ----
+ 
+diff --git a/photography.md b/photography.md
+index 4135bb1..6243966 100644
+--- a/photography.md
++++ b/photography.md
+@@ -9,12 +9,12 @@ layout: content
+ <script defer src="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js"></script>
+ 
+ <section class="photography-page" aria-label="{{ page.title }}">
+-<p class="gallery-hint">Open a photo to view it full size and read all details. Hover or focus for a brief summary.</p>
+-<div class="masonry-gallery">
++<p class="gallery-hint" id="gallery-instructions">Open a photo to view it full size and read all details. Hover or focus for a brief summary.</p>
++<div class="masonry-gallery" role="group" aria-label="Photographs" aria-describedby="gallery-instructions">
+ {% for photo in site.data.photography %}
+   {% include photo-tile.html photo=photo number=forloop.index %}
+ {% endfor %}
+ </div>
+ </section>
+ 
+-<script defer src="{{ '/assets/js/photography-portfolio-2.js' | relative_url }}"></script>
++<script defer src="{{ '/assets/js/photography-portfolio-3.js' | relative_url }}"></script>
+diff --git a/volunteering.md b/volunteering.md
+index 7d9eeb3..6a24b40 100644
+--- a/volunteering.md
++++ b/volunteering.md
+@@ -1,6 +1,11 @@
+ ---
+ title: Volunteering
+ layout: content
++section_navigation: true
++section_navigation_labels:
++  rocky-mountain-wildlife-alliance: Wildlife Alliance
++  denver-zoo-conservation-alliance: Denver Zoo
++  denver-food-rescue: Food Rescue
+ footnotes:
+   - id: fn-iwrc
+     num: 1

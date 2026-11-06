@@ -598,7 +598,7 @@ p { font-size: 0.7rem; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 8px;
   margin: 8px 0 0;
 }
 .carousel-controls[hidden] {
@@ -611,10 +611,10 @@ p { font-size: 0.7rem; }
   width: 44px;
   height: 44px;
   padding: 0;
-  border: 1px solid #d9d9e1;
-  border-radius: 3px;
-  background: #fff;
-  color: #5540b8;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #555;
   font: inherit;
   font-size: 20px;
   cursor: pointer;
@@ -634,7 +634,7 @@ p { font-size: 0.7rem; }
   min-width: 90px;
   text-align: center;
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
   color: #666;
 }
@@ -1126,7 +1126,10 @@ canvas {
 /* Natural-ratio collage, a small tile-bound summary, and one accessible
  * metadata node for the viewer. No floating viewport cards or hold gestures. */
 .photography-page .masonry-gallery {
-  columns: 170px 4;
+  /* Independently reversible: change only these two gallery settings. */
+  --gallery-column-width: 220px;
+  --gallery-column-count: 3;
+  columns: var(--gallery-column-width) var(--gallery-column-count);
   column-gap: 6px;
 }
 .photography-page .photo-tile {
@@ -1137,6 +1140,7 @@ canvas {
 .photography-page .photo-tile > a {
   display: block;
   position: relative;
+  min-height: 24px; /* Keep extreme panoramas operable without cropping images. */
   color: inherit;
   text-decoration: none;
 }
@@ -1158,16 +1162,16 @@ canvas {
 }
 .photography-page .photo-summary {
   position: absolute;
-  inset: auto 0 0;
+  inset: auto 4px 4px;
   box-sizing: border-box;
-  max-height: 100%;
+  max-height: 40%;
   overflow: hidden;
-  padding: 12px 8px 6px;
-  color: #fff;
-  background: linear-gradient(transparent, rgba(12, 14, 18, .76) 12px);
+  padding: 4px 6px;
+  color: #222;
+  background: rgba(250, 250, 250, .97);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 100ms ease;
+  transition: none;
 }
 .photography-page .photo-summary-title,
 .photography-page .photo-summary-secondary {
@@ -1176,21 +1180,28 @@ canvas {
   white-space: nowrap;
   text-overflow: ellipsis;
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  line-height: 1.35;
+  font-size: 13px;
+  line-height: 17px;
   font-weight: 500;
 }
 .photography-page .photo-summary-secondary {
-  margin-top: 2px;
-  font-size: 13px;
+  margin-top: 0;
+  font-size: 12px;
+  line-height: 16px;
   font-weight: 400;
+  color: #555;
 }
 @media (hover: hover) {
   .photography-page a:hover .photo-summary { opacity: 1; }
 }
 .photography-page a:focus-visible .photo-summary { opacity: 1; }
-.photography-page a.compact-summary .photo-summary-secondary { display: none; }
-.photography-page a.no-summary .photo-summary { display: none; }
+.photography-page .photo-summary > span { display: none; }
+.photography-page [data-summary-lines="1"] .photo-summary > span:nth-child(-n+1),
+.photography-page [data-summary-lines="2"] .photo-summary > span:nth-child(-n+2),
+.photography-page [data-summary-lines="3"] .photo-summary > span:nth-child(-n+3),
+.photography-page [data-summary-lines="4"] .photo-summary > span:nth-child(-n+4),
+.photography-page [data-summary-lines="5"] .photo-summary > span:nth-child(-n+5) { display: block; }
+.photography-page a[data-summary-lines="0"] .photo-summary { display: none; }
 .main-content .photography-page a:focus-visible {
   outline-offset: -3px;
 }
@@ -1719,4 +1730,101 @@ a.skip-to-main:focus {
 }
 .travel-card .like-button:disabled[aria-busy="false"] {
   cursor: not-allowed;
+}
+
+/* ==========================================================================
+   12. Approved editorial refinements (opt-in components, no global type reset)
+   ========================================================================== */
+.carousel-controls button { touch-action: manipulation; }
+.carousel-controls button svg { flex: none; }
+.carousel-help { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.image-scroll-item > a { display: block; height: 100%; cursor: zoom-in; }
+.carousel-viewer-status:empty { display: none; }
+.main-content .carousel-viewer-status { margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: #666; }
+.image-scroll-hyper[aria-busy="true"] { cursor: progress; }
+
+.blog-page .timeline { gap: 12px; }
+.blog-page .timeline-event.major:not(:first-child),
+.blog-page .timeline-event.major + .timeline-event { margin-top: 12px; }
+.blog-page .timeline-event.minor { --timeline-thumb: 48px; gap: 12px; }
+.blog-page .minor .event-thumb { width: var(--timeline-thumb); }
+.main-content .blog-page .minor .event-title { font-size: 15px; color: #333; }
+.blog-page .event-meta { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 8px; row-gap: 0; margin-top: 4px; }
+.main-content .blog-page .event-meta > p { margin: 0; }
+.main-content .blog-page .minor .event-desc { margin-top: 4px; }
+
+/* Travel refinements: this entire block can be removed independently.
+ * No action-state selectors, Firebase classes or counters are changed. */
+.travel-page .travel-card { border-color: #e4e4ea; }
+.travel-page .travel-date { margin-bottom: 6px; }
+.main-content .travel-page .travel-card-content > p { margin-bottom: 10px; }
+.travel-page .travel-actions { font-variant-numeric: tabular-nums; }
+.travel-page .travel-actions button:hover:not(:disabled) { border-color: transparent; }
+.travel-page .travel-actions button:active:not(:disabled) { background: #ece9f8; }
+.travel-page .travel-cover:hover + .travel-card-content .travel-card-title a { text-decoration: underline; text-underline-offset: 3px; }
+.travel-page .travel-cover:focus-visible { outline-offset: -3px; }
+
+/* The normal instructions remain available to assistive technology. Failure
+ * feedback deliberately remains visible when the viewer cannot initialize. */
+.photography-page .gallery-hint:not([role="status"]) {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%);
+}
+.photography-page a.is-unavailable { min-height: 44px; background: #f4f4f8; }
+
+/* Compact, in-flow navigation: native fragment URLs and wrapping lists. */
+.main-content .section-nav { margin: -12px 0 16px; padding: 0; }
+.main-content .section-nav ul { display: block; margin: 0; padding: 0; list-style: none; }
+.main-content .section-nav li { display: inline; margin: 0; padding: 0; }
+.main-content .section-nav li::before { display: none; }
+.main-content .section-nav li + li::before { display: inline; position: static; content: '·'; color: #777; margin: 0 8px; }
+.main-content .section-nav a { display: inline-flex; align-items: center; min-height: 28px; padding: 2px 0; font-size: 13px; line-height: 20px; color: #5540b8; text-decoration: none; scroll-margin-block: var(--ui-header-offset) 12px; }
+.main-content .section-nav a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.main-content .section-nav summary { min-height: 28px; font-size: 13px; line-height: 20px; color: #5540b8; cursor: pointer; }
+.content-page > .section-nav + .content-body > h2:first-child,
+.post-article > .section-nav + .post-body > h2:first-child { margin-top: 0; }
+.section-nav summary:focus-visible,.support-button:focus-visible,.expand-support:focus-visible { outline: 3px solid #5540b8; outline-offset: 2px; }
+
+.main-content .hobby-group { margin: 0 0 24px; }
+.main-content .hobby-group > h2,.main-content .hobby-group-heading > h2 { margin-top: 0; }
+.hobby-topic { min-width: 0; }
+.hobby-topic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px 24px; align-items: start; }
+.hobby-topic-grid > .hobby-wide { grid-column: 1 / -1; }
+.main-content .hobby-topic-grid h3:first-child,.main-content .hobby-topic-grid h4:first-child { margin-top: 0; }
+.main-content .hobby-group > .hobby-topic > p { max-width: 68ch; }
+.hobby-short-topics { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; }
+.hobby-short-topics .hobby-topic { display: flex; align-items: baseline; gap: 8px; }
+.main-content .hobby-short-topics h3 { font-size: 16px !important; line-height: 1.4; margin: 0; }
+.main-content .hobby-short-topics p { font-size: 14px; color: #666; margin: 0; }
+.hobby-group-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 8px; }
+.main-content .hobby-group-heading > h2 { margin-bottom: 0; }
+.main-content .hobbies-editorial [data-support-heading] { margin: 0; }
+.support-button { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; width: 100%; padding: 8px 0; margin: 0; background: transparent; border: 0; font: 500 15px/1.4 Inter,sans-serif; color: #333; text-align: left; cursor: pointer; }
+.support-button span { min-width: 0; overflow-wrap: anywhere; }
+.support-button svg { flex: none; }
+.support-button[aria-expanded="true"] svg { transform: rotate(180deg); }
+.support-panel { padding: 4px 0 12px; }
+.support-panel[hidden] { display: none; }
+.main-content .support-panel ul { margin-top: 0; margin-bottom: 0; }
+.expand-support { min-height: 32px; margin: 0; padding: 4px 0; border: 0; background: transparent; color: #5540b8; font: 400 13px/20px Inter,sans-serif; cursor: pointer; }
+.expand-support:hover { text-decoration: underline; }
+.main-content .media-categories { margin-top: 16px; }
+.media-category-row { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: baseline; gap: 12px; padding: 10px 0; }
+.main-content .media-category-row h2,.main-content .media-category-row p { margin: 0; }
+.main-content .media-category-row p { color: #666; }
+@media(max-width:600px) {
+  .blog-page .timeline-event.minor { --timeline-thumb: 40px; gap: 8px; }
+  .photography-page .photo-summary-title,.photography-page .photo-summary-secondary { font-size: 14px; line-height: 18px; }
+  .photography-page .photo-summary-secondary { font-size: 13px; }
+  .main-content .section-nav a,.main-content .section-nav summary,.expand-support { font-size: 14px; min-height: 32px; }
+  .hobby-short-topics { column-gap: 20px; }
+}
+@media(max-width:430px) {
+  /* A compact status list avoids an orphaned third outdoor topic on phones. */
+  .hobby-short-topics { display: grid; grid-template-columns: 1fr; gap: 4px; }
+  .hobby-short-topics .hobby-topic { justify-content: space-between; min-height: 24px; }
+}
+@media print {
+  .main-content .support-panel[hidden] { display: block !important; }
+  .section-nav,.expand-support,.support-button svg,.carousel-controls { display: none !important; }
 }

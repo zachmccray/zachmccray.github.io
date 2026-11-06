@@ -84,7 +84,9 @@ async def main():
                             assert values['images']<=n*3 and values['images']<n*6
                             assert values['final_images']<=n*3
                             assert await p.locator('.carousel-controls').count()==1
-                        else:assert count==n*6
+                        else:
+                            # Latest merged baseline also uses bounded buffers.
+                            assert count<=n*3 and count<n*6
                         rows.append(values);await c.close()
                 print('Measured',cpu,'× CPU,',n,'source images',flush=True)
         await b.close()

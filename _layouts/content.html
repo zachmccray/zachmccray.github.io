@@ -7,5 +7,6 @@ layout: default
     {% if page.legacy_destination %}<p class="content-meta">{{ page.legacy_destination | escape }}</p>{% endif %}
     {% if page.trip_dates %}<p class="content-meta">{{ page.trip_dates | escape }}</p>{% endif %}
   </header>
+  {% if page.section_navigation or page.collection == 'travel' %}{% include section-navigation.html html=content %}{% endif %}
   <div class="content-body content-prose">{{ content }}</div>
 </article>

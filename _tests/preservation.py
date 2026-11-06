@@ -1,4 +1,5 @@
 """Compare generated routes, content, SEO, native search, and resource budgets."""
+from search_contract import expected_destinations, identities
 import argparse, json, re
 from html.parser import HTMLParser
 from pathlib import Path
@@ -34,7 +35,7 @@ for name in r:
     check(name+' no unused Firebase/Blog scripts',sum('firebase' in s['src'] for s in scripts)==(3 if name=='travel.html' else 0) and sum(s['src'].endswith(('/blog-controls.js', '/blog-controls-2.js', '/blog-controls-3.js')) for s in scripts)==(1 if name=='blog.html' else 0))
 search='assets/js/search-data.json'
 before=json.loads((a.baseline/search).read_text());after=json.loads((a.site/search).read_text())
-check('All 80 standard search records byte-equivalent',before==after and len(after)==80)
+check('All standard search records byte-equivalent with intended destinations',before==after and expected_destinations(after))
 course=[record for record in after.values() if record['doc']=='My Courses' and record['title']!='My Courses']
 check('All 45 unique stable course destinations preserved',len(course)==45 and len(set(record['url'] for record in course))==45 and all('#course-' in record['url'] for record in course))
 # Guard the intentionally small upstream fork: remove only initSearch and attribution.

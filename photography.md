@@ -9,12 +9,12 @@ layout: content
 <script defer src="https://cdn.jsdelivr.net/npm/glightbox@3.3.1/dist/js/glightbox.min.js"></script>
 
 <section class="photography-page" aria-label="{{ page.title }}">
-<p class="gallery-hint">Open a photo to view it full size and read all details. Hover or focus for a brief summary.</p>
-<div class="masonry-gallery">
+<p class="gallery-hint" id="gallery-instructions">Open a photo to view it full size and read all details. Hover or focus for a brief summary.</p>
+<div class="masonry-gallery" role="group" aria-label="Photographs" aria-describedby="gallery-instructions">
 {% for photo in site.data.photography %}
   {% include photo-tile.html photo=photo number=forloop.index %}
 {% endfor %}
 </div>
 </section>
 
-<script defer src="{{ '/assets/js/photography-portfolio-2.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/photography-portfolio-3.js' | relative_url }}"></script>

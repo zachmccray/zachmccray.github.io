@@ -1,0 +1,9 @@
+⚠  Unable to fetch the CLI MOTD and remote config. This is not a fatal error, but may indicate an issue with your network connection.
+i  emulators: Starting emulators: auth, database
+i  emulators: Detected demo project ID "demo-website-reliability", emulated services will use a demo configuration and attempts to access non-emulated services for this project will fail.
+i  database: downloading firebase-database-emulator-v4.11.2.jar...
+i  emulators: Shutting down emulators.
+i  database: Stopping Database Emulator
+i  hub: Stopping emulator hub
+
+Error: download failed, status 403: Domain forbidden

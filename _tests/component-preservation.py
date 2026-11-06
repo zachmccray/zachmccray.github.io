@@ -1,4 +1,5 @@
 """Compare approved component changes against a merged build without broad skips."""
+from search_contract import expected_destinations, identities
 import argparse
 import json
 import re
@@ -97,11 +98,9 @@ for route in routes:
         check(route+' exact main content except native image loading attributes', loading_only(main(before)) == loading_only(main(after)))
 old = json.loads((args.baseline/'assets/js/search-data.json').read_text())
 new = json.loads((args.site/'assets/js/search-data.json').read_text())
-check('All 80 existing native search identities/destinations', len(old) == len(new) == 80 and
-      {k: {f: r[f] for f in ['doc', 'title', 'url', 'relUrl']} for k, r in old.items()} ==
-      {k: {f: r[f] for f in ['doc', 'title', 'url', 'relUrl']} for k, r in new.items()})
-check('All 79 non-Photography search records exactly unchanged',
-      all(r == new[k] for k, r in old.items() if r['doc'] != 'Photography'))
+check('All intended native search identities/destinations', identities(old) == identities(new) and expected_destinations(new))
+check('All non-Photography search records exactly unchanged',
+      [r for r in old.values() if r['doc'] != 'Photography'] == [r for r in new.values() if r['doc'] != 'Photography'])
 for file in ['_data/photography.yml', '_data/coursework.yml', 'assets/js/travel-atomic-receipts-1.js',
              '_firebase/database.rules.json', '_firebase/maintenance.rules.json',
              'assets/js/search.js', 'assets/js/site-ui.js', 'assets/js/just-the-docs.js', '_config.yml']:

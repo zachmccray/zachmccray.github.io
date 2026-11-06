@@ -8,7 +8,13 @@
     <img decoding="async" src="{{ photo.src | escape }}" alt="{{ photo.alt | escape }}">
     <span class="photo-summary" aria-hidden="true">
       <span class="photo-summary-title">{{ photo_name | escape }}</span>
-      {% if location != '' %}<span class="photo-summary-secondary">{{ location | escape }}</span>{% elsif date != '' %}<span class="photo-summary-secondary">{{ date | escape }}</span>{% endif %}
+      {% if location != '' %}<span class="photo-summary-secondary">{{ location | escape }}</span>{% endif %}
+      {% if date != '' %}<span class="photo-summary-secondary">{{ date | escape }}</span>{% endif %}
+      {% assign summary_body = photo.camera.body | append: '' | strip %}
+      {% if summary_body != '' %}<span class="photo-summary-secondary">{{ summary_body | escape }}</span>{% endif %}
+      {% capture summary_exposure %}{% if photo.camera.shutter_speed %}{{ photo.camera.shutter_speed | escape }} {% endif %}{% if photo.camera.aperture %}{{ photo.camera.aperture | escape }} {% endif %}{% if photo.camera.iso %}ISO {{ photo.camera.iso | escape }} {% endif %}{% if photo.camera.focal_length %}{{ photo.camera.focal_length | escape }}{% endif %}{% endcapture %}
+      {% assign summary_exposure = summary_exposure | strip %}
+      {% if summary_exposure != '' %}<span class="photo-summary-secondary">{{ summary_exposure }}</span>{% endif %}
     </span>
   </a>
   <div class="photo-info" id="{{ photo.id | escape }}">

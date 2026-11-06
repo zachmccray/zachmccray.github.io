@@ -1,0 +1,327 @@
+{
+  "browser": "chromium",
+  "passed": 63,
+  "failed": [],
+  "checks": [
+    {
+      "check": "reduce: no eager carousel GLightbox request",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: keyboard opening instructions remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: bare 44px controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: one arrow click advances once",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: rapid commands advance three slots",
+      "passed": true,
+      "detail": "Photo 4 of 8"
+    },
+    {
+      "check": "reduce: hold moves and release stops",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: no idle hold animation callbacks",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: pointercancel stops motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: pointercancel release adds no command",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: lostpointercapture stops motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: lostpointercapture release adds no command",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: blur stops motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: blur release adds no command",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: keyboard hold stops on release",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: exactly original slide count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: opening keeps inactive slides inert",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: focus remains in viewer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: keyboard next displays second original",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: focus returns to stable strip",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: one lazy JS and CSS fetch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: copies have no interactive keyboard stops",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: a cloned neighbor is visibly available",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: clicking cloned pixels opens corresponding original",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: clone opening has no duplicate viewer slides",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: warm enlargement reuses library",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reduce: horizontal drag does not enlarge",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: no eager carousel GLightbox request",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: keyboard opening instructions remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: bare 44px controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: one arrow click advances once",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: rapid commands advance three slots",
+      "passed": true,
+      "detail": "Photo 4 of 8"
+    },
+    {
+      "check": "no-preference: hold moves and release stops",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: no idle hold animation callbacks",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: pointercancel stops motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: pointercancel release adds no command",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: lostpointercapture stops motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: lostpointercapture release adds no command",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: blur stops motion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: blur release adds no command",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: keyboard hold stops on release",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: exactly original slide count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: opening keeps inactive slides inert",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: focus remains in viewer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: keyboard next displays second original",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: focus returns to stable strip",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: one lazy JS and CSS fetch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: copies have no interactive keyboard stops",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: a cloned neighbor is visibly available",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: clicking cloned pixels opens corresponding original",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: clone opening has no duplicate viewer slides",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: warm enlargement reuses library",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no-preference: horizontal drag does not enlarge",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Native touch tap enlarges immediately",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Viewer download failure retains original URL",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Viewer download can recover on retry",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Tab cancels pending viewer feedback immediately",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Late library does not steal focus/open canceled viewer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "New strip intent clears first pending feedback",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Latest strip owns the delayed viewer",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Delayed viewer contains only second originals",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "CSS-only viewer failure leaves a working original link",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Retry restores stylesheet even if JS was already installed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "No new page exceptions",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "axe": [],
+  "typography": [],
+  "errors": [],
+  "screenshots": [],
+  "limitations": "Synthetic geometry/media; Chromium/Firefox/WebKit where installed, no physical devices or screen-reader certification."
+}
