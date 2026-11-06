@@ -4,6 +4,11 @@ Implementation source: `bd006c9` on `design/editorial-ux-refinements`, based on
 merged `gh-pages` `3422234`. Production has not been modified or merged.
 The GitHub API is blocked by the current runtime egress policy; PR creation is a
 remaining gate. The branch is published and the exact [PR body](PR.md) is ready.
+The actual creation attempt was rejected before reaching GitHub: `Tunnel connection
+failed: 403 Forbidden`. Apply the saved runtime allowlist for `api.github.com`,
+`cdn.playwright.dev`, `playwright.download.prss.microsoft.com` and
+`storage.googleapis.com` to finish creation and the remaining local tests.
+[Final report-exclusion check](evidence/review-publication-surface.json): 1,246 passed.
 
 ## Prioritized changes
 

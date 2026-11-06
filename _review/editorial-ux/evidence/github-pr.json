@@ -1,0 +1,5 @@
+{
+  "created": false,
+  "error": "Tunnel connection failed: 403 Forbidden",
+  "classification": "Runtime proxy rejected the API tunnel before GitHub authentication/PR creation"
+}

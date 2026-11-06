@@ -32,5 +32,11 @@
     "assets/js/image-viewer-1.js": "51d432ce5f3d5a47304c1c254eb27662d5d0b61367f0c285b30b1eba293a1d4a",
     "assets/js/section-navigation-1.js": "f11551bb90e53d8ef9ba00de68beff25731582b846ef0bb499abe2e039fa201e",
     "assets/js/travel-atomic-receipts-1.js": "bd584bf25d8a3180dd67d1d281fa314868bfd8df8a2bb2372a70fb0e85a6d78c"
-  }
+  },
+  "github_pr": {
+    "created": false,
+    "error": "Tunnel connection failed: 403 Forbidden",
+    "classification": "Runtime proxy rejected the API tunnel before GitHub authentication/PR creation"
+  },
+  "review_artifact_publication_check": 1246
 }

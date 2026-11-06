@@ -58,6 +58,7 @@ Jekyll excludes this entire `_review/` directory.
 - `_review/editorial-ux/CHANGED_FILES.md`
 - `_review/editorial-ux/NAVIGATION_AND_ROLLBACK.md`
 - `_review/editorial-ux/PR.md`
+- `_review/editorial-ux/PREPARED_PR.md`
 - `_review/editorial-ux/README.md`
 - `_review/editorial-ux/comparisons.html`
 - `_review/editorial-ux/evidence/baseline-search-comparison.json`
@@ -72,6 +73,7 @@ Jekyll excludes this entire `_review/` directory.
 - `_review/editorial-ux/evidence/firebase-emulator.log`
 - `_review/editorial-ux/evidence/firebase-unit.log`
 - `_review/editorial-ux/evidence/framework-results.json`
+- `_review/editorial-ux/evidence/github-pr.json`
 - `_review/editorial-ux/evidence/history-results.json`
 - `_review/editorial-ux/evidence/local-build.log`
 - `_review/editorial-ux/evidence/local-parity.json`
@@ -81,6 +83,7 @@ Jekyll excludes this entire `_review/` directory.
 - `_review/editorial-ux/evidence/pages-public-surface.json`
 - `_review/editorial-ux/evidence/preservation.json`
 - `_review/editorial-ux/evidence/public-surface.json`
+- `_review/editorial-ux/evidence/review-publication-surface.json`
 - `_review/editorial-ux/evidence/search-browser-results.json`
 - `_review/editorial-ux/evidence/travel-performance.json`
 - `_review/editorial-ux/evidence/visual-media-results.json`
