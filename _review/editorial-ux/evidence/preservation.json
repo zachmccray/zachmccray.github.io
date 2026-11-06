@@ -1,0 +1,2022 @@
+{
+  "passed": 504,
+  "failed": [],
+  "checks": [
+    {
+      "check": "Exactly the 82 baseline routes",
+      "passed": true
+    },
+    {
+      "check": "2024/08/09/colorado-move.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/08/09/colorado-move.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/08/09/colorado-move.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/08/09/colorado-move.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/08/09/colorado-move.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/08/24/alvvays-concert.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/08/24/alvvays-concert.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/08/24/alvvays-concert.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/08/24/alvvays-concert.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/08/24/alvvays-concert.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/09/14/austin-texas.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/09/14/austin-texas.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/09/14/austin-texas.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/09/14/austin-texas.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/09/14/austin-texas.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/09/18/washington.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/09/18/washington.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/09/18/washington.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/09/18/washington.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/09/18/washington.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/09/25/broadway-start.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/09/25/broadway-start.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/09/25/broadway-start.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/09/25/broadway-start.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/09/25/broadway-start.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/09/28/rmwa-fire-dept-event.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/09/28/rmwa-fire-dept-event.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/09/28/rmwa-fire-dept-event.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/09/28/rmwa-fire-dept-event.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/09/28/rmwa-fire-dept-event.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/09/28/rockies-dodgers.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/09/28/rockies-dodgers.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/09/28/rockies-dodgers.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/09/28/rockies-dodgers.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/09/28/rockies-dodgers.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/10/03/luna-li-concert.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/03/luna-li-concert.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/03/luna-li-concert.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/10/03/luna-li-concert.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/10/03/luna-li-concert.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/10/04/oregon.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/04/oregon.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/04/oregon.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/10/04/oregon.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/10/04/oregon.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/10/08/zolita-concert.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/08/zolita-concert.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/08/zolita-concert.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/10/08/zolita-concert.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/10/08/zolita-concert.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/10/16/porter-robinson-concert.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/16/porter-robinson-concert.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/16/porter-robinson-concert.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/10/16/porter-robinson-concert.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/10/16/porter-robinson-concert.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/10/21/nothing-but-thieves-concert.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/21/nothing-but-thieves-concert.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/21/nothing-but-thieves-concert.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/10/21/nothing-but-thieves-concert.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/10/21/nothing-but-thieves-concert.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/10/24/anderson-farms.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/24/anderson-farms.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/24/anderson-farms.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/10/24/anderson-farms.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/10/24/anderson-farms.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/10/31/halloween-bar-crawl.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/31/halloween-bar-crawl.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/10/31/halloween-bar-crawl.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/10/31/halloween-bar-crawl.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/10/31/halloween-bar-crawl.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/11/01/sabrina-carpenter-concert.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/11/01/sabrina-carpenter-concert.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/11/01/sabrina-carpenter-concert.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/11/01/sabrina-carpenter-concert.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/11/01/sabrina-carpenter-concert.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/11/04/nuggets.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/11/04/nuggets.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/11/04/nuggets.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/11/04/nuggets.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/11/04/nuggets.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/12/02/avatar-concert.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/12/02/avatar-concert.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/12/02/avatar-concert.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/12/02/avatar-concert.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/12/02/avatar-concert.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/12/09/coors-tour.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/12/09/coors-tour.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/12/09/coors-tour.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/12/09/coors-tour.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/12/09/coors-tour.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/12/17/funny-girl-musical.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/12/17/funny-girl-musical.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/12/17/funny-girl-musical.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/12/17/funny-girl-musical.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/12/17/funny-girl-musical.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2024/12/20/kansas-city-christmas.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2024/12/20/kansas-city-christmas.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2024/12/20/kansas-city-christmas.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2024/12/20/kansas-city-christmas.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2024/12/20/kansas-city-christmas.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/01/05/harry-potter-concert.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/01/05/harry-potter-concert.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/01/05/harry-potter-concert.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/01/05/harry-potter-concert.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/01/05/harry-potter-concert.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/01/15/casa-bonita.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/01/15/casa-bonita.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/01/15/casa-bonita.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/01/15/casa-bonita.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/01/15/casa-bonita.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/01/27/limperatrice-concert.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/01/27/limperatrice-concert.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/01/27/limperatrice-concert.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/01/27/limperatrice-concert.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/01/27/limperatrice-concert.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/01/29/back-to-the-future-musical.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/01/29/back-to-the-future-musical.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/01/29/back-to-the-future-musical.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/01/29/back-to-the-future-musical.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/01/29/back-to-the-future-musical.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/02/11/tyler-the-creator-concert.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/02/11/tyler-the-creator-concert.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/02/11/tyler-the-creator-concert.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/02/11/tyler-the-creator-concert.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/02/11/tyler-the-creator-concert.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/02/16/barr-lake-state-park.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/02/16/barr-lake-state-park.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/02/16/barr-lake-state-park.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/02/16/barr-lake-state-park.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/02/16/barr-lake-state-park.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/02/24/cu-boulder-basketball.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/02/24/cu-boulder-basketball.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/02/24/cu-boulder-basketball.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/02/24/cu-boulder-basketball.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/02/24/cu-boulder-basketball.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/03/05/gutenberg-musical.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/03/05/gutenberg-musical.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/03/05/gutenberg-musical.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/03/05/gutenberg-musical.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/03/05/gutenberg-musical.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/03/15/wizards-nuggets.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/03/15/wizards-nuggets.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/03/15/wizards-nuggets.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/03/15/wizards-nuggets.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/03/15/wizards-nuggets.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/03/26/life-of-pi-musical.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/03/26/life-of-pi-musical.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/03/26/life-of-pi-musical.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/03/26/life-of-pi-musical.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/03/26/life-of-pi-musical.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/03/29/steamboat-springs-ski.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/03/29/steamboat-springs-ski.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/03/29/steamboat-springs-ski.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/03/29/steamboat-springs-ski.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/03/29/steamboat-springs-ski.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/04/02/spurs-nuggets.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/04/02/spurs-nuggets.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/04/02/spurs-nuggets.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/04/02/spurs-nuggets.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/04/02/spurs-nuggets.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/04/05/winter-park-ski.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/04/05/winter-park-ski.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/04/05/winter-park-ski.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/04/05/winter-park-ski.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/04/05/winter-park-ski.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/04/16/the-wiz.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/04/16/the-wiz.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/04/16/the-wiz.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/04/16/the-wiz.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/04/16/the-wiz.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/05/03/first-rmwa-open-house.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/05/03/first-rmwa-open-house.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/05/03/first-rmwa-open-house.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/05/03/first-rmwa-open-house.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/05/03/first-rmwa-open-house.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/05/03/nuggets-clippers.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/05/03/nuggets-clippers.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/05/03/nuggets-clippers.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/05/03/nuggets-clippers.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/05/03/nuggets-clippers.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/05/10/book-of-mormon-musical.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/05/10/book-of-mormon-musical.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/05/10/book-of-mormon-musical.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/05/10/book-of-mormon-musical.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/05/10/book-of-mormon-musical.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/05/24/aidan-wedding.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/05/24/aidan-wedding.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/05/24/aidan-wedding.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/05/24/aidan-wedding.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/05/24/aidan-wedding.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/05/26/camping.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/05/26/camping.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/05/26/camping.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/05/26/camping.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/05/26/camping.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/06/10/coldplay-concert.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/10/coldplay-concert.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/10/coldplay-concert.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/06/10/coldplay-concert.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/06/10/coldplay-concert.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/06/12/and-juliet-musical.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/12/and-juliet-musical.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/12/and-juliet-musical.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/06/12/and-juliet-musical.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/06/12/and-juliet-musical.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/06/14/rmwa-civic-park-event.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/14/rmwa-civic-park-event.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/14/rmwa-civic-park-event.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/06/14/rmwa-civic-park-event.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/06/14/rmwa-civic-park-event.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/06/16/sand-volleyball.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/16/sand-volleyball.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/16/sand-volleyball.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/06/16/sand-volleyball.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/06/16/sand-volleyball.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/06/21/lake-trip.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/21/lake-trip.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/21/lake-trip.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/06/21/lake-trip.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/06/21/lake-trip.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/06/29/denver-pride-parade.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/29/denver-pride-parade.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/06/29/denver-pride-parade.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/06/29/denver-pride-parade.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/06/29/denver-pride-parade.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/07/18/kansas-city-surprise.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/07/18/kansas-city-surprise.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/07/18/kansas-city-surprise.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/07/18/kansas-city-surprise.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/07/18/kansas-city-surprise.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/07/21/fort-collins-rodeo.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/07/21/fort-collins-rodeo.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/07/21/fort-collins-rodeo.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/07/21/fort-collins-rodeo.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/07/21/fort-collins-rodeo.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/07/23/montreal-quebec.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/07/23/montreal-quebec.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/07/23/montreal-quebec.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/07/23/montreal-quebec.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/07/23/montreal-quebec.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/08/03/colorado-springs-pt1.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/08/03/colorado-springs-pt1.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/08/03/colorado-springs-pt1.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/08/03/colorado-springs-pt1.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/08/03/colorado-springs-pt1.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/08/09/savannah-bananas.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/08/09/savannah-bananas.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/08/09/savannah-bananas.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/08/09/savannah-bananas.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/08/09/savannah-bananas.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/08/15/colorado-np-roadtrip.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/08/15/colorado-np-roadtrip.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/08/15/colorado-np-roadtrip.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/08/15/colorado-np-roadtrip.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/08/15/colorado-np-roadtrip.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/08/20/dodgers-rockies.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/08/20/dodgers-rockies.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/08/20/dodgers-rockies.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/08/20/dodgers-rockies.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/08/20/dodgers-rockies.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/09/05/national-park-roadtrip-west.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/09/05/national-park-roadtrip-west.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/09/05/national-park-roadtrip-west.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/09/05/national-park-roadtrip-west.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/09/05/national-park-roadtrip-west.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/10/07/japan.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/10/07/japan.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/10/07/japan.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/10/07/japan.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/10/07/japan.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/10/19/shucked-musical.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/10/19/shucked-musical.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/10/19/shucked-musical.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/10/19/shucked-musical.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/10/19/shucked-musical.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/11/01/spooky-xv-performance.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/11/01/spooky-xv-performance.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/11/01/spooky-xv-performance.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/11/01/spooky-xv-performance.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/11/01/spooky-xv-performance.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/11/13/andrew-bird-colorado-symphony.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/11/13/andrew-bird-colorado-symphony.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/11/13/andrew-bird-colorado-symphony.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/11/13/andrew-bird-colorado-symphony.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/11/13/andrew-bird-colorado-symphony.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/11/14/minneapolis.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/11/14/minneapolis.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/11/14/minneapolis.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/11/14/minneapolis.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/11/14/minneapolis.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/11/16/lamp-2025.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/11/16/lamp-2025.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/11/16/lamp-2025.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/11/16/lamp-2025.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/11/16/lamp-2025.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/12/01/nuggets-halftime.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/12/01/nuggets-halftime.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/12/01/nuggets-halftime.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/12/01/nuggets-halftime.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/12/01/nuggets-halftime.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/12/12/christmas-caroling.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/12/12/christmas-caroling.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/12/12/christmas-caroling.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/12/12/christmas-caroling.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/12/12/christmas-caroling.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/12/18/musical-the-notebook.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/12/18/musical-the-notebook.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/12/18/musical-the-notebook.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/12/18/musical-the-notebook.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/12/18/musical-the-notebook.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2025/12/24/christmas-2025.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2025/12/24/christmas-2025.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2025/12/24/christmas-2025.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2025/12/24/christmas-2025.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2025/12/24/christmas-2025.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "2026/01/16/mhfb-concert-phoenix-rising.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "2026/01/16/mhfb-concert-phoenix-rising.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "2026/01/16/mhfb-concert-phoenix-rising.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "2026/01/16/mhfb-concert-phoenix-rising.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "2026/01/16/mhfb-concert-phoenix-rising.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "academics.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "academics.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "academics.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "academics.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "academics.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "blog.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "blog.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "blog.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "blog.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "blog.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "courses.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "courses.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "courses.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "courses.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "courses.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "hobbies.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "hobbies.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "hobbies.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "hobbies.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "hobbies.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "index.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "index.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "index.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "index.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "index.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "media.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "media.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "media.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "media.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "media.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "photography.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "photography.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "photography.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "photography.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "photography.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "travel.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "travel.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "travel.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "travel.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "travel.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "travel/cancun2026/index.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "travel/cancun2026/index.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "travel/cancun2026/index.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "travel/cancun2026/index.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "travel/cancun2026/index.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "travel/coloradonp/index.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "travel/coloradonp/index.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "travel/coloradonp/index.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "travel/coloradonp/index.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "travel/coloradonp/index.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "travel/japan/index.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "travel/japan/index.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "travel/japan/index.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "travel/japan/index.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "travel/japan/index.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "travel/montreal/index.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "travel/montreal/index.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "travel/montreal/index.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "travel/montreal/index.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "travel/montreal/index.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "travel/oregon/index.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "travel/oregon/index.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "travel/oregon/index.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "travel/oregon/index.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "travel/oregon/index.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "travel/roadtrip/index.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "travel/roadtrip/index.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "travel/roadtrip/index.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "travel/roadtrip/index.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "travel/roadtrip/index.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "travel/saltlakecity2026/index.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "travel/saltlakecity2026/index.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "travel/saltlakecity2026/index.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "travel/saltlakecity2026/index.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "travel/saltlakecity2026/index.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "travel/southwestroadtrip2026/index.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "travel/southwestroadtrip2026/index.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "travel/southwestroadtrip2026/index.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "travel/southwestroadtrip2026/index.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "travel/southwestroadtrip2026/index.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "travel/washington/index.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "travel/washington/index.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "travel/washington/index.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "travel/washington/index.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "travel/washington/index.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "volunteering.html: exact meaningful wording/order",
+      "passed": true
+    },
+    {
+      "check": "volunteering.html: exact existing functional links/order",
+      "passed": true
+    },
+    {
+      "check": "volunteering.html: exact media attributes and language samples",
+      "passed": true
+    },
+    {
+      "check": "volunteering.html: all old fragment IDs retained once",
+      "passed": true
+    },
+    {
+      "check": "volunteering.html: unchanged SEO",
+      "passed": true
+    },
+    {
+      "check": "All exact intended standard search identities",
+      "passed": true
+    },
+    {
+      "check": "All non-Photography search snippets byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_config.yml: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "Gemfile: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "Gemfile.lock: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "assets/js/search.js: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "assets/js/site-ui.js: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "assets/js/just-the-docs.js: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "assets/js/blog-controls.js: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "assets/js/travel-atomic-receipts-1.js: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_includes/course-list.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "courses.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "index.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "academics.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_data/photography.yml: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_data/coursework.yml: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_data/stats.yml: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-03-26-life-of-pi-musical.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-05-26-camping.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-10-24-anderson-farms.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-11-01-spooky-xv-performance.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-08-09-colorado-move.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-01-29-back-to-the-future-musical.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-12-02-avatar-concert.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-11-04-nuggets.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-05-10-book-of-mormon-musical.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-11-16-lamp-2025.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-07-21-fort-collins-rodeo.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-02-16-barr-lake-state-park.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-05-03-nuggets-clippers.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-10-16-porter-robinson-concert.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-06-16-sand-volleyball.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-09-28-rmwa-fire-dept-event.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-03-15-wizards-nuggets.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-08-24-alvvays-concert.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-10-07-japan.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-10-21-nothing-but-thieves-concert.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-09-05-national-park-roadtrip-west.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-10-08-zolita-concert.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-10-19-shucked-musical.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-09-28-rockies-dodgers.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-12-17-funny-girl-musical.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-08-15-colorado-np-roadtrip.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-06-29-denver-pride-parade.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-12-20-kansas-city-christmas.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-11-01-sabrina-carpenter-concert.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-08-20-dodgers-rockies.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-02-11-tyler-the-creator-concert.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-03-29-steamboat-springs-ski.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-08-03-colorado-springs-pt1.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-12-01-nuggets-halftime.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-06-14-rmwa-civic-park-event.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-12-24-christmas-2025.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-04-05-winter-park-ski.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-02-24-cu-boulder-basketball.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-07-18-kansas-city-surprise.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-01-15-casa-bonita.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-07-23-montreal-quebec.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-01-27-limperatrice-concert.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-05-03-first-rmwa-open-house.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-11-14-minneapolis.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2026-01-17-mhfb-concert-phoenix-rising.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-09-14-austin-texas.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-08-09-savannah-bananas.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-10-03-luna-li-concert.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-11-13-andrew-bird-colorado-symphony.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-09-25-broadway-start.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-04-02-spurs-nuggets.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-12-18-musical-the-notebook.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-05-24-aidan-wedding.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-06-21-lake-trip.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-10-04-oregon.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-09-18-washington.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-12-09-coors-tour.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-04-16-the-wiz.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2024-10-31-halloween-bar-crawl.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-12-12-christmas-caroling.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-03-05-gutenberg-musical.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-06-10-coldplay-concert.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-06-12-and-juliet-musical.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_posts/2025-01-05-harry-potter-concert.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_firebase/maintenance.rules.json: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_firebase/database.rules.json: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "_firebase/README.md: source byte-identical",
+      "passed": true
+    },
+    {
+      "check": "oregon.md: only curated navigation opt-out added",
+      "passed": true
+    },
+    {
+      "check": "coloradonp.md: only curated navigation opt-out added",
+      "passed": true
+    },
+    {
+      "check": "japan.md: only curated navigation opt-out added",
+      "passed": true
+    },
+    {
+      "check": "southwestroadtrip2026.md: only curated navigation opt-out added",
+      "passed": true
+    },
+    {
+      "check": "washington.md: only curated navigation opt-out added",
+      "passed": true
+    },
+    {
+      "check": "saltlakecity2026.md: only curated navigation opt-out added",
+      "passed": true
+    },
+    {
+      "check": "cancun2026.md: only curated navigation opt-out added",
+      "passed": true
+    },
+    {
+      "check": "montreal.md: only curated navigation opt-out added",
+      "passed": true
+    },
+    {
+      "check": "roadtrip.md: only curated navigation opt-out added",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "baseline": "34222340f367e4222c3a38212425e6bebe399467",
+  "source_commit": "bd006c99f573fd5cff9499d290a9915621c1659d",
+  "branch": "design/editorial-ux-refinements",
+  "checks": {
+    "production publication": 1245,
+    "Pages publication": 1246,
+    "localhost publication": 1246,
+    "Pages parity": 580,
+    "localhost parity": 580,
+    "content/source preservation": 504,
+    "real search/navigation": 557,
+    "framework/browser/axe": 272,
+    "editorial text/navigation": 620,
+    "carousel interactions": 63,
+    "gallery/Timeline/media stress": 996,
+    "native carousel stress": 70,
+    "native cached/BFCache history": 12,
+    "controlled comparisons": 52
+  },
+  "firebase_isolated_tests": 11,
+  "blocked": [
+    "GitHub REST API",
+    "Firefox/WebKit downloads",
+    "Firebase RTDB emulator JAR download"
+  ],
+  "production_modified": false,
+  "hashes": {
+    "assets/css/custom-editorial-1.css": "bffd823510ed554694511cd5647dcaf8789896b19ed9776e5d569fd7d472dd6c",
+    "assets/js/image-carousel-3.js": "d47a4828e2d3bc13d4625fcec376eef0dc6fa45e137d2956fd4953250627edf2",
+    "assets/js/photography-portfolio-3.js": "8e306164254de940c8979c08c66e2d89bbd68c8dbe65c7f01837fe400c0ea768",
+    "assets/js/image-viewer-1.js": "51d432ce5f3d5a47304c1c254eb27662d5d0b61367f0c285b30b1eba293a1d4a",
+    "assets/js/section-navigation-1.js": "f11551bb90e53d8ef9ba00de68beff25731582b846ef0bb499abe2e039fa201e",
+    "assets/js/travel-atomic-receipts-1.js": "bd584bf25d8a3180dd67d1d281fa314868bfd8df8a2bb2372a70fb0e85a6d78c"
+  }
+}

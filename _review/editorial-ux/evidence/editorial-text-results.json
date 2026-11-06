@@ -1,0 +1,4390 @@
+{
+  "browser": "chromium",
+  "passed": 620,
+  "failed": [],
+  "checks": [
+    {
+      "check": "/hobbies.html/320x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/320x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/320x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/320x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/320x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/320x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//320x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//320x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//320x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//320x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//320x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/375x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/375x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/375x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/375x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/375x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//375x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//375x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//375x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//375x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//375x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x900: axe zero violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/media.html/390x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/390x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/390x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/390x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/390x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/390x900: axe zero violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/volunteering.html/390x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x900: axe zero violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//390x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//390x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//390x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//390x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//390x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//390x900: axe zero violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/hobbies.html/430x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/430x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/430x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/430x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/430x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/430x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/430x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/430x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/430x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/430x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/430x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/430x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/430x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/430x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/430x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/430x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/430x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/430x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/430x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/430x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//430x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//430x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//430x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//430x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//430x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/600x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/600x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/600x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/600x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/600x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/600x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/600x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/600x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/600x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/600x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/600x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/600x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/600x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/600x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/600x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/600x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/600x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/600x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/600x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/600x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//600x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//600x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//600x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//600x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//600x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/601x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/601x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/601x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/601x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/601x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/601x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/601x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/601x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/601x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/601x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/601x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/601x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/601x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/601x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/601x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/601x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/601x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/601x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/601x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/601x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//601x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//601x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//601x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//601x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//601x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/768x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/768x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/768x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/768x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/768x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//768x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//768x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//768x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//768x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//768x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/820x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/820x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/820x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/820x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/820x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//820x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//820x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//820x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//820x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//820x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1024x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1024x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1024x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1024x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1024x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1024x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1024x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1024x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1024x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1024x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1280x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1280x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1280x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1280x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1280x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1280x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1280x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1280x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1280x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1280x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1280x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1280x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1280x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1280x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1280x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1280x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1280x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1280x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1280x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1280x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1280x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1280x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1280x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1280x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1280x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1440x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1440x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1440x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1440x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1440x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1440x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1440x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1440x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1440x900: axe zero violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/media.html/1440x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1440x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1440x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1440x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1440x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1440x900: axe zero violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/volunteering.html/1440x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1440x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1440x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1440x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1440x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1440x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1440x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1440x900: axe zero violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1440x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1440x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1440x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1440x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1440x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1440x900: axe zero violations",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "/hobbies.html/1920x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1920x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1920x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1920x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1920x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1920x900: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1920x900: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1920x900: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1920x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1920x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1920x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1920x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1920x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1920x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1920x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1920x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1920x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1920x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1920x900: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1920x900: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1920x900: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1920x900: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1920x900: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1920x900: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1920x900: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x812: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x812: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x812: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x812: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x812: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x812: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/375x812: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/375x812: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/375x812: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/375x812: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/375x812: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/375x812: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x812: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x812: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x812: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x812: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x812: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x812: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/375x812: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//375x812: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//375x812: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//375x812: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//375x812: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//375x812: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/812x375: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/812x375: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/812x375: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/812x375: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/812x375: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/812x375: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/812x375: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/812x375: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/812x375: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/812x375: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/812x375: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/812x375: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/812x375: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/812x375: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/812x375: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/812x375: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/812x375: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/812x375: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/812x375: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//812x375: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//812x375: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//812x375: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//812x375: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//812x375: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x844: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x844: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x844: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x844: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x844: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x844: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/390x844: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/390x844: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/390x844: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/390x844: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/390x844: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/390x844: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x844: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x844: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x844: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x844: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x844: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x844: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/390x844: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//390x844: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//390x844: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//390x844: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//390x844: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//390x844: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/844x390: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/844x390: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/844x390: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/844x390: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/844x390: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/844x390: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/844x390: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/844x390: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/844x390: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/844x390: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/844x390: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/844x390: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/844x390: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/844x390: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/844x390: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/844x390: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/844x390: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/844x390: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/844x390: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//844x390: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//844x390: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//844x390: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//844x390: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//844x390: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x1024: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x1024: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x1024: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x1024: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x1024: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x1024: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x1024: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/768x1024: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/768x1024: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/768x1024: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/768x1024: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/768x1024: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/768x1024: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x1024: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x1024: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x1024: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x1024: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x1024: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x1024: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/768x1024: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//768x1024: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//768x1024: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//768x1024: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//768x1024: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//768x1024: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x768: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x768: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x768: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x768: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x768: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x768: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1024x768: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1024x768: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1024x768: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1024x768: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1024x768: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1024x768: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x768: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x768: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x768: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x768: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x768: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x768: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1024x768: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1024x768: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1024x768: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1024x768: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1024x768: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1024x768: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x1180: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x1180: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x1180: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x1180: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x1180: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x1180: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x1180: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/820x1180: compact four-link navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/820x1180: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/820x1180: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/820x1180: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/820x1180: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/820x1180: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x1180: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x1180: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x1180: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x1180: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x1180: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x1180: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/820x1180: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//820x1180: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//820x1180: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//820x1180: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//820x1180: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//820x1180: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1180x820: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1180x820: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1180x820: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1180x820: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1180x820: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1180x820: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/1180x820: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1180x820: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1180x820: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1180x820: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1180x820: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/1180x820: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1180x820: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1180x820: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1180x820: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1180x820: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1180x820: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1180x820: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/1180x820: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1180x820: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1180x820: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1180x820: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1180x820: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//1180x820: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/640x450: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/640x450: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/640x450: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/640x450: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/640x450: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/640x450: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/640x450: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/640x450: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/640x450: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/640x450: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/640x450: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/640x450: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/640x450: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/640x450: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/640x450: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/640x450: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/640x450: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/640x450: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/640x450: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//640x450: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//640x450: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//640x450: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//640x450: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//640x450: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x225: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x225: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x225: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x225: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x225: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x225: five disclosures and 18 source items",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/hobbies.html/320x225: all language samples visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/320x225: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/320x225: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/320x225: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/320x225: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/media.html/320x225: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x225: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x225: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x225: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x225: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x225: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x225: compact organization labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/volunteering.html/320x225: full organization names remain accessible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//320x225: actual heading targets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//320x225: navigation left aligns with H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//320x225: no horizontal overflow",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//320x225: navigation targets at least 24px high",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/southwestroadtrip2026//320x225: one visible H1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Keyboard opens Saxophone Details",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Space closes supporting list",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Keyboard opens Favorite Exercises & Repertoire Books",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Space closes supporting list",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Keyboard opens All-In-One Adult Piano Adventures Book 1 by Faber",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Space closes supporting list",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Keyboard opens All-In-One Adult Piano Adventures Book 2 by Faber",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Space closes supporting list",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Keyboard opens Basic Piano Adventures Level 4 by Faber",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Space closes supporting list",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Expand-all reveals every original list",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Direct fragment exposes saxophone-details",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Direct fragment clears sticky header",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Refresh exposes saxophone-details",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Direct fragment exposes preferred-exercises-repertoire-books",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Direct fragment clears sticky header",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Refresh exposes preferred-exercises-repertoire-books",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Direct fragment exposes all-in-one-adult-piano-adventures-book-1-by-faber",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Direct fragment clears sticky header",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Refresh exposes all-in-one-adult-piano-adventures-book-1-by-faber",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Direct fragment exposes all-in-one-adult-piano-adventures-book-2-by-faber",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Direct fragment clears sticky header",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Refresh exposes all-in-one-adult-piano-adventures-book-2-by-faber",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Direct fragment exposes basic-piano-adventures-level-4-by-faber",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Direct fragment clears sticky header",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Refresh exposes basic-piano-adventures-level-4-by-faber",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches YAS-62",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for YAS-62",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search exposes matching equipment/books",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Royal Conservatory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Royal Conservatory",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search exposes matching equipment/books",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Piano",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Piano",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search exposes matching equipment/books",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Spanish",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Spanish",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Pickleball",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Pickleball",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Hiking",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Hiking",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Mile High Freedom Band",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Mile High Freedom Band",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search exposes matching equipment/books",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Foreign Languages",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Foreign Languages",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Sand Volleyball",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Sand Volleyball",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Mixology",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Mixology",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Skiing",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Skiing",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Japanese",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Japanese",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Real standard search reaches Mandarin",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Search focuses the correct group for Mandarin",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Fragment Back restores visible supporting heading",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Fragment Forward keeps native history",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/2025/10/07/japan.html: no empty or copied-outline navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/washington/: no empty or copied-outline navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "/travel/japan/: no empty or copied-outline navigation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Future long article: native compact expansion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Future article: hidden heading opens via fragment",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Future article: no duplicate IDs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Future long article: native compact expansion",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Future article: hidden heading opens via fragment",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "Future article: no duplicate IDs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "No JS: all supporting content visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "No JS: native four-link navigation remains",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "No new page exceptions",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "axe": [
+    {
+      "name": "/hobbies.html/390x900",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/media.html/390x900",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/volunteering.html/390x900",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/travel/southwestroadtrip2026//390x900",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/hobbies.html/1440x900",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fgColor": null,
+                    "bgColor": null,
+                    "contrastRatio": 0,
+                    "fontSize": "10.5pt (14px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1",
+                    "shadowColor": null
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<a class=\"nav-list-link active\" href=\"/hobbies.html\" aria-current=\"page\">Hobbies</a>",
+                      "target": [
+                        "a[href$=\"hobbies.html\"]"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<a class=\"nav-list-link active\" href=\"/hobbies.html\" aria-current=\"page\">Hobbies</a>",
+              "target": [
+                "a[href$=\"hobbies.html\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/media.html/1440x900",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fgColor": null,
+                    "bgColor": null,
+                    "contrastRatio": 0,
+                    "fontSize": "10.5pt (14px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1",
+                    "shadowColor": null
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<a class=\"nav-list-link active\" href=\"/media.html\" aria-current=\"page\">Media</a>",
+                      "target": [
+                        "a[href$=\"media.html\"]"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<a class=\"nav-list-link active\" href=\"/media.html\" aria-current=\"page\">Media</a>",
+              "target": [
+                "a[href$=\"media.html\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/volunteering.html/1440x900",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fgColor": null,
+                    "bgColor": null,
+                    "contrastRatio": 0,
+                    "fontSize": "10.5pt (14px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1",
+                    "shadowColor": null
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<a class=\"nav-list-link active\" href=\"/volunteering.html\" aria-current=\"page\">Volunteering</a>",
+                      "target": [
+                        "a[href$=\"volunteering.html\"]"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<a class=\"nav-list-link active\" href=\"/volunteering.html\" aria-current=\"page\">Volunteering</a>",
+              "target": [
+                "a[href$=\"volunteering.html\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/travel/southwestroadtrip2026//1440x900",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "tags": [
+            "cat.color",
+            "wcag2aa",
+            "wcag143",
+            "TTv5",
+            "TT13.c",
+            "EN-301-549",
+            "EN-9.1.4.3",
+            "ACT",
+            "RGAAv4",
+            "RGAA-3.2.1"
+          ],
+          "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=axeAPI",
+          "nodes": [
+            {
+              "any": [
+                {
+                  "id": "color-contrast",
+                  "data": {
+                    "fgColor": null,
+                    "bgColor": null,
+                    "contrastRatio": 0,
+                    "fontSize": "10.5pt (14px)",
+                    "fontWeight": "normal",
+                    "messageKey": "bgGradient",
+                    "expectedContrastRatio": "4.5:1",
+                    "shadowColor": null
+                  },
+                  "relatedNodes": [
+                    {
+                      "html": "<a href=\"/travel.html\" class=\"nav-list-link active\" aria-current=\"location\">Travel</a>",
+                      "target": [
+                        "a[href$=\"travel.html\"]"
+                      ]
+                    }
+                  ],
+                  "impact": "serious",
+                  "message": "Element's background color could not be determined due to a background gradient"
+                }
+              ],
+              "all": [],
+              "none": [],
+              "impact": "serious",
+              "html": "<a href=\"/travel.html\" class=\"nav-list-link active\" aria-current=\"location\">Travel</a>",
+              "target": [
+                "a[href$=\"travel.html\"]"
+              ],
+              "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "typography": [
+    {
+      "page": "/hobbies.html",
+      "width": 390,
+      "roles": [
+        {
+          "tag": "H1",
+          "role": "content-title",
+          "text": "Hobbies",
+          "font": "24px",
+          "lineHeight": "28.8px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Outdoor Activities",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Music",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Languages",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Other Hobbies",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading",
+          "text": "Outdoor Activities",
+          "font": "20px",
+          "lineHeight": "26px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "8px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "I maintain a detailed list of the hikes I\u2019ve finished alongs",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "You can view my AllTrails here.",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "TBD!",
+          "font": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "TBD!",
+          "font": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "TBD!",
+          "font": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading",
+          "text": "Music",
+          "font": "20px",
+          "lineHeight": "26px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        }
+      ]
+    },
+    {
+      "page": "/media.html",
+      "width": 390,
+      "roles": [
+        {
+          "tag": "H1",
+          "role": "content-title",
+          "text": "Media",
+          "font": "24px",
+          "lineHeight": "28.8px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Books and Films",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Musicals and Plays",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Board Games",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Physical Media",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading no_anchor",
+          "text": "Books and Films",
+          "font": "20px",
+          "lineHeight": "26px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "8px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "I am a typical atypical film enjoyer and literature consumer",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading no_anchor",
+          "text": "Musicals and Plays",
+          "font": "20px",
+          "lineHeight": "26px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "TBD!",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading no_anchor",
+          "text": "Board Games",
+          "font": "20px",
+          "lineHeight": "26px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "TBD!",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading no_anchor",
+          "text": "Physical Media",
+          "font": "20px",
+          "lineHeight": "26px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        }
+      ]
+    },
+    {
+      "page": "/volunteering.html",
+      "width": 390,
+      "roles": [
+        {
+          "tag": "H1",
+          "role": "content-title",
+          "text": "Volunteering",
+          "font": "24px",
+          "lineHeight": "28.8px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Wildlife Alliance",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Denver Zoo",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Food Rescue",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading",
+          "text": "Rocky Mountain Wildlife Alliance",
+          "font": "20px",
+          "lineHeight": "26px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "8px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "Before relocating to Colorado in the latter half of 2024, I ",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "I discovered Rocky Mountain Wildlife Alliance (RMWA) \u2013 an or",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "I trained under Emily Davenport, CWR, RVT \u2013 a Licensed Wildl",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "As a volunteer at RMWA, I perform a wide range of tasks, inc",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "carousel-viewer-status",
+          "text": "",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "Rocky Mountain Wildlife Alliance (RMWA) is a Colorado-based ",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "In my first year as a volunteer with RMWA, I contributed aro",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        }
+      ]
+    },
+    {
+      "page": "/travel/southwestroadtrip2026/",
+      "width": 390,
+      "roles": [
+        {
+          "tag": "H1",
+          "role": "content-title",
+          "text": "New Mexico & Texas, USA",
+          "font": "24px",
+          "lineHeight": "28.8px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "P",
+          "role": "content-meta",
+          "text": "April 18th \u2013 April 26th (2026)",
+          "font": "14px",
+          "lineHeight": "20.3px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "8px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 1",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 2",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 3",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 4",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 5",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 6",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 7",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 8",
+          "font": "14px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading",
+          "text": "Day 1 \u2013 Saturday \u2013 Capulin Volcano, Pecos, & Santa Fe, New M",
+          "font": "20px",
+          "lineHeight": "26px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "8px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "We left early Saturday morning for Santa Fe, New Mexico, wit",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        }
+      ]
+    },
+    {
+      "page": "/hobbies.html",
+      "width": 1440,
+      "roles": [
+        {
+          "tag": "H1",
+          "role": "content-title",
+          "text": "Hobbies",
+          "font": "28px",
+          "lineHeight": "33.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Outdoor Activities",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Music",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Languages",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Other Hobbies",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading",
+          "text": "Outdoor Activities",
+          "font": "22px",
+          "lineHeight": "28.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "8px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "I maintain a detailed list of the hikes I\u2019ve finished alongs",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "You can view my AllTrails here.",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "TBD!",
+          "font": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "TBD!",
+          "font": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "TBD!",
+          "font": "14px",
+          "lineHeight": "22.4px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading",
+          "text": "Music",
+          "font": "22px",
+          "lineHeight": "28.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        }
+      ]
+    },
+    {
+      "page": "/media.html",
+      "width": 1440,
+      "roles": [
+        {
+          "tag": "H1",
+          "role": "content-title",
+          "text": "Media",
+          "font": "28px",
+          "lineHeight": "33.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Books and Films",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Musicals and Plays",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Board Games",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Physical Media",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading no_anchor",
+          "text": "Books and Films",
+          "font": "22px",
+          "lineHeight": "28.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "8px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "I am a typical atypical film enjoyer and literature consumer",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading no_anchor",
+          "text": "Musicals and Plays",
+          "font": "22px",
+          "lineHeight": "28.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "TBD!",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading no_anchor",
+          "text": "Board Games",
+          "font": "22px",
+          "lineHeight": "28.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "TBD!",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading no_anchor",
+          "text": "Physical Media",
+          "font": "22px",
+          "lineHeight": "28.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        }
+      ]
+    },
+    {
+      "page": "/volunteering.html",
+      "width": 1440,
+      "roles": [
+        {
+          "tag": "H1",
+          "role": "content-title",
+          "text": "Volunteering",
+          "font": "28px",
+          "lineHeight": "33.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Wildlife Alliance",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Denver Zoo",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Food Rescue",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading",
+          "text": "Rocky Mountain Wildlife Alliance",
+          "font": "22px",
+          "lineHeight": "28.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "8px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "Before relocating to Colorado in the latter half of 2024, I ",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "I discovered Rocky Mountain Wildlife Alliance (RMWA) \u2013 an or",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "I trained under Emily Davenport, CWR, RVT \u2013 a Licensed Wildl",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "As a volunteer at RMWA, I perform a wide range of tasks, inc",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "carousel-viewer-status",
+          "text": "",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "Rocky Mountain Wildlife Alliance (RMWA) is a Colorado-based ",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "In my first year as a volunteer with RMWA, I contributed aro",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        }
+      ]
+    },
+    {
+      "page": "/travel/southwestroadtrip2026/",
+      "width": 1440,
+      "roles": [
+        {
+          "tag": "H1",
+          "role": "content-title",
+          "text": "New Mexico & Texas, USA",
+          "font": "28px",
+          "lineHeight": "33.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "P",
+          "role": "content-meta",
+          "text": "April 18th \u2013 April 26th (2026)",
+          "font": "13px",
+          "lineHeight": "18.85px",
+          "color": "rgb(102, 102, 102)",
+          "marginTop": "8px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 1",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 2",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 3",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 4",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 5",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 6",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 7",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "A",
+          "role": "",
+          "text": "Day 8",
+          "font": "13px",
+          "lineHeight": "20px",
+          "color": "rgb(85, 64, 184)",
+          "marginTop": "0px",
+          "marginBottom": "0px"
+        },
+        {
+          "tag": "H2",
+          "role": "content-heading",
+          "text": "Day 1 \u2013 Saturday \u2013 Capulin Volcano, Pecos, & Santa Fe, New M",
+          "font": "22px",
+          "lineHeight": "28.6px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "8px"
+        },
+        {
+          "tag": "P",
+          "role": "",
+          "text": "We left early Saturday morning for Santa Fe, New Mexico, wit",
+          "font": "15px",
+          "lineHeight": "24px",
+          "color": "rgb(34, 34, 34)",
+          "marginTop": "0px",
+          "marginBottom": "12px"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "screenshots": [],
+  "limitations": "Synthetic geometry/media; Chromium/Firefox/WebKit where installed, no physical devices or screen-reader certification."
+}
