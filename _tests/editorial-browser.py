@@ -14,6 +14,7 @@ for name in ('site','baseline','assets','deps','fixtures','out'):
 p.add_argument('--browser',choices=['chromium','firefox','webkit'],default='chromium')
 p.add_argument('--only',choices=['text','carousel','screenshots'])
 p.add_argument('--screenshots-for',help='Comma-separated component names for targeted screenshot refreshes')
+p.add_argument('--full-page',action='store_true',help='Capture the complete page in screenshot-only mode')
 a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
 site=Site(a.site);before=Site(a.baseline);fixtures=Site(a.fixtures)
 checks=[];errors=[];scans=[];shots=[];typography=[]
@@ -245,8 +246,11 @@ async def screenshots(browser):
                 # Match scroll positions/content region across comparisons.
                 if name=='carousels':await page.locator('.image-scroll-hyper').first.scroll_into_view_if_needed()
                 if name=='photography':await page.locator('a.glightbox').first.focus()
-                filename=f'{name}-{phase}-{width}.png';await page.screenshot(path=str(out/filename))
+                filename=f'{name}-{phase}-{width}.png';await page.screenshot(path=str(out/filename),full_page=a.full_page)
                 shots.append(filename)
+                if name=='hobbies' and phase=='after':
+                    await page.get_by_role('button',name='Expand supporting lists',exact=True).click()
+                    filename=f'hobbies-details-open-{width}.png';await page.screenshot(path=str(out/filename),full_page=True);shots.append(filename)
                 if name=='carousels' and phase=='after':
                     await page.locator('.image-scroll-hyper').first.focus();await page.keyboard.press('Enter');await page.get_by_role('dialog').wait_for();await ready(page)
                     filename=f'carousel-viewer-{width}.png';await page.screenshot(path=str(out/filename));shots.append(filename)

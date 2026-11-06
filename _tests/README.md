@@ -321,8 +321,9 @@ python _tests/editorial-comparisons.py --site /tmp/site-candidate --baseline /tm
 
 The browser check supports `--browser chromium|firefox|webkit` and
 `--only text|carousel|screenshots`. `--screenshots-for volunteering` refreshes only
-that comparison. CI passes the same site as `--baseline` only for interaction-only
-runs; it does not generate or claim before/after screenshots from that pair.
+that comparison. Use `--full-page` for complete long-page screenshot comparisons.
+CI passes the same site as `--baseline` only for interaction-only runs; it does not
+generate or claim before/after screenshots from that pair.
 The real review screenshots use archived merged source.
 
 The fixture option replaces one empty **copied** post body with 17 explicitly
