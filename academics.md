@@ -19,9 +19,6 @@ layout: home
 <h3 class="content-subheading"> <strong>Johnson County Community College (Overland Park, KS)</strong> </h3>
 
 <h4 class="content-topic">Japanese Language</h4>
-<p class="content-prose">I have taken courses through Johnson County Comunity College (JCCC) to study foreign languages, such as Japanese. As of 2025, I have completed Elementary Japanese I and Elementary Japanese II.</p>
-
-<h4 class="content-topic">Motorcycle Basic Safety Foundation</h4>
-<p class="content-prose">In August 2024, I completed and passed the Motorcycle Safety Foundation course en route to obtaining my motorcycle license.</p>
+<p class="content-prose">I have continued taking courses through the Johnson County Community College (JCCC). Some courses I have taken include Japanese, American Sign Language, and Motorcycle BSF Training. I received my motorcycle license in August 2024.</p>
 
 ----
