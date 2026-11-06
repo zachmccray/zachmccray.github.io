@@ -217,7 +217,7 @@ No workflow/config/Firebase deployment changes are needed for this PR.
 ## Framework hardening and accessibility
 
 Use the merged PR #21 source/build as the baseline. `framework-preservation.py`
-checks all 82 routes, exact SEO, functional links/media/IDs, all 80 byte-identical
+checks all 82 routes, exact SEO, functional links/media/IDs, all declared byte-identical
 search records and protected post/Travel/course/photo/Firebase sources. Its only
 main-content exceptions are the declared Photography entry-point name and inline
 Travel action icons; it also freezes the Blog comparator logic. Keep the strict
@@ -296,3 +296,50 @@ a compact final engine/version/assertion/axe summary are readable through GitHub
 checks API even when the artifact-storage download host is blocked; the raw scans
 and screenshots remain attached to the Actions run. Only five progress notices are
 emitted per step, leaving room for the final summary within GitHub's annotation cap.
+
+## Approved editorial refinements
+
+The owner's Hobbies grouping reduced the standard index from 80 to 78 records.
+`search-destinations.json` freezes every intended identity/URL rather than a bare
+count or numeric generator key. All 45 course destinations remain. The source
+comparison and real Hobbies search checks are documented in
+[editorial-ux-refinements.md](../docs/editorial-ux-refinements.md).
+
+Use `editorial-preservation.py` for this intentional markup migration; the older
+phase-specific structural checks remain historical tools. The new guard verifies
+exact wording/order, functional links/media, language attributes, old IDs, SEO,
+all non-Photography index records, original posts/data and the unchanged Firebase,
+search, Blog and navigation controllers. Normal/Pages/localhost parity remains
+strict through `preservation.py` and `public-surface.py`.
+
+```sh
+python _tests/prepare-visual-fixtures.py --editorial --root /tmp/editorial-fixtures
+python _tests/editorial-preservation.py --baseline /tmp/site-baseline --baseline-source /tmp/source-baseline --site /tmp/site-candidate --out /tmp/editorial-preservation.json
+python _tests/editorial-browser.py --site /tmp/site-candidate --baseline /tmp/site-baseline --assets /tmp/framework-browser-assets --deps /tmp/framework-tools/node_modules --fixtures /tmp/editorial-fixtures/site --out /tmp/editorial-browser
+python _tests/editorial-comparisons.py --site /tmp/site-candidate --baseline /tmp/site-baseline --assets /tmp/framework-browser-assets --deps /tmp/framework-tools/node_modules --out /tmp/editorial-comparisons
+```
+
+The browser check supports `--browser chromium|firefox|webkit` and
+`--only text|carousel|screenshots`. `--screenshots-for volunteering` refreshes only
+that comparison. CI passes the same site as `--baseline` only for interaction-only
+runs; it does not generate or claim before/after screenshots from that pair.
+The real review screenshots use archived merged source.
+
+The fixture option replaces one empty **copied** post body with 17 explicitly
+synthetic sections/native details, exercising future layout-generated navigation
+and its long-list disclosure without editing any real post. Existing 110-photo,
+32-camera-combination and missing-image fixtures remain.
+
+New tests exercise real search result clicks to every Hobbies group and equipment/
+book content, disclosures/deep links/refresh/Back/Forward, compact navigation,
+keyboard controls, actual rapid pointer clicks, hold cancellation, no idle hold
+RAF work, cloned-pixel enlargement, original-only viewer counts, native touch taps,
+focus return, library/CSS-only failures, retry and canceled/competing load intents.
+The existing 135 queries/90 course clicks and all Firebase suites remain. Public
+checks freeze the new single/deferred asset paths and exact served source bytes.
+
+The CI workflow adds these checks to all three browser engines and runs current
+private rules on demo emulators. No production deployment or rule publication is
+performed. Physical devices, screen readers, real-photo rendering and production
+Web Vitals still require owner evaluation. Intentional HTTP 404/503 fixtures are
+not unexpected production console errors. Record blocked downloads as unrun.

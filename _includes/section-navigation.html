@@ -25,6 +25,7 @@ out of an unfinished/copied outline with section_navigation: false.
             {%- assign day_number = heading_label | remove_first: 'Day ' | split: ' ' | first -%}
             {%- assign short_label = day_number | prepend: 'Day ' -%}
           {%- endif -%}
+          {%- assign short_label = page.section_navigation_labels[heading_id] | default: short_label -%}
           <li><a href="#{{ heading_id | escape_once }}"{% if short_label != heading_label %} aria-label="{{ heading_label | escape_once }}"{% endif %}>{{ short_label | escape_once }}</a></li>
         {%- endunless -%}
       {%- endif -%}

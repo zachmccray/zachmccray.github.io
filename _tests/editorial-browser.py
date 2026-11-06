@@ -13,6 +13,7 @@ for name in ('site','baseline','assets','deps','fixtures','out'):
     p.add_argument('--'+name,type=Path,required=True)
 p.add_argument('--browser',choices=['chromium','firefox','webkit'],default='chromium')
 p.add_argument('--only',choices=['text','carousel','screenshots'])
+p.add_argument('--screenshots-for',help='Comma-separated component names for targeted screenshot refreshes')
 a=p.parse_args();a.out.mkdir(parents=True,exist_ok=True)
 site=Site(a.site);before=Site(a.baseline);fixtures=Site(a.fixtures)
 checks=[];errors=[];scans=[];shots=[];typography=[]
@@ -53,6 +54,9 @@ async def text_pages(browser):
                 check(label+': five disclosures and 18 source items',await page.locator('.support-button').count()==5 and await page.locator('.support-panel li').count()==18)
                 check(label+': all language samples visible',await page.locator('main p[lang]:visible').count()==3)
                 if height>=900:check(label+': compact four-link navigation',(await nav.bounding_box())['height']<=68)
+            if route=='/volunteering.html':
+                check(label+': compact organization labels',(await nav.bounding_box())['height']<=(68 if width<375 else 36))
+                check(label+': full organization names remain accessible',await nav.locator('a[aria-label]').count()==3)
             if width in (390,1440) and height==900:
                 await axe(page,label)
                 typography.append({'page':route,'width':width,'roles':await page.locator('main h1,main h2,main p,main .section-nav a').evaluate_all('(es)=>es.slice(0,12).map(e=>{const s=getComputedStyle(e);return {tag:e.tagName,role:e.className,text:e.textContent.trim().slice(0,60),font:s.fontSize,lineHeight:s.lineHeight,color:s.color,marginTop:s.marginTop,marginBottom:s.marginBottom}})')})
@@ -232,6 +236,7 @@ async def carousel(browser):
 async def screenshots(browser):
     out=a.out/'screenshots';out.mkdir(exist_ok=True)
     paths=[('carousels','/volunteering.html'),('blog','/blog.html'),('photography','/photography.html'),('travel','/travel.html'),('hobbies','/hobbies.html'),('media','/media.html'),('volunteering','/volunteering.html'),('article-short','/2025/10/07/japan.html'),('article-days','/travel/southwestroadtrip2026/')]
+    if a.screenshots_for:paths=[item for item in paths if item[0] in a.screenshots_for.split(',')]
     for width in [390,1440]:
         for phase,server in [('before',before),('after',site)]:
             for name,path in paths:
