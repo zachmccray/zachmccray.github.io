@@ -113,6 +113,7 @@ async def carousel(browser):
         status=controls.locator('.carousel-position')
         await strip.scroll_into_view_if_needed()
         check(motion+': no eager carousel GLightbox request',not any('glightbox@' in u for u in requests))
+        check(motion+': keyboard opening instructions remain accessible','Enter or Space' in await controls.locator('.carousel-help').inner_text() and await strip.get_attribute('aria-describedby')==await controls.locator('.carousel-position').get_attribute('id')+' '+await controls.locator('.carousel-help').get_attribute('id'))
         check(motion+': bare 44px controls',await next.evaluate('(e)=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return r.width>=44&&r.height>=44&&s.borderTopWidth==="0px"&&s.backgroundColor==="rgba(0, 0, 0, 0)"}'))
         await next.click();await page.wait_for_timeout(800)
         check(motion+': one arrow click advances once','Photo 2 ' in await status.inner_text())

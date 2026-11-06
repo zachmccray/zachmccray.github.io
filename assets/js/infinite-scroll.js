@@ -39,15 +39,19 @@
     position.id = `${container.id}-position`;
     position.setAttribute('role', 'status');
     position.setAttribute('aria-live', 'polite');
+    const help = document.createElement('span');
+    help.id = `${container.id}-help`;
+    help.className = 'carousel-help';
+    help.textContent = 'Use arrow keys to browse. Press Enter or Space to enlarge the current photo.';
     [[previous, 'Previous photo', 'm14 6-6 6 6 6'], [next, 'Next photo', 'm10 6 6 6-6 6']].forEach(([button, label, path]) => {
       button.type = 'button';
       button.setAttribute('aria-label', label);
       button.setAttribute('aria-controls', container.id);
       button.innerHTML = `<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="${path}"/></svg>`;
     });
-    controls.append(previous, position, next);
+    controls.append(previous, position, next, help);
     container.after(controls);
-    container.setAttribute('aria-describedby', position.id);
+    container.setAttribute('aria-describedby', `${position.id} ${help.id}`);
     let snapshot = null;
     let pointerDown = false;
     let scrolling = false;

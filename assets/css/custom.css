@@ -1737,6 +1737,7 @@ a.skip-to-main:focus {
    ========================================================================== */
 .carousel-controls button { touch-action: manipulation; }
 .carousel-controls button svg { flex: none; }
+.carousel-help { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .image-scroll-item > a { display: block; height: 100%; cursor: zoom-in; }
 .carousel-viewer-status:empty { display: none; }
 .main-content .carousel-viewer-status { margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: #666; }
